@@ -1,0 +1,84 @@
+.appHeader{
+    height:var(--app-header-height);
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+
+.appHeaderBanner{
+    height:var(--header-banner-height);
+    background-color: var(--color-primary-dark);
+    padding: 0.75rem;
+}
+
+.appHeaderBannerContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.appHeaderBanner h1{
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .appHeader{
+        height: 100vh;
+        background-color: rgba(0,0,0,0.8);
+        padding-block: 20vh;
+        position: fixed;
+        top:0;
+        right: 0;
+        width: 100%;
+        z-index: 1;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .appHeaderClosed {
+        opacity: 0;
+        right: -100%;
+    }
+
+    .appHeaderBanner{
+        height: 40%;
+        background-color: transparent;
+    }
+    .appHeaderBanner h1{
+        font-size: 1em;
+    }
+
+    .appHeaderBannerContent{
+        height: 100%;
+        padding-inline: 1rem;
+    }
+}
+
+.logo{
+    height: 100%;
+    width: auto;
+    max-height: var(--header-banner-height);
+    object-fit: contain;
+}
+
+/* Hamburger Nav toggle */
+
+.navToggleButton{
+    display:none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    height: 2rem;
+    width: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .navToggleButton{
+        display:block;
+    }
+}
