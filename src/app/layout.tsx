@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import {AppFooter} from "@/app/components/app-footer";
 import {AppHeader} from "@/app/components/app-header/app-header";
 import AppBody from "@/app/components/app-body";
+import AppHeroSection from "@/app/components/app-hero/app-hero-section";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
       <AppHeader/>
       <AppBody>
+          <AppHeroSection/>
           {children}
       </AppBody>
       <AppFooter/>
@@ -29,3 +31,4 @@ export default function RootLayout({
     </html>
   )
 }
+

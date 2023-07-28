@@ -35,3 +35,11 @@ export const routes = [
     blog,
     contactUs,
 ]
+
+export const routesMap = {
+    home,
+    aboutUs,
+    projects,
+    blog,
+    contactUs,
+}

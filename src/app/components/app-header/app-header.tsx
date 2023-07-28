@@ -22,26 +22,30 @@ export const AppHeader = () => {
                 }}/>
             </div>
             <div className={`${styles.appHeader} ${isNavOpen?"":styles.appHeaderClosed}`}>
-                <div className={styles.appHeaderBanner}>
-                    <div className={styles.appHeaderBannerContent}>
-                        <img
-                            style={{marginRight: '1rem'}}
-                            className={styles.logo}
-                            src="/images/logo_ac.png" alt="AC Logo"/>
-
-                        <h1 className={montserrat.className}
-                            style={{fontWeight: '600', color: '#fff',}}>
-                            {organization.name}
-                        </h1>
-
-                        <img
-                            style={{marginLeft: '1rem'}}
-                            className={styles.logo}
-                            src="/images/logo_oaeg.png" alt="OAEG Logo"/>
-                    </div>
-                </div>
+                <AppHeaderBanner/>
                 <AppNavbar/>
             </div>
         </header>
     );
+}
+
+export const AppHeaderBanner = () => {
+    return <div className={styles.appHeaderBanner}>
+        <div className={styles.appHeaderBannerContent}>
+            <img
+                style={{marginRight: '1rem'}}
+                className={styles.logo}
+                src="/images/logo_ac.png" alt="AC Logo"/>
+
+            <h1 className={montserrat.className}
+                style={{fontWeight: '600', color: '#fff',}}>
+                {organization.name}
+            </h1>
+
+            <img
+                style={{marginLeft: '1rem'}}
+                className={styles.logo}
+                src="/images/logo_oaeg.png" alt="OAEG Logo"/>
+        </div>
+    </div>
 }
