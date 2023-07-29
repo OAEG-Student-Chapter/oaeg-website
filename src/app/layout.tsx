@@ -5,6 +5,7 @@ import {AppFooter} from "@/app/components/app-footer";
 import {AppHeader} from "@/app/components/app-header/app-header";
 import AppBody from "@/app/components/app-body";
 import AppHeroSection from "@/app/components/app-hero/app-hero-section";
+import Head from "next/head";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -20,7 +21,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-        <head>
+        <Head>
             <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"/>
             <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png"/>
             <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png"/>
@@ -28,7 +29,7 @@ export default function RootLayout({
             <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5"/>
             <meta name="msapplication-TileColor" content="#da532c"/>
             <meta name="theme-color" content="#ffffff"/>
-        </head>
+        </Head>
         <body className={inter.className}>
         <AppHeader/>
         <AppBody>
