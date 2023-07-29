@@ -4,6 +4,7 @@ import {Inter} from 'next/font/google'
 import {AppFooter} from "@/app/components/app-footer";
 import {AppHeader} from "@/app/components/app-header/app-header";
 import AppBody from "@/app/components/app-body";
+import AppHeroSection from "@/app/components/app-hero/app-hero-section";
 
 const inter = Inter({subsets: ['latin']})
 
@@ -13,9 +14,9 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode
+  children,
+}: {
+  children: React.ReactNode
 }) {
     return (
         <html lang="en">
@@ -31,7 +32,7 @@ export default function RootLayout({
         <body className={inter.className}>
         <AppHeader/>
         <AppBody>
-            {children}
+            <AppHeroSection/>{children}
         </AppBody>
         <AppFooter/>
         </body>

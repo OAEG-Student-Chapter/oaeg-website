@@ -14,6 +14,12 @@
     list-style: none;
 }
 
+.socialLinks{
+    font-size: 1.1em;
+    color: var(--color-inv-text);
+    margin-left: 2em;
+}
+
 /*Laptop screen*/
 @media (min-width: 768px) {
     .navbarItem{
@@ -31,12 +37,16 @@
     .navbarItem:hover{
         border-bottom: 3px solid var(--color-primary);
     }
+
 }
 
 /* Mobile Screen */
 @media (max-width: 768px) {
     .navbarItemCurrent{
         color : var(--color-primary);
+    }
+    .socialLinks{
+        margin-left: 0 !important;
     }
 }
 
