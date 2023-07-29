@@ -1,0 +1,14 @@
+
+.wrapper {
+    margin-right: 1%;
+    margin-bottom: 1%;
+}
+.mainWrapper {
+    margin: 10%;
+}
+.rowWrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
