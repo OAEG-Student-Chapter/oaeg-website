@@ -12,16 +12,16 @@ const montserrat = Montserrat({subsets: ['latin']});
 
 export const AppHeader = () => {
 
-    const [isNavOpen, setIsNavOpen] = useState(false);
+    const [isNavOpen, setIsNavOpen] = useState(window.innerWidth >= 768);
 
     return (
         <header>
             <div className={styles.navToggleButton}>
-                <NavToggleButton onPress={()=>{
+                <NavToggleButton onPress={() => {
                     setIsNavOpen(!isNavOpen)
                 }}/>
             </div>
-            <div className={`${styles.appHeader} ${isNavOpen?"":styles.appHeaderClosed}`}>
+            <div className={`${styles.appHeader} ${isNavOpen ? "" : styles.appHeaderClosed}`}>
                 <AppHeaderBanner/>
                 <AppNavbar/>
             </div>

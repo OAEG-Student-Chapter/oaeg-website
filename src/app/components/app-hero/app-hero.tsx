@@ -4,10 +4,13 @@ import {usePathname} from "next/navigation";
 import {routesMap} from "@/lib/routes";
 import 'react-slideshow-image/dist/styles.css'
 import {Slide} from "react-slideshow-image";
+import {Rubik} from "next/font/google"
+import React from "react";
+const rubik = Rubik({subsets: ['latin'], weight:['600']});
 
 interface AppHeroProps {
     height?: number | string;
-    children: React.ReactNode
+    children?: React.ReactNode
 }
 export default function AppHero(props:AppHeroProps) {
 
@@ -27,33 +30,61 @@ export default function AppHero(props:AppHeroProps) {
     };
 
     return (
-        <Slide {...properties} canSwipe={true}>
-            {slideImages.map((slideImage, index)=> (
-                <div key={index} style={{
-                    height: height,
-                    backgroundImage: `url(${slideImage.url})`
-                }} className={styles.heroImageContainer}>
-                    <span style={spanStyle}>{slideImage.caption}</span>
-                </div>
-            ))}
-        </Slide>
+        <div style={{position:'relative'}}>
+            <Slide {...properties} canSwipe={true}>
+                {slideImages.map((slideImage, index)=>
+                    <SliderItem height={height} index={index} slideImage={slideImage}/>
+                )}
+            </Slide>
+        </div>
 
     );
 }
-
-const spanStyle = {
-    padding: '20px',
-    background: '#efefef',
-    color: '#000000'
+interface SliderItemProps {
+    index: number;
+    slideImage: ISlideImage;
+    height?: number | string;
 }
+const SliderItem = (props: SliderItemProps) =>
+{
+    const index = props.index;
+    const slideImage = props.slideImage;
+    return (
+        <div key={index} style={{
+            height: props.height,
+        }} className={styles.heroImageContainer}>
+            <RedGradientOverlay/>
+            <img className={styles.heroImage} src={slideImage.url} alt=""/>
+            <div className={`${styles.heroText} ${rubik.className}`}>
+                <h2 className={styles.imageTitle}>{slideImage.title}</h2>
+                <div className={styles.imageCaption}>{slideImage.caption}</div>
+            </div>
+        </div>
+    );
+};
 
-const slideImages = [
+interface ISlideImage { caption: string; url: string, title: string }
+
+const slideImages :ISlideImage[] = [
     {
         url: '/images/main-bg.png',
+        title: "Title 1",
         caption: "Caption 1"
     },
     {
         url: '/images/exco.jpg',
-        caption: "Caption 2"
+        title: "Board of Officials",
+        caption: "2022/2023"
     }
 ]
+
+function RedGradientOverlay() {
+    return (
+        <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 1,
+        }} className={styles.redBlurGradient}/>
+    )
+}
