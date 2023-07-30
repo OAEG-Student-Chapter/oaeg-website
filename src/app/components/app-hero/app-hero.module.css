@@ -1,19 +1,15 @@
-
-.heroImage{
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    object-position: top;
-}
 .heroImageContainer{
     height: calc(100vh - var(--header-banner-height));
     width: 100%;
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .heroBanner{
     display: none;
 }
-
 
 /* Mobile view */
 @media (max-width: 768px) {
