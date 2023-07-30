@@ -22,7 +22,7 @@ const IconLinks = ({ iconData, direction = 'row', color } : IconLinksProps) => {
         return iconData.map((iconData, index) => {
             const {Icon, link} = iconData;
             return (
-                <Link href={link} target={"_blank"}>
+                <Link key={index} href={link} target={"_blank"}>
                     <Icon style={getIconStyle()} />
                 </Link>
             );
