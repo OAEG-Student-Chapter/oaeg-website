@@ -33,7 +33,7 @@ export default function AppHero(props:AppHeroProps) {
         <div style={{position:'relative'}}>
             <Slide {...properties} canSwipe={true}>
                 {slideImages.map((slideImage, index)=>
-                    <SliderItem height={height} index={index} slideImage={slideImage}/>
+                    <SliderItem key={index} height={height} slideImage={slideImage}/>
                 )}
             </Slide>
         </div>
@@ -41,16 +41,14 @@ export default function AppHero(props:AppHeroProps) {
     );
 }
 interface SliderItemProps {
-    index: number;
     slideImage: ISlideImage;
     height?: number | string;
 }
 const SliderItem = (props: SliderItemProps) =>
 {
-    const index = props.index;
     const slideImage = props.slideImage;
     return (
-        <div key={index} style={{
+        <div style={{
             height: props.height,
         }} className={styles.heroImageContainer}>
             <RedGradientOverlay/>

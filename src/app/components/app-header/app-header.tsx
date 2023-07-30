@@ -5,14 +5,18 @@ import styles from "./app-header.module.css";
 import {organization} from "@/lib/constants";
 import AppNavbar from "@/app/components/app-header/app-navbar";
 import NavToggleButton from "@/components/nav-toggle";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 const montserrat = Montserrat({subsets: ['latin']});
 
 export const AppHeader = () => {
 
-    const [isNavOpen, setIsNavOpen] = useState(window.innerWidth >= 768);
+    const [isNavOpen, setIsNavOpen] = useState(false);
+
+    useEffect(() => {
+        setIsNavOpen(window.innerWidth >= 768)
+    }, []);
 
     return (
         <header>
