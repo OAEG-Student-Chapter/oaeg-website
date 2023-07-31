@@ -1,89 +1,79 @@
-import {FaEnvelope, FaPhone} from "react-icons/fa6";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import Image from "next/image";
+import Styles from "./app-footer.module.css";
+import Link from "next/link";
 
 export const AppFooter = () => {
-    return (
-        <footer className="footer">
-            <div className="main">
-                {/*<img src={footerImage} alt="Footer Image" className="imgMain"/>*/}
-                <div className="tableContainer">
-                    <table className="table">
-                        <tr>
-                            <th id="th0"></th>
-                            <th id="th1">OAEG</th>
-                            <th id="th2">Pages</th>
-                            <th id="th3">Utility</th>
-                            <th id="th4">Subscribe</th>
-                            <th id="th5"></th>
-                        </tr>
-                        <tr>
-                            <td id="td0"></td>
-                            <td id="td1">
-                                <div className="rowspanDiv">
-                                    <p className="aboutText">Leverage agile frameworks to provide a robust synopsis for strategy  collaborative thinking to further the overall value proposition.</p>
-                                    <div className="contactContainer">
-                                        <div className="circleIcon">
-                                            <FaEnvelope/>
-                                        </div>
-                                        <p>Email<br/>
-                                            oaeg@gmail.com</p>
-                                    </div>
-                                    <div className="contactContainer">
-                                        <div className="circleIcon">
-                                            <FaPhone/>
-                                        </div>
-                                        <p>Call Us<br/>
-                                            (00) 112 365 489</p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td id="td2">
-                                <div className="rowspanDiv1">
-                                    <ul className="linkslist">
-                                        <li>About Us</li>
-                                        <li>Our Team</li>
-                                        <li>Our Project</li>
-                                        <li>Pricing</li>
-                                        <li>Contact</li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td id="td3">
-                                <div className="rowspanDiv1">
-                                    <ul className="linkslist">
-                                        <li>Style Guide</li>
-                                        <li>Changelog</li>
-                                        <li>Licenses</li>
-                                        <li>Protected</li>
-                                        <li>Not Found</li>
-                                    </ul>
-                                </div>
-                            </td>
-                            <td id="td4">
-                                <div className="rowspanDiv2">
-                                    <input type="text" placeholder="Email here*" className="inputBox" />
-                                    <div className="colspanDiv">
-                                        <button className="sendButton">Send Now</button>
-                                        {/*<a href="https://www.linkedin.com">*/}
-                                        {/*    <FontAwesomeIcon icon={faLinkedin} className="image-class"/>*/}
-                                        {/*</a>*/}
-                                        {/*<a href="https://www.twitter.com">*/}
-                                        {/*    <FontAwesomeIcon icon={faTwitter} className="image-class"/>*/}
-                                        {/*</a>*/}
-                                        {/*<a href="https://www.facebook.com">*/}
-                                        {/*    <FontAwesomeIcon icon={faFacebook} className="image-class"/>*/}
-                                        {/*</a>*/}
-                                    </div>
-                                </div>
-                            </td>
-                            <td id="td5"></td>
-                        </tr>
-                    </table>
+  return (
+        <div className={Styles.main}>
+          <Image src="/images/footer_image.png" alt="Footer Image" className={Styles.imgMain} width={1920} height={312}/>
+          <div className={Styles.blockContainer}>
+            <div className={Styles.block1} id="td1">
+              <p className={Styles.aboutText}>
+                Leverage agile frameworks to provide a robust synopsis for strategy
+                collaborative thinking to further the overall value proposition.
+              </p>
+              <div className={Styles.contactContainer}>
+                <div className={Styles.circleIcon}>
+                  <FontAwesomeIcon icon={faEnvelope} className={Styles.fa_light} />
                 </div>
-                <div>
-                    <p className="copyrightText">Copyright © Old Anandian Engineers Guild | Designed and by OAEG Student Chapter</p>
+                <p>
+                  Email<br />
+                  oaeg@gmail.com
+                </p>
+              </div>
+              <div className={Styles.contactContainer}>
+                <div className={Styles.circleIcon}>
+                  <FontAwesomeIcon icon={faPhone} className={Styles.fa_light} />
                 </div>
+                <p>
+                  Call Us<br />
+                  (00) 112 365 489
+                </p>
+              </div>
             </div>
-        </footer>
-    );
+
+          <div className={Styles.block2} id="td2">
+              <ul className={Styles.linkslist}>
+                <li><Link href="/" className={Styles.innerLink}>Home</Link></li>
+                <li><Link href="/about-us" className={Styles.innerLink}>About Us</Link></li>
+                <li><Link href="/projects" className={Styles.innerLink}>Projects</Link></li>
+                <li><Link href="/blog" className={Styles.innerLink}>Blog</Link></li>
+                <li><Link href="/contact-us" className={Styles.innerLink}>Contact Us</Link></li>
+              </ul>
+          </div>
+      
+          <div className={Styles.block3} id="td4">
+            <div className={Styles.block3_content_wrapper}>
+              <input type="text" placeholder="Email here*" className={Styles.inputBox} />
+              <div className={Styles.colspanDiv}>
+                <button className={Styles.sendButton}>Send Now</button>
+                <div className={Styles.social_container}>
+                  <a href="https://www.linkedin.com/company/oaeg/">
+                    <FontAwesomeIcon icon={faLinkedin} className={Styles.image_class} />
+                  </a>
+                  <a href="https://www.twitter.com/">
+                    <FontAwesomeIcon icon={faTwitter} className={Styles.image_class} />
+                  </a>
+                  <a href="https://web.facebook.com/OldAnandianEngineersGuild/">
+                    <FontAwesomeIcon icon={faFacebook} className={Styles.image_class} />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+          <p className={Styles.copyrightText}>
+            Copyright © Old Anandian Engineers Guild | Designed and by OAEG Student
+            Chapter
+          </p>
+        </div>
+      );
 }
 
