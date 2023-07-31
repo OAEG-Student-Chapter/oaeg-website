@@ -1,12 +1,7 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 import Image from "next/image";
 import Styles from "./app-footer.module.css";
 import Link from "next/link";
+import {FaEnvelope, FaFacebook, FaLinkedin, FaPhone, FaTwitter} from "react-icons/fa6";
 
 export const AppFooter = () => {
   return (
@@ -20,7 +15,7 @@ export const AppFooter = () => {
               </p>
               <div className={Styles.contactContainer}>
                 <div className={Styles.circleIcon}>
-                  <FontAwesomeIcon icon={faEnvelope} className={Styles.fa_light} />
+                  <FaEnvelope className={Styles.fa_light}/>
                 </div>
                 <p>
                   Email<br />
@@ -29,7 +24,7 @@ export const AppFooter = () => {
               </div>
               <div className={Styles.contactContainer}>
                 <div className={Styles.circleIcon}>
-                  <FontAwesomeIcon icon={faPhone} className={Styles.fa_light} />
+                  <FaPhone className={Styles.fa_light}/>
                 </div>
                 <p>
                   Call Us<br />
@@ -55,13 +50,13 @@ export const AppFooter = () => {
                 <button className={Styles.sendButton}>Send Now</button>
                 <div className={Styles.social_container}>
                   <a href="https://www.linkedin.com/company/oaeg/">
-                    <FontAwesomeIcon icon={faLinkedin} className={Styles.image_class} />
+                      <FaLinkedin className={Styles.image_class}/>
                   </a>
                   <a href="https://www.twitter.com/">
-                    <FontAwesomeIcon icon={faTwitter} className={Styles.image_class} />
+                      <FaTwitter className={Styles.image_class}/>
                   </a>
                   <a href="https://web.facebook.com/OldAnandianEngineersGuild/">
-                    <FontAwesomeIcon icon={faFacebook} className={Styles.image_class} />
+                      <FaFacebook className={Styles.image_class}/>
                   </a>
                 </div>
               </div>
