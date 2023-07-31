@@ -45,9 +45,9 @@ export const AppFooter = () => {
       
           <div className={Styles.block3} id="td4">
             <div className={Styles.block3_content_wrapper}>
-              <input type="text" placeholder="Email here*" className={Styles.inputBox} />
+              <input type="text" placeholder="Email" className={Styles.inputBox} />
               <div className={Styles.colspanDiv}>
-                <button className={Styles.sendButton}>Send Now</button>
+                <button className={Styles.sendButton}>Subscribe to our Newsletter</button>
                 <div className={Styles.social_container}>
                   <a href="https://www.linkedin.com/company/oaeg/">
                       <FaLinkedin className={Styles.image_class}/>
@@ -65,8 +65,7 @@ export const AppFooter = () => {
           </div>
 
           <p className={Styles.copyrightText}>
-            Copyright © Old Anandian Engineers Guild | Designed and by OAEG Student
-            Chapter
+            Copyright © Old Anandian Engineers Guild | Designed and Developed by the OAEG Student Chapter
           </p>
         </div>
       );
