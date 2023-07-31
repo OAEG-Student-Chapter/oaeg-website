@@ -18,7 +18,7 @@ export default function AppNavbar(){
             <ul>
                 {
                     routes.map((route, index) => {
-                        const isActive = pathName.startsWith(route.path);
+                        const isActive = pathName === route.path;
                         return (
                             <li key={index} className={`${styles.navbarItem} ${isActive ? styles.navbarItemCurrent : ""}`}>
                                 <Link href={route.path} className={krubFont.className}>
