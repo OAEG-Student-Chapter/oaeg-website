@@ -1,6 +1,6 @@
 import TeamMember from "./TeamMember";
 import React from "react";
-import "/Team.css"
+import "./Team.css"
 
 export default function Team(props) {
     let memberDetailList = props.memberDetailList;
