@@ -8,7 +8,7 @@ export default function Team(props) {
     let numberOfColumns = props.numberOfColumns;
     let numberOfRows = Math.ceil(numberOfMembers / numberOfColumns);
 
-    const renderComponents = () => {
+    function renderComponents() {
         const components = [];
 
         for (let row = 0; row < numberOfRows; row++) {
@@ -16,19 +16,19 @@ export default function Team(props) {
 
             for (let column = 0; column < numberOfColumns; column++) {
                 const index = row * numberOfColumns + column;
-                if (index<numberOfMembers) {
+                if (index < numberOfMembers) {
                     const memberDetails = memberDetailList[index];
 
                     rowComponents.push(
                         <div key={index} className="wrapper">
-                            {<TeamMember
+                            <TeamMember
                                 name={memberDetails.name}
                                 role={memberDetails.role}
                                 twitterAccountName={memberDetails.twitterAccountName}
                                 facebookAccountName={memberDetails.facebookAccountName}
                                 instagramAccountName={memberDetails.instagramAccountName}
                                 avatarSRC={memberDetails.avatarSRC}
-                            />}
+                            />
                         </div>
                     );
                 }
@@ -42,6 +42,14 @@ export default function Team(props) {
         }
 
         return components;
-    };
-    return <div className="mainWrapper">{renderComponents()}</div>;
+    }
+
+    return <div className="mainWrapper">
+        <TeamMemberList renderComponents={renderComponents}/>
+    </div>;
+}
+
+function TeamMemberList(props) {
+    const { renderComponents } = props;
+    return <div>{renderComponents()}</div>;
 }
