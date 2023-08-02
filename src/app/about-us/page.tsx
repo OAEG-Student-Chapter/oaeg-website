@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import DescriptionContainer from '../components/about-us-description/description-container';
 import Content from './content.json';
+import ServiceContainer from '../components/about-us-description/service-container';
 
 export default function Page(){
     return (
@@ -19,25 +20,6 @@ export default function Page(){
 
 
 // Code for Services Container
-
-interface ServiceObject {
-    title: string;
-    description: string;
-}
-
-interface ServiceContainerProps {
-    serviceObject: ServiceObject;
-}
-
-function ServiceContainer({serviceObject}: ServiceContainerProps) {
-    return (
-        <div className={Styles.serviceContainer}>
-            <div className={Styles.serviceTitle}>{serviceObject.title}</div>
-            <div className={Styles.serviceDescription}>{serviceObject.description}</div>
-        </div>
-    )
-}
-
 function ServicesContainer() {
     return (
         <div className={Styles.servicesBlock}>
@@ -56,7 +38,6 @@ function ServicesContainer() {
 
 
 // Code for Officials Board Container
-
 function OfficialsBoardContainer() {
     return (
         <div className={Styles.officialsBoardContainer}>
