@@ -25,12 +25,12 @@ function ServicesContainer() {
         <div className={Styles.servicesBlock}>
                 <h2 className={Styles.servicesHeader}>Services Header</h2>
                 <div className={Styles.servicesRow}>
-                    {Content.services.slice(0, 3).map((service) => (
-                        <ServiceContainer serviceObject={service} /> ))}
+                    {Content.services.slice(0, 3).map((service, index) => (
+                        <ServiceContainer serviceObject={service} key={index}/> ))}
                 </div>
                 <div className={Styles.servicesRow}>
-                    {Content.services.slice(3, 6).map((service) => (
-                        <ServiceContainer serviceObject={service} /> ))}
+                    {Content.services.slice(3, 6).map((service, index) => (
+                        <ServiceContainer serviceObject={service} key={index}/> ))}
                 </div>
         </div>
     )
