@@ -1,66 +1,65 @@
-"use client"
 
 import React from 'react';
 import Styles from './about-us.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import DescriptionContainer from '../components/about-us-description/description-container';
+import Content from './content.json';
 
 export default function Page(){
-    const [description, setDescription] = useState("See our Goal and Vision");
     return (
         <div className={Styles.main}>
-            <div className={Styles.detailBlock}>
-                <h2 className={Styles.detailBlockHeader}>Our Guild Overview</h2>
-                <p className={Styles.detailBlockOverview}>Leverage agile frameworks to provide a robust synopsis for strategy foster collaborative thinking to further the overall value proposition.</p>
-                <div className={Styles.rowButtonContainer}>
-                    <button className={Styles.rowButton} onClick={()=>{setDescription(
-                        "Description for Our Goal; Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, itecto beatae vitae dicta sunt, explicabo."
-                        )}}>Our Goal</button>
-                    <button className={Styles.rowButton} onClick={()=>{setDescription(
-                        "Description for Our Vision; Sed ut perspiciatis, unde omnis laudantium, totam rem aperiam eaque ipsa, et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem quia voluptassit."
-                        )}}>Our Vision</button>
-                </div>
-                <p className={Styles.rowButtonDescription}>{description}</p>
-                <button className={Styles.learnMoreButton}>
-                    <Link href="/" className={Styles.innerLink}>Learn More</Link>
-                </button>
-            </div>
+            <DescriptionContainer goal={Content.goal} vision={Content.vision} overview={Content.overview}/>
+            <ServicesContainer/>
+            <OfficialsBoardContainer/>
+        </div>
+    );
+}
 
-            <div className={Styles.servicesBlock}>
+
+
+// Code for Services Container
+
+interface ServiceObject {
+    title: string;
+    description: string;
+}
+
+interface ServiceContainerProps {
+    serviceObject: ServiceObject;
+}
+
+function ServiceContainer({serviceObject}: ServiceContainerProps) {
+    return (
+        <div className={Styles.serviceContainer}>
+            <div className={Styles.serviceTitle}>{serviceObject.title}</div>
+            <div className={Styles.serviceDescription}>{serviceObject.description}</div>
+        </div>
+    )
+}
+
+function ServicesContainer() {
+    return (
+        <div className={Styles.servicesBlock}>
                 <h2 className={Styles.servicesHeader}>Services Header</h2>
                 <div className={Styles.servicesRow}>
-                    <div className={Styles.serviceContainer}>
-                        <div className={Styles.serviceTitle}>Service Title</div>
-                        <div className={Styles.serviceDescription}>Service Description</div>
-                    </div>
-                    <div className={Styles.serviceContainer}>
-                        <div className={Styles.serviceTitle}>Project & Exhibition</div>
-                        <div className={Styles.serviceDescription}>Following the quality of our service thus having gained trust of our many clients.</div>
-                    </div>
-                    <div className={Styles.serviceContainer}>
-                        <div className={Styles.serviceTitle}>Service Title</div>
-                        <div className={Styles.serviceDescription}>Service Description</div>
-                    </div>
+                    {Content.services.slice(0, 3).map((service) => (
+                        <ServiceContainer serviceObject={service} /> ))}
                 </div>
                 <div className={Styles.servicesRow}>
-                    <div className={Styles.serviceContainer}>
-                        <div className={Styles.serviceTitle}>Service Title</div>
-                        <div className={Styles.serviceDescription}>Service Description</div>
-                    </div>
-                    <div className={Styles.serviceContainer}>
-                        <div className={Styles.serviceTitle}>Service Title</div>
-                        <div className={Styles.serviceDescription}>Service Description</div>
-                    </div>
-                    <div className={Styles.serviceContainer}>
-                        <div className={Styles.serviceTitle}>Service Title</div>
-                        <div className={Styles.serviceDescription}>Service Description</div>
-                    </div>
+                    {Content.services.slice(3, 6).map((service) => (
+                        <ServiceContainer serviceObject={service} /> ))}
                 </div>
-                <button className={Styles.moreWorksButton}>
-                <Link href="/" className={Styles.innerLink}>More Work</Link></button>
-            </div>
-            <div className={Styles.officialsBoardContainer}>
+        </div>
+    )
+}
+
+
+// Code for Officials Board Container
+
+function OfficialsBoardContainer() {
+    return (
+        <div className={Styles.officialsBoardContainer}>
                 <h2 className={Styles.officialsBoardHeader}>Officials Header</h2>
                 <div className={Styles.officialsRow}>
                     <div className={Styles.subContainer}>
@@ -76,7 +75,7 @@ export default function Page(){
                             </Link>
                     </div>
                 </div>
-            </div>
         </div>
-    );
+    )
+
 }
