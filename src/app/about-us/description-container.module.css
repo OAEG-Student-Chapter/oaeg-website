@@ -1,82 +1,55 @@
 
 .detailBlock {
-    height: 25vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     vertical-align: center;
-    padding-top: 4vw;
-}
-
-@media (max-width: 1300px) {
-    .detailBlock {
-        height: 30vw;
-    }
-}
-
-@media (max-width: 1200px) {
-    .detailBlock {
-        height: 35vw;
-    }
-}
-
-@media (max-width: 1100px) {
-    .detailBlock {
-        height: 40vw;
-    }
-}
-
-@media (max-width: 1000px) {
-    .detailBlock {
-        height: 45vw;
-    }
+    padding-top: 5%;
+    margin-bottom: 3%;
 }
 
 
 @media (max-width: 768px) {
     .detailBlock {
         flex-direction: column;
-        height: 80vw;
+        height: 100%;
         justify-content: start;
     }
 }
 
-@media (max-width: 650px) {
-    .detailBlock {
-        flex-direction: column;
-        height: 105vw;
-        justify-content: start;
-    }
-}
 
 .imageContainer {
-    align-items: center;
+    width: 40%;
+    padding-top: 2%;
     @media (max-width: 768px) {
         text-align: center;
-        margin-bottom: 2vw;
+        margin-bottom: 4%;
+        width: 90%;
     }
 }
 
 .mainImage {
-    align-self: center;
-    width: 30vw;
-    height: 20vw;
+    width : 80%;
+    height: auto;
+    margin-left: 20%;
     @media (max-width: 768px) {
-        width: 60%;
-        height: auto;
+        width: 90%;
+        margin-left: 10%;
     }
 }
 
 .descriptionContainer {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2vw;
-    width: 55vw;
-    height: 20vw;
+    margin-bottom: 2%;
+    width: 60%;
+    max-width: 60%;
+    padding-right: 10%;
     @media (max-width: 768px) {
         width: 90%;
         max-width: 90%;
         padding-left: 5%;
+        padding-right: 0;
     }
 }
 

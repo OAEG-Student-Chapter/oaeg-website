@@ -1,7 +1,5 @@
 "use client"
 
-import Image from "next/image";
-import Link from "next/link";
 import Styles from "./description-container.module.css";
 import { useState } from 'react';
 
@@ -16,7 +14,7 @@ export default function DescriptionContainer({goal, vision, overview}: Descripti
     return (
         <div className={Styles.detailBlock}>
                 <div className={Styles.imageContainer}>
-                    <Image src="/images/main-bg.png" alt="main-bg image" className={Styles.mainImage} width={1000} height={1000}/>
+                    <img src="/images/main-bg.png" alt="main-bg image" className={Styles.mainImage} />
                 </div>
                 <div className ={Styles.descriptionContainer}>
                     <h2 className={Styles.detailBlockHeader}>Our Guild Overview</h2>
