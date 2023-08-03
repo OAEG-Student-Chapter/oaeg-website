@@ -3,9 +3,9 @@ import React from 'react';
 import Styles from './about-us.module.css'
 import Image from 'next/image';
 import Link from 'next/link';
-import DescriptionContainer from '../components/about-us-description/description-container';
+import DescriptionContainer from './description-container';
 import Content from './content.json';
-import ServiceContainer from '../components/about-us-description/service-container';
+import ServiceContainer from './service-container';
 
 export default function Page(){
     return (
