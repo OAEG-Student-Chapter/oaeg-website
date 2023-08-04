@@ -1,0 +1,62 @@
+@import "../base.css";
+
+.user {
+    position: relative;
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-div{
+    height: 80%;
+}
+.imgMain {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.text-div {
+    height: 5vw;
+    padding-bottom: 3%;
+    flex-direction: column;
+    background-color: var(--color-primary-dark);
+    padding-left: 5%;
+    color: var(--vt-c-white);
+    font-style: normal;
+    text-align: justify;
+}
+
+.name {
+    margin-top: 7.5%;
+    font-family: 'Rubik';
+    font-weight: bold;
+    font-size: 1.3vw;
+}
+
+.role {
+    font-family: 'Krub';
+    color: var(--vt-c-white);
+    font-size: 1vw;
+}
+
+.social-container {
+    position: absolute;
+    z-index: 1;
+    bottom:23%;
+    right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.icons-div {
+    display: inline-block;
+    background: var(--color-primary-gradient);
+    max-width: 75%;
+    width: 3rem;
+    height: 2.5vw;
+    flex: 1;
+    flex-direction: row;
+}
