@@ -3,115 +3,104 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    vertical-align: center;
-    padding-top: 5%;
-    margin-bottom: 3%;
 }
-
 
 @media (max-width: 768px) {
     .detailBlock {
         flex-direction: column;
-        height: 100%;
-        justify-content: start;
     }
 }
 
 
 .imageContainer {
-    width: 40%;
-    padding-top: 2%;
+    flex:1;
+    display: flex;
+    justify-content: center;
+    padding: 4rem;
     @media (max-width: 768px) {
-        text-align: center;
-        margin-bottom: 4%;
-        width: 90%;
+        padding: 1rem;
+        order: 2;
     }
 }
 
 .mainImage {
-    width : 80%;
-    height: auto;
-    margin-left: 20%;
-    @media (max-width: 768px) {
-        width: 90%;
-        margin-left: 10%;
-    }
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
 }
 
 .descriptionContainer {
     display: flex;
+    flex:1;
     flex-direction: column;
-    margin-bottom: 2%;
-    width: 60%;
-    max-width: 60%;
-    padding-right: 10%;
+    justify-content: center;
+    padding-block: 4rem;
+    padding-right: 4rem;
     @media (max-width: 768px) {
-        width: 90%;
-        max-width: 90%;
-        padding-left: 5%;
-        padding-right: 0;
+        padding: 2rem 2rem 0;
+        order: 1;
     }
 }
 
 .detailBlockHeader {
     display: flex;
     margin-top: 2%;
-    margin-left: 5%;
     font-size: 1.5em;
     @media (max-width: 768px) {
         align-self: center;
+        margin-block: 1rem;
     }
 }
 
 .detailBlockOverview {
     max-width: 100%;
     margin-top: 2%;
-    padding-left: 5%;
     font-size: 1em;
+    @media (max-width: 768px) {
+        align-self: center;
+        text-align: center;
+        margin-block: 1rem;
+    }
+}
+
+.rowButtons{
+    display: flex;
 }
 
 .rowButtonContainer {
-    display: flex;
-    flex-direction: row;
-    margin-top: 5%;
-    margin-bottom: 2%;
-    padding-left: 5%;
-    @media (max-width: 768px) {
-        justify-content: center;
-    }
+    padding: 1rem 1rem 1rem 0;
+    flex: 1;
 }
 
 .rowButton {
-    margin-right: 4%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 0.8%;
-    padding-left: 1.5%;
-    padding-right: 1.5%;
+    width: 100%;
+    padding: 1rem 2rem;
     border: none;
     font-size: 1em;
     font-weight: bold;
-    background: var(--vt-c-ac-gold-gradient);
     color: var(--vt-c-black);
-    @media (max-width: 768px) {
-        padding: 1.5%;
-        font-size: 2.8vw;
-    }
+    background: var(--color-background-mute);
+    transition: all 0.2s ease-in-out;
 }
 
 .rowButton:hover {
-    background: var(--vt-c-white);
+    scale: 1.05;
 }
 
-.rowButton:active {
-
+.activeRowButton, .rowButton:active {
+    color : var(--vt-c-white);
+    background: var(--color-primary) !important;
 }
 
 .rowButtonDescription {
     max-width: 100%;
-    padding-left: 5%;
     margin-bottom: 2%;
     font-size: 1em;
+    @media (max-width: 768px) {
+        align-self: center;
+        text-align: center;
+        margin-block: 1rem;
+    }
 }
 
 
