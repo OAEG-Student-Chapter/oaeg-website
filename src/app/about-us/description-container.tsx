@@ -20,6 +20,9 @@ export default function DescriptionContainer({goal, vision, overview}: Descripti
         <div className={Styles.detailBlock}>
             <div className={Styles.imageContainer}>
                 <img src="/images/main-bg.png" alt="main-bg image" className={Styles.mainImage}/>
+                <div className={Styles.imageOnTop}>
+                    <img src="/images/logo_oaeg.png" alt="OAEG Logo"/>
+                </div>
             </div>
             <div className={Styles.descriptionContainer}>
                 <h2 className={`${Styles.detailBlockHeader}`}>Our Guild Overview</h2>

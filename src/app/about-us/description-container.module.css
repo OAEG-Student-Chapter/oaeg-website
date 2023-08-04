@@ -21,6 +21,29 @@
         padding: 1rem;
         order: 2;
     }
+    position: relative;
+}
+.imageOnTop{
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    height: 40%;
+    aspect-ratio: 1/1;
+    z-index: 1;
+    padding: 1.5rem;
+    background: var(--color-background);
+
+    @media (max-width: 768px) {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.5rem 0 0 0.5rem;
+    }
+}
+.imageOnTop img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--color-primary-dark);
 }
 
 .mainImage {
