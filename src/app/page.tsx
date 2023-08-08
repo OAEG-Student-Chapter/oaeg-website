@@ -1,11 +1,12 @@
 import React from "react";
-import IconLinks from "@/app/components/app-header/icon-links";
-import {FaLinkedin,FaFacebook} from "react-icons/fa6";
+import HomeAboutSection from "@/app/components/home-about/home-about-section";
+import HomeProjectsSection from "@/app/components/projects/section";
 
 export default function Home() {
   return (
       <>
-
+        <HomeAboutSection/>
+          <HomeProjectsSection/>
       </>
   )
 }
