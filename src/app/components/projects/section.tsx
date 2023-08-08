@@ -12,7 +12,12 @@ export default function ProjectsSection(){
                 {
                     [1,2,3,4,5].map((i) => {
                         return (<div className={styles.cardWrapper}>
-                            <ProjectCard key={i} />
+                            <ProjectCard key={i} title={'Project title'} imgSrc={
+                                "https://scontent-dus1-1.xx.fbcdn.net/v/t39.30808-6/341695095_748797073915290_6374723875895227703_n.jpg?_nc_cat=111&cb=99be929b-3346023f&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=mRIjGf0XTmEAX-JdYFB&_nc_ht=scontent-dus1-1.xx&oh=00_AfAwzLE-audL0P8k10LEXK2ECSlhFLfo0W7nNBkl2xhtpw&oe=64D7AA47"
+                            }
+                                         shortDescription={"Short description goes here"}
+                                         link={'/'}
+                            />
                         </div>)
                     })
                 }
