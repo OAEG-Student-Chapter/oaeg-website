@@ -28,10 +28,16 @@ const blog: route = {
     name:'Blog'
 }
 
+const team:route = {
+    path:'/team',
+    name:'Board of Officials'
+}
+
 export const routes = [
     home,
     aboutUs,
     projects,
+    team,
     blog,
     contactUs,
 ]
@@ -40,6 +46,7 @@ export const routesMap = {
     home,
     aboutUs,
     projects,
+    team,
     blog,
     contactUs,
 }

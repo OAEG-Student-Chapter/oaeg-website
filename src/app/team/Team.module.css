@@ -1,0 +1,21 @@
+.mainWrapper {
+    margin: 4%;
+    margin-left: 6%;
+    margin-right: 6%;
+    @media (max-width: 768px) {
+        margin: 0;
+    }
+}
+
+.rowWrapper {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2%;
+    margin-bottom: 3%;
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        gap: 0;
+    }
+}
