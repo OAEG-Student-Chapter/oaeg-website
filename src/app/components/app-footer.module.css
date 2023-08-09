@@ -16,7 +16,6 @@
     margin: 0; 
     padding: 0;
     font-family: Krub, sans-serif;
-    font-size: 1vw;
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -74,14 +73,10 @@
     max-width: 100%;
     padding-left: 2vw;
     text-align: center;
-    font-size: 1.2vw;
-    line-height: 1.5vw;
 
     @media (max-width: 768px) {
-        margin-left: 25%;
-        margin-right: 25%;
-        font-size: 2.5vw;
-        line-height: 3.5vw;
+        margin-left: 10%;
+        margin-right: 10%;
         padding-left: 0;
         margin-bottom: 3%;
       }
@@ -92,13 +87,9 @@
     justify-content: center;
     align-items: center;
     text-align: left;
-    font-size: 1.2vw;
-    line-height: 1.5vw;
     margin-top: 0.5vw;
 
     @media (max-width: 768px) {
-        font-size: 2.5vw;
-        line-height: 3vw;
         margin-top: 2vw;
         display: flex;
         justify-content: center;
@@ -112,21 +103,19 @@
     padding: 1vw;
     background: var(--vt-c-ac-gold-gradient);
     border-radius: 2vw;
-    line-height: 1.1vw;
 
     @media (max-width: 768px) {
-        margin: 1vw;
+        margin: 0.5em;
         padding: 1.5vw;
-        border-radius: 4vw;
-        line-height: 1.2vw;
+        border-radius: 6vw;
       }
 }
 
 .fa_light {
     color: var(--vt-c-ac-maroon);
     background: var(--vt-c-ac-gold-gradient);
-    width: 1vw;
-    height: 1vw;
+    width: 1em;
+    height: 1em;
 }
 
 .linkslist {
@@ -134,12 +123,10 @@
     justify-content: center;
     flex-direction:row;
     align-items: center;
-    font-size: 1.2vw;
   
     @media (max-width: 768px) {
         margin: 1.5vw;
-        font-size: 2.5vw;
-      }
+    }
 }
 
 .linkslist li {
@@ -147,14 +134,12 @@
     line-height: 2rem;
     @media (max-width: 768px) {
         margin: 1.5vw;
-        line-height: 1.1rem;
       }
 }
 
 .innerLink {
     text-decoration: none;
     color: var(--vt-c-white);
-    font-size: 1em;
 }
 
 .block3_content_wrapper {
@@ -167,7 +152,6 @@
 }
 
 .inputBox {
-    font-size: 1.2em;
     padding: 1vw;
     background-color: var(--vt-c-ac-maroon);
     border-color: var(--vt-c-white);
@@ -176,7 +160,6 @@
     @media (max-width: 768px) {
         margin-bottom: 1.5vw;
         text-align: center;
-        font-size: 1rem;
         padding: 0.5rem;
     }
 }
@@ -193,15 +176,13 @@
 }
 
 .sendButton {
-    padding: 1rem;
+    padding: 0.8rem;
     color: var(--vt-c-black);
-    font-size: 1em;
     font-weight: 500;
     border-width: 0;
     background: var(--vt-c-ac-gold-gradient);
     @media (max-width: 768px) {
-        padding: 1rem;
-        font-size: 3em;
+        padding: 0.8rem;
         margin-bottom: 5%;
       }
 }
@@ -218,19 +199,17 @@
 }
 
 .image_class {
-    font-size: 2em;
     color: var(--vt-c-white);
     margin-right: 1.5vw;
     @media (max-width: 768px) {
         margin-left: 1.5vw;
         margin-right: 1.5vw;
-        font-size: 1.5rem;
       }
 }
 
 .copyrightText {
     text-align: center;
-    font-size: 0.9vw;
+    font-size: 0.7em;
     font-weight: lighter;
     padding-top: 1vw;
     padding-bottom: 1vw;
@@ -243,7 +222,6 @@
     border-bottom: 0;
 
     @media (max-width: 768px) {
-        font-size: 1.8vw;
         padding-top: 1.5vw;
         padding-bottom: 2vw;
       }
