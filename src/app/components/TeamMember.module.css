@@ -13,6 +13,7 @@
 
 .imageDiv{
     height: 80%;
+    position: relative;
 }
 .imgMain {
     width: 100%;
@@ -32,7 +33,6 @@
 
 .name {
     margin-top: 7.5%;
-    font-family: 'Rubik';
     font-weight: 600;
     font-size: 1.1em;
     @media (max-width: 1268px) {
@@ -44,7 +44,6 @@
 }
 
 .role {
-    font-family: 'Krub';
     font-weight: lighter;
     color: var(--vt-c-white);
     font-size: 1em;
@@ -59,9 +58,8 @@
 
 .socialContainer {
     position: absolute;
-    display: inline-block;
     z-index: 1;
-    top: 14vw;
+    bottom: 0;
     right: 0;
     width: 75%;
     display: flex;

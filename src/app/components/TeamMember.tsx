@@ -17,6 +17,13 @@ export default function TeamMember({ name, role, accountNames, avatarSRC }: Team
             <div className={Style.user}>
                 <div className={Style.imageDiv}>
 				    <img className={Style.imgMain} src={avatarSRC} alt={name} />
+                    <div className={Style.socialContainer}>
+                        <div className={Style.iconsDiv} >
+                            { socialMediaList.map((item, index) => (
+                                <SocialIcon socialMedia={item.name} accountName={accountNames[index]} key={index}/>))
+                            }
+                        </div>
+                    </div>
 			    </div>
                 <div className={Style.textDiv}>
                     <div className={Style.name}>
@@ -26,13 +33,7 @@ export default function TeamMember({ name, role, accountNames, avatarSRC }: Team
                         {role}
                     </div>
                 </div>
-                <div className={Style.socialContainer}>
-                    <div className={Style.iconsDiv} >
-                        { socialMediaList.map((item, index) => (
-                            <SocialIcon socialMedia={item.name} accountName={accountNames[index]} key={index}/>))
-                        }
-                    </div>
-                </div>
+
             </div>
 		</div>
 	);
