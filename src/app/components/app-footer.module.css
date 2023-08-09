@@ -11,11 +11,11 @@
 
 .blockContainer {
     display: flex;
-    justify-content: stretch;
-    height: 100%;
-    margin: 0; 
-    padding: 0;
+    justify-content: center;
+    padding-block: 3rem;
+    padding-inline: 10%;
     font-family: Krub, sans-serif;
+    width: 100%;
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -24,28 +24,11 @@
 }
 
 .block1 {
-    font-weight: lighter;
-    width: 25%;
-    margin-left: 15%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    @media (max-width: 768px) {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
+    flex: 1;
 }
 
 .block2 {
-    font-weight: lighter;
-    width: 20%;
-    margin-top: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
+    flex: 1;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -55,10 +38,7 @@
 }
 
 .block3 {
-    font-weight: lighter;
-    width: 25%;
-    margin-right: 10%;
-    margin-top: 2%;
+    flex:1;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -71,26 +51,20 @@
 
 .aboutText {
     max-width: 100%;
-    padding-left: 2vw;
-    text-align: center;
-
+    text-align: left;
     @media (max-width: 768px) {
-        margin-left: 10%;
-        margin-right: 10%;
-        padding-left: 0;
-        margin-bottom: 3%;
-      }
+        text-align: center;
+    }
 }
 
 .contactContainer {
     display: flex;
-    justify-content: center;
     align-items: center;
     text-align: left;
     margin-top: 0.5vw;
 
     @media (max-width: 768px) {
-        margin-top: 2vw;
+        margin-block: 1rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -120,21 +94,21 @@
 
 .linkslist {
     list-style: none;
-    justify-content: center;
-    flex-direction:row;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction:column;
     align-items: center;
-  
+    height: 100%;
     @media (max-width: 768px) {
-        margin: 1.5vw;
+        margin-block: 1rem;
     }
 }
 
 .linkslist li {
     text-align: center;
-    line-height: 2rem;
     @media (max-width: 768px) {
-        margin: 1.5vw;
-      }
+        margin-bottom: 1rem;
+    }
 }
 
 .innerLink {
@@ -153,6 +127,7 @@
 
 .inputBox {
     padding: 1vw;
+    width: 100%;
     background-color: var(--vt-c-ac-maroon);
     border-color: var(--vt-c-white);
     margin-bottom: 1vw;
@@ -169,6 +144,7 @@
 }
 
 .colspanDiv {
+    width: 100%;
     @media (max-width: 768px) {
         display: flex;
         flex-direction: column;
@@ -176,9 +152,10 @@
 }
 
 .sendButton {
+    width: 100%;
     padding: 0.8rem;
     color: var(--vt-c-black);
-    font-weight: 500;
+    font-weight: 600;
     border-width: 0;
     background: var(--vt-c-ac-gold-gradient);
     @media (max-width: 768px) {
@@ -192,10 +169,12 @@
     @media (max-width: 768px) {
         display: flex;
         margin-top: 2.5vw;
-        margin-bottom: 15%;
         justify-content: center;
         align-items: center;
       }
+}
+.social_container a {
+    font-size: 2em;
 }
 
 .image_class {
