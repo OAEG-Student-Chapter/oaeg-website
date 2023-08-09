@@ -59,14 +59,16 @@
 .socialContainer {
     position: absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: -0.5em;
     right: 0;
-    width: 75%;
+    width: 10vw;
+    height: 3vw;
     display: flex;
     justify-content: flex-end;
     @media (max-width: 768px) {
-        top: 50vw;
-        width: 45vw;
+        /* top: 50vw; */
+        width: 34vw;
+        height: 9vw;
     }
 }
 

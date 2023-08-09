@@ -4,6 +4,7 @@
     margin-right: 6%;
     @media (max-width: 768px) {
         margin: 0;
+        margin-bottom: 3em;
     }
 }
 
