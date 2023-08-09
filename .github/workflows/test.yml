@@ -3,7 +3,7 @@ name: Test
 on:
   push:
     branches:
-      - main  # Change this to the default branch of your repository
+      - master  # Change this to the default branch of your repository
 
 jobs:
   test:
