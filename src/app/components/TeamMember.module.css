@@ -25,55 +25,41 @@
 .textDiv {
     flex-direction: column;
     background-color: var(--color-primary-dark);
-    padding-left: 5%;
+    padding-inline: 5%;
+    padding-block: 7.5%;
     color: var(--vt-c-white);
     font-style: normal;
     text-align: justify;
 }
 
 .name {
-    margin-top: 7.5%;
     font-weight: 600;
-    font-size: 1.1em;
-    @media (max-width: 1268px) {
-        font-size: 0.9em;
-    }
-    @media (max-width: 768px) {
-        font-size: 1.4em;
-    }
 }
 
 .role {
     font-weight: lighter;
     color: var(--vt-c-white);
-    font-size: 1em;
-    margin-bottom: 7.5%;
-    @media (max-width: 1268px) {
-        font-size: 0.8em;
-    }
-    @media (max-width: 768px) {
-        font-size: 1.3em;
-    }
 }
 
 .socialContainer {
     position: absolute;
     z-index: 1;
-    bottom: -0.5em;
+    bottom: 0;
+    transform: translateY(20%);
     right: 0;
     width: 10vw;
     height: 3vw;
     display: flex;
     justify-content: flex-end;
     @media (max-width: 768px) {
-        /* top: 50vw; */
         width: 34vw;
         height: 9vw;
     }
 }
 
 .iconsDiv {
-    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
     background: var(--color-primary-gradient);
     max-width: 100%;
     flex: 1;

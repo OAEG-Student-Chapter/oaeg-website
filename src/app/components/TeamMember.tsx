@@ -2,7 +2,7 @@ import React from "react";
 import Style from "./TeamMember.module.css";
 import SocialIcon from "./SocialIcon";
 import socialMediaList from "./socialMediaList.json";
-
+import textTheme from "@/app/fonts";
 
 interface TeamMemberProps {
     name: string;
@@ -26,10 +26,10 @@ export default function TeamMember({ name, role, accountNames, avatarSRC }: Team
                     </div>
 			    </div>
                 <div className={Style.textDiv}>
-                    <div className={Style.name}>
+                    <div className={`${Style.name} ${textTheme.title.className}`}>
                         {name}
                     </div>
-                    <div className={Style.role}>
+                    <div className={`${Style.role} ${textTheme.body.className}`}>
                         {role}
                     </div>
                 </div>
