@@ -209,7 +209,7 @@
 
 .copyrightText {
     text-align: center;
-    font-size: 0.7em;
+    font-size: 0.8em;
     font-weight: lighter;
     padding-top: 1vw;
     padding-bottom: 1vw;
@@ -224,5 +224,6 @@
     @media (max-width: 768px) {
         padding-top: 1.5vw;
         padding-bottom: 2vw;
+        font-size: 0.7em;
       }
 }
