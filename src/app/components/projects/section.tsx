@@ -1,22 +1,28 @@
-import ProjectCard from "@/app/components/projects/card";
+import ProjectCard from "@/app/projects/card";
 import styles from './section.module.css';
 import Link from "next/link";
+import {getProjectAlbums, ProjectAlbum} from "@/app/projects/project_albums";
+import React, {useEffect} from "react";
+import {getAlbums} from "@/app/projects/api/getAlbums";
+import textTheme from "@/app/fonts";
+import {SecondaryTitle} from "@/components/titles";
 
-export default function ProjectsSection(){
+export default async function ProjectsSection() {
+    let {albums} = await getProjectAlbums();
+    albums = albums?.slice(0, 5);
     return (
         <div className={styles.section}>
+            <div style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
+                <SecondaryTitle title={"Latest Projects/Events"} />
+            </div>
             <div className={styles.backgroundGradient}></div>
             <div className={styles.cardRow}
             >
-            {/*   5 Project cards*/}
                 {
-                    [1,2,3,4,5].map((i) => {
+                    albums?.map((album: ProjectAlbum) => {
                         return (<div className={styles.cardWrapper}>
-                            <ProjectCard key={i} title={'Project title'} imgSrc={
-                                "https://scontent-dus1-1.xx.fbcdn.net/v/t39.30808-6/341695095_748797073915290_6374723875895227703_n.jpg?_nc_cat=111&cb=99be929b-3346023f&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=mRIjGf0XTmEAX-JdYFB&_nc_ht=scontent-dus1-1.xx&oh=00_AfAwzLE-audL0P8k10LEXK2ECSlhFLfo0W7nNBkl2xhtpw&oe=64D7AA47"
-                            }
-                                         shortDescription={"Short description goes here"}
-                                         link={'/'}
+                            <ProjectCard key={album.id} title={album.name} imgSrc={album.cover_photo}
+                                         link={'/projects/' + album.id}
                             />
                         </div>)
                     })
@@ -35,3 +41,6 @@ export default function ProjectsSection(){
         </div>
     );
 }
+
+
+
