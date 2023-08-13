@@ -4,7 +4,7 @@ import Link from "next/link";
 import {getProjectAlbums, ProjectAlbum} from "@/app/projects/project_albums";
 import React, {useEffect} from "react";
 import {getAlbums} from "@/app/projects/api/getAlbums";
-import textTheme from "@/app/fonts";
+import textTheme from "@/lib/fonts";
 import {SecondaryTitle} from "@/components/titles";
 
 export default async function ProjectsSection() {

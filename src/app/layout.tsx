@@ -1,17 +1,18 @@
 import './globals.css'
 import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
-import {AppFooter} from "@/app/components/app-footer";
+import {AppFooter} from "@/app/components/app-footer/app-footer";
 import {AppHeader} from "@/app/components/app-header/app-header";
-import AppBody from "@/app/components/app-body";
+import AppBody from "@/app/components/app-body/app-body";
 import AppHeroSection from "@/app/components/app-hero/app-hero-section";
 import Head from "next/head";
+import React from "react";
 
 const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
     title: 'OAEG',
-    description: 'Old Anandian Engineers Guild',
+    description: 'Old Anandian Engineers Guild'
 }
 
 export default function RootLayout({

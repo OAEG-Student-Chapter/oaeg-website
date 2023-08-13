@@ -1,4 +1,4 @@
-import TeamMember from "../components/TeamMember";
+import TeamMember from "./TeamMember";
 import React from "react";
 import Styles from "./Team.module.css";
 

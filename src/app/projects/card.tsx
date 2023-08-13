@@ -1,6 +1,6 @@
 'use client'
 import styles from './card.module.css';
-import textTheme from "@/app/fonts";
+import textTheme from "@/lib/fonts";
 
 export default function ProjectCard({title, shortDescription, link, imgSrc}:{title:string, shortDescription?: string, link: string, imgSrc: string}) {
     return (
