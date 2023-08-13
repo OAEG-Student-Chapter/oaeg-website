@@ -10,7 +10,7 @@ import iconLinks from "@/app/components/app-header/icon-links";
 const krubFont = Krub({weight: '500', subsets: ['latin']});
 
 
-export default function AppNavbar(){
+export default function AppNavbar({onItemClick}: {onItemClick?: () => void}){
     const pathName = usePathname();
 
     return(
@@ -21,7 +21,9 @@ export default function AppNavbar(){
                         const isActive = pathName === route.path;
                         return (
                             <li key={index} className={`${styles.navbarItem} ${isActive ? styles.navbarItemCurrent : ""}`}>
-                                <Link href={route.path} className={krubFont.className}>
+                                <Link href={route.path} className={krubFont.className} onTouchStart={()=>{
+                                    if(onItemClick) onItemClick();
+                                }}>
                                     {route.name}
                                 </Link>
                             </li>
