@@ -1,7 +1,8 @@
-import {getSingleAlbum} from "@/app/projects/api/getAlbums";
-import {getSingleProjectAlbum} from "@/app/projects/project_albums";
+import {getSingleProjectAlbum, ProjectAlbum} from "@/app/projects/project_albums";
 import styles from './page.module.css';
 import textTheme from "@/app/fonts";
+import React from "react";
+import Gallery from "@/app/projects/[id]/gallery";
 
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
@@ -20,16 +21,15 @@ export default async function Page({params}: { params: { id: string } }) {
                 {album.description}
             </p>
         </div>
-        <div className={styles.grid}>
-            {
-                album.photos.map((photo) => {
-                    return <img
-                        className={styles.image}
-                        src={photo} alt={photo}
-                        loading="lazy"
-                    />
-                })
-            }
-        </div>
+        <Gallery images={getImages(album)}/>
     </div>
+}
+
+const getImages = (album:ProjectAlbum)  =>{
+    return album.photos.map((photo) => {
+        return {
+            original: photo,
+            thumbnail: photo,
+        }
+    })
 }

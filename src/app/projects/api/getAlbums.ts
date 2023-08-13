@@ -48,5 +48,10 @@ export default class PageAlbumHandler{
     get photos_url(){
         return this.album.photos?.data.map(photo => photo.webp_images[0].source);
     }
+
+    get thumbnails_url(){
+        return this.album.photos?.data.map(photo =>
+            photo.webp_images[photo.webp_images.length - 1].source);
+    }
 }
 

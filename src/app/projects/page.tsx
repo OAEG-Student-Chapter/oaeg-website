@@ -3,14 +3,13 @@ import React from "react";
 import {getProjectAlbums, ProjectAlbum} from "@/app/projects/project_albums";
 import ProjectCard from "@/app/projects/card";
 import styles from './page.module.css';
-import homeEventStyles from '@/app/components/projects/section.module.css';
 import textTheme from "@/app/fonts";
 
 export default async function Page() {
     let {albums} = await getProjectAlbums();
     albums = albums?.slice(0, albums.length - 5);
     return (
-        <>
+        <div className={styles.container}>
             <div style={{
                 display: 'flex',
                 justifyContent: 'center',
@@ -35,6 +34,6 @@ export default async function Page() {
                     })
                 }
             </div>
-        </>
+        </div>
     );
 }

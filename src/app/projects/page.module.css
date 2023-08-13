@@ -1,3 +1,7 @@
+.container{
+    padding-block: 1rem 4rem;
+    padding-inline: 1rem;
+}
 .grid{
     display: grid;
     /*maximum columns*/

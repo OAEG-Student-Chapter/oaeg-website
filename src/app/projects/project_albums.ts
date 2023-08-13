@@ -1,4 +1,3 @@
-import {graph} from "@/api/graph_api/page_api";
 import PageAlbumHandler, {getAlbums, getSingleAlbum} from "@/app/projects/api/getAlbums";
 
 export interface ProjectAlbum{
@@ -7,22 +6,14 @@ export interface ProjectAlbum{
     cover_photo:string;
     photos:string[];
     description: string;
+    thumbnails?:string[];
 }
 
 export const getProjectAlbums = async ():Promise<{
     albums:ProjectAlbum[];
 }> => {
     const res = await getAlbums(true);
-    const albums = res?.albums?.map(album => {
-        const handler = new PageAlbumHandler(album);
-        return {
-            id: handler.id,
-            name: handler.name,
-            cover_photo: handler.cover_photo_url,
-            photos: handler.photos_url,
-            description: album.description
-        }
-    });
+    const albums = res?.albums?.map(album => getProjectAlbum(album));
     return {
         albums
     }
@@ -34,14 +25,19 @@ export const getSingleProjectAlbum = async (
     album:ProjectAlbum;
 }> => {
     const res = await getSingleAlbum(album_id,true);
-    const album = new PageAlbumHandler(res.album);
     return {
-        album: {
-            id: album.id,
-            name: album.name,
-            cover_photo: album.cover_photo_url,
-            photos: album.photos_url,
-            description: res.album.description
-        }
+        album: getProjectAlbum(res.album)
+    };
+}
+
+const getProjectAlbum = (album:PageAlbum) :ProjectAlbum =>{
+    const handler = new PageAlbumHandler(album);
+    return {
+        id: handler.id,
+        name: handler.name,
+        cover_photo: handler.cover_photo_url,
+        photos: handler.photos_url,
+        thumbnails : handler.thumbnails_url,
+        description: album.description
     }
 }
