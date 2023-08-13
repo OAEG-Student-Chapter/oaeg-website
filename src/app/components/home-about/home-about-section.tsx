@@ -3,6 +3,7 @@ import TitleBadge from "@/components/title-badge";
 import {Krub, Rubik} from "next/font/google";
 import TestimonialCard from "@/app/components/home-about/testimonial-card";
 import {MainTitle, SecondaryTitle, TertiaryTitle} from "@/components/titles";
+import Link from "next/link";
 const rubik = Rubik({subsets: ['latin'], weight:['400']});
 const krubItalic = Krub({subsets: ['latin'], weight:['400']});
 
@@ -14,7 +15,12 @@ export default function HomeAboutSection(){
                 <div className={styles.topLeft}>
                     <TitleBadge title={'What We Do'}/>
                     <div style={{marginTop:10}}>
-                        <MainTitle title={"Who We Are"} />
+                        <Link href={"/about-us"} style={{
+                            textDecoration: 'none',
+                            color: 'var(--color-text-primary)',
+                        }}>
+                            <MainTitle title={"Who We Are"} />
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.topMiddle}>
