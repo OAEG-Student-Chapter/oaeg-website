@@ -27,7 +27,9 @@ export const AppHeader = () => {
             </div>
             <div className={`${styles.appHeader} ${isNavOpen ? "" : styles.appHeaderClosed}`}>
                 <AppHeaderBanner/>
-                <AppNavbar/>
+                <AppNavbar onItemClick={()=>{
+                    setIsNavOpen(false);
+                }}/>
             </div>
         </header>
     );

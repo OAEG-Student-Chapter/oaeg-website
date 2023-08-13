@@ -1,4 +1,4 @@
-import textTheme from "@/app/fonts";
+import textTheme from "@/lib/fonts";
 
 export function MainTitle({title}:{title:string}){
     return <h2 style={{

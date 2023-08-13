@@ -3,7 +3,7 @@ import React from "react";
 import {getProjectAlbums, ProjectAlbum} from "@/app/projects/project_albums";
 import ProjectCard from "@/app/projects/card";
 import styles from './page.module.css';
-import textTheme from "@/app/fonts";
+import textTheme from "@/lib/fonts";
 
 export default async function Page() {
     let {albums} = await getProjectAlbums();

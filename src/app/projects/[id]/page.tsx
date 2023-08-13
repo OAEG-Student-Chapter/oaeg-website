@@ -1,6 +1,6 @@
 import {getSingleProjectAlbum, ProjectAlbum} from "@/app/projects/project_albums";
 import styles from './page.module.css';
-import textTheme from "@/app/fonts";
+import textTheme from "@/lib/fonts";
 import React from "react";
 import Gallery from "@/app/projects/[id]/gallery";
 

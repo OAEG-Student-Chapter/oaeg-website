@@ -2,7 +2,7 @@ import React from "react";
 import Style from "./TeamMember.module.css";
 import SocialIcon from "./SocialIcon";
 import socialMediaList from "./socialMediaList.json";
-import textTheme from "@/app/fonts";
+import textTheme from "@/lib/fonts";
 
 interface TeamMemberProps {
     name: string;
