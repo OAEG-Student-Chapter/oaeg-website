@@ -12,7 +12,26 @@ const inter = Inter({subsets: ['latin']})
 
 export const metadata: Metadata = {
     title: 'Official Website of OAEG',
-    description: 'Old Anandian Engineers Guild'
+    description: 'Old Anandian Engineers Guild',
+    themeColor: '#ffffff',
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Official Website of OAEG',
+        images: [
+            {
+                url: 'https://oaeg-website.vercel.app/images/oaeg.png',
+            }
+        ],
+    },
+    openGraph: {
+        title: 'Official Website of OAEG',
+        url: 'www.oaeg.lk',
+        images: [
+            {
+                url: 'https://oaeg-website.vercel.app/images/oaeg.png',
+            },
+        ],
+    }
 }
 
 export default function RootLayout({
@@ -30,12 +49,6 @@ export default function RootLayout({
             <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5"/>
             <meta name="msapplication-TileColor" content="#da532c"/>
             <meta name="theme-color" content="#ffffff"/>
-            <meta property="twitter:card" content="summary_large_image"/>
-            <meta property="twitter:image" content="https://oaeg-website.vercel.app/images/oaeg.png"/>
-            <meta property="og:image" content="https://oaeg-website.vercel.app/images/oaeg.png"/>
-            <meta property="twitter:title" content="Official Website of OAEG"/>
-            <meta property="og:title" content="Official Website of OAEG"/>
-            <meta property="og:url" content="www.oaeg.lk"/>
         </Head>
         <body className={inter.className}>
         <AppHeader/>

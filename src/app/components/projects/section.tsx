@@ -12,7 +12,8 @@ export default async function ProjectsSection() {
     albums = albums?.slice(0, 5);
     return (
         <div className={styles.section}>
-            <div style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
+            <div style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem',
+            paddingInline:"2rem"}}>
                 <SecondaryTitle title={"Latest Projects/Events"} />
             </div>
             <div className={styles.backgroundGradient}></div>
