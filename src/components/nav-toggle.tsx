@@ -1,4 +1,5 @@
 import styles from "./nav-toggle.module.css";
+import {FaBars} from "react-icons/fa6";
 
 interface NavToggleButtonProps {
     onPress: () => void;
@@ -7,12 +8,12 @@ interface NavToggleButtonProps {
 export default function NavToggleButton(props:NavToggleButtonProps){
     return (
         <div onClick={props.onPress}
-            className={styles.hamburger} data-toggle="app-header">
-            {
-                [...Array(3)].map((_, i) => (
-                    <div key={i} className={styles.line}/>
-                ))
-            }
+            className={styles.hamburger} data-toggle="app-header"
+             style={{
+                 color: "white",
+                 fontSize: "2rem",
+             }}>
+            <FaBars />
         </div>
     );
 }
