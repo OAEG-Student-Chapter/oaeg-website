@@ -1,21 +1,20 @@
-import ProjectCard from "@/app/components/projects/card";
+import ProjectCard from "@/app/projects/card";
 import styles from './section.module.css';
 import Link from "next/link";
 import {getProjectAlbums, ProjectAlbum} from "@/app/projects/project_albums";
 import React, {useEffect} from "react";
 import {getAlbums} from "@/app/projects/api/getAlbums";
+import textTheme from "@/app/fonts";
+import {SecondaryTitle} from "@/components/titles";
 
 export default async function ProjectsSection() {
-    // const [albums, setAlbums] = React.useState<ProjectAlbum[]>([]);
-    // useEffect(() => {
-    //     getProjectAlbums().then(({albums}) => {
-    //         setAlbums(albums?.slice(0, 5));
-    //     });
-    // }, [albums]);
     let {albums} = await getProjectAlbums();
     albums = albums?.slice(0, 5);
     return (
         <div className={styles.section}>
+            <div style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
+                <SecondaryTitle title={"Latest Projects/Events"} />
+            </div>
             <div className={styles.backgroundGradient}></div>
             <div className={styles.cardRow}
             >

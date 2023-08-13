@@ -2,6 +2,7 @@ import styles from './home-about-section.module.css';
 import TitleBadge from "@/components/title-badge";
 import {Krub, Rubik} from "next/font/google";
 import TestimonialCard from "@/app/components/home-about/testimonial-card";
+import {MainTitle, SecondaryTitle, TertiaryTitle} from "@/components/titles";
 const rubik = Rubik({subsets: ['latin'], weight:['400']});
 const krubItalic = Krub({subsets: ['latin'], weight:['400']});
 
@@ -38,32 +39,7 @@ export default function HomeAboutSection(){
     )
 }
 
-function MainTitle({title}:{title:string}){
-    return <h2 style={{
-        fontSize: '3rem',
-        fontWeight: 'bold',
-    }}>
-        {title}
-    </h2>;
-}
 
-function SecondaryTitle({title}:{title:string}){
-    return <h3 style={{
-        fontSize: '2rem',
-        fontWeight: 'bold',
-    }}>
-        {title}
-    </h3>;
-}
-
-function TertiaryTitle({title}:{title:string}){
-    return <h4 style={{
-        fontSize: '1.2rem',
-        fontWeight: '400',
-    }}>
-        {title}
-    </h4>;
-}
 
 const InfoCard = (props:{title:string, description:string}) => {
     return <>
