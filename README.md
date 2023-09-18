@@ -32,3 +32,19 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Env variables
+Create a file named `.env.local` in the root of the project
+and add the following access tokens.
+
+```dotenv
+FB_PAGE_ACCESS_TOKEN=EAANoM*******************************...
+```
+This app uses the meta GRAPH API.
+Only the people with access to the OAEG facebook page can get the access token
+from the [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
+In short using the graph api explorer get a short lived user access token.
+Using the short lived user access token get a long lived access token.
+Using the long lived user access token get the page access token from the relevant endpoints.
+More info [here](https://developers.facebook.com/docs/pages/access-tokens)
+
