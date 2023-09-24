@@ -43,4 +43,4 @@ export default function Page({ params, searchParams}: {
     );
 }
 
-
+export const runtime = 'edge';

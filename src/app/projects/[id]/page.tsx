@@ -33,3 +33,5 @@ const getImages = (album:ProjectAlbum)  =>{
         }
     })
 }
+
+export const runtime = 'edge';
