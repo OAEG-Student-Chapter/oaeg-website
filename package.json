@@ -10,7 +10,7 @@
     "test": "jest"
   },
   "next": {
-    "distDir": "out"
+    "distDir": "dist"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
