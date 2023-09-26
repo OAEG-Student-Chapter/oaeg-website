@@ -9,9 +9,6 @@
     "lint": "next lint",
     "test": "jest"
   },
-  "next": {
-    "distDir": "dist"
-  },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@reduxjs/toolkit": "^1.9.5",
