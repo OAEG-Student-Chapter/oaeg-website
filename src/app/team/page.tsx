@@ -19,6 +19,8 @@ interface DataObject {
   };
 }
 
+export const runtime = "edge";
+
 export default function Page({ params, searchParams}: {
     params: { slug: string };
     searchParams?: { [key: string]: string };

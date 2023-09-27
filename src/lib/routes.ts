@@ -33,8 +33,6 @@ const team: route = {
   name: "Board of Officials",
 };
 
-export const runtime = "edge";
-
 export const routes = [home, aboutUs, projects, team, blog, contactUs];
 
 export const routesMap = {
