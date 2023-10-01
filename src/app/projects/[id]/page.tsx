@@ -4,6 +4,8 @@ import textTheme from "@/lib/fonts";
 import React from "react";
 import Gallery from "@/app/projects/[id]/gallery";
 
+export const runtime = "edge";
+
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
     const {album} = await getSingleProjectAlbum(id);
