@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { blog } from "./api/blog";
+import { blog } from "../../api/blogger/blog";
 import styles from "./blog.module.css";
 
 interface Post {
