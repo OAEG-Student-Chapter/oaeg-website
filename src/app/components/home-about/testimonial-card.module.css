@@ -1,52 +1,53 @@
-.testimonialCard{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
+.testimonialCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.cardLeft{
-    padding: 2rem;
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    background: var(--color-background-mute);
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
+.cardLeft {
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-background-mute);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
-    .cardLeft > div{
-        align-items: center;
-    }
-}
-
-.cardRight{
-    display: flex;
-    justify-content: center;
+  .cardLeft > div {
     align-items: center;
-    background: var(--color-primary-dark);
-    color: white;
-    padding: 2rem;
-    font-style: italic;
+  }
 }
 
-.quote{
-    text-align: center;
+.cardRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-primary-dark);
+  color: white;
+  padding: 2rem;
+  font-style: italic;
 }
 
-.quote::before{
-    content: open-quote;
-    margin-right: 0.5rem;
+.quote {
+  text-align: center;
 }
 
-.quote::after{
-    content: close-quote;
-    margin-left: 0.5rem;
+.quote::before {
+  content: open-quote;
+  margin-right: 0.5rem;
 }
 
-.quote::before, .quote::after{
-    color: var(--color-primary);
-    font-size: 1.25em;
+.quote::after {
+  content: close-quote;
+  margin-left: 0.5rem;
+}
+
+.quote::before,
+.quote::after {
+  color: var(--color-primary);
+  font-size: 1.25em;
 }
