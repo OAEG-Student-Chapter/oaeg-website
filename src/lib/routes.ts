@@ -33,10 +33,11 @@ const team: route = {
   name: "Board of Officials",
 };
 
-export const routes = [home, aboutUs, projects];
+export const routes = [home, aboutUs, projects, contactUs];
 
 export const routesMap = {
   home,
   aboutUs,
   projects,
+  contactUs
 };
