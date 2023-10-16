@@ -12,7 +12,6 @@ export default function Page(){
         <div className={Styles.main}>
             <DescriptionContainer goal={Content.goal} vision={Content.vision} overview={Content.overview}/>
             <ServicesContainer/>
-            <OfficialsBoardContainer/>
         </div>
     );
 }

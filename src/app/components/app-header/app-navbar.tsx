@@ -6,7 +6,6 @@ import {Krub} from "next/font/google";
 import {usePathname} from "next/navigation";
 import socialMediaLinks from "@/lib/social-media";
 import IconLinks from "@/app/components/app-header/icon-links";
-import iconLinks from "@/app/components/app-header/icon-links";
 const krubFont = Krub({weight: '500', subsets: ['latin']});
 
 
