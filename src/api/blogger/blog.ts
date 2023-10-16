@@ -15,6 +15,13 @@ class BlogApi {
     );
     return res.data;
   }
+
+  async getProject(pageId: string) {
+    const res = await axios.get(
+      `https://www.googleapis.com/blogger/v3/blogs/${this.blogId}/pages/${pageId}?key=${this.apiKey}`
+    );
+    return res.data;
+  }
 }
 
 export const blog = new BlogApi(
