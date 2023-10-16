@@ -53,7 +53,7 @@ export default function RootLayout({
         <body className={inter.className}>
         <AppHeader/>
         <AppBody>
-            <AppHeroSection/>{children}
+            {children}
         </AppBody>
         <AppFooter/>
         </body>
