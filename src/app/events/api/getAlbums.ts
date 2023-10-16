@@ -5,7 +5,7 @@ export const getAlbums = async (
 ): Promise<{
     albums: PageAlbum[];
 }> => {
-    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,cover_photo{webp_images},
+    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,created_time,type,cover_photo{webp_images},
         ${withPhotos ? "photos{webp_images}" : ""}`);
     return {
         albums: res.data

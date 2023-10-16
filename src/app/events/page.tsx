@@ -7,7 +7,7 @@ import textTheme from "@/lib/fonts";
 
 export default async function Page() {
   let { albums } = await getProjectAlbums();
-  albums = albums?.slice(0, albums.length - 5);
+  // albums = albums?.slice(0, albums.length);
   return (
     <div className={styles.container}>
       <div

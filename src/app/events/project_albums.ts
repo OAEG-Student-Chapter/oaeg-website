@@ -16,7 +16,13 @@ export const getProjectAlbums = async (): Promise<{
   albums: ProjectAlbum[];
 }> => {
   const res = await getAlbums(true);
-  const albums = res?.albums?.map((album) => getProjectAlbum(album));
+  // album type is "normal" and sort be created_time
+    const albums = res.albums?.filter(album => album.type === "normal")
+            .sort((a, b) => {
+                const dateA = new Date(a.created_time);
+                const dateB = new Date(b.created_time);
+                return dateB.getTime() - dateA.getTime();
+            }).map(a => (getProjectAlbum(a)));
   return {
     albums,
   };

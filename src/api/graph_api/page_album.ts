@@ -15,6 +15,8 @@ interface IPageAlbum {
         data: IPagePhoto[];
     };
     description: string;
+    created_time: string;
+    type: string;
 }
 
 class PageAlbum implements IPageAlbum{
@@ -23,6 +25,8 @@ class PageAlbum implements IPageAlbum{
     name: string;
     photos: { data: IPagePhoto[]; };
     description: string;
+    created_time: string;
+    type: string;
 
     constructor(album:IPageAlbum) {
         this.id = album.id;
@@ -30,6 +34,8 @@ class PageAlbum implements IPageAlbum{
         this.cover_photo = album.cover_photo;
         this.photos = album.photos;
         this.description = album.description;
+        this.created_time = album.created_time;
+        this.type = album.type;
     }
 
 }
