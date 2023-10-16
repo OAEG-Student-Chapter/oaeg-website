@@ -34,7 +34,7 @@ export default async function Page() {
                 key={album.id}
                 title={album.name}
                 imgSrc={album.cover_photo}
-                link={"/projects/" + album.id}
+                link={"/events/" + album.id}
               />
             </div>
           );
