@@ -13,7 +13,7 @@ export const AppFooter = () => {
   return (
     <div className={styles.main}>
       <Image
-        src="/images/footer.png"
+        src="/images/footer.webp"
         alt="Footer Image"
         className={styles.imgFooter}
         width={1920}
