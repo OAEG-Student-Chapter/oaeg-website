@@ -1,5 +1,5 @@
 'use client'
-import styles from "@/app/projects/[id]/page.module.css";
+import styles from "@/app/events/[id]/page.module.css";
 import React, {useEffect} from "react";
 import {FaTimes} from "react-icons/fa";
 
