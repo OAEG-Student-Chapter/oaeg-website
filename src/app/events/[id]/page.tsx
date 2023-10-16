@@ -4,6 +4,8 @@ import React from "react";
 import {getSingleProjectAlbum, ProjectAlbum} from "@/app/events/project_albums";
 import Gallery from "@/app/events/[id]/gallery";
 
+export const runtime = 'edge';
+
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
     const {album} = await getSingleProjectAlbum(id);
