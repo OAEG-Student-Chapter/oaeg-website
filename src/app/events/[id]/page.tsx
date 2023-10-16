@@ -1,8 +1,8 @@
-import {getSingleProjectAlbum, ProjectAlbum} from "@/app/projects/project_albums";
 import styles from './page.module.css';
 import textTheme from "@/lib/fonts";
 import React from "react";
-import Gallery from "@/app/projects/[id]/gallery";
+import {getSingleProjectAlbum, ProjectAlbum} from "@/app/events/project_albums";
+import Gallery from "@/app/events/[id]/gallery";
 
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
