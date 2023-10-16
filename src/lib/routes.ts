@@ -23,6 +23,11 @@ const projects: route = {
   name: "Projects",
 };
 
+const events: route = {
+  path: "/events",
+  name: "Events",
+};
+
 const blog: route = {
   path: "/blog",
   name: "Blog",
@@ -33,7 +38,7 @@ const team: route = {
   name: "Board of Officials",
 };
 
-export const routes = [home, aboutUs, projects];
+export const routes = [home, aboutUs, projects, events];
 
 export const routesMap = {
   home,
