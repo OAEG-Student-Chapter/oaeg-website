@@ -1,15 +1,15 @@
-import ProjectCard from "@/app/projects/card";
 import styles from "./section.module.css";
 import Link from "next/link";
-// import { getProjectAlbums, ProjectAlbum } from "@/app/projects/project_albums";
 import React, { useEffect } from "react";
-// import { getAlbums } from "@/app/projects/api/getProjects";
-import textTheme from "@/lib/fonts";
 import { SecondaryTitle } from "@/components/titles";
+import {getProjectAlbums, ProjectAlbum} from "@/app/events/project_albums";
+import ProjectCard from "@/app/events/card";
+
+const runtime = "edge";
 
 export default async function ProjectsSection() {
-  // let { albums } = await getProjectAlbums();
-  // albums = albums?.slice(0, 5);
+  let { albums } = await getProjectAlbums();
+  albums = albums?.slice(0, 5);
   return (
     <div className={styles.section}>
       <div
@@ -20,10 +20,10 @@ export default async function ProjectsSection() {
           paddingInline: "2rem",
         }}
       >
-        <SecondaryTitle title={"Latest Projects/Events"} />
+        <SecondaryTitle title={"Latest Events"} />
       </div>
       <div className={styles.backgroundGradient}></div>
-      {/* <div className={styles.cardRow}>
+      <div className={styles.cardRow}>
         {albums?.map((album: ProjectAlbum) => {
           return (
             <div className={styles.cardWrapper}>
@@ -31,12 +31,12 @@ export default async function ProjectsSection() {
                 key={album.id}
                 title={album.name}
                 imgSrc={album.cover_photo}
-                link={"/projects/" + album.id}
+                link={"/events/" + album.id}
               />
             </div>
           );
         })}
-      </div> */}
+      </div>
       <div
         style={{
           display: "flex",
@@ -45,7 +45,7 @@ export default async function ProjectsSection() {
           position: "relative",
         }}
       >
-        <Link className={styles.moreButton} href={"/projects"}>
+        <Link className={styles.moreButton} href={"/events"}>
           More
         </Link>
       </div>
