@@ -10,42 +10,6 @@
   min-height: 200px;
   object-fit: cover;
 }
-.footerItemsContainer {
-  padding: clamp(30px, 4vw, 45px) 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.subscriptionForm {
-  border: 1px solid var(--vt-c-white);
-  border-radius: 40px;
-}
-.subscriptionInput {
-  background: none;
-  color: var(--vt-c-white);
-  border: none;
-  padding-left: 15px;
-  min-width: 40vw;
-  @media (min-width: 768px) {
-    min-width: clamp(100px, 30vw, 400px);
-  }
-}
-.subscriptionInput::placeholder {
-  color: var(--vt-c-white);
-  font-family: "Poppins", sans-serif;
-}
-.subscriptionBtn {
-  background: var(--vt-c-ac-gold);
-  padding: 12px clamp(10px, 2vw, 50px);
-  font-size: clamp(0.8em, 2vw, 0.9em);
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  border: none;
-  color: var(--vt-c-black);
-  border-radius: 40px;
-}
 .contactContainer {
   display: flex;
   gap: 30px;
@@ -69,7 +33,7 @@
 }
 .contactText {
   font-weight: 400;
-  font-size: clamp(0.8em, 2vw, 0.9em);
+  font-size: clamp(0.7em, 2vw, 0.9em);
 }
 
 .innerLink {
@@ -112,42 +76,27 @@
   }
 }
 
-.sendButton {
-  width: 100%;
-  padding: 0.8rem;
-  color: var(--vt-c-black);
-  font-weight: 600;
-  border-width: 0;
-  background: var(--vt-c-ac-gold-gradient);
-  @media (max-width: 768px) {
-    padding: 0.8rem;
-    margin-bottom: 5%;
-  }
-}
-
 .copyrightContainer {
   display: flex;
-  gap: 15px;
+  padding: 10vw;
+  gap: 40px;
   position: relative;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
   align-items: center;
   border-top: 1px solid;
-  margin: 0 15px;
-  padding: 15px 0;
-  @media (min-width: 992px) {
-    justify-content: flex-end;
+  margin: 0 2vw;
+  margin-top: 40px;
+  padding: 25px 2vw;
+
+  @media (max-width: 1200px) {
+    justify-content: center;
   }
 }
 .copyrightText {
   text-align: center;
   font-size: clamp(0.7em, 2vw, 0.8em);
   font-weight: 400;
-  @media (min-width: 992px) {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
 .socialContainer {
   display: flex;

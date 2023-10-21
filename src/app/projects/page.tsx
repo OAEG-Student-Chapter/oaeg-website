@@ -2,7 +2,7 @@
 import { SecondaryTitle } from "@/components/titles";
 import React, { useEffect, useState } from "react";
 import { blog } from "../../api/blogger/blog";
-import ProjectCard from "@/app/projects/card";
+import ProjectCard from "@/app/events/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
 
@@ -61,12 +61,12 @@ export default function Page() {
       <div className={styles.grid}>
         {pages?.map((project) => {
           return (
-            <div className={`${styles.cardWrapper}`}>
+            <div className={styles.cardWrapper}>
               <ProjectCard
-                id={project.id}
                 key={project.id}
                 title={project.title}
                 imgSrc={getThumnbnail(project.content)}
+                link={`/projects/project?title=${project.title}&id=${project.id}`}
               />
             </div>
           );

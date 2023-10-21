@@ -19,17 +19,11 @@ export const AppFooter = () => {
         width={1920}
         height={312}
       />
-      <div className={styles.footerItemsContainer}>
-        <form className={styles.subscriptionForm}>
-          <input
-            className={styles.subscriptionInput}
-            type="email"
-            placeholder="Email"
-          />
-          <button className={styles.subscriptionBtn} type="button">
-            Subscribe to Our Newsletter
-          </button>
-        </form>
+      <div className={styles.copyrightContainer}>
+        <p className={styles.copyrightText}>
+          Copyright © Old Anandian Engineers Guild | Designed and Developed by
+          the OAEG Student Chapter
+        </p>
         <div className={styles.contactContainer}>
           <div className={styles.contactItem}>
             <div className={styles.circleIcon}>
@@ -51,19 +45,6 @@ export const AppFooter = () => {
               (00) 112 365 489
             </p>
           </div>
-        </div>
-      </div>
-      <div className={styles.copyrightContainer}>
-        <p className={styles.copyrightText}>
-          Copyright © Old Anandian Engineers Guild | Designed and Developed by
-          the OAEG Student Chapter
-        </p>
-        <div className={styles.socialContainer}>
-          {socialMediaLinks.map((link, index) => (
-            <a href={link.url} key={index} className={styles.social_link}>
-              <link.icon className={styles.socialIcon} />
-            </a>
-          ))}
         </div>
       </div>
     </div>

@@ -29,7 +29,7 @@ export default async function Page() {
       <div className={styles.grid}>
         {albums?.map((album: ProjectAlbum) => {
           return (
-            <div className={`${styles.cardWrapper}`}>
+            <div className={styles.cardWrapper}>
               <ProjectCard
                 key={album.id}
                 title={album.name}
