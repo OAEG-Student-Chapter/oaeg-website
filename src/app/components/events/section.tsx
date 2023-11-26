@@ -5,7 +5,7 @@ import { SecondaryTitle } from "@/components/titles";
 import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
 import ProjectCard from "@/app/events/card";
 
-const runtime = "edge";
+export const runtime = "edge";
 
 export default async function ProjectsSection() {
   let { albums } = await getEventAlbums();
