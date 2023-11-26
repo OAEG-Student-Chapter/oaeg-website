@@ -16,7 +16,6 @@ export const getEventAlbums = async (): Promise<{
   albums: EventAlbum[];
 }> => {
   const res = await getAlbums();
-  console.log("Yo:",res);
   // album type is "normal" and sort be created_time
     const albums = res.albums?.filter(album => album.type === "normal")
             .sort((a, b) => {
