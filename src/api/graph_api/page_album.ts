@@ -13,7 +13,7 @@ interface IPageAlbum {
     cover_photo: IPagePhoto;
     photos:{
         data: IPagePhoto[];
-    };
+    } | undefined;
     description: string;
     created_time: string;
     type: string;
@@ -23,7 +23,7 @@ class PageAlbum implements IPageAlbum{
     cover_photo: IPagePhoto;
     id: string;
     name: string;
-    photos: { data: IPagePhoto[]; };
+    photos: { data: IPagePhoto[]; } | undefined;
     description: string;
     created_time: string;
     type: string;
