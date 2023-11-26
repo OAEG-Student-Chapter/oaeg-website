@@ -3,6 +3,14 @@
     width: 100%;
     background-color: var(--navbar-bg-color);
     padding-inline: 10vw;
+    transition: all 0.5s ease-in-out;
+}
+
+/*desktop*/
+@media (min-width: 768px) {
+    .navbar{
+        background-color: var(--color-primary-dark) !important;
+    }
 }
 
 .navbar ul{
@@ -75,4 +83,29 @@
         justify-content: space-evenly;
         align-items: center;
     }
+}
+
+/* Define initial state for the entering element */
+.nav-part-enter {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+/* Define active state during the entering transition */
+.nav-part-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+/* Define initial state for the exiting element */
+.nav-part-exit {
+    opacity: 1;
+}
+
+/* Define active state during the exiting transition */
+.nav-part-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
 }
