@@ -42,10 +42,14 @@
 .mobileNav{
     display:none;
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--color-primary-dark);
     border-radius: 0.2rem;
     z-index: 1000;
     width: 100%;
+}
+
+.mobileNav[data-translucent=true]{
+    background-color: rgba(0,0,0,0.6) !important;
 }
 
 .navToggle{

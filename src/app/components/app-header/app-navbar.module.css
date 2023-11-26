@@ -6,6 +6,10 @@
     transition: all 0.5s ease-in-out;
 }
 
+.navbarSpace {
+    margin-top: var(--navbar-height);
+}
+
 /*desktop*/
 @media (min-width: 768px) {
     .navbar{

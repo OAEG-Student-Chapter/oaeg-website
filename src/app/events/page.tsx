@@ -4,12 +4,12 @@ import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
 import ProjectCard from "@/app/events/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
-
+import navStyles from "@/app/components/app-header/app-navbar.module.css";
 export default async function Page() {
   let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${navStyles.navbarSpace}`}>
       <div
         style={{
           display: "flex",

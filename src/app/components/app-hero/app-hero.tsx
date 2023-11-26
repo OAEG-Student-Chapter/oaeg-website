@@ -1,26 +1,19 @@
 'use client'
 import styles from "./app-hero.module.css";
-import {usePathname} from "next/navigation";
-import {routesMap} from "@/lib/routes";
 import 'react-slideshow-image/dist/styles.css'
 import {Slide} from "react-slideshow-image";
 import {Rubik} from "next/font/google"
 import React from "react";
+import {heroImages, IHeroImage} from "@/app/components/app-hero/hero-images";
 const rubik = Rubik({subsets: ['latin'], weight:['600']});
 
 interface AppHeroProps {
     height?: number | string;
-    children?: React.ReactNode
+    heroImages: IHeroImage[];
 }
 export default function AppHero(props:AppHeroProps) {
 
-    const pathname = usePathname()
-    let height : number|string|undefined = undefined;
-    if (pathname !== routesMap.home.path) {
-        height = '60vh';
-    }
-
-    const properties = {
+    const slideProps = {
         duration: 5000,
         autoplay: true,
         transitionDuration: 1000,
@@ -31,19 +24,22 @@ export default function AppHero(props:AppHeroProps) {
 
     return (
         <div style={{position:'relative'}}>
-            <Slide {...properties} canSwipe={true}>
-                {slideImages.map((slideImage, index)=>
-                    <SliderItem key={index} height={height} slideImage={slideImage}/>
+            <Slide {...slideProps} canSwipe={true}>
+                {props.heroImages.map((slideImage, index)=>
+                    <SliderItem key={index} height={props.height} slideImage={slideImage}/>
                 )}
             </Slide>
         </div>
-
     );
 }
+
+
 interface SliderItemProps {
-    slideImage: ISlideImage;
+    slideImage: IHeroImage;
     height?: number | string;
 }
+
+
 const SliderItem = (props: SliderItemProps) =>
 {
     const slideImage = props.slideImage;
@@ -61,20 +57,6 @@ const SliderItem = (props: SliderItemProps) =>
     );
 };
 
-interface ISlideImage { caption: string; url: string, title: string }
-
-const slideImages :ISlideImage[] = [
-    {
-        url: '/images/main-bg.png',
-        title: "Title 1",
-        caption: "Caption 1"
-    },
-    {
-        url: '/images/exco.jpg',
-        title: "Board of Officials",
-        caption: "2022/2023"
-    }
-]
 
 function RedGradientOverlay() {
     return (

@@ -7,6 +7,7 @@ import AppNavbar from "@/app/components/app-header/app-navbar";
 import NavToggleButton from "@/components/nav-toggle";
 import {useEffect, useState} from "react";
 import useArrangeNavbar from "@/hooks/useArrangeNavbar";
+import useIsHomePage from "@/hooks/useIsHomePage";
 
 const montserrat = Montserrat({subsets: ['latin']});
 
@@ -18,16 +19,21 @@ export const AppHeader = () => {
         setIsNavOpen(window.innerWidth >= 768);
     }, []);
 
+    const isHome = useIsHomePage();
+
     return (
         <header>
-            <div className={`${styles.mobileNav} sm:hidden flex justify-between items-center p-2`}>
-                <NavBrand/>
-                <div className="navToggle">
-                    <NavToggleButton onPress={() => {
-                        setIsNavOpen(!isNavOpen)
-                    }}/>
+            <div className={styles.mobileNav} data-translucent={isHome}>
+                <div className={`sm:hidden flex justify-between items-center p-2`}>
+                    <NavBrand/>
+                    <div className="navToggle">
+                        <NavToggleButton onPress={() => {
+                            setIsNavOpen(!isNavOpen)
+                        }}/>
+                    </div>
                 </div>
             </div>
+
             <div className={`${styles.appHeader}
              ${isNavOpen ? "" : styles.appHeaderClosed}`}
             >
