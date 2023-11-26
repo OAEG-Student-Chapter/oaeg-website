@@ -8,6 +8,10 @@
     transition: all 0.5s ease-in-out;
 }
 
+.navBrand[data-hide=true]{
+    display: none;
+}
+
 @media (max-width: 768px) {
     .appHeader{
         height: 100vh;
@@ -30,13 +34,6 @@
     }
 }
 
-.logo{
-    height: 100%;
-    width: auto;
-    max-height: var(--header-banner-height);
-    object-fit: contain;
-}
-
 /* Hamburger Nav toggle */
 
 .mobileNav{
@@ -48,17 +45,12 @@
     width: 100%;
 }
 
-.mobileNav[data-translucent=true]{
-    background-color: rgba(0,0,0,0.6) !important;
+.mobileNav[data-transparent=true]{
+    background-color: rgba(0,0,0,0) !important;
 }
 
-.navToggle{
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    z-index: 1000;
-    height: 2rem;
-    width: 2rem;
+.navToggle[data-bg=true]{
+    background-color: rgba(0,0,0,0.6) !important;
 }
 
 @media (max-width: 768px) {

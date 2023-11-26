@@ -23,10 +23,11 @@ export const AppHeader = () => {
 
     return (
         <header>
-            <div className={styles.mobileNav} data-translucent={isHome}>
-                <div className={`sm:hidden flex justify-between items-center p-2`}>
-                    <NavBrand/>
-                    <div className="navToggle">
+            <div className={styles.mobileNav} data-transparent={isHome}>
+                <div className={`sm:hidden flex justify-between
+                 items-center p-2`}>
+                    <div className={styles.navBrand} data-hide={isHome}><NavBrand/></div>
+                    <div className={`${styles.navToggle} rounded ml-auto`} data-bg={isHome}>
                         <NavToggleButton onPress={() => {
                             setIsNavOpen(!isNavOpen)
                         }}/>
