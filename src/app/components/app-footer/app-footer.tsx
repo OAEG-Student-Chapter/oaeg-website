@@ -9,13 +9,6 @@ import IconLinks from "@/app/components/app-header/icon-links";
 export const AppFooter = () => {
   return (
     <div className={styles.main}>
-      <Image
-        src="/images/footer.webp"
-        alt="Footer Image"
-        className={styles.imgFooter}
-        width={1920}
-        height={312}
-      />
       <footer className="glass [--glass-reflex-opacity:0] footer footer-center p-5 rounded" style={{rowGap:"2rem"}}>
         <nav className="grid grid-flow-col gap-4">
           {routes.map((route) => (
