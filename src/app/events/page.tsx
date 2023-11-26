@@ -1,12 +1,12 @@
 import { SecondaryTitle } from "@/components/titles";
 import React from "react";
-import { getProjectAlbums, ProjectAlbum } from "@/app/events/project_albums";
+import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
 import ProjectCard from "@/app/events/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
 
 export default async function Page() {
-  let { albums } = await getProjectAlbums();
+  let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
   return (
     <div className={styles.container}>
@@ -27,7 +27,7 @@ export default async function Page() {
         </p>
       </div>
       <div className={styles.grid}>
-        {albums?.map((album: ProjectAlbum) => {
+        {albums?.map((album: EventAlbum) => {
           return (
             <div className={styles.cardWrapper}>
               <ProjectCard

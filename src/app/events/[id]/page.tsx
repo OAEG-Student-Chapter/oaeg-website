@@ -1,14 +1,14 @@
 import styles from './page.module.css';
 import textTheme from "@/lib/fonts";
 import React from "react";
-import {getSingleProjectAlbum, ProjectAlbum} from "@/app/events/project_albums";
+import {getSingleEventAlbum, EventAlbum} from "@/app/events/event_album_handlers";
 import Gallery from "@/app/events/[id]/gallery";
 
 export const runtime = 'edge';
 
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
-    const {album} = await getSingleProjectAlbum(id);
+    const {album} = await getSingleEventAlbum(id);
     return <div className={styles.albumContainer}>
         <div style={{
             display: 'flex',
@@ -27,8 +27,8 @@ export default async function Page({params}: { params: { id: string } }) {
     </div>
 }
 
-const getImages = (album:ProjectAlbum)  =>{
-    return album.photos.map((photo) => {
+const getImages = (album:EventAlbum)  =>{
+    return album.photos!.map((photo) => {
         return {
             original: photo,
             thumbnail: photo,

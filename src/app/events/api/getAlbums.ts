@@ -1,12 +1,10 @@
 import {graph} from "@/api/graph_api/page_api";
 
 export const getAlbums = async (
-    withPhotos:boolean = false
 ): Promise<{
     albums: PageAlbum[];
 }> => {
-    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,created_time,type,cover_photo{webp_images},
-        ${withPhotos ? "photos{webp_images}" : ""}`);
+    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,created_time,type,cover_photo{webp_images}`);
     return {
         albums: res.data
     }

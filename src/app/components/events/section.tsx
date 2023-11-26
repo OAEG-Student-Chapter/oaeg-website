@@ -2,13 +2,13 @@ import styles from "./section.module.css";
 import Link from "next/link";
 import React, { useEffect } from "react";
 import { SecondaryTitle } from "@/components/titles";
-import { getProjectAlbums, ProjectAlbum } from "@/app/events/project_albums";
+import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
 import ProjectCard from "@/app/events/card";
 
-const runtime = "edge";
+export const runtime = "edge";
 
 export default async function ProjectsSection() {
-  let { albums } = await getProjectAlbums();
+  let { albums } = await getEventAlbums();
   albums = albums?.slice(0, 5);
   return (
     <div className={styles.section}>
@@ -24,7 +24,7 @@ export default async function ProjectsSection() {
       </div>
       <div className={styles.backgroundGradient}></div>
       <div className={styles.cardRow}>
-        {albums?.map((album: ProjectAlbum) => {
+        {albums?.map((album: EventAlbum) => {
           return (
             <div className={styles.cardWrapper}>
               <ProjectCard
