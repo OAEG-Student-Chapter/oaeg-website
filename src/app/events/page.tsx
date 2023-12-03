@@ -5,6 +5,8 @@ import ProjectCard from "@/app/events/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
+import Link from "next/link";
+import sectionStyles from "@/app/components/events/section.module.css";
 export default async function Page() {
   let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
@@ -40,6 +42,12 @@ export default async function Page() {
           );
         })}
       </div>
+        <div className={"flex justify-center mt-6"}>
+            <Link target={"_blank"} className={sectionStyles.moreButton}
+                  href={"https://www.facebook.com/OldAnandianEngineersGuild/photos_albums"}>
+                See All Albums
+            </Link>
+        </div>
     </div>
   );
 }

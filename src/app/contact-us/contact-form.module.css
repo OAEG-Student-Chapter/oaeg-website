@@ -6,7 +6,7 @@
   margin-bottom: 0.75rem;
 }
 .contactFormWrapper {
-  margin-block: 5%;
+  margin-block: 10%;
   margin-inline: 10%;
   padding: 5%;
   height: 100%;
@@ -17,6 +17,10 @@
   background: var(--vt-c-ac-maroon);
   color: var(--vt-c-white);
   border-radius: 5px;
+  @media (max-width: 768px) {
+    margin-top: 10vh;
+    margin-bottom: 10%;
+  }
 }
 
 .form {
