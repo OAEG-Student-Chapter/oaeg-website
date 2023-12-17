@@ -10,6 +10,7 @@ export interface EventAlbum {
   photos: string[] | undefined;
   description: string;
   thumbnails?: string[];
+  link: string;
 }
 
 export const getEventAlbums = async (): Promise<{
@@ -51,5 +52,6 @@ const getEventAlbumHelper = (album: PageAlbum): EventAlbum => {
     photos: handler.photos_url,
     thumbnails: handler.thumbnails_url,
     description: album.description,
+    link: handler.link,
   };
 };

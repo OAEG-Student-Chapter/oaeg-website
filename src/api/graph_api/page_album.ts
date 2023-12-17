@@ -17,6 +17,7 @@ interface IPageAlbum {
     description: string;
     created_time: string;
     type: string;
+    link: string;
 }
 
 class PageAlbum implements IPageAlbum{
@@ -27,6 +28,7 @@ class PageAlbum implements IPageAlbum{
     description: string;
     created_time: string;
     type: string;
+    link: string;
 
     constructor(album:IPageAlbum) {
         this.id = album.id;
@@ -36,7 +38,9 @@ class PageAlbum implements IPageAlbum{
         this.description = album.description;
         this.created_time = album.created_time;
         this.type = album.type;
+        this.link = album.link;
     }
+
 
 }
 

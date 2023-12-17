@@ -1,12 +1,12 @@
-import "./globals.css";
+import "../styles/globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AppFooter } from "@/app/components/app-footer/app-footer";
 import { AppHeader } from "@/app/components/app-header/app-header";
 import AppBody from "@/app/components/app-body/app-body";
-import AppHeroSection from "@/app/components/app-hero/app-hero-section";
 import Head from "next/head";
 import React from "react";
+import AppHeroSection from "@/app/components/app-hero/app-hero-section";
 
 const inter = Inter({ subsets: ["latin"] });
 

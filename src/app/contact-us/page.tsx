@@ -1,10 +1,11 @@
 "use client";
+import navStyles from "@/app/components/app-header/app-navbar.module.css";
 
 export default function Page() {
   return (
-    <>
+    <div className={navStyles.navbarSpace}>
       <ContactForm />
-    </>
+    </div>
   );
 }
 

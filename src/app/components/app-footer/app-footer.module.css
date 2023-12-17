@@ -23,13 +23,12 @@
 
 .circleIcon {
   padding: 13px 17px;
-  background: var(--vt-c-ac-gold);
+  background: var(--vt-c-ac-gold-gradient);
   border-radius: 50%;
 }
 
 .fa_light {
   color: var(--vt-c-ac-maroon);
-  background: var(--vt-c-ac-gold);
 }
 .contactText {
   font-weight: 400;
@@ -78,16 +77,11 @@
 
 .copyrightContainer {
   display: flex;
-  padding: 10vw;
-  gap: 40px;
   position: relative;
   flex-wrap: wrap-reverse;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid;
   margin: 0 2vw;
-  margin-top: 40px;
-  padding: 25px 2vw;
 
   @media (max-width: 1200px) {
     justify-content: center;

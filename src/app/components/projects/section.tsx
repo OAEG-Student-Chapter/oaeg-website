@@ -5,22 +5,17 @@ import React, { useEffect, useState } from "react";
 import { SecondaryTitle } from "@/components/titles";
 import { blog } from "../../../api/blogger/blog";
 import ProjectCard from "@/app/events/card";
-
-interface Page {
-  title: string;
-  id: string;
-  content: string;
-  url: string;
-}
+import ProjectPage from "@/app/projects/types";
+import ProjectList from "@/app/projects/projects-list";
 
 export default function ProjectsSection() {
-  const [pages, setPages] = useState<Page[]>([]);
+  const [pages, setPages] = useState<ProjectPage[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       try {
         const pages = await blog.get("pages");
-        setPages(pages.items as Page[]); // explicitly specify the type of the posts array
+        setPages(pages.items as ProjectPage[]);
         console.log(pages.items);
       } catch (error) {
         console.error(error);
@@ -29,15 +24,11 @@ export default function ProjectsSection() {
     fetchData();
   }, []);
 
-  const getThumnbnail = (html: String) => {
+  const getThumbnail = (html: string) => {
     const thumbnailRegex = /<img[^>]+src=["']([^"']+)["']/i;
     const match = html.match(thumbnailRegex);
 
-    if (match && match[1]) {
-      return match[1];
-    } else {
-      return "";
-    }
+    return match && match[1] ? match[1] : "";
   };
 
   return (
@@ -52,7 +43,7 @@ export default function ProjectsSection() {
       >
         <SecondaryTitle title={"Latest Projects"} />
       </div>
-      <div className={styles.backgroundGradient}></div>
+      {/* <ProjectList projects={pages.slice(0, 5)} /> */}
       <div className={styles.cardRow}>
         {pages?.slice(0, 5).map((project) => {
           return (
@@ -60,7 +51,7 @@ export default function ProjectsSection() {
               <ProjectCard
                 key={project.id}
                 title={project.title}
-                imgSrc={getThumnbnail(project.content)}
+                imgSrc={getThumbnail(project.content)}
                 link={`/projects/project?title=${project.title}&id=${project.id}`}
               />
             </div>

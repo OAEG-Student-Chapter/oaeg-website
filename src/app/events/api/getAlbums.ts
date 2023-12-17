@@ -4,7 +4,7 @@ export const getAlbums = async (
 ): Promise<{
     albums: PageAlbum[];
 }> => {
-    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,created_time,type,cover_photo{webp_images}`);
+    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,link,created_time,type,cover_photo{webp_images}`);
     return {
         albums: res.data
     }
@@ -16,7 +16,7 @@ export const getSingleAlbum = async (
 ): Promise<{
     album: PageAlbum;
 }> => {
-    const res = await graph.get(`${album_id}?fields=id,name,description,cover_photo{webp_images},
+    const res = await graph.get(`${album_id}?fields=id,name,link,description,cover_photo{webp_images},
         ${withPhotos ? "photos{webp_images}" : ""}`);
     return {
         album: res
@@ -45,6 +45,10 @@ export default class PageAlbumHandler{
     }
     get photos_url(){
         return this.album.photos?.data.map(photo => photo.webp_images[0].source);
+    }
+
+    get link(){
+        return this.album.link;
     }
 
     get thumbnails_url(){

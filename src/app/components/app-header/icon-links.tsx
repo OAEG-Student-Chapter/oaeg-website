@@ -9,10 +9,10 @@ interface IconLinksProps {
     }[];
     direction?: 'row' | 'column';
     color?: string;
+    iconSize?: string;
 }
 
-const IconLinks = ({ iconData, direction = 'row', color } : IconLinksProps) => {
-    const iconSize = '100%';
+const IconLinks = ({ iconData, direction = 'row', color, iconSize = "100%" } : IconLinksProps) => {
 
     const getIconStyle = () => {
         return { color: color || 'black', width: iconSize, height: iconSize };

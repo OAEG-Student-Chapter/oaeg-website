@@ -18,3 +18,4 @@ const socialMediaLinks = [
 ]
 
 export default socialMediaLinks;
+export {facebook, linkedIn};

@@ -1,5 +1,5 @@
 .heroImageContainer{
-    height: calc(100vh - var(--header-banner-height));
+    height: calc(100vh - var(--navbar-height));
     width: 100%;
     position: relative;
     background-position: center;
@@ -8,6 +8,12 @@
     background-position-x: 10vw;
 /*    reduce opacity of left*/
     background-blend-mode: lighten;
+}
+
+@media (min-width: 768px) {
+    .heroImageContainer{
+        margin-top: var(--navbar-height);
+    }
 }
 
 .heroImage{

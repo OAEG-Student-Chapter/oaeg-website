@@ -7,7 +7,7 @@ import AppHeroSection from "@/app/components/app-hero/app-hero-section";
 export default function Home() {
   return (
     <>
-      <AppHeroSection />
+        <AppHeroSection />
       <HomeAboutSection />
       <HomeProjectsSection />
       <HomeEventsSection />

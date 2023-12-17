@@ -14,7 +14,7 @@ class GraphPageApi {
     endpoint = endpoint.replace(/^\//, "");
     const res = await fetch(
       `https://graph.facebook.com/${this.version}/${endpoint}&access_token=${this.access_token}`,
-        {cache: 'no-store'}
+        {next: { revalidate: 3600 }}
     );
     return await res.json();
   }

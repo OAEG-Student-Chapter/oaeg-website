@@ -1,52 +1,34 @@
 import Image from "next/image";
 import styles from "./app-footer.module.css";
-import {
-  FaEnvelope,
-  FaFacebook,
-  FaLinkedin,
-  FaPhone,
-  FaTwitter,
-} from "react-icons/fa6";
-import socialMediaLinks from "@/lib/social-media";
+import socialMediaLinks, {facebook, linkedIn} from "@/lib/social-media";
+import {routes} from "@/lib/routes";
+import React from "react";
+import Link from "next/link";
+import IconLinks from "@/app/components/app-header/icon-links";
 
 export const AppFooter = () => {
   return (
     <div className={styles.main}>
-      <Image
-        src="/images/footer.webp"
-        alt="Footer Image"
-        className={styles.imgFooter}
-        width={1920}
-        height={312}
-      />
-      <div className={styles.copyrightContainer}>
-        <p className={styles.copyrightText}>
-          Copyright © Old Anandian Engineers Guild | Designed and Developed by
-          the OAEG Student Chapter
-        </p>
-        <div className={styles.contactContainer}>
-          <div className={styles.contactItem}>
-            <div className={styles.circleIcon}>
-              <FaEnvelope className={styles.fa_light} />
-            </div>
-            <p className={styles.contactText}>
-              Email
-              <br />
-              oaeg@gmail.com
-            </p>
-          </div>
-          <div className={styles.contactItem}>
-            <div className={styles.circleIcon}>
-              <FaPhone className={styles.fa_light} />
-            </div>
-            <p className={styles.contactText}>
-              Call Us
-              <br />
-              (00) 112 365 489
-            </p>
-          </div>
-        </div>
-      </div>
+      <footer className="glass [--glass-reflex-opacity:0] footer footer-center p-5 rounded" style={{rowGap:"2rem"}}>
+        <nav className="grid grid-flow-col gap-4">
+          {routes.map((route) => (
+              <a className="link link-hover" href={route.path}>{route.name}</a>
+          ))}
+        </nav>
+          <IconLinks
+              color="white"
+              iconData={socialMediaLinks.map(l => {
+                  return {
+                      Icon: l.icon,
+                      link: l.url
+                  }
+              })}
+              iconSize={'1.5rem'}
+          />
+        <aside>
+          <p>Copyright © 2023 - All right reserved by OAEG | Designed and Developed by OAEG Student Chapter</p>
+        </aside>
+      </footer>
     </div>
   );
 };

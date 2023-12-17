@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { blog } from "../../../api/blogger/blog";
-import styles from "./page.module.css";
+import { blog } from "@/api/blogger/blog";
+import styles from "./page.module.scss";
 
 export const runtime = "edge";
 
@@ -28,7 +28,7 @@ export default function Page() {
 
   return (
     <div
-      className={styles.projectContainer}
+      className={`${styles.projectContainer} mt-12`}
       dangerouslySetInnerHTML={template}
     ></div>
   );
