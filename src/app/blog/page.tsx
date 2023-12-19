@@ -29,7 +29,6 @@ export default function Page() {
       try {
         const posts = await blog.get("posts");
         setPosts(posts.items as Post[]); // explicitly specify the type of the posts array
-        console.log(posts.items);
       } catch (error) {
         console.error(error);
       }
@@ -45,10 +44,10 @@ export default function Page() {
     <div className={styles.container}>
       <div className={styles.caption}>Our Blog</div>
       <span className={styles.title}>Our Latest News</span>
-      {posts.map((post) => (
+      {posts.map((post,index) => (
         <div
           className={styles.blogContainer}
-          key={post.blog.id}
+          key={index}
           onClick={() => handleBlogClick(post.url)}
         >
           <img

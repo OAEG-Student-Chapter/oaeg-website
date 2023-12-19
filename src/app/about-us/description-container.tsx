@@ -29,7 +29,8 @@ export default function DescriptionContainer({goal, vision, overview}: Descripti
                 <p className={Styles.detailBlockOverview}>{overview}</p>
                 <div className={Styles.rowButtons}>
                     {buttons.map((button, index) => (
-                        <div className={Styles.rowButtonContainer}>
+                        <div key={index}
+                            className={Styles.rowButtonContainer}>
                             <button className={`${Styles.rowButton} 
                                     ${activeButtonIndex === index ? Styles.activeRowButton : ""}`}
                                     onClick={() => {

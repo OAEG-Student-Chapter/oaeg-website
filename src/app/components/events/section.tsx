@@ -26,9 +26,8 @@ export default async function ProjectsSection() {
       <div className={styles.cardRow}>
         {albums?.map((album: EventAlbum) => {
           return (
-            <div className={styles.cardWrapper}>
+            <div key={album.id} className={styles.cardWrapper}>
               <ProjectCard
-                key={album.id}
                 title={album.name}
                 imgSrc={album.cover_photo}
                 link={"/events/" + album.id}

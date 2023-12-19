@@ -47,9 +47,10 @@ export default function ProjectsSection() {
       <div className={styles.cardRow}>
         {pages?.slice(0, 5).map((project) => {
           return (
-            <div className={styles.cardWrapper}>
-              <ProjectCard
+            <div
                 key={project.id}
+                className={styles.cardWrapper}>
+              <ProjectCard
                 title={project.title}
                 imgSrc={getThumbnail(project.content)}
                 link={`/projects/project?title=${project.title}&id=${project.id}`}
