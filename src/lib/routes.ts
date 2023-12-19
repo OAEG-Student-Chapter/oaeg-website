@@ -38,11 +38,12 @@ const team: route = {
   name: "Board of Officials",
 };
 
-export const routes:route[] = [home, projects, events, contactUs];
+export const routes:route[] = [home, projects, events, contactUs, blog];
 
 export const routesMap = {
   home,
   projects,
   events,
-  contactUs
+  contactUs,
+  blog
 };
