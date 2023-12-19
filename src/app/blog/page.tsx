@@ -1,7 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { blog } from "../../api/blogger/blog";
+import { blog } from "@/api/blogger/blog";
 import styles from "./blog.module.css";
+import navStyles from "@/app/components/app-header/app-navbar.module.css";
 
 interface Post {
   title: string;
@@ -42,7 +43,7 @@ export default function Page() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${navStyles.navbarSpace} py-12 px-2 md:px-30 lg:px-40`}>
       <div className={styles.caption}>Our Blog</div>
       <span className={styles.title}>Our Latest News</span>
       {posts.map((post) => (
