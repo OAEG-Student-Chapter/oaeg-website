@@ -6,6 +6,7 @@ import {Rubik} from "next/font/google"
 import React from "react";
 import {heroImages, IHeroImage} from "@/app/components/app-hero/hero-images";
 const rubik = Rubik({subsets: ['latin'], weight:['600']});
+import Image from "next/image";
 
 interface AppHeroProps {
     height?: number | string;
@@ -48,7 +49,7 @@ const SliderItem = (props: SliderItemProps) =>
             height: props.height,
         }} className={styles.heroImageContainer}>
             <RedGradientOverlay/>
-            <img className={styles.heroImage} src={slideImage.url} alt=""/>
+            <Image className={styles.heroImage} src={slideImage.url} alt="" layout="fill" objectFit="cover"/>
             <div className={`${styles.heroText} ${rubik.className}`}>
                 <h2 className={styles.imageTitle}>{slideImage.title}</h2>
                 <div className={styles.imageCaption}>{slideImage.caption}</div>

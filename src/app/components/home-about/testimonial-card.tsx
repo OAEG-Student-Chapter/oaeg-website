@@ -1,5 +1,6 @@
 import styles from "./testimonial-card.module.css";
 import {Krub} from "next/font/google";
+import Image from "next/image";
 const krub = Krub({subsets: ['latin'], style:"italic", weight:['400']});
 
 export default function TestimonialCard() {
@@ -9,7 +10,7 @@ export default function TestimonialCard() {
                 <div style={{
                     padding:5,
                 }}>
-                    <img
+                    {/* <img
                         style={{
                             width:'100%',
                             height:'100%',
@@ -17,7 +18,19 @@ export default function TestimonialCard() {
                             aspectRatio: '1/1',
                             borderRadius: '50%',
                         }}
-                        src="/images/exco.jpg" alt=""/>
+                        src="/images/exco.webp" alt=""/> */}
+                    <Image
+                        style={{
+                            width:'100%',
+                            height:'100%',
+                            objectFit:'cover',
+                            aspectRatio: '1/1',
+                            borderRadius: '50%',
+                        }}
+                        src="/images/exco.webp" alt=""
+                        width={200}
+                        height={200}
+                    />
                 </div>
                 <div style={{
                     display:'flex',

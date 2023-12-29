@@ -1,6 +1,7 @@
 "use client";
 import styles from "./card.module.css";
 import textTheme from "@/lib/fonts";
+import Image from "next/image";
 
 export default function ProjectCard({
   title,
@@ -13,6 +14,7 @@ export default function ProjectCard({
   link: string;
   imgSrc: string;
 }) {
+  const src = imgSrc;
   return (
     <div
       className={styles.card}
@@ -30,7 +32,21 @@ export default function ProjectCard({
         </p>
       </div>
       <div className={styles.image}>
-        <img src={imgSrc} alt={title} />
+        {/* <img src={imgSrc} alt={title} /> */}
+        <Image
+          loader={({ src }) => src}
+          src={imgSrc}
+          alt={title}
+          style={{
+            width:'100%',
+            height:'100%',
+            objectFit:'cover',
+            aspectRatio: '2/2.65'
+        }}
+          width={300}
+          height={300}
+          layout="responsive"
+        />
       </div>
       <div className={styles.blackOverlay}></div>
     </div>

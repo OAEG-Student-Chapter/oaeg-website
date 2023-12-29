@@ -8,6 +8,7 @@ import NavToggleButton from "@/components/nav-toggle";
 import {useEffect, useState} from "react";
 import useArrangeNavbar from "@/hooks/useArrangeNavbar";
 import useIsHomePage from "@/hooks/useIsHomePage";
+import Image from "next/image";
 
 const montserrat = Montserrat({subsets: ['latin']});
 
@@ -50,9 +51,15 @@ export const AppHeader = () => {
 export const NavBrand = () => {
     return (
         <a href={'/'} className={"flex items-center justify-center"}>
-            <img
+            {/* <img
                 className={"h-12 w-12 mr-3"}
-                src="/images/logo_oaeg.png" alt="OAEG Logo"/>
+                src="/images/logo_oaeg.webp" alt="OAEG Logo"/> */}
+            <Image
+                className={"h-12 w-12 mr-3"}
+                src="/images/logo_oaeg.webp" alt="OAEG Logo"
+                width={48}
+                height={48}
+            />
             <h1 className={montserrat.className}
                 style={{fontWeight: '600', color: '#fff',}}>
                 {organization.name}
@@ -64,20 +71,34 @@ export const NavBrand = () => {
 export const AppHeaderBanner = () => {
     return <div className={styles.appHeaderBanner}>
         <div className={styles.appHeaderBannerContent}>
-            <img
+            {/* <img
                 style={{marginRight: '1rem'}}
                 className={styles.logo}
-                src="/images/logo_ac.png" alt="AC Logo"/>
+                src="/images/logo_ac.webp" alt="AC Logo"/> */}
+            <Image
+                style={{marginRight: '1rem'}}
+                className={styles.logo}
+                src="/images/logo_ac.webp" alt="AC Logo"
+                width={48}
+                height={48}
+            />
 
             <h1 className={montserrat.className}
                 style={{fontWeight: '600', color: '#fff',}}>
                 {organization.name}
             </h1>
 
-            <img
+            {/* <img
                 style={{marginLeft: '1rem'}}
                 className={styles.logo}
-                src="/images/logo_oaeg.png" alt="OAEG Logo"/>
+                src="/images/logo_oaeg.webp" alt="OAEG Logo"/> */}
+            <Image
+                style={{marginLeft: '1rem'}}
+                className={styles.logo}
+                src="/images/logo_oaeg.webp" alt="OAEG Logo"
+                width={48}
+                height={48}
+            />
         </div>
     </div>
 }
