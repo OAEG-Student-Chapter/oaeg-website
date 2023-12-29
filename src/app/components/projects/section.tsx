@@ -7,10 +7,13 @@ import { blog } from "../../../api/blogger/blog";
 import ProjectCard from "@/app/events/card";
 import ProjectPage from "@/app/projects/types";
 import ProjectList from "@/app/projects/projects-list";
+import dynamic from "next/dynamic";
 
 export default function ProjectsSection() {
   const [pages, setPages] = useState<ProjectPage[]>([]);
-
+  const LazyProjectCard = dynamic(() => import("@/app/events/card"), {
+    loading: () => <p>Loading...</p>,
+  });
   useEffect(() => {
     async function fetchData() {
       try {
@@ -48,7 +51,13 @@ export default function ProjectsSection() {
         {pages?.slice(0, 5).map((project) => {
           return (
             <div className={styles.cardWrapper}>
-              <ProjectCard
+              {/* <ProjectCard
+                key={project.id}
+                title={project.title}
+                imgSrc={getThumbnail(project.content)}
+                link={`/projects/project?title=${project.title}&id=${project.id}`}
+              /> */}
+              <LazyProjectCard
                 key={project.id}
                 title={project.title}
                 imgSrc={getThumbnail(project.content)}
