@@ -7,9 +7,14 @@ import textTheme from "@/lib/fonts";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import Link from "next/link";
 import sectionStyles from "@/app/components/events/section.module.css";
+import dynamic from "next/dynamic";
+
 export default async function Page() {
   let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
+  const LazyProjectCard = dynamic(() => import("@/app/events/card"), {
+    loading: () => <p>Loading...</p>,
+  });
   return (
     <div className={`${styles.container} ${navStyles.navbarSpace}`}>
       <div
@@ -32,7 +37,13 @@ export default async function Page() {
         {albums?.map((album: EventAlbum) => {
           return (
             <div className={styles.cardWrapper}>
-              <ProjectCard
+              {/* <ProjectCard
+                key={album.id}
+                title={album.name}
+                imgSrc={album.cover_photo}
+                link={"/events/" + album.id}
+              /> */}
+              <LazyProjectCard
                 key={album.id}
                 title={album.name}
                 imgSrc={album.cover_photo}
