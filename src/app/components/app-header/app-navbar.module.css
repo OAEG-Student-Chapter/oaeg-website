@@ -85,7 +85,9 @@
     text-decoration: none;
     margin-inline: 1em;
 }
-
+.socialLinks a:first-child{
+    margin-left: 1em !important;
+}
 .socialLinks a{
     @media (max-width: 768px) {
         margin-inline: 0.5em !important;
