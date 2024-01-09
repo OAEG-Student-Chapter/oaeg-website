@@ -1,6 +1,8 @@
 "use client";
 import styles from "./card.module.css";
 import textTheme from "@/lib/fonts";
+import Link from "next/link";
+import {ReactNode} from "react";
 
 export default function ProjectCard({
   title,
@@ -14,25 +16,31 @@ export default function ProjectCard({
   imgSrc: string;
 }) {
   return (
-    <div
-      className={styles.card}
-      onClick={() => {
-        // go to project page
-        window.location.href = link;
-      }}
-    >
-      <div className={styles.content}>
-        <h4 className={`${styles.title} ${textTheme.title.className}`}>
-          {title}
-        </h4>
-        <p className={`${styles.smallDescription} ${textTheme.body.className}`}>
-          {shortDescription}
-        </p>
+    <Link href={link}>
+      <div
+          className={styles.card}
+      >
+        <InnerBottomShadow>
+          <div className={styles.content}>
+            <h4 className={`${styles.title} ${textTheme.title.className}`}>
+              {title}
+            </h4>
+            <p className={`${styles.smallDescription} ${textTheme.body.className}`}>
+              {shortDescription}
+            </p>
+          </div>
+          <div className={styles.image}>
+            <img src={imgSrc} alt={title} />
+          </div>
+        </InnerBottomShadow>
+
       </div>
-      <div className={styles.image}>
-        <img src={imgSrc} alt={title} />
-      </div>
-      <div className={styles.blackOverlay}></div>
-    </div>
+    </Link>
   );
 }
+
+const InnerBottomShadow = (props: {children:ReactNode}) => (
+    <div className={styles.innerBottomShadow}>
+      {props.children}
+    </div>
+    );
