@@ -7,7 +7,9 @@
 
 .icon {
     color: var(--vt-c-black);
-    font-size: 1.25em;
+    height: 2rem;
+    width: 2rem;
+    margin: 0.5rem;
 }
 
 .icon:hover {

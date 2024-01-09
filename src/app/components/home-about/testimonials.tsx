@@ -1,8 +1,11 @@
+'use client';
 import styles from "./testimonial-card.module.css";
 import {Krub} from "next/font/google";
+import {Slide} from "react-slideshow-image";
 const krub = Krub({subsets: ['latin'], style:"italic", weight:['400']});
+import {FaArrowRight, FaArrowLeft} from "react-icons/fa6";
 
-export default function TestimonialCard() {
+export const TestimonialCard = () => {
     return (
         <div className={styles.testimonialCard}>
             <div className={styles.cardLeft}>
@@ -40,3 +43,21 @@ export default function TestimonialCard() {
         </div>
     );
 }
+
+export const Testimonials = () => {
+    const iconStyle = {height:"1.5rem", width:"1.5rem"};
+    const slideProperties = {
+        prevArrow: <div className={"hidden sm:block bg-theme-yellow rounded-full p-1 -translate-x-12"}>
+            <FaArrowLeft style={iconStyle}/>
+        </div>,
+        nextArrow: <div className={`hidden sm:block bg-theme-yellow rounded-full p-1 translate-x-12`}>
+            <FaArrowRight style={iconStyle}/>
+        </div>,
+    }
+    return (<Slide cssClass={"bg-white"} {...slideProperties}>
+        <TestimonialCard/>
+        <TestimonialCard/>
+        <TestimonialCard/>
+    </Slide>);
+}
+

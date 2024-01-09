@@ -5,6 +5,8 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./contact-form.module.css";
+import TitleBadge from "@/components/title-badge";
+import {RegisterButton} from "@/app/components/app-header/app-navbar";
 
 
 export default function Page() {

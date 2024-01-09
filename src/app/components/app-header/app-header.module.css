@@ -14,23 +14,21 @@
 
 @media (max-width: 768px) {
     .appHeader{
-        height: 100vh;
-        background-color: rgba(0,0,0,0.8);
-        padding-block: 20vh;
+        background-color: var(--color-primary-dark);
+        padding-top: 4rem;
+        padding-bottom: 2rem;
         position: fixed;
+        height: 60%;
         top:0;
         right: 0;
         width: 100%;
         z-index: 999;
-        transition: opacity 0.5s ease-in-out 1ms,
-            width 1ms linear;
+        transition: all 0.5s ease-in-out;
     }
 
     .appHeaderClosed {
+        top: -100%;
         opacity: 0;
-        width: 0;
-        transition: opacity 0.5s ease-in-out,
-            width 1ms linear 0.5s;
     }
 }
 

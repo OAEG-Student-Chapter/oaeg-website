@@ -4,15 +4,17 @@ import 'react-slideshow-image/dist/styles.css'
 import {Fade} from "react-slideshow-image";
 import {Rubik} from "next/font/google"
 import React from "react";
-import {IHeroImage} from "@/app/components/app-hero/hero-images";
 const rubik = Rubik({subsets: ['latin'], weight:['600']});
 import socialMediaLinks from "@/lib/social-media";
 import IconLinks from "@/app/components/app-header/icon-links";
+import {IHeroImage} from "@/app/components/app-hero/hero-images";
+
 
 interface AppHeroProps {
     height?: number | string;
     heroImages: IHeroImage[];
 }
+
 export default function AppHero(props:AppHeroProps) {
 
     const slideProps = {
@@ -22,10 +24,11 @@ export default function AppHero(props:AppHeroProps) {
         pauseOnHover: false,
     };
 
+
     return (
         <div className={"relative bg-[#272727]"}>
-            <div className={`${styles.heroText} ${rubik.className}`}>
-                <h2 className={`text-3xl md:text-7xl text-white text-center`}>
+            <div className={`w-full px-4 ${styles.heroText} ${rubik.className}`}>
+                <h2 className={`text-4xl md:text-7xl text-white text-center`}>
                     <span className={"text-theme-yellow"}>Old Anandian</span> <br/>
                     Engineers' Guild</h2>
                 <div className="flex mt-4 w-full justify-center">

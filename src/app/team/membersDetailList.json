@@ -1,34 +1,136 @@
 {
-    "2023": {
-        "mainBody": [
-
-        ],
-        "studentChapter": [
-            {"name":"Shehan Paul", "role":"President", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/paul.png"},
-            {"name":"Sathira Liyanapathirana", "role":"Joint Secretary", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/sathira.png"},
-            {"name":"Avishka Perera", "role":"Joint Secretary", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/avishka.png"},
-            {"name":"Dhanoj Ninnada", "role":"Treasurer", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/dhanoj.png"},
-            {"name":"Lahiru Rathuge", "role":"Chief Organizer", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/lahiru.png"},
-            {"name":"Shehan Paul", "role":"President", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/paul.png"},
-            {"name":"Sathira Liyanapathirana", "role":"Joint Secretary", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/sathira.png"},
-            {"name":"Avishka Perera", "role":"Joint Secretary", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/avishka.png"},
-            {"name":"Dhanoj Ninnada", "role":"Treasurer", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/dhanoj.png"},
-            {"name":"Lahiru Rathuge", "role":"Chief Organizer", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/lahiru.png"},
-            {"name":"Shehan Paul", "role":"President", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/paul.png"},
-            {"name":"Sathira Liyanapathirana", "role":"Joint Secretary", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/sathira.png"},
-            {"name":"Avishka Perera", "role":"Joint Secretary", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/avishka.png"},
-            {"name":"Dhanoj Ninnada", "role":"Treasurer", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/dhanoj.png"},
-            {"name":"Lahiru Rathuge", "role":"Chief Organizer", "twitterAccountName":"", "facebookAccountName":"", "linkedinAccountName":"", "avatarSRC":"/avatars/lahiru.png"}
-        ]
-    },
-    "2022": {
-        "mainBody": [
-
-        ],
-        "studentChapter": [
-            
-        ]
-    }
+  "2023": {
+    "mainBody": [
+    ],
+    "studentChapter": [
+      {
+        "name": "Shehan Paul",
+        "role": "President",
+        "linkedin": "https://www.linkedin.com/in/shehan-paul/",
+        "avatarSRC": "/avatars/paul.jpg"
+      },
+      {
+        "name": "Sathira Liyanapathirana",
+        "role": "Joint Secretary",
+        "linkedin": "https://www.linkedin.com/in/sathira-liyanapathirana",
+        "avatarSRC": "/avatars/sathira.jpg"
+      },
+      {
+        "name": "Avishka Perera",
+        "role": "Joint Secretary",
+        "linkedin": "",
+        "avatarSRC": "/avatars/avishka.jpg"
+      },
+      {
+        "name": "Dhanoj Ninnada",
+        "role": "Treasurer",
+        "linkedin": "https://www.linkedin.com/in/dhanojninnada/",
+        "avatarSRC": "/avatars/dhanoj.jpg"
+      },
+      {
+        "name": "Lahiru Rathuge",
+        "role": "Chief Organizer",
+        "linkedin": "",
+        "avatarSRC": "/avatars/lahiru.jpg"
+      },
+      {
+        "name": "Tharusha Fonseka",
+        "role": "Vice President",
+        "linkedin": "",
+        "avatarSRC": "/avatars/tharusha.jpg"
+      },
+      {
+        "name": "Senul Samarasekara",
+        "role": "Director - Projects",
+        "linkedin": "",
+        "avatarSRC": "/avatars/senul.jpg"
+      },
+      {
+        "name": "Mewan Rathnayake",
+        "role": "Dir. Membership Development",
+        "linkedin": "",
+        "avatarSRC": "/avatars/mewan.jpg"
+      },
+      {
+        "name": "Sanuja Edirisinghe",
+        "role": "Director - School Affairs",
+        "linkedin": "",
+        "avatarSRC": "/avatars/sanuja.jpg"
+      },
+      {
+        "name": "Imalsha Puranagedara",
+        "role": "Director - IT",
+        "linkedin": "",
+        "avatarSRC": "/avatars/imalsha.jpg"
+      },
+      {
+        "name": "Gayanuka Amarasuriya",
+        "role": "Editor",
+        "linkedin": "",
+        "avatarSRC": "/avatars/gayanuka.JPG"
+      },
+      {
+        "name": "Damsith Adikari",
+        "role": "Assistant Director - Projects",
+        "linkedin": "",
+        "avatarSRC": "/avatars/damsith.jpeg"
+      },
+      {
+        "name": "Thevindu Nanayakkara",
+        "role": "Asst. Dir. - Membership Development",
+        "linkedin": "",
+        "avatarSRC": "/avatars/thevindu.jpg"
+      },
+      {
+        "name": "Lohan Atapattu",
+        "role": "Asst. Director - School Affairs",
+        "linkedin": "",
+        "avatarSRC": "/avatars/lohan.jpeg"
+      },
+      {
+        "name": "Pavan Pitiwaduge",
+        "role": "Assistant Director - IT",
+        "linkedin": "https://www.linkedin.com/in/pavan-pitiwaduge",
+        "avatarSRC": "/avatars/pavan.jpeg"
+      },
+      {
+        "name" : "Savinu Anusara",
+        "role" : "Member",
+        "linkedin" : "",
+        "avatarSRC" : "/avatars/savinu.jpg"
+      },
+      {
+        "name" : "Thilina Bandara",
+        "role" : "Member",
+        "linkedin" : "",
+        "avatarSRC" : "/avatars/thilina.jpeg"
+      },
+      {
+        "name" : "Sithum Vitharana",
+        "role" : "Member",
+        "linkedin" : "https://www.linkedin.com/in/sithum-vitharana/",
+        "avatarSRC" : "/avatars/sithum.jpg"
+      },
+      {
+        "name" : "Thisuru Dineth",
+        "role" : "Member",
+        "linkedin" : "",
+        "avatarSRC" : "/avatars/thisuru.jpg"
+      },
+      {
+        "name" : "Vishwa Jayaweera",
+        "role" : "Member",
+        "linkedin" : "",
+        "avatarSRC" : "/avatars/vishwa.jpeg"
+      }
+    ]
+  },
+  "2022": {
+    "mainBody": [
+    ],
+    "studentChapter": [
+    ]
+  }
 }
 
 

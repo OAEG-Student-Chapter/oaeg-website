@@ -27,25 +27,36 @@
   justify-content: left;
   width: 100%;
   max-width: 100%;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: start;
+    padding-inline: 2rem;
+  }
 }
 
 .thumbnail {
-  width: 40vw;
   max-width: 250px;
   height: auto;
   object-fit: cover;
   margin-right: 20px;
+  @media (max-width: 768px) {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+  }
 }
 
 .info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .blogTitle {
   font-size: clamp(1rem, 4vw, 1.3rem);
   font-weight: 600;
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+  }
 }
 
 .labelContainer {
@@ -53,6 +64,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .label {

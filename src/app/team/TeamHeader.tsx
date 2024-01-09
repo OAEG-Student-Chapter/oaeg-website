@@ -72,10 +72,10 @@ export default function TeamHeader({currentYear, currentBody}: {
       </div>
 
       {/* Description Component */}
-      <p className={Styles.description}>
-        Description goes here. Lorem ipsium elit. Aliquam maximus, tellus vel interdum tincidunt,
-        tortor libero vestibulum dui, eu dictum massa ex in ante
-      </p>
+      {/*<p className={Styles.description}>*/}
+      {/*  Description goes here. Lorem ipsium elit. Aliquam maximus, tellus vel interdum tincidunt,*/}
+      {/*  tortor libero vestibulum dui, eu dictum massa ex in ante*/}
+      {/*</p>*/}
 
     </div>
   );

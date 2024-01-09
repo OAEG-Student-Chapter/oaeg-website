@@ -1,11 +1,12 @@
 import styles from "./home-about-section.module.css";
 import TitleBadge from "@/components/title-badge";
 import {Krub, Rubik} from "next/font/google";
-import TestimonialCard from "@/app/components/home-about/testimonial-card";
-import {MainTitle, SecondaryTitle, TertiaryTitle} from "@/components/titles";
-import {ReactNode} from "react";
+import {SecondaryTitle} from "@/components/titles";
+import React, {ReactNode} from "react";
 import {organization} from "@/lib/constants";
 import {FaCheck} from "react-icons/fa6";
+import {Testimonials} from "@/app/components/home-about/testimonials";
+import {RegisterButton} from "@/app/components/app-header/app-navbar";
 
 const rubik = Rubik({subsets: ["latin"], weight: ["400"]});
 const krubItalic = Krub({subsets: ["latin"], weight: ["400"]});
@@ -39,13 +40,18 @@ export default function HomeAboutSection() {
                 </div>
 
             </div>
+            <div className="mt-4">
+                <TitleBadge title={"Still not a member?"}/>
+                <div className="mt-2">
+                    <RegisterButton cta={"Join the Guild"}/>
+                </div>
+            </div>
             <div className={styles.bottomSection}>
-                <TitleBadge title={"Testimonial"}/>
                 <div style={{marginTop: 10}}>
-                    <SecondaryTitle title={"Message from the Founder"}/>
+                    <SecondaryTitle title={"Testimonials"}/>
                 </div>
                 <div style={{marginTop: 20}}>
-                    <TestimonialCard/>
+                    <Testimonials/>
                 </div>
             </div>
         </div>
