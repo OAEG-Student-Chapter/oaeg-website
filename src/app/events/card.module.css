@@ -25,7 +25,7 @@
   transition: all 0.3s ease-in-out;
   /*    black gradient from bottom to top*/
 }
-.card .blackOverlay {
+.card .blackOverlay-6 {
   transition: all 0.3s ease-in-out;
   position: absolute;
   z-index: 2;

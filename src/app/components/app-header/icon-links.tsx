@@ -10,9 +10,10 @@ interface IconLinksProps {
     direction?: 'row' | 'column';
     color?: string;
     iconSize?: string;
+    layout?: React.CSSProperties;
 }
 
-const IconLinks = ({ iconData, direction = 'row', color, iconSize = "100%" } : IconLinksProps) => {
+const IconLinks = ({ iconData, direction = 'row', color, iconSize = "100%", layout = { display: 'flex', flexDirection: direction } } : IconLinksProps) => {
 
     const getIconStyle = () => {
         return { color: color || 'black', width: iconSize, height: iconSize };
@@ -30,7 +31,7 @@ const IconLinks = ({ iconData, direction = 'row', color, iconSize = "100%" } : I
     };
 
     return (
-        <div style={{ display: 'flex', flexDirection: direction }}>
+        <div style={layout}>
             {renderIconLinks()}
         </div>
     );
