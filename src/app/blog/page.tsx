@@ -59,7 +59,7 @@ export default function Page() {
           <div className={styles.info}>
             <span className={styles.blogTitle}>{post.title}</span>
             <div className={styles.labelContainer}>
-              {post.labels.map((label, index) => (
+              {post.labels?.map((label, index) => (
                 <span key={index} className={styles.label}>
                   {label}
                 </span>
