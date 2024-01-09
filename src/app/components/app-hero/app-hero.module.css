@@ -39,8 +39,8 @@
     height: 3rem !important;
     width: 3rem !important;
     @media (max-width: 768px) {
-        height: 1.5rem !important;
-        width: 1.5rem !important;
+        height: 2rem !important;
+        width: 2rem !important;
     }
 }
 

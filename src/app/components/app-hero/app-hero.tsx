@@ -27,8 +27,8 @@ export default function AppHero(props:AppHeroProps) {
 
     return (
         <div className={"relative bg-[#272727]"}>
-            <div className={`${styles.heroText} ${rubik.className}`}>
-                <h2 className={`text-3xl md:text-7xl text-white text-center`}>
+            <div className={`w-full px-4 ${styles.heroText} ${rubik.className}`}>
+                <h2 className={`text-4xl md:text-7xl text-white text-center`}>
                     <span className={"text-theme-yellow"}>Old Anandian</span> <br/>
                     Engineers' Guild</h2>
                 <div className="flex mt-4 w-full justify-center">
