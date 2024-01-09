@@ -30,17 +30,19 @@ export default function Page({ params, searchParams}: {
     const body:string = searchParams?.body || "mainBody";
     const detailList: DataObject = memberDetailList;
     return (
-        <div className={Styles.mainWrapper}>
-            <div>
-                <TeamHeader currentYear={year} currentBody={body} />
+        <div className="bg-white py-12 min-h-screen">
+            <div className={Styles.mainWrapper}>
+                <div>
+                    <TeamHeader currentYear={year} currentBody={body} />
+                </div>
+                <Team
+                    memberDetailList={ (year!=undefined &&
+                        body!=undefined &&
+                        detailList[year]!=undefined &&
+                        detailList[year][body]!=undefined)  ?  detailList[year][body] : []
+                    }
+                    numberOfColumns={5} />
             </div>
-            <Team
-                memberDetailList={ (year!=undefined && 
-                                    body!=undefined && 
-                                    detailList[year]!=undefined && 
-                                    detailList[year][body]!=undefined)  ?  detailList[year][body] : []
-                                }
-                numberOfColumns={5} />
         </div>
     );
 }

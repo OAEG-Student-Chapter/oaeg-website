@@ -19,7 +19,7 @@ export default function DescriptionContainer({goal, vision, overview}: Descripti
     return (
         <div className={Styles.detailBlock}>
             <div className={Styles.imageContainer}>
-                <img src="/images/main-bg.png" alt="main-bg image" className={Styles.mainImage}/>
+                <img src="/images/hero-2.png" alt="main-bg image" className={Styles.mainImage}/>
                 <div className={Styles.imageOnTop}>
                     <img src="/images/logo_oaeg.png" alt="OAEG Logo"/>
                 </div>
@@ -29,7 +29,8 @@ export default function DescriptionContainer({goal, vision, overview}: Descripti
                 <p className={Styles.detailBlockOverview}>{overview}</p>
                 <div className={Styles.rowButtons}>
                     {buttons.map((button, index) => (
-                        <div className={Styles.rowButtonContainer}>
+                        <div key={index}
+                            className={Styles.rowButtonContainer}>
                             <button className={`${Styles.rowButton} 
                                     ${activeButtonIndex === index ? Styles.activeRowButton : ""}`}
                                     onClick={() => {

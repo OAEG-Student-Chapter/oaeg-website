@@ -1,7 +1,6 @@
 .section {
-  padding-bottom: 2rem;
+  padding-bottom: 4rem;
   position: relative;
-  margin-bottom: 50px;
 }
 .backgroundGradient {
   height: 50%;

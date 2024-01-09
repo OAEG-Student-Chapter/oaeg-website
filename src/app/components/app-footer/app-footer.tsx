@@ -11,8 +11,8 @@ export const AppFooter = () => {
     <div className={styles.main}>
       <footer className="glass [--glass-reflex-opacity:0] footer footer-center p-5 rounded" style={{rowGap:"2rem"}}>
         <nav className="grid grid-flow-col gap-4">
-          {routes.map((route) => (
-              <a className="link link-hover" href={route.path}>{route.name}</a>
+          {routes.map((route, index) => (
+              <a className="link link-hover" key={index} href={route.path}>{route.name}</a>
           ))}
         </nav>
           <IconLinks

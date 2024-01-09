@@ -1,11 +1,13 @@
 'use client'
 import styles from "./app-hero.module.css";
 import 'react-slideshow-image/dist/styles.css'
-import {Slide} from "react-slideshow-image";
+import {Fade} from "react-slideshow-image";
 import {Rubik} from "next/font/google"
 import React from "react";
-import {heroImages, IHeroImage} from "@/app/components/app-hero/hero-images";
+import {IHeroImage} from "@/app/components/app-hero/hero-images";
 const rubik = Rubik({subsets: ['latin'], weight:['600']});
+import socialMediaLinks from "@/lib/social-media";
+import IconLinks from "@/app/components/app-header/icon-links";
 
 interface AppHeroProps {
     height?: number | string;
@@ -14,21 +16,42 @@ interface AppHeroProps {
 export default function AppHero(props:AppHeroProps) {
 
     const slideProps = {
-        duration: 5000,
-        autoplay: true,
-        transitionDuration: 1000,
+        duration: 3000,
         arrows: false,
         infinite: true,
-        easing: "ease",
+        pauseOnHover: false,
     };
 
     return (
-        <div style={{position:'relative'}}>
-            <Slide {...slideProps} canSwipe={true}>
+        <div className={"relative bg-[#272727]"}>
+            <div className={`${styles.heroText} ${rubik.className}`}>
+                <h2 className={`text-3xl md:text-7xl text-white text-center`}>
+                    <span className={"text-theme-yellow"}>Old Anandian</span> <br/>
+                    Engineers' Guild</h2>
+                <div className="flex mt-4 w-full justify-center">
+                {/*    font awesome icons */}
+                    <IconLinks
+                        color="white"
+                        iconData={socialMediaLinks.map(l => {
+                            return {
+                                Icon: l.icon,
+                                link: l.url
+                            }
+                        })}
+                        iconClass={styles.heroSocialIcons}
+                        layout={{
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(2, 1fr)',
+                            gap: '1rem',
+                        }}
+                    />
+                </div>
+            </div>
+            <Fade {...slideProps}>
                 {props.heroImages.map((slideImage, index)=>
                     <SliderItem key={index} height={props.height} slideImage={slideImage}/>
                 )}
-            </Slide>
+            </Fade>
         </div>
     );
 }
@@ -47,24 +70,23 @@ const SliderItem = (props: SliderItemProps) =>
         <div style={{
             height: props.height,
         }} className={styles.heroImageContainer}>
-            <RedGradientOverlay/>
+            <Overlay color={"rgba(0,0,0,0.7)"}/>
             <img className={styles.heroImage} src={slideImage.url} alt=""/>
-            <div className={`${styles.heroText} ${rubik.className}`}>
-                <h2 className={styles.imageTitle}>{slideImage.title}</h2>
-                <div className={styles.imageCaption}>{slideImage.caption}</div>
-            </div>
         </div>
     );
 };
 
 
-function RedGradientOverlay() {
+function Overlay(props: { color?: string }) {
     return (
         <div style={{
             position: "absolute",
             top: 0,
             left: 0,
             zIndex: 1,
-        }} className={styles.redBlurGradient}/>
+            width: "100%",
+            height: "100%",
+            backgroundColor: props.color
+        }}/>
     )
 }

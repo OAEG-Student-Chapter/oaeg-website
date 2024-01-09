@@ -7,13 +7,17 @@ const maxSize = 1 * 1024 * 1024; // 1MB in bytes
 describe('Image Optimization', () => {
     fs.readdirSync(imagesFolderPath).forEach((file) => {
         const filePath = imagesFolderPath + file;
-        const dimensions = sizeOf(filePath);
-        const imageSize = fs.statSync(filePath).size;
+        const isFile = fs.lstatSync(filePath).isFile();
 
-        const testTitle = `Image size test for ${file}`;
+        if (isFile) {
+            const dimensions = sizeOf(filePath);
+            const imageSize = fs.statSync(filePath).size;
 
-        test(testTitle, () => {
-            expect(imageSize).toBeLessThanOrEqual(maxSize);
-        });
+            const testTitle = `Image size test for ${file}`;
+
+            test(testTitle, () => {
+                expect(imageSize).toBeLessThanOrEqual(maxSize);
+            });
+        }
     });
 });

@@ -1,12 +1,12 @@
 'use client'
 import styles from "./app-navbar.module.css";
 import Link from "next/link";
-import {routes} from "@/lib/routes";
+import {routes, routesMap} from "@/lib/routes";
 import {Krub} from "next/font/google";
 import {usePathname} from "next/navigation";
 import socialMediaLinks from "@/lib/social-media";
 import IconLinks from "@/app/components/app-header/icon-links";
-import React, {useEffect, useState} from "react";
+import React from "react";
 const krubFont = Krub({weight: '500', subsets: ['latin']});
 import {NavBrand} from "@/app/components/app-header/app-header";
 
@@ -14,7 +14,7 @@ export default function AppNavbar({onItemClick}: {
     onItemClick?: () => void}){
     const pathName = usePathname();
     const links = () => (
-        <ul>
+        <ul className={"flex justify-center sm:justify-end "}>
             {
                 routes.map((route, index) => {
                     const isActive = pathName === route.path;
@@ -29,6 +29,7 @@ export default function AppNavbar({onItemClick}: {
                     );
                 })
             }
+            <li className={"sm:ml-1"}><RegisterButton/></li>
             <li className={styles.socialLinks}>
                 <IconLinks
                     color="white"
@@ -51,3 +52,15 @@ export default function AppNavbar({onItemClick}: {
         </nav>
     );
 }
+
+const RegisterButton = () => (
+    <Link target={"_blank"} className={`sm:h-full 
+            flex items-center`} href={routesMap.register.path}>
+                <span
+                    style={{background:"var(--theme-gold)"}}
+                    className={`rounded
+                    font-semibold tracking-wide uppercase
+                px-4 py-2 text-black`}>
+                    {routesMap.register.name}
+                </span>
+    </Link>);
