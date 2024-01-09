@@ -31,7 +31,7 @@ const CustomSwitchSelector: React.FC<CustomSwitchSelectorProps> = ({
       {options.map((option, index) => (
         <div
           key={index}
-          className={Styles.option}
+          className={`${Styles.option} cursor-pointer`}
           style={{
             backgroundColor: index === selectedIndex ? 'var(--vt-c-grey-light)' : 'var(--vt-c-white)',
             color: index === selectedIndex ? option.selectedFontColor : 'var(--vt-c-grey-dark)'
