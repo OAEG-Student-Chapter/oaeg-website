@@ -43,7 +43,7 @@ export default function Page() {
 
   return (
       <div className={`${styles.container} ${navStyles.navbarSpace} bg-white min-h-screen`}>
-        <div className={`${styles.container}  py-24 px-2 md:px-30 lg:px-40`}>
+        <div className={`${styles.container}  py-16 px-2 md:px-30 lg:px-40`}>
           <div className={styles.caption}>Our Blog</div>
           <span className={styles.title}>Our Latest News</span>
           {posts.map((post,index) => (
