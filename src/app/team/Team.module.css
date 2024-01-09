@@ -1,10 +1,7 @@
 .mainWrapper {
-    margin: 4%;
-    margin-left: 6%;
-    margin-right: 6%;
+    margin: 4% 6%;
     @media (max-width: 768px) {
-        margin: 0;
-        margin-bottom: 3em;
+        margin: 0 0 3em;
     }
 }
 

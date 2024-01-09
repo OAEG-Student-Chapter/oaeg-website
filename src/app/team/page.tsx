@@ -7,9 +7,7 @@ import TeamHeader from "./TeamHeader";
 interface MemberObject {
   name: string; 
   role: string; 
-  twitterAccountName: string; 
-  facebookAccountName: string; 
-  linkedinAccountName: string; 
+  linkedin: string;
   avatarSRC: string
 }
 
@@ -30,7 +28,7 @@ export default function Page({ params, searchParams}: {
     const body:string = searchParams?.body || "mainBody";
     const detailList: DataObject = memberDetailList;
     return (
-        <div className="bg-white py-12 min-h-screen">
+        <div className="bg-white py-24 min-h-screen">
             <div className={Styles.mainWrapper}>
                 <div>
                     <TeamHeader currentYear={year} currentBody={body} />
