@@ -2,7 +2,7 @@
     height: var(--navbar-height);
     width: 100%;
     background-color: var(--navbar-bg-color);
-    padding-inline: 10vw;
+    padding-inline: 5vw;
     transition: all 0.5s ease-in-out;
 }
 
@@ -21,7 +21,6 @@
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
     list-style: none;
 }

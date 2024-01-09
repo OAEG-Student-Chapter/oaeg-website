@@ -14,7 +14,7 @@ export default function AppNavbar({onItemClick}: {
     onItemClick?: () => void}){
     const pathName = usePathname();
     const links = () => (
-        <ul>
+        <ul className={"flex justify-center sm:justify-end "}>
             {
                 routes.map((route, index) => {
                     const isActive = pathName === route.path;
@@ -29,7 +29,7 @@ export default function AppNavbar({onItemClick}: {
                     );
                 })
             }
-            <RegisterButton/>
+            <li className={"sm:ml-1"}><RegisterButton/></li>
             <li className={styles.socialLinks}>
                 <IconLinks
                     color="white"
