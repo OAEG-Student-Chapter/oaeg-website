@@ -34,12 +34,17 @@
 
 /*Laptop screen*/
 @media (min-width: 768px) {
-    .navbarItem{
+    .navbarItem, .registerButton{
         height: 100%;
         border-bottom: var(--color-primary);
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .registerButton{
+        background: var(--theme-gold);
+        color: var(--color-text-in-primary);
     }
 
     .navbarItem a{
@@ -69,11 +74,12 @@
     }
 }
 
-.navbar a{
+.navbar li a{
     color: var(--color-inv-text) !important;
     text-decoration: none;
     margin-inline: 1em;
 }
+
 
 @media (max-width: 768px) {
     .navbar{

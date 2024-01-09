@@ -1,7 +1,7 @@
 'use client'
 import styles from "./app-navbar.module.css";
 import Link from "next/link";
-import {routes} from "@/lib/routes";
+import {routes, routesMap} from "@/lib/routes";
 import {Krub} from "next/font/google";
 import {usePathname} from "next/navigation";
 import socialMediaLinks from "@/lib/social-media";
@@ -29,6 +29,7 @@ export default function AppNavbar({onItemClick}: {
                     );
                 })
             }
+            <RegisterButton/>
             <li className={styles.socialLinks}>
                 <IconLinks
                     color="white"
@@ -51,3 +52,15 @@ export default function AppNavbar({onItemClick}: {
         </nav>
     );
 }
+
+const RegisterButton = () => (
+    <Link target={"_blank"} className={`sm:h-full 
+            flex items-center`} href={routesMap.register.path}>
+                <span
+                    style={{background:"var(--theme-gold)"}}
+                    className={`rounded
+                    font-semibold tracking-wide uppercase
+                px-4 py-2 text-black`}>
+                    {routesMap.register.name}
+                </span>
+    </Link>);
