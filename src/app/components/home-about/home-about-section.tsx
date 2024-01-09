@@ -3,11 +3,9 @@ import TitleBadge from "@/components/title-badge";
 import {Krub, Rubik} from "next/font/google";
 import TestimonialCard from "@/app/components/home-about/testimonial-card";
 import {MainTitle, SecondaryTitle, TertiaryTitle} from "@/components/titles";
-import Link from "next/link";
 
 const rubik = Rubik({subsets: ["latin"], weight: ["400"]});
 const krubItalic = Krub({subsets: ["latin"], weight: ["400"]});
-import Image from "next/image";
 
 export default function HomeAboutSection() {
     return (

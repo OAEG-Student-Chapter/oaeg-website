@@ -35,6 +35,15 @@
     transform: translate(-50%, -50%);
 }
 
+.heroSocialIcons{
+    height: 3rem !important;
+    width: 3rem !important;
+    @media (max-width: 768px) {
+        height: 1.5rem !important;
+        width: 1.5rem !important;
+    }
+}
+
 /* Mobile view */
 @media (max-width: 768px) {
     .heroImageContainer{

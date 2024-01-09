@@ -38,9 +38,7 @@ export default function AppHero(props:AppHeroProps) {
                                 link: l.url
                             }
                         })}
-                        iconSize={
-                        window.innerWidth >= 768 ? '3rem' : "1.5rem"
-                        }
+                        iconClass={styles.heroSocialIcons}
                         layout={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(2, 1fr)',
