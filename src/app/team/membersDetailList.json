@@ -6,13 +6,13 @@
       {
         "name": "Shehan Paul",
         "role": "President",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/shehan-paul/",
         "avatarSRC": "/avatars/paul.jpg"
       },
       {
         "name": "Sathira Liyanapathirana",
         "role": "Joint Secretary",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/sathira-liyanapathirana",
         "avatarSRC": "/avatars/sathira.jpg"
       },
       {
@@ -24,7 +24,7 @@
       {
         "name": "Dhanoj Ninnada",
         "role": "Treasurer",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/dhanojninnada/",
         "avatarSRC": "/avatars/dhanoj.jpg"
       },
       {
@@ -90,7 +90,7 @@
       {
         "name": "Pavan Pitiwaduge",
         "role": "Assistant Director - IT",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/pavan-pitiwaduge",
         "avatarSRC": "/avatars/pavan.jpeg"
       },
       {
@@ -106,9 +106,9 @@
         "avatarSRC" : "/avatars/thilina.jpeg"
       },
       {
-        "name" : "Sithum Sathsara",
+        "name" : "Sithum Vitharana",
         "role" : "Member",
-        "linkedin" : "",
+        "linkedin" : "https://www.linkedin.com/in/sithum-vitharana/",
         "avatarSRC" : "/avatars/sithum.jpg"
       },
       {
