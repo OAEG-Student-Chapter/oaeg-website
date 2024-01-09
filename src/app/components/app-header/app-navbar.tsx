@@ -54,7 +54,7 @@ export default function AppNavbar({onItemClick}: {
     );
 }
 
-const RegisterButton = () => (
+export const RegisterButton = ({cta}:{cta? : string}) => (
     <Link target={"_blank"} className={`sm:h-full 
             flex items-center`} href={routesMap.register.path}>
                 <span
@@ -62,6 +62,6 @@ const RegisterButton = () => (
                     className={`rounded
                     font-semibold tracking-wide uppercase
                 px-4 py-2 text-black`}>
-                    {routesMap.register.name}
+                     { cta ?? routesMap.register.name}
                 </span>
     </Link>);
