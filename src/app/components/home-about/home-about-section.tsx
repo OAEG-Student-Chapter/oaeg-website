@@ -3,6 +3,8 @@ import TitleBadge from "@/components/title-badge";
 import {Krub, Rubik} from "next/font/google";
 import TestimonialCard from "@/app/components/home-about/testimonial-card";
 import {MainTitle, SecondaryTitle, TertiaryTitle} from "@/components/titles";
+import {ReactNode} from "react";
+import {organization} from "@/lib/constants";
 
 const rubik = Rubik({subsets: ["latin"], weight: ["400"]});
 const krubItalic = Krub({subsets: ["latin"], weight: ["400"]});
@@ -25,28 +27,19 @@ export default function HomeAboutSection() {
                 </div>
             </div>
             <div className={styles.topSection}>
+                <div className={"mt-6"}>
+                    <SecondaryTitle title={'Our Mission'}/>
+                    <InfoCard>
+                        <ul>
+                            {
+                                organization.mission.map((mission, index) => {
+                                    return <li className={"mb-1"} key={index}>{mission}</li>
+                                })
+                            }
+                        </ul>
+                    </InfoCard>
+                </div>
 
-                <div className={styles.topLeft}>
-                    <div style={{marginTop: 10}}>
-                        <MainTitle title={"What We Do"}/>
-                    </div>
-                </div>
-                <div className={styles.topMiddle}>
-                    <InfoCard
-                        title={"Our Mission"}
-                        description={
-                            "Following the quality of our service thus having gained trust of our many clients."
-                        }
-                    />
-                </div>
-                <div className={styles.topRight}>
-                    <InfoCard
-                        title={"Our Vision"}
-                        description={
-                            "Following the quality of our service thus having gained trust of our many clients."
-                        }
-                    />
-                </div>
             </div>
             <div className={styles.bottomSection}>
                 <TitleBadge title={"Testimonial"}/>
@@ -61,19 +54,19 @@ export default function HomeAboutSection() {
     );
 }
 
-const InfoCard = (props: { title: string; description: string }) => {
+const InfoCard = (props: { children: ReactNode }) => {
     return (
         <>
-            <TertiaryTitle title={props.title}/>
-            <p
+
+            <div
                 className={krubItalic.className}
                 style={{
                     marginTop: 10,
                     color: "var(--color-text-secondary)",
                 }}
             >
-                {props.description}
-            </p>
+                {props.children}
+            </div>
         </>
     );
 };
