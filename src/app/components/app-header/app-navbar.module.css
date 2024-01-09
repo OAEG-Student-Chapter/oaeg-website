@@ -7,7 +7,7 @@
 }
 
 .navbarSpace {
-    margin-top: var(--navbar-height);
+    margin-top: var(--navbar-height) !important;
 }
 
 /*desktop*/
