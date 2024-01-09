@@ -48,7 +48,7 @@ export default function Page() {
       <span className={styles.title}>Our Latest News</span>
       {posts.map((post) => (
         <div
-          className={styles.blogContainer}
+          className={`${styles.blogContainer} cursor-pointer`}
           key={post.blog.id}
           onClick={() => handleBlogClick(post.url)}
         >
@@ -60,7 +60,7 @@ export default function Page() {
           <div className={styles.info}>
             <span className={styles.blogTitle}>{post.title}</span>
             <div className={styles.labelContainer}>
-              {post.labels.map((label, index) => (
+              {post.labels?.map((label, index) => (
                 <span key={index} className={styles.label}>
                   {label}
                 </span>
