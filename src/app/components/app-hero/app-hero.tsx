@@ -19,7 +19,7 @@ export default function AppHero(props:AppHeroProps) {
 
     const slideProps = {
         duration: 3000,
-        arrows: true,
+        arrows: false,
         infinite: true,
         pauseOnHover: false,
     };

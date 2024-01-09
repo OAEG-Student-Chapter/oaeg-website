@@ -33,6 +33,7 @@ export default function AppNavbar({onItemClick}: {
             <li className={styles.socialLinks}>
                 <IconLinks
                     color="white"
+                    iconClass={styles.navSocialIcons}
                     iconData={socialMediaLinks.map(l => {
                         return {
                             Icon: l.icon,

@@ -35,20 +35,21 @@ const blog: route = {
 
 const team: route = {
   path: "/team",
-  name: "Board of Officials",
+  name: "EXCO",
 };
 
 const register: route = {
     path: "https://docs.google.com/document/d/1sn1BjEnYY3f6AMLsA7lB2gCL6ge5xTnG/edit?usp=sharing&ouid=110892561269839592164&rtpof=true&sd=true",
-    name: "Register",
+    name: "Become A Member"
 };
 
-export const routes:route[] = [home, projects, events, contactUs, blog];
+export const routes:route[] = [home, projects, events, team, contactUs, blog];
 
 export const routesMap = {
   home,
   projects,
   events,
+  team,
   contactUs,
   blog,
   register
