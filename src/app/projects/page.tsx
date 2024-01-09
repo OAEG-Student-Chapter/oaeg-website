@@ -25,7 +25,7 @@ export default function Page() {
     }, []);
 
     return (
-        <div className={`bg-white ${styles.container} ${navStyles.navbarSpace}`}>
+        <div className={`bg-white min-h-[100vh] ${styles.container} ${navStyles.navbarSpace}`}>
             <div
                 style={{
                     display: "flex",

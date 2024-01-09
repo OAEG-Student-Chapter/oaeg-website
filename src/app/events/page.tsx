@@ -11,7 +11,7 @@ export default async function Page() {
   let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
   return (
-    <div className={`bg-white ${styles.container} ${navStyles.navbarSpace}`}>
+    <div className={`bg-white min-h-[100vh] ${styles.container} ${navStyles.navbarSpace}`}>
       <div
         style={{
           display: "flex",
