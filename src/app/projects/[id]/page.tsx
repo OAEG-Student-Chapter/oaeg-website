@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { blog } from "@/api/blogger/blog";
 import styles from "./page.module.scss";
+import {white} from "next/dist/lib/picocolors";
 
 export const runtime = "edge";
 
@@ -27,9 +28,11 @@ export default function Page() {
   }, []);
 
   return (
-    <div
-      className={`${styles.projectContainer} mt-12`}
-      dangerouslySetInnerHTML={template}
-    ></div>
+      <div className={"bg-white pt-12 min-h-[100vh]"}>
+        <div
+            className={`${styles.projectContainer} `}
+            dangerouslySetInnerHTML={template}
+        ></div>
+      </div>
   );
 }

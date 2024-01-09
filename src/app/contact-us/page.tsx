@@ -1,19 +1,19 @@
 "use client";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
-
-export default function Page() {
-  return (
-    <div className={navStyles.navbarSpace}>
-      <ContactForm />
-    </div>
-  );
-}
-
 import React from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./contact-form.module.css";
+
+
+export default function Page() {
+  return (
+    <div className={`${navStyles.navbarSpace} ${styles.contactPage}`}>
+      <ContactForm />
+    </div>
+  );
+}
 
 const sendEmail = (e: any) => {
   e.preventDefault();
@@ -51,11 +51,9 @@ const ContactForm = () => {
   return (
     <>
       <div className={styles.contactFormWrapper}>
-        <span className={styles.preFormTitle}>Contact</span>
-        <h2 className={styles.formTitle}>Get in touch with us</h2>
+        <span className={styles.preFormTitle}>Get in touch with us</span>
         <p style={{ textAlign: "center", marginBlock: "1rem" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit
-          maximus, molestie est a, tempor magna.
+          Fill the form below to send us a message and we will get back to you as soon as possible.
         </p>
         <form className={styles.form} onSubmit={sendEmail}>
           <div className={styles.formGrid}>

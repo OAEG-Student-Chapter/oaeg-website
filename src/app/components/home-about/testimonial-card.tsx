@@ -17,7 +17,7 @@ export default function TestimonialCard() {
                             aspectRatio: '1/1',
                             borderRadius: '50%',
                         }}
-                        src="/images/exco.jpg" alt=""/>
+                        src="/images/exco2023.jpg" alt=""/>
                 </div>
                 <div style={{
                     display:'flex',

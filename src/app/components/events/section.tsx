@@ -11,7 +11,7 @@ export default async function ProjectsSection() {
   let { albums } = await getEventAlbums();
   albums = albums?.slice(0, 5);
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} bg-white`}>
       <div
         style={{
           display: "flex",
@@ -26,9 +26,8 @@ export default async function ProjectsSection() {
       <div className={styles.cardRow}>
         {albums?.map((album: EventAlbum) => {
           return (
-            <div className={styles.cardWrapper}>
+            <div key={album.id} className={styles.cardWrapper}>
               <ProjectCard
-                key={album.id}
                 title={album.name}
                 imgSrc={album.cover_photo}
                 link={"/events/" + album.id}

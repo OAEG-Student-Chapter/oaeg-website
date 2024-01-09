@@ -11,7 +11,7 @@ export default async function Page() {
   let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
   return (
-    <div className={`${styles.container} ${navStyles.navbarSpace}`}>
+    <div className={`bg-white min-h-[100vh] ${styles.container} ${navStyles.navbarSpace}`}>
       <div
         style={{
           display: "flex",
@@ -24,16 +24,14 @@ export default async function Page() {
       >
         <SecondaryTitle title={"Events"} />
         <p className={textTheme.body.className}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          euismod, nisl eget
+          Check the photo albums of our latest events and activities
         </p>
       </div>
       <div className={styles.grid}>
         {albums?.map((album: EventAlbum) => {
           return (
-            <div className={styles.cardWrapper}>
+            <div key={album.id} className={styles.cardWrapper}>
               <ProjectCard
-                key={album.id}
                 title={album.name}
                 imgSrc={album.cover_photo}
                 link={"/events/" + album.id}

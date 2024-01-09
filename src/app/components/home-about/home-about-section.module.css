@@ -7,14 +7,6 @@
     }
 }
 
-.topSection{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-    }
-}
-
 .topMiddle{
     border-inline: 2px solid var(--vt-c-white-mute);
     @media (max-width: 768px) {
