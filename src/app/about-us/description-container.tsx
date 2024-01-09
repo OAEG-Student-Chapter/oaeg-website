@@ -19,7 +19,7 @@ export default function DescriptionContainer({goal, vision, overview}: Descripti
     return (
         <div className={Styles.detailBlock}>
             <div className={Styles.imageContainer}>
-                <img src="/images/hero/what-it-takes-to-be-a-ceo-3.png" alt="main-bg image" className={Styles.mainImage}/>
+                <img src="/images/hero-2.png" alt="main-bg image" className={Styles.mainImage}/>
                 <div className={Styles.imageOnTop}>
                     <img src="/images/logo_oaeg.png" alt="OAEG Logo"/>
                 </div>
