@@ -20,6 +20,9 @@ export default function ProjectCard({
       <div
           className={styles.card}
       >
+        <div className={styles.image}>
+          <img src={imgSrc} alt={title} />
+        </div>
         <InnerBottomShadow>
           <div className={styles.content}>
             <h4 className={`${styles.title} ${textTheme.title.className}`}>
@@ -28,9 +31,6 @@ export default function ProjectCard({
             <p className={`${styles.smallDescription} ${textTheme.body.className}`}>
               {shortDescription}
             </p>
-          </div>
-          <div className={styles.image}>
-            <img src={imgSrc} alt={title} />
           </div>
         </InnerBottomShadow>
 
