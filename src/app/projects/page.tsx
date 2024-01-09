@@ -38,8 +38,7 @@ export default function Page() {
             >
                 <SecondaryTitle title={"Projects"} />
                 <p className={textTheme.body.className}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                    euismod, nisl eget
+                    Our portfolio of projects and events
                 </p>
             </div>
 

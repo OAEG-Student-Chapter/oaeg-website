@@ -51,12 +51,11 @@ const ContactForm = () => {
   return (
     <>
       <div className={styles.contactFormWrapper}>
-        <span className={styles.preFormTitle}>Contact</span>
-        <h2 className={styles.formTitle}>Get in touch with us</h2>
-        <p style={{ textAlign: "center", marginBlock: "1rem" }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit
-          maximus, molestie est a, tempor magna.
-        </p>
+        <span className={styles.preFormTitle}>Get in touch with us</span>
+        {/*<p style={{ textAlign: "center", marginBlock: "1rem" }}>*/}
+        {/*  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit*/}
+        {/*  maximus, molestie est a, tempor magna.*/}
+        {/*</p>*/}
         <form className={styles.form} onSubmit={sendEmail}>
           <div className={styles.formGrid}>
             <div className={styles.formField}>

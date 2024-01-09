@@ -24,8 +24,7 @@ export default async function Page() {
       >
         <SecondaryTitle title={"Events"} />
         <p className={textTheme.body.className}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-          euismod, nisl eget
+          Check the photo albums of our latest events and activities
         </p>
       </div>
       <div className={styles.grid}>
