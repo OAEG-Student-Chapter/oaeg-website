@@ -5,6 +5,7 @@ import TestimonialCard from "@/app/components/home-about/testimonial-card";
 import {MainTitle, SecondaryTitle, TertiaryTitle} from "@/components/titles";
 import {ReactNode} from "react";
 import {organization} from "@/lib/constants";
+import {FaCheck} from "react-icons/fa6";
 
 const rubik = Rubik({subsets: ["latin"], weight: ["400"]});
 const krubItalic = Krub({subsets: ["latin"], weight: ["400"]});
@@ -16,13 +17,8 @@ export default function HomeAboutSection() {
             <div className={"mt-4 md:flex"}>
                 <img className={"mb-4 md:mb-0 md:mr-4"} style={{height:"10rem", width:"10rem"}} src={"/images/logo_oaeg.png"} alt={"OAEG logo"}></img>
                 <div className="flex items-center">
-                    <p className={""}>
-                        The Old Anandian Engineers’ Guild was formally established in 2017 by the founding president Eng.
-                        Kithsiri Gunasekara.
-                        It was incorporated into the college's main OBA as an affiliate group in 2018.
-                        The current president is Prof. Udeni Nawagamuwa leading a 26-strong group of EXCO Associates and
-                        Chartered Members of IESL (Institution Of Engineers Sri Lanka). The OAEG is further strengthened by
-                        its student chapter, which comprises all engineering undergraduates from state universities.
+                    <p className={"text-justify"}>
+                        {organization.description}
                     </p>
                 </div>
             </div>
@@ -33,7 +29,9 @@ export default function HomeAboutSection() {
                         <ul>
                             {
                                 organization.mission.map((mission, index) => {
-                                    return <li className={"mb-1"} key={index}>{mission}</li>
+                                    return <li className={"mb-1 flex"} key={index}>
+                                        <FaCheck className={"mr-2"}/>
+                                        {mission}</li>
                                 })
                             }
                         </ul>
