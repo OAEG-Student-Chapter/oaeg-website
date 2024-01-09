@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Official Website of OAEG",
     images: [
       {
-        url: "https://oaeg-website.vercel.app/images/oaeg.png",
+        url: "https://oaeg-website.pages.dev/images/logo_oaeg.png",
       },
     ],
   },
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     url: "www.oaeg.lk",
     images: [
       {
-        url: "https://oaeg-website.vercel.app/images/oaeg.png",
+        url: "https://oaeg-website.pages.dev/images/logo_oaeg.png",
       },
     ],
   },
