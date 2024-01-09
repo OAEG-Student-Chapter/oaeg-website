@@ -1,6 +1,6 @@
 import AppHero from "@/app/components/app-hero/app-hero";
+import {IHeroImage} from "@/app/components/app-hero/hero-images";
 
-export interface IHeroImage { caption: string; url: string, title: string }
 
 export const heroImages :IHeroImage[] = [
     {
@@ -22,7 +22,12 @@ export const heroImages :IHeroImage[] = [
         url: '/images/hero-3.webp',
         title: "Inaugural General Meeting of Old Anandians' Engineers Guild",
         caption: "2017"
-    }
+    },
+    {
+        url: '/images/hero-4.webp',
+        title: "Pathway to Engineering",
+        caption: "2019"
+    },
 ]
 
 export default function AppHeroSection() {

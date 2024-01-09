@@ -4,23 +4,26 @@ import 'react-slideshow-image/dist/styles.css'
 import {Fade} from "react-slideshow-image";
 import {Rubik} from "next/font/google"
 import React from "react";
-import {IHeroImage} from "@/app/components/app-hero/hero-images";
 const rubik = Rubik({subsets: ['latin'], weight:['600']});
 import socialMediaLinks from "@/lib/social-media";
 import IconLinks from "@/app/components/app-header/icon-links";
+import {IHeroImage} from "@/app/components/app-hero/hero-images";
+
 
 interface AppHeroProps {
     height?: number | string;
     heroImages: IHeroImage[];
 }
+
 export default function AppHero(props:AppHeroProps) {
 
     const slideProps = {
         duration: 3000,
-        arrows: false,
+        arrows: true,
         infinite: true,
         pauseOnHover: false,
     };
+
 
     return (
         <div className={"relative bg-[#272727]"}>
