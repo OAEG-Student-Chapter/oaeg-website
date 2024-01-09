@@ -32,7 +32,7 @@ export default function ProjectsSection() {
   };
 
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} bg-white`}>
       <div
         style={{
           display: "flex",

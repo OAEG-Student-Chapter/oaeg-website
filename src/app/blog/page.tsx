@@ -42,42 +42,45 @@ export default function Page() {
   }
 
   return (
-    <div className={`${styles.container} ${navStyles.navbarSpace} py-12 px-2 md:px-30 lg:px-40`}>
-      <div className={styles.caption}>Our Blog</div>
-      <span className={styles.title}>Our Latest News</span>
-      {posts.map((post,index) => (
-        <div
-          className={styles.blogContainer}
-          key={index}
-          onClick={() => handleBlogClick(post.url)}
-        >
-          <img
-            className={styles.thumbnail}
-            src={post.images[0].url}
-            alt={post.title}
-          />
-          <div className={styles.info}>
-            <span className={styles.blogTitle}>{post.title}</span>
-            <div className={styles.labelContainer}>
-              {post.labels?.map((label, index) => (
-                <span key={index} className={styles.label}>
+      <div className={`${styles.container} ${navStyles.navbarSpace} bg-white`}>
+        <div className={`${styles.container}  py-24 px-2 md:px-30 lg:px-40`}>
+          <div className={styles.caption}>Our Blog</div>
+          <span className={styles.title}>Our Latest News</span>
+          {posts.map((post,index) => (
+              <div
+                  className={styles.blogContainer}
+                  key={index}
+                  onClick={() => handleBlogClick(post.url)}
+              >
+                <img
+                    className={styles.thumbnail}
+                    src={post.images[0].url}
+                    alt={post.title}
+                />
+                <div className={styles.info}>
+                  <span className={styles.blogTitle}>{post.title}</span>
+                  <div className={styles.labelContainer}>
+                    {post.labels?.map((label, index) => (
+                        <span key={index} className={styles.label}>
                   {label}
                 </span>
-              ))}
-            </div>
-            <div className={styles.authorInfo}>
-              <img
-                className={styles.authorImage}
-                src={post.author.image.url}
-                alt={post.author.displayName}
-              />
-              <span className={styles.authorName}>
+                    ))}
+                  </div>
+                  <div className={styles.authorInfo}>
+                    <img
+                        className={styles.authorImage}
+                        src={post.author.image.url}
+                        alt={post.author.displayName}
+                    />
+                    <span className={styles.authorName}>
                 {post.author.displayName}
               </span>
-            </div>
-          </div>
+                  </div>
+                </div>
+              </div>
+          ))}
         </div>
-      ))}
-    </div>
+      </div>
+
   );
 }

@@ -11,7 +11,7 @@ export default async function ProjectsSection() {
   let { albums } = await getEventAlbums();
   albums = albums?.slice(0, 5);
   return (
-    <div className={styles.section}>
+    <div className={`${styles.section} bg-white`}>
       <div
         style={{
           display: "flex",

@@ -1,19 +1,19 @@
 "use client";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
-
-export default function Page() {
-  return (
-    <div className={navStyles.navbarSpace}>
-      <ContactForm />
-    </div>
-  );
-}
-
 import React from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./contact-form.module.css";
+
+
+export default function Page() {
+  return (
+    <div className={`${navStyles.navbarSpace} ${styles.contactPage}`}>
+      <ContactForm />
+    </div>
+  );
+}
 
 const sendEmail = (e: any) => {
   e.preventDefault();

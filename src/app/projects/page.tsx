@@ -25,8 +25,7 @@ export default function Page() {
     }, []);
 
     return (
-        <div className={`${styles.container} ${navStyles.navbarSpace}`}>
-            {/* ... (your existing code) */}
+        <div className={`bg-white ${styles.container} ${navStyles.navbarSpace}`}>
             <div
                 style={{
                     display: "flex",
