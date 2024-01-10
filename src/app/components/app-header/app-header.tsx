@@ -19,15 +19,13 @@ export const AppHeader = () => {
         setIsNavOpen(window.innerWidth >= 768);
     }, []);
 
-    const isHome = useIsHomePage();
-
     return (
         <header>
             <div className={styles.mobileNav} >
                 <div className={`sm:hidden flex justify-between
                  items-center p-2`}>
-                    <div className={styles.navBrand} ><NavBrand/></div>
-                    <div className={`${styles.navToggle} rounded ml-auto`} >
+                    <div className={`${styles.navBrand}`} ><NavBrand/></div>
+                    <div className={`${styles.navToggle} self-end ml-8 rounded`} >
                         <NavToggleButton onPress={() => {
                             setIsNavOpen(!isNavOpen)
                         }}/>
@@ -53,31 +51,10 @@ export const NavBrand = () => {
             <img
                 className={"h-12 w-12 mr-3"}
                 src="/images/logo_oaeg.png" alt="OAEG Logo"/>
-            <h1 className={montserrat.className}
+            <h1 className={`${montserrat.className} mr-1`}
                 style={{fontWeight: '600', color: '#fff',}}>
                 {organization.name}
             </h1>
         </a>
     );
-}
-
-export const AppHeaderBanner = () => {
-    return <div className={styles.appHeaderBanner}>
-        <div className={styles.appHeaderBannerContent}>
-            <img
-                style={{marginRight: '1rem'}}
-                className={styles.logo}
-                src="/images/logo_ac.png" alt="AC Logo"/>
-
-            <h1 className={montserrat.className}
-                style={{fontWeight: '600', color: '#fff',}}>
-                {organization.name}
-            </h1>
-
-            <img
-                style={{marginLeft: '1rem'}}
-                className={styles.logo}
-                src="/images/logo_oaeg.png" alt="OAEG Logo"/>
-        </div>
-    </div>
 }

@@ -79,14 +79,17 @@
         margin-left: 0 !important;
     }
 }
-
-.navbar li a{
-    color: var(--color-inv-text) !important;
+.navbar ul{
+    margin-left: 0.5rem;
+}
+.navbar li span{
+    color: var(--color-inv-text);
     text-decoration: none;
-    margin-inline: 1em;
+    height: 100%;
+    display: flex;
 }
 .socialLinks a:first-child{
-    margin-left: 1em !important;
+    margin-left: 0 !important;
 }
 .socialLinks a{
     @media (max-width: 768px) {
@@ -111,27 +114,3 @@
 
 }
 
-/* Define initial state for the entering element */
-.nav-part-enter {
-    opacity: 0;
-    transform: scale(0.9);
-}
-
-/* Define active state during the entering transition */
-.nav-part-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 300ms, transform 300ms;
-}
-
-/* Define initial state for the exiting element */
-.nav-part-exit {
-    opacity: 1;
-}
-
-/* Define active state during the exiting transition */
-.nav-part-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 300ms, transform 300ms;
-}
