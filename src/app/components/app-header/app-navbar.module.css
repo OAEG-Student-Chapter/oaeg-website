@@ -15,6 +15,10 @@
     .navbar{
         background-color: var(--color-primary-dark) !important;
     }
+
+    .navbar li span{
+        margin-inline: 1rem;
+    }
 }
 
 .navbar ul{
@@ -85,8 +89,6 @@
 .navbar li span{
     color: var(--color-inv-text);
     text-decoration: none;
-    height: 100%;
-    display: flex;
 }
 .socialLinks a:first-child{
     margin-left: 0 !important;
