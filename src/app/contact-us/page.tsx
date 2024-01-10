@@ -5,9 +5,6 @@ import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import styles from "./contact-form.module.css";
-import TitleBadge from "@/components/title-badge";
-import {RegisterButton} from "@/app/components/app-header/app-navbar";
-
 
 export default function Page() {
   return (
@@ -103,8 +100,9 @@ const ContactForm = () => {
                 <option hidden value="null">
                   Membership Status
                 </option>
-                <option value="member">Member</option>
-                <option value="non-member">Non-Member</option>
+                <option value="Corporate Member">Corporate Member</option>
+                <option value="Student Member">Student Member</option>
+                <option value="Non-Member">Non-Member</option>
               </select>
             </div>
           </div>
