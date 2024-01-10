@@ -20,13 +20,13 @@ export default function AppNavbar({onItemClick}: {
                     const isActive = pathName === route.path;
                     return (
                         <li key={index} className={`${styles.navbarItem} ${isActive ? styles.navbarItemCurrent : ""}`}>
-                            <span className={krubFont.className} onClick={()=>{
+                            <Link href={route.path} className={krubFont.className} onClick={()=>{
                                 if(onItemClick) onItemClick();
                                 // go to route.path
-                                window.location.href = route.path;
+                                // window.location.href = route.path;
                             }}>
                                 {route.name}
-                            </span>
+                            </Link>
                         </li>
                     );
                 })
