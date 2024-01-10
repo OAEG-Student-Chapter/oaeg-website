@@ -94,6 +94,7 @@
     margin-left: 0 !important;
 }
 .socialLinks a{
+    margin-inline: 0.5rem;
     @media (max-width: 768px) {
         margin-inline: 0.5em !important;
     }
