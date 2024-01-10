@@ -20,11 +20,13 @@ export default function AppNavbar({onItemClick}: {
                     const isActive = pathName === route.path;
                     return (
                         <li key={index} className={`${styles.navbarItem} ${isActive ? styles.navbarItemCurrent : ""}`}>
-                            <Link href={route.path} className={krubFont.className} onTouchStart={()=>{
+                            <span className={krubFont.className} onClick={()=>{
                                 if(onItemClick) onItemClick();
+                                // go to route.path
+                                window.location.href = route.path;
                             }}>
                                 {route.name}
-                            </Link>
+                            </span>
                         </li>
                     );
                 })
@@ -43,7 +45,6 @@ export default function AppNavbar({onItemClick}: {
             </li>
         </ul>
     );
-    const navBrand = ()=>(<NavBrand/>);
     return (
         <nav className={`${styles.navbar} flex items-center justify-between`}>
             <div className="hidden sm:block">
@@ -58,10 +59,10 @@ export const RegisterButton = ({cta}:{cta? : string}) => (
     <Link target={"_blank"} className={`sm:h-full 
             flex items-center`} href={routesMap.register.path}>
                 <span
-                    style={{background:"var(--theme-gold)"}}
+                    style={{background:"var(--theme-gold)", color: "black"}}
                     className={`rounded
                     font-semibold tracking-wide uppercase
-                px-4 py-2 text-black`}>
+                px-4 py-2`}>
                      { cta ?? routesMap.register.name}
                 </span>
     </Link>);
