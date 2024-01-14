@@ -1,13 +1,20 @@
+'use client';
 import React from "react";
-import Image from "next/image";
-import logo from "./Logo_OAEG.png";
+import Lottie from 'react-lottie';
+import * as animationData from './anim-coming-soon.json'
 
 export default function Home() {
   return (
-    <div className="min-h-scree h-screen flex justify-center items-center">
-      <Image src={logo} height={300} width={300} alt="OAEG Logo"/>
-      {/* Creative text to show before the launch of the website */}
-
+    <div className="min-h-screen bg-white h-screen flex flex-col justify-center items-center">
+        <Lottie options={{
+          loop: true,
+          autoplay: true,
+          animationData: animationData,
+          rendererSettings: {
+            preserveAspectRatio: 'xMidYMid slice'
+          }
+        }}
+         height={"100vw"}/>
     </div>
   );
 }
