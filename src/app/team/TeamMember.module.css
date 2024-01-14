@@ -24,10 +24,8 @@
 }
 
 .textDiv {
-    max-height: 25%;
-    height: 25%;
+    min-height: 25%;
     flex-direction: column;
-    background-color: var(--color-primary-dark);
     padding-inline: 5%;
     padding-top: 7.5%;
     padding-bottom: 5%;

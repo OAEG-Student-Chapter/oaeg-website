@@ -11,6 +11,17 @@ interface TeamMemberProps {
 }
 
 export default function TeamMember({ name, role, accountNames, avatarSRC }: TeamMemberProps) {
+    if(!avatarSRC)
+        return <div>
+            <div className={`${Style.textDiv} rounded bg-theme-maroon`}>
+                <div className={`${Style.name} ${textTheme.title.className}`}>
+                    {name}
+                </div>
+                <p className={`${Style.role} ${textTheme.body.className}`}>
+                    {role}
+                </p>
+            </div>
+        </div>;
 	return (
         <div className={`${Style.user}`}>
                 <div className={Style.imageDiv}>
@@ -23,7 +34,7 @@ export default function TeamMember({ name, role, accountNames, avatarSRC }: Team
                         </div>
                     </div>
 			    </div>
-                <div className={Style.textDiv}>
+                <div className={`${Style.textDiv} bg-theme-maroon absolute bottom-0 left-0 w-full`}>
                     <div className={`${Style.name} ${textTheme.title.className}`}>
                         {name}
                     </div>
