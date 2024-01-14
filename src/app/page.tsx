@@ -1,16 +1,13 @@
 import React from "react";
-import HomeAboutSection from "@/app/components/home-about/home-about-section";
-import HomeEventsSection from "@/app/components/events/section";
-import HomeProjectsSection from "@/app/components/projects/section";
-import AppHeroSection from "@/app/components/app-hero/app-hero-section";
+import Image from "next/image";
+import logo from "./Logo_OAEG.png";
 
 export default function Home() {
   return (
-    <>
-        <AppHeroSection />
-      <HomeAboutSection />
-      <HomeProjectsSection />
-      <HomeEventsSection />
-    </>
+    <div className="min-h-scree h-screen flex justify-center items-center">
+      <Image src={logo} height={300} width={300} alt="OAEG Logo"/>
+      {/* Creative text to show before the launch of the website */}
+
+    </div>
   );
 }
