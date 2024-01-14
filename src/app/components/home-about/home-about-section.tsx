@@ -5,7 +5,7 @@ import {SecondaryTitle} from "@/components/titles";
 import React, {ReactNode} from "react";
 import {organization} from "@/lib/constants";
 import {FaCheck} from "react-icons/fa6";
-import {Testimonials} from "@/app/components/home-about/testimonials";
+import {TestimonialsSection} from "@/app/components/home-about/testimonials-section";
 import {RegisterButton} from "@/app/components/app-header/app-navbar";
 
 const rubik = Rubik({subsets: ["latin"], weight: ["400"]});
@@ -51,7 +51,7 @@ export default function HomeAboutSection() {
                     <SecondaryTitle title={"Testimonials"}/>
                 </div>
                 <div style={{marginTop: 20}}>
-                    <Testimonials/>
+                    <TestimonialsSection/>
                 </div>
             </div>
         </div>
