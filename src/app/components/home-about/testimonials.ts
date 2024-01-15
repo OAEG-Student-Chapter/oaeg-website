@@ -39,10 +39,10 @@ The Students’ Chapter of the OAEG has emerged as a driving force,
     effectively managing and contributing to OAEG projects both within
 the college and the broader community.`
     },
-    {
-        "name": "Eng. Kithsiri Gunasekara",
-        "position": "President 2017-2018",
-        "image": "/avatars/kithsiri.jpg",
-        "quote": `I was privileged to be the first president of the Old Anandian`
-    }
+    // {
+    //     "name": "Eng. Kithsiri Gunasekara",
+    //     "position": "President 2017-2018",
+    //     "image": "/avatars/kithsiri.jpg",
+    //     "quote": `I was privileged to be the first president of the Old Anandian`
+    // }
 ];
