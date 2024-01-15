@@ -7,8 +7,8 @@ export interface TestimonialCardProps {
 
 export const data: TestimonialCardProps[] = [
     {
-        "name": "Eng(Prof.) Udeni Nawagamuwa",
-        "position": "President 2023-2024",
+        "name": "Eng.(Prof.) Udeni Nawagamuwa",
+        "position": "President 2022-2023",
         "image": "./avatars/prof_udeni.jpg",
         "quote": `Upon my return from higher studies, I frequented Ananda College for various purposes, 
         including academic and infrastructure-related concerns. During these interactions, 

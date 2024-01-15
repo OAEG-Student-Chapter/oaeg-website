@@ -12,8 +12,8 @@ interface TeamMemberProps {
 
 export default function TeamMember({ name, role, accountNames, avatarSRC }: TeamMemberProps) {
     if(!avatarSRC)
-        return <div>
-            <div className={`${Style.textDiv} rounded bg-theme-maroon`}>
+        return <div className={Style.user}>
+            <div className={`${Style.textDiv} bg-theme-maroon rounded`}>
                 <div className={`${Style.name} ${textTheme.title.className}`}>
                     {name}
                 </div>
@@ -23,9 +23,9 @@ export default function TeamMember({ name, role, accountNames, avatarSRC }: Team
             </div>
         </div>;
 	return (
-        <div className={`${Style.user}`}>
+        <div className={`${Style.user} aspect-[3/4]`}>
                 <div className={Style.imageDiv}>
-				    <img className={Style.imgMain} src={avatarSRC} alt={name} />
+				    <img loading={"lazy"} className={Style.imgMain} src={avatarSRC} alt={name} />
                     <div className={Style.socialContainer}>
                         <div className={`${Style.iconsDiv} rounded-l`} >
                             { socialMediaList.map((item, index) => (

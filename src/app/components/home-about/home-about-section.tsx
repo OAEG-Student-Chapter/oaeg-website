@@ -47,7 +47,7 @@ export default function HomeAboutSection() {
                 </div>
             </div>
             <div className={styles.bottomSection}>
-                <div style={{marginTop: 10}}>
+                <div style={{marginTop: 10}} id={"testimonials"}>
                     <SecondaryTitle title={"Testimonials"}/>
                 </div>
                 <div style={{marginTop: 20}}>
