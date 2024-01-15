@@ -4,7 +4,7 @@ import textTheme from "@/lib/fonts";
 import Link from "next/link";
 import {ReactNode} from "react";
 
-export default function ProjectCard({
+export default function AppCard({
   title,
   shortDescription,
   link,

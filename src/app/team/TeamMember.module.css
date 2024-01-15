@@ -47,8 +47,8 @@
 .socialContainer {
     position: absolute;
     z-index: 1;
-    bottom: 0;
-    transform: translateY(20%);
+    top: 0;
+    transform: translateY(0%);
     right: 0;
     height: 3vw;
     display: flex;

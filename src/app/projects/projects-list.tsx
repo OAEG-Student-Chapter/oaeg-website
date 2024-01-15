@@ -2,7 +2,7 @@
 import React from "react";
 import ProjectPage  from "./types";
 import styles from "./page.module.css";
-import ProjectCard from "@/app/events/card";
+import AppCard from "@/components/card";
 
 interface ProjectListProps {
     projects: ProjectPage[];
@@ -20,7 +20,7 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
         <div className={styles.grid}>
             {projects.map((project) => (
                 <div className={styles.cardWrapper} key={project.id}>
-                    <ProjectCard
+                    <AppCard
                         title={project.title}
                         imgSrc={getThumbnail(project.content)}
                         link={`/projects/project?title=${project.title}&id=${project.id}`}

@@ -1,12 +1,13 @@
 import { SecondaryTitle } from "@/components/titles";
 import React from "react";
 import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
-import ProjectCard from "@/app/events/card";
+import AppCard from "@/components/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import Link from "next/link";
 import sectionStyles from "@/app/components/events/section.module.css";
+import {routesMap} from "@/lib/routes";
 export default async function Page() {
   let { albums } = await getEventAlbums();
   // albums = albums?.slice(0, albums.length);
@@ -22,7 +23,7 @@ export default async function Page() {
           margin: "2rem 1rem",
         }}
       >
-        <SecondaryTitle title={"Events"} />
+        <SecondaryTitle title={"Gallery"} />
         <p className={textTheme.body.className}>
           Check the photo albums of our latest events and activities
         </p>
@@ -31,10 +32,10 @@ export default async function Page() {
         {albums?.map((album: EventAlbum) => {
           return (
             <div key={album.id} className={styles.cardWrapper}>
-              <ProjectCard
+              <AppCard
                 title={album.name}
                 imgSrc={album.cover_photo}
-                link={"/events/" + album.id}
+                link={routesMap.gallery + album.id}
               />
             </div>
           );
