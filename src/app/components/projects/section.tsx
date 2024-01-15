@@ -41,7 +41,7 @@ export default function ProjectsSection() {
           paddingInline: "2rem",
         }}
       >
-        <SecondaryTitle title={"Latest Projects"} />
+        <SecondaryTitle title={"Project Portfolio"} />
       </div>
       {/* <ProjectList projects={pages.slice(0, 5)} /> */}
       <div className={styles.cardRow}>

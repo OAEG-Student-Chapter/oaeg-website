@@ -21,7 +21,7 @@ export default async function ProjectsSection() {
           paddingInline: "2rem",
         }}
       >
-        <SecondaryTitle title={"Latest Events"} />
+        <SecondaryTitle title={"Event Gallery"} />
       </div>
       <div className={styles.backgroundGradient}></div>
       <div className={styles.cardRow}>
@@ -45,7 +45,7 @@ export default async function ProjectsSection() {
           position: "relative",
         }}
       >
-        <Link className={styles.moreButton} href={"/events"}>
+        <Link className={styles.moreButton} href={routesMap.gallery.path}>
           More
         </Link>
       </div>
