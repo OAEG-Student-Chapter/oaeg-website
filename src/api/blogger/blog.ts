@@ -9,9 +9,9 @@ class BlogApi {
     this.blogId = blogId;
   }
 
-  async get(endpoint: string) {
+  async get(endpoint: string, maxResults: number = 50) {
     const res = await axios.get(
-      `https://www.googleapis.com/blogger/v3/blogs/${this.blogId}/${endpoint}?key=${this.apiKey}&fetchImages=true`
+      `https://www.googleapis.com/blogger/v3/blogs/${this.blogId}/${endpoint}?maxResults=${maxResults}&key=${this.apiKey}&fetchImages=true`
     );
     return res.data;
   }

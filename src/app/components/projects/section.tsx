@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { SecondaryTitle } from "@/components/titles";
 import { blog } from "../../../api/blogger/blog";
-import ProjectCard from "@/app/events/card";
+import AppCard from "@/components/card";
 import ProjectPage from "@/app/projects/types";
 import ProjectList from "@/app/projects/projects-list";
 
@@ -50,7 +50,7 @@ export default function ProjectsSection() {
             <div
                 key={project.id}
                 className={styles.cardWrapper}>
-              <ProjectCard
+              <AppCard
                 title={project.title}
                 imgSrc={getThumbnail(project.content)}
                 link={`/projects/project?title=${project.title}&id=${project.id}`}
