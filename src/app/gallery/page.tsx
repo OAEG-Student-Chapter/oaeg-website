@@ -35,7 +35,7 @@ export default async function Page() {
               <AppCard
                 title={album.name}
                 imgSrc={album.cover_photo}
-                link={routesMap.gallery + album.id}
+                link={routesMap.gallery.path + album.id}
               />
             </div>
           );

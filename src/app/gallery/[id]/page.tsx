@@ -37,6 +37,7 @@ export default async function Page({params}: { params: { id: string } }) {
 }
 
 const getImages = (album:EventAlbum)  =>{
+    if(!album.photos) return [];
     return album.photos!.map((photo) => {
         return {
             original: photo,
