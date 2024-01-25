@@ -11,7 +11,7 @@ export const runtime = 'edge';
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
     const {album} = await getSingleEventAlbum(id);
-    return <div className={'bg-white py-28 min-h-[100vh]'}>
+    return <div className={'bg-white py-24 min-h-[100vh]'}>
         <div className={`${styles.albumContainer}`}>
             <div style={{
                 display: 'flex',

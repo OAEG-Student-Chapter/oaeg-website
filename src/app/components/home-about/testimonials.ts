@@ -1,4 +1,5 @@
 export interface TestimonialCardProps {
+    title: string;
     name: string;
     position: string;
     quote: string;
@@ -8,7 +9,10 @@ export interface TestimonialCardProps {
 export const data: TestimonialCardProps[] = [
     {
         "name": "Eng.(Prof.) Udeni Nawagamuwa",
-        "position": "President 2022-2023",
+        title: "Professor,\n" +
+            "Department of Civil Engineering,\n" +
+            "University of Moratuwa",
+        "position": "President 2023-2024",
         "image": "./avatars/prof_udeni.jpg",
         "quote": `Upon my return from higher studies, I frequented Ananda College for various purposes, 
         including academic and infrastructure-related concerns. During these interactions, 
@@ -39,10 +43,43 @@ The Students’ Chapter of the OAEG has emerged as a driving force,
     effectively managing and contributing to OAEG projects both within
 the college and the broader community.`
     },
-    // {
-    //     "name": "Eng. Kithsiri Gunasekara",
-    //     "position": "President 2017-2018",
-    //     "image": "/avatars/kithsiri.jpg",
-    //     "quote": `I was privileged to be the first president of the Old Anandian`
-    // }
+    {
+        "name": "Eng. Kithsiri Gunasekara",
+        title: "Director at VS Information Systems (Pvt) Ltd",
+        "position": "President 2017-2018",
+        "image": "/avatars/kithsiri.jpg",
+        "quote": `
+        It is my honor to share a few words about the Old Anandian Engineers' Guild (OAEG) as its inaugural 
+        President. The official formation of OAEG in 2017 was the culmination of numerous discussions and a 
+        widely recognized need among Ananda engineers for such a guild. The actual establishment, however, 
+        was sparked by the initiative of Prof. Udeni Nawagamuwa and his students at the University of Moratuwa. 
+        I vividly recall the dedication of Prof Nawagamuwa, Dr. Malaka, Randika, Chamith, and Tharuka in turning 
+        that collective dream into reality. The Guild's first Annual General Meeting and launch event, held with
+         great flair at Kingsbury Hotel, was a testament to the tireless efforts of everyone involved. 
+         I apologize for any omissions in acknowledging these contributions.
+        \n\n
+        I had the privilege of being the first appointed, rather than elected, President of the Guild. 
+        Over the past six years, OAEG has evolved significantly, becoming a key affiliated group of the 
+        Ananda Old Boys Association. The increasing volume of engineering consultancy requests from our 
+        alma mater speaks volumes about the Guild's significance.\n\n
+But our commitment extended beyond just consulting; we also focused on mentoring undergraduate engineers 
+from Ananda, aiming to elevate them to prominent industry positions. It's gratifying to see this trend 
+continuing, starting with our initial discussion on "What it Takes to Become a CEO."\n\n
+
+Furthermore, OAEG initiated a scholarship program and career guidance for Ananda students. 
+But probably, the most impactful program, however, was "Sahurdha Saviya," led by OAEG undergraduates, 
+to support Advanced Level students. The remarkable improvement in physical science results during its 
+implementation year, while not solely attributable, probably was partly influenced by this initiative.
+\n\n
+Despite the obstacles brought on by COVID-19, notably the hindrance of face-to-face gatherings, 
+I must commend the remarkable resilience and unwavering dedication of the successive presidents and 
+office bearers. Their efforts have been instrumental in maintaining the vitality and activity of the
+ Guild. Under the adept leadership of Eng. Shiran Perera followed by Prof Udeni Nawagamuwa, their 
+ contributions have been nothing short of exemplary, surpassing what I managed to achieve during my tenure.
+\n\n
+As the founding President, I extend my best wishes to OAEG, its current President Prof. 
+Udeni Nawagamuwa, the office bearers, and future executive committee members. Finally, 
+I must express my gratitude to the OAEG student body for their exceptional commitment 
+and contributions to the Guild's success.`
+    }
 ];

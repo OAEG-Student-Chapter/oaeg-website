@@ -34,7 +34,7 @@ const blog: route = {
 };
 
 const team: route = {
-  path: "/team",
+  path: "/exco",
   name: "EXCO",
 };
 

@@ -35,7 +35,7 @@
         "name": "Eng. Sachintha Perera",
         "role": "Vice President (Projects)",
         "linkedin": "https://www.linkedin.com/in/sachintha-perera-1b1b1b1a/",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/sachintha.jpg"
       },
       {
         "name": "Eng. Gayan Prabuddha",
@@ -47,19 +47,19 @@
         "name": "Eng. Malitha Chathuranga Peiris",
         "role": "Joint Secretary",
         "linkedin": "",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/malitha.jpg"
       },
       {
         "name": "Eng. Thilina Rajapaksha",
         "role": "Treasurer",
         "linkedin": "",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/thilina.jpg"
       },
       {
         "name": "Eng. Dr. Pasindu L. Weerasinghe",
         "role": "Assistant Secretary",
         "linkedin": "",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/pasindu_w.jpeg"
       },
       {
         "name": "Eng. Lilantha D. Perera",
@@ -274,12 +274,6 @@
         "linkedin" : "",
         "avatarSRC" : "/avatars/vishwa.jpeg"
       }
-    ]
-  },
-  "2022": {
-    "mainBody": [
-    ],
-    "studentChapter": [
     ]
   }
 }

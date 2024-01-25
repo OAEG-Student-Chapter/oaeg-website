@@ -6,6 +6,7 @@ import Dropdown, { Option } from 'react-dropdown';
 import 'react-dropdown/style.css';
 import CustomSwitchSelector from './CustomSwitchSelector';
 import memberDetailList from "./membersDetailList.json";
+import {routesMap} from "@/lib/routes";
 
 
 export default function TeamHeader({currentYear, currentBody}: { 
@@ -41,12 +42,12 @@ export default function TeamHeader({currentYear, currentBody}: {
 
   const handleSwitchChange = (value: boolean): void => {
     setIsMainBody(value);
-    router.push(`/team/?body=${value ? "mainBody" : "studentChapter"}&year=${year.slice(-4)}`);
+    router.push(`${routesMap.team.path}/?body=${value ? "mainBody" : "studentChapter"}&year=${year.slice(-4)}`);
   };
 
   const handleYearChange = (event: Option) => {
     setYear(event.value);
-    router.push(`/team/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${event.value.slice(-4)}`);
+    router.push(`${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${event.value.slice(-4)}`);
   };
 
   return (
