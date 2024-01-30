@@ -9,7 +9,7 @@
 .testimonialCard > div {
   display: flex;
   justify-content: center;
-  min-height: 50vh;
+  min-height: 60vh;
   max-height: 60vh;
 }
 
@@ -30,6 +30,9 @@
   color: white;
   padding: 2rem;
   font-style: italic;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .quote {

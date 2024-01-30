@@ -58,17 +58,22 @@ export const TestimonialCard = (props: TestimonialCardProps) => {
 }
 
 export const TestimonialsSection = () => {
-    const iconStyle = {height: "1.5rem", width: "1.5rem"};
+    const iconStyle = {
+        height: "1.5rem", width: "1.5rem"};
     const testimonials: TestimonialCardProps[] = data;
 
     const slideProperties = {
-        prevArrow: <div className={"hidden sm:block bg-theme-yellow rounded-full p-1 -translate-x-12"}>
+        prevArrow: <div className={`bg-theme-yellow rounded-full p-1 
+        -bottom-10`}
+                        style={{left:"50%", transform: "translate(-100%, 50%)"}}>
             <FaArrowLeft style={iconStyle}/>
         </div>,
-        nextArrow: <div className={`hidden sm:block bg-theme-yellow rounded-full p-1 translate-x-12`}>
+        nextArrow: <div className={`bg-theme-yellow rounded-full p-1  
+        -bottom-10`} style={{left:"50%", width:"min-content", transform:"translate(100%, 50%)"}}>
             <FaArrowRight style={iconStyle}/>
         </div>,
         pauseOnHover: true,
+        canSwipe: false
     }
 
     return (<Slide cssClass={"bg-white"} {...slideProperties}>

@@ -46,7 +46,7 @@ export default function HomeAboutSection() {
                     <RegisterButton cta={"Join the Guild"}/>
                 </div>
             </div>
-            <div className={styles.bottomSection}>
+            <div className={`${styles.bottomSection} mb-12`}>
                 <div style={{marginTop: 10}} id={"testimonials"}>
                     <SecondaryTitle title={"Testimonials"}/>
                 </div>
