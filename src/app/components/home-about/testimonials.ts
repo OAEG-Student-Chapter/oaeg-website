@@ -81,5 +81,16 @@ As the founding President, I extend my best wishes to OAEG, its current Presiden
 Udeni Nawagamuwa, the office bearers, and future executive committee members. Finally, 
 I must express my gratitude to the OAEG student body for their exceptional commitment 
 and contributions to the Guild's success.`
+    },
+    {
+        name:"Eng. Thushara Asuramanna",
+        title: "GM/CEO\nState Mortgage & Investment Bank.",
+        position: "",
+        image: "/avatars/thushara_asurumanna.jpg",
+        quote: `
+        It's wonderful to hear about the Old Anandians Engineers Guild (OAEG) and the positive impact it has on our school. The commitment of its members to academic development, soft skill enhancement, career guidance, recognition of student excellence, and infrastructure development is truly commendable. The collective efforts of eminent personalities, both locally and internationally, reflect the dedication and passion for the betterment of the alma mater.
+\n\n
+I join you in extending my best wishes to the Old Anandians Engineers Guild for their future endeavors. May your continued contributions elevate Ananda College to new heights, fostering an environment of excellence and growth. Here's to the OAEG making a lasting impact on the school and shaping the future of its students. I am proud to be a member of this esteemed community.
+`
     }
 ];
