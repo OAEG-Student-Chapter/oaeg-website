@@ -62,7 +62,7 @@ const ContactForm = () => {
     return (
         <>
             <div className={styles.contactFormWrapper}>
-                <div className={"flex justify-center"}>
+                <div className={"flex justify-start"}>
                     <span className={styles.preFormTitle}>Get in touch with us</span>
                 </div>
                 <h4 className={"text-xl font-bold mb-2"}>Joint Secretaries</h4>
@@ -75,7 +75,7 @@ const ContactForm = () => {
                     </div>))
                   }
                 </div>
-                <p style={{textAlign: "center", marginBlock: "1rem"}}>
+                <p style={{marginBlock: "1rem"}}>
                     Or just fill the form below to send us a message and we will get back to you as soon as possible.
                 </p>
                 <form className={styles.form} onSubmit={sendEmail}>
