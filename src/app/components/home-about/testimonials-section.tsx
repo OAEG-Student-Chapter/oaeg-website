@@ -65,11 +65,11 @@ export const TestimonialsSection = () => {
     const slideProperties = {
         prevArrow: <div className={`bg-theme-yellow rounded-full p-1 
         -bottom-10`}
-                        style={{left:"50%", transform: "translate(-100%, 50%)"}}>
+                        style={{left:"50%", transform: "translate(-150%, 50%)"}}>
             <FaArrowLeft style={iconStyle}/>
         </div>,
         nextArrow: <div className={`bg-theme-yellow rounded-full p-1  
-        -bottom-10`} style={{left:"50%", width:"min-content", transform:"translate(100%, 50%)"}}>
+        -bottom-10`} style={{left:"50%", width:"min-content", transform:"translate(50%, 50%)"}}>
             <FaArrowRight style={iconStyle}/>
         </div>,
         pauseOnHover: true,
