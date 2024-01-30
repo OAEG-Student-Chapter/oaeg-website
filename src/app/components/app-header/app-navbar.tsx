@@ -43,6 +43,16 @@ export default function AppNavbar({onItemClick}: {
                         }
                     })}/>
             </li>
+            <li className={"flex"}>
+                <a
+                    href="https://www.anandacollegeoba.org/old-boys-association/affiliated-groups/old-anandians-engineers-guild-details/"
+                    target={"_blank"}
+                    className={"rounded"}
+                    style={{
+                    height:"2.5rem"}}>
+                    <img className={"h-full contain"} src={"/images/oba.webp"}  alt={"ananda college oba"}/>
+                </a>
+            </li>
         </ul>
     );
     return (
