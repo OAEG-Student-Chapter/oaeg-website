@@ -70,7 +70,8 @@ const ContactForm = () => {
                   {
                     contactPersons.map((contactPerson) => (<div className="pr-5 mr-5 border-r-2 border-r-white">
                       <span className={"text-base"}>{contactPerson.name}</span> <br/>
-                      <span className={"flex items-center"}> <FaEnvelope className={"mr-2"}/> {contactPerson.email}</span>
+                      <a href={`mailto:${contactPerson.email}`}
+                         className={"flex items-center"}> <FaEnvelope className={"mr-2"}/> {contactPerson.email}</a>
                     </div>))
                   }
                 </div>
