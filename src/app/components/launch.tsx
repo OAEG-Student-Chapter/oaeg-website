@@ -99,9 +99,9 @@ const Launch = ({app}: { app: ReactNode }) => {
                 justify-center items-center bg-black p-24`}>
                     <div className={`bg-black z-1 absolute top-0 left-0 w-full h-full transition-transform
                      delay-1000 duration-1000 ${state === LaunchStates.PostLaunch ? "translate-x-full" : ""}`}></div>
-                    <p className={`text-5xl text-white mb-5 tracking-wide ${textTheme.title.className}`}>{lines[0]}</p>
-                    <p className={`text-3xl text-white mb-4 tracking-wide ${textTheme.title.className}`}>{lines[1]}</p>
-                    <p className={`text-6xl text-white tracking-wide ${textTheme.title.className}`}>{lines[2]}</p>
+                    <p className={`text-xl sm:text-5xl text-center text-white mb-5 tracking-wide ${textTheme.title.className}`}>{lines[0]}</p>
+                    <p className={`text-sm sm:text-3xl text-center text-white mb-4 tracking-wide ${textTheme.title.className}`}>{lines[1]}</p>
+                    <p className={`text-2xl sm:text-6xl text-center text-white tracking-wide ${textTheme.title.className}`}>{lines[2]}</p>
                 </div>
             </Slide>
         </div>
