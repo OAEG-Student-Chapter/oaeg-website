@@ -88,9 +88,22 @@ and contributions to the Guild's success.`
         position: "",
         image: "/avatars/thushara_asurumanna.jpg",
         quote: `
-        It's wonderful to hear about the Old Anandians Engineers Guild (OAEG) and the positive impact it has on our school. The commitment of its members to academic development, soft skill enhancement, career guidance, recognition of student excellence, and infrastructure development is truly commendable. The collective efforts of eminent personalities, both locally and internationally, reflect the dedication and passion for the betterment of the alma mater.
+        It's wonderful to hear about the Old Anandians Engineers' Guild (OAEG) and the positive impact it has on our school. The commitment of its members to academic development, soft skill enhancement, career guidance, recognition of student excellence, and infrastructure development is truly commendable. The collective efforts of eminent personalities, both locally and internationally, reflect the dedication and passion for the betterment of the alma mater.
 \n\n
-I join you in extending my best wishes to the Old Anandians Engineers Guild for their future endeavors. May your continued contributions elevate Ananda College to new heights, fostering an environment of excellence and growth. Here's to the OAEG making a lasting impact on the school and shaping the future of its students. I am proud to be a member of this esteemed community.
+I join you in extending my best wishes to the Old Anandians Engineers' Guild for their future endeavors. May your continued contributions elevate Ananda College to new heights, fostering an environment of excellence and growth. Here's to the OAEG making a lasting impact on the school and shaping the future of its students. I am proud to be a member of this esteemed community.
 `
+    },
+    {
+        name: "Eng. Sumudu Gunawardena",
+        title: "Chief Information Officer\nCommercial Bank of Ceylon",
+        position: "",
+        image: "/avatars/sumudu_gunawardena.jpg",
+        quote:`As a member of the Old Anandians Engineers' Guild (OAEG), I extend my heartfelt congratulations on the occasion of its Annual General Meeting. The continuous and impactful contributions of the OAEG are poised to elevate Ananda College to new heights, fostering an environment of excellence and growth. May the guild persist in its pivotal role of shaping students' future, leaving an indelible mark on our cherished alma mater.
+ \n\n
+The commendable initiatives led by OAEG, aimed at providing career guidance and encouraging students to pursue engineering, are truly praiseworthy. The dedication of OAEG members to enhancing academic and professional development reflects their commitment to nurturing top-notch professionals of international repute among the young Anandians. I am confident that these efforts will pave the way for aspiring students to prosper in their engineering careers.
+\n\n
+The collaborative endeavours of distinguished individuals within OAEG, characterised by their exceptional calibre, exemplify a shared commitment and fervour for the progress of Ananda College. As an old Indian and an engineer, I take immense pride in being a part of this community.
+ \n\n
+I wish OAEG continued success in all its future endeavours, and I am confident that the collective efforts of the guild will persist in making a positive and enduring impact on our beloved alma mater. Here's to the continued success of the OAEG and the bright future it actively shapes for Ananda College and its students.`
     }
 ];
