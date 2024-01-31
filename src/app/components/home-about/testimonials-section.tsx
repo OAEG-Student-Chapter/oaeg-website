@@ -12,7 +12,7 @@ const krub = Krub({subsets: ['latin'], weight: ['400']});
 export const TestimonialCard = (props: TestimonialCardProps) => {
     return (
         <div className={styles.testimonialCard}>
-            <div className={styles.cardLeft}>
+            <div className={styles.cardLeft + " cursor-default"}>
                 <div className={styles.testimonialImage} >
                     <img
                         style={{
@@ -47,7 +47,7 @@ export const TestimonialCard = (props: TestimonialCardProps) => {
                 </div>
             </div>
             <div className={`${styles.cardRight}`}>
-                <p className={`${krub.className} ${styles.quote}`}>
+                <p className={`${krub.className} ${styles.quote} cursor-default`}>
                     {
                         splitByDoubleNewline(props.quote)
                     }
@@ -73,7 +73,9 @@ export const TestimonialsSection = () => {
             <FaArrowRight style={iconStyle}/>
         </div>,
         pauseOnHover: true,
-        canSwipe: false
+        canSwipe: false,
+        // random number between 0 and length of testimonials
+        defaultIndex: Math.floor(Math.random() * testimonials.length),
     }
 
     return (<Slide cssClass={"bg-white"} {...slideProperties}>
@@ -88,4 +90,5 @@ export const TestimonialsSection = () => {
         }
     </Slide>);
 }
+
 
