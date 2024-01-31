@@ -1,31 +1,43 @@
 .projectContainer {
   font-family: "Poppins", sans-serif !important;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  padding: 40px clamp(10px, 5vw, 70px);
-  text-align: justify;
-}
+  padding: 40px 200px;
 
-.projectContainer{
+  @media (max-width: 768px) {
+    padding: 40px 40px;
+  }
+
   h1, h2, h3{
     font-weight: bold;
+    margin-top: 1.2rem;
   }
-}
 
-.projectContainer h1 span {
-  font-size: 1.5rem;
-  color: var(--color-heading);
-  font-weight: 600;
-}
+  h1 span {
+    font-size: 1.5rem;
+    color: var(--color-heading);
+    font-weight: 600;
+    text-align: center;
+  }
 
-.projectContainer img {
-  width: clamp(300px, 50vw, 600px);
-  height: auto;
-  margin: 0 auto;
-  display: block;
-}
+  img {
+    width: clamp(300px, 50vw, 600px);
+    height: auto;
+  }
 
-.projectContainer span{
-  font-family: "Poppins", sans-serif !important;
+  span{
+    font-family: "Poppins", sans-serif !important;
+  }
+
+    // add bottom margin to all text elements
+    p, h1, h2, h3, h4, h5, h6, ul, ol, li, blockquote, pre, table, dl, dd, dt, code, figure, figcaption {
+        margin-bottom: 1rem;
+    }
+
+    ul > li{
+        list-style-type: circle;
+        margin-bottom: 0.5rem;
+    }
+
+    span{
+        margin-bottom: 1rem;
+    }
 }
