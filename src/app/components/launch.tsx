@@ -83,9 +83,12 @@ const Launch = ({app}: { app: ReactNode }) => {
                         to happen
                         when
                         you click</p>
-                    <button className={`shadow-md rounded-xl bg-theme-yellow p-4 text-3xl font-bold 
-        ${textTheme.title.className}`}
-                            onClick={() => {launch()}}
+                    <button className={`shadow-md rounded-xl p-4 text-3xl font-bold 
+        ${textTheme.title.className} ${isLaunchActive ? "bg-theme-yellow" : "bg-gray-500"}`}
+                            disabled={!isLaunchActive}
+                            onClick={() => {
+                                if(isLaunchActive) launch();
+                            }}
                     >Launch 🚀
                     </button>
                 </div>
