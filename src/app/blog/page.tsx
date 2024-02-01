@@ -31,7 +31,7 @@ export default function Page() {
         const posts = await blog.get("posts");
         setPosts(posts.items as Post[]); // explicitly specify the type of the posts array
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
     fetchData();

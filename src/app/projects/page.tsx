@@ -16,9 +16,9 @@ export default function Page() {
             try {
                 const pages = await blog.get("pages");
                 setPages(pages.items as ProjectPage[]);
-                console.log(pages.items);
+                // console.log(pages.items);
             } catch (error) {
-                console.error(error);
+                // console.error(error);
             }
         }
         fetchData();

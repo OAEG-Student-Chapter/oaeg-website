@@ -81,6 +81,7 @@ export const TestimonialsSection = () => {
     return (<Slide cssClass={"bg-white"} {...slideProperties}>
         {
             testimonials.map((testimonial, index) => (<TestimonialCard
+                key={index}
                 title={testimonial.title}
                 name={testimonial.name}
                 position={testimonial.position}
