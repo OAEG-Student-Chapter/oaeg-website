@@ -2,6 +2,7 @@
 import JSConfetti from "js-confetti";
 import {ReactNode, useEffect, useState} from "react";
 import textTheme from "@/lib/fonts";
+import { worker } from "@/api/worker_api";
 
 enum LaunchStates {
     PreLaunch,
@@ -28,10 +29,12 @@ const Launch = ({app}: { app: ReactNode }) => {
 
     // effect to initialize variables
     useEffect(() => {
-        setIsLaunchActive(true);
-        const _isLaunched = false;
-        setIsLaunched(_isLaunched);
-        setHideLaunch(_isLaunched);
+        _setIsLaunchActive();
+        _setIsLaunched();
+        console.log("reached5", isLaunchActive, isLaunched)
+        // const _isLaunched = false;
+        // setIsLaunched(_isLaunched);
+        // setHideLaunch(_isLaunched);
     }, []);
 
     // function to handle launch
@@ -46,17 +49,22 @@ const Launch = ({app}: { app: ReactNode }) => {
     }
 
     // set isLaunch variable in the store to true
-    const _setIsLaunched = () => {
-        if (isLaunched) {
-            //TODO: call the api
+    const _setIsLaunched = async () => {
+        if (isLaunchActive) {
+            const _isLaunched = await worker.getIsLaunched();
+            setIsLaunched(_isLaunched);
+            setHideLaunch(_isLaunched);
         }
+        console.log("reached3", isLaunchActive, isLaunched)
     }
 
     // set isLaunchActive state in component to true
-    const _setIsLaunchActive = () => {
-        if (!isLaunchActive) {
-            setIsLaunchActive(true);
-        }
+    const _setIsLaunchActive = async () => {
+        const _isLaunchActive = await worker.getIsLaunchActive();
+        console.log("isLaunchActive-pre", _isLaunchActive);
+        setIsLaunchActive(_isLaunchActive);
+        console.log("isLaunchActive-post", _isLaunchActive);
+        console.log("reached1", isLaunchActive, isLaunched)
     }
 
     // effect to throw confetti
