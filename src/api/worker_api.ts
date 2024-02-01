@@ -1,3 +1,8 @@
+interface LaunchDTO {
+    isLaunched: boolean;
+    isLaunchActive: boolean;
+}
+
 class WorkerApi {
     private isLaunched: boolean = false;
     private isLaunchActive: boolean = false;
@@ -6,8 +11,8 @@ class WorkerApi {
     constructor(baseUrl: string) {
       this.baseUrl = baseUrl;
     }
-  
-    async getIsLaunched() {
+
+    async getIsLaunched(){
       const endpoint = this.baseUrl + "/read"
       const res = await fetch(
         endpoint,
@@ -27,6 +32,20 @@ class WorkerApi {
       const stringValue = (await res.json()).isLaunchActive;
       this.isLaunchActive = stringValue === "true";
       return this.isLaunchActive;
+    }
+
+    async read():Promise<LaunchDTO> {
+        const endpoint = this.baseUrl + "/read"
+        const res = await fetch(
+            endpoint,
+            {next: { revalidate: 3600 }}
+        );
+        // convert jsonStr to json object
+        const jsonStr = await res.json();
+        return {
+            isLaunched: jsonStr.isLaunched === "true",
+            isLaunchActive: jsonStr.isLaunchActive === "true"
+        };
     }
 
     async activateLaunch() {

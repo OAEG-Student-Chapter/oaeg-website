@@ -29,13 +29,18 @@ const Launch = ({app}: { app: ReactNode }) => {
 
     // effect to initialize variables
     useEffect(() => {
-        _setIsLaunchActive();
-        _setIsLaunched();
-        console.log("reached5", isLaunchActive, isLaunched)
-        // const _isLaunched = false;
-        // setIsLaunched(_isLaunched);
-        // setHideLaunch(_isLaunched);
+        worker.read().then(r => {
+            setIsLaunchActive(r.isLaunchActive);
+            const _isLaunched = r.isLaunched;
+            setIsLaunched(_isLaunched);
+            setHideLaunch(_isLaunched);
+        });
     }, []);
+
+    // set isLaunch variable in the store to true
+    const _setIsLaunched = () => {
+        worker.launchApp().then(r => console.log(r));
+    }
 
     // function to handle launch
     const launch = () => {
@@ -45,26 +50,9 @@ const Launch = ({app}: { app: ReactNode }) => {
         // after 5s setState to Active
         setTimeout(() => {
             setState(LaunchStates.Active);
+            _setIsLaunched();
         }, 5000);
-    }
 
-    // set isLaunch variable in the store to true
-    const _setIsLaunched = async () => {
-        if (isLaunchActive) {
-            const _isLaunched = await worker.getIsLaunched();
-            setIsLaunched(_isLaunched);
-            setHideLaunch(_isLaunched);
-        }
-        console.log("reached3", isLaunchActive, isLaunched)
-    }
-
-    // set isLaunchActive state in component to true
-    const _setIsLaunchActive = async () => {
-        const _isLaunchActive = await worker.getIsLaunchActive();
-        console.log("isLaunchActive-pre", _isLaunchActive);
-        setIsLaunchActive(_isLaunchActive);
-        console.log("isLaunchActive-post", _isLaunchActive);
-        console.log("reached1", isLaunchActive, isLaunched)
     }
 
     // effect to throw confetti
