@@ -31,6 +31,7 @@ export default function AppHero(props:AppHeroProps) {
                 <h2 className={`text-4xl md:text-7xl text-white text-center`}>
                     <span className={"text-theme-yellow"}>Old Anandian</span> <br/>
                     Engineers' Guild</h2>
+                <h4 className="text-xl md:text-large text-center text-gray-100 mt-2">Est. in 2017</h4>
                 <div className="flex mt-4 w-full justify-center">
                 {/*    font awesome icons */}
                     <IconLinks

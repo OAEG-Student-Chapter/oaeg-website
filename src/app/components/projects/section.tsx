@@ -4,7 +4,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { SecondaryTitle } from "@/components/titles";
 import { blog } from "../../../api/blogger/blog";
-import ProjectCard from "@/app/events/card";
+import AppCard from "@/components/card";
 import ProjectPage from "@/app/projects/types";
 import ProjectList from "@/app/projects/projects-list";
 
@@ -16,9 +16,9 @@ export default function ProjectsSection() {
       try {
         const pages = await blog.get("pages");
         setPages(pages.items as ProjectPage[]);
-        console.log(pages.items);
+        //console.log(pages.items);
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
     fetchData();
@@ -41,7 +41,7 @@ export default function ProjectsSection() {
           paddingInline: "2rem",
         }}
       >
-        <SecondaryTitle title={"Latest Projects"} />
+        <SecondaryTitle title={"Project Portfolio"} />
       </div>
       {/* <ProjectList projects={pages.slice(0, 5)} /> */}
       <div className={styles.cardRow}>
@@ -50,7 +50,7 @@ export default function ProjectsSection() {
             <div
                 key={project.id}
                 className={styles.cardWrapper}>
-              <ProjectCard
+              <AppCard
                 title={project.title}
                 imgSrc={getThumbnail(project.content)}
                 link={`/projects/project?title=${project.title}&id=${project.id}`}

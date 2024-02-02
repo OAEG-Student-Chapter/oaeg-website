@@ -2,7 +2,7 @@ import styles from './page.module.css';
 import textTheme from "@/lib/fonts";
 import React from "react";
 import {getSingleEventAlbum, EventAlbum} from "@/app/events/event_album_handlers";
-import Gallery from "@/app/events/[id]/gallery";
+import Gallery from "@/app/gallery/[id]/gallery";
 import sectionStyles from "@/app/components/events/section.module.css";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ export const runtime = 'edge';
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
     const {album} = await getSingleEventAlbum(id);
-    return <div className={'bg-white py-28 min-h-[100vh]'}>
+    return <div className={'bg-white py-24 min-h-[100vh]'}>
         <div className={`${styles.albumContainer}`}>
             <div style={{
                 display: 'flex',
@@ -37,6 +37,7 @@ export default async function Page({params}: { params: { id: string } }) {
 }
 
 const getImages = (album:EventAlbum)  =>{
+    if(!album.photos) return [];
     return album.photos!.map((photo) => {
         return {
             original: photo,

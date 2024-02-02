@@ -1,5 +1,5 @@
 'use client'
-import styles from "@/app/events/[id]/page.module.css";
+import styles from "@/app/gallery/[id]/page.module.css";
 import React, {useEffect} from "react";
 import {FaTimes} from "react-icons/fa";
 
@@ -51,7 +51,7 @@ export default function Gallery({images}:{images:Image[]}) {
         }}>
             <div className={styles.grid}>
                 {
-                    images.map((photo, index) => {
+                    images?.map((photo, index) => {
                         return <img
                             onClick={() => {
                                 setGalleryIndex(index);

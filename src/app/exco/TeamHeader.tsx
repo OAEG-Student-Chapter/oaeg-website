@@ -6,6 +6,7 @@ import Dropdown, { Option } from 'react-dropdown';
 import 'react-dropdown/style.css';
 import CustomSwitchSelector from './CustomSwitchSelector';
 import memberDetailList from "./membersDetailList.json";
+import {routesMap} from "@/lib/routes";
 
 
 export default function TeamHeader({currentYear, currentBody}: { 
@@ -17,11 +18,11 @@ export default function TeamHeader({currentYear, currentBody}: {
   // make sure to add years in descending order in the json file
   const years = Object.keys(memberDetailList).sort((a, b) => parseInt(b) - parseInt(a));
   const yearsTexts = years.map((year) => {
-    return "The Board of Offcials "+year;
+    return `The Board of Officials ${year}`;
   });
 
   // yearsTexts.length - 1
-  const initialYear = currentYear ? "The Board of Offcials "+currentYear : yearsTexts[0];
+  const initialYear = currentYear ? `The Board of Officials ${currentYear}` : yearsTexts[0];
   const initialIsMainBody = currentBody ? currentBody == "mainBody" : true;
   const [year, setYear] = useState(initialYear);
   const [isMainBody, setIsMainBody] = useState(initialIsMainBody);
@@ -41,12 +42,12 @@ export default function TeamHeader({currentYear, currentBody}: {
 
   const handleSwitchChange = (value: boolean): void => {
     setIsMainBody(value);
-    router.push(`/team/?body=${value ? "mainBody" : "studentChapter"}&year=${year.slice(-4)}`);
+    router.push(`${routesMap.team.path}/?body=${value ? "mainBody" : "studentChapter"}&year=${year.slice(-4)}`);
   };
 
   const handleYearChange = (event: Option) => {
     setYear(event.value);
-    router.push(`/team/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${event.value.slice(-4)}`);
+    router.push(`${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${event.value.slice(-4)}`);
   };
 
   return (

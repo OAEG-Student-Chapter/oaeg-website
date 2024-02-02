@@ -23,7 +23,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  /*align-items: center;*/
   background: rgba(0, 0, 0, 0.8);
   color: var(--vt-c-white);
   border-radius: 5px;

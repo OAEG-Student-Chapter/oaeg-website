@@ -1,40 +1,59 @@
 .testimonialCard {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+    flex-direction: column;
   }
+  border: 1px solid var(--color-background-mute);
+}
+
+.testimonialCard > div {
+  display: flex;
+  justify-content: center;
+  min-height: 60vh;
+  max-height: 60vh;
 }
 
 .cardLeft {
-  padding: 2rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  flex:1;
+  flex-direction: column;
+  padding: 0.5rem;
   background: var(--color-background-mute);
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 }
 
-@media (max-width: 768px) {
-  .cardLeft > div {
-    align-items: center;
-  }
+.cardLeft .testimonialImage{
+  padding: 1rem;
 }
 
 .cardRight {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex:3;
   background: var(--color-primary-dark);
   color: white;
   padding: 2rem;
   font-style: italic;
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .quote {
   text-align: center;
+  overflow-y: scroll;
+  padding-right: 1rem;
 }
+
+/* design redesign srollbar - transparent track and yellow thumb
+https://stackoverflow.com/questions/46662981/how-to-change-the-color-of-scrollbar-in-html
+*/
+.quote::-webkit-scrollbar {
+  width: 0.2rem;
+}
+.quote::-webkit-scrollbar-track {
+  background: transparent;
+}
+.quote::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+}
+
 
 .quote::before {
   content: open-quote;

@@ -1,9 +1,10 @@
 import styles from "./section.module.css";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import { SecondaryTitle } from "@/components/titles";
 import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
-import ProjectCard from "@/app/events/card";
+import AppCard from "@/components/card";
+import {routesMap} from "@/lib/routes";
 
 export const runtime = "edge";
 
@@ -20,17 +21,17 @@ export default async function ProjectsSection() {
           paddingInline: "2rem",
         }}
       >
-        <SecondaryTitle title={"Latest Events"} />
+        <SecondaryTitle title={"Event Gallery"} />
       </div>
       <div className={styles.backgroundGradient}></div>
       <div className={styles.cardRow}>
         {albums?.map((album: EventAlbum) => {
           return (
             <div key={album.id} className={styles.cardWrapper}>
-              <ProjectCard
+              <AppCard
                 title={album.name}
                 imgSrc={album.cover_photo}
-                link={"/events/" + album.id}
+                link={routesMap.gallery.path + album.id}
               />
             </div>
           );
@@ -44,7 +45,7 @@ export default async function ProjectsSection() {
           position: "relative",
         }}
       >
-        <Link className={styles.moreButton} href={"/events"}>
+        <Link className={styles.moreButton} href={routesMap.gallery.path}>
           More
         </Link>
       </div>

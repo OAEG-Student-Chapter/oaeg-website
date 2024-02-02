@@ -19,13 +19,13 @@ const contactUs: route = {
 };
 
 const projects: route = {
-  path: "/projects",
+  path: "/projects/",
   name: "Projects",
 };
 
-const events: route = {
-  path: "/events",
-  name: "Events",
+const gallery: route = {
+  path: "/gallery/",
+  name: "Gallery"
 };
 
 const blog: route = {
@@ -34,7 +34,7 @@ const blog: route = {
 };
 
 const team: route = {
-  path: "/team",
+  path: "/exco",
   name: "EXCO",
 };
 
@@ -43,12 +43,12 @@ const register: route = {
     name: "Become A Member"
 };
 
-export const routes:route[] = [home, projects, events, team, contactUs, blog];
+export const routes:route[] = [home, projects, gallery, team, contactUs, blog];
 
 export const routesMap = {
   home,
   projects,
-  events,
+  gallery,
   team,
   contactUs,
   blog,

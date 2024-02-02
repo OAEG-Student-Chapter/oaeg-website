@@ -31,7 +31,7 @@ export default function Page() {
         const posts = await blog.get("posts");
         setPosts(posts.items as Post[]); // explicitly specify the type of the posts array
       } catch (error) {
-        console.error(error);
+        // console.error(error);
       }
     }
     fetchData();
@@ -45,7 +45,7 @@ export default function Page() {
       <div className={`${styles.container} ${navStyles.navbarSpace} bg-white min-h-screen`}>
         <div className={`${styles.container}  py-16 px-2 md:px-30 lg:px-40`}>
           <div className={styles.caption}>Our Blog</div>
-          <span className={styles.title}>Our Latest News</span>
+          <span className={styles.title}>Engineers' Ink</span>
           {posts.map((post,index) => (
               <div
                   className={styles.blogContainer}

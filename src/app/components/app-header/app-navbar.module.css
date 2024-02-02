@@ -25,14 +25,14 @@
 .socialLinks{
     font-size: 1.1em;
     color: var(--color-inv-text);
-    margin-left: 2em;
+    margin-left: 1.5em;
 }
 
 .socialLinks a:first-child{
     margin-left: 0 !important;
 }
 .socialLinks a{
-    margin-inline: 0.5rem;
+    margin-inline: 0.5rem !important;
     @media (max-width: 768px) {
         margin-inline: 0.5em !important;
     }
