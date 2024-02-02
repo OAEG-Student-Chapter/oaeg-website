@@ -78,13 +78,12 @@ const Launch = ({app}: { app: ReactNode }) => {
                 currentState={state}
                 slideState={LaunchStates.PreLaunch}>
                 <div className={`flex flex-col justify-center items-center p-24 bg-white h-full`}>
-                    <p className={`text-xl mb-6 text-black text-center ${textTheme.body.className}`}>Good things are
-                        about
-                        to happen
-                        when
-                        you click</p>
-                    <button className={`shadow-md rounded-xl p-4 text-3xl font-bold 
-        ${textTheme.title.className} ${isLaunchActive ? "bg-theme-yellow" : "bg-gray-500"}`}
+                    <p className={`text-xl md:text-4xl mb-8 text-black
+                     text-center ${textTheme.body.className}`}>
+                        Explore the Past, Discover the Future 💫
+                        </p>
+                    <button className={`shadow-md rounded-3xl p-8 text-3xl md:text-6xl font-bold tracking-wide
+        ${textTheme.title.className} ${isLaunchActive ? "bg-theme-yellow" : "bg-gray-500 text-gray-800"}`}
                             disabled={!isLaunchActive}
                             onClick={() => {
                                 if(isLaunchActive) launch();
@@ -94,13 +93,16 @@ const Launch = ({app}: { app: ReactNode }) => {
                 </div>
             </Slide>
             <Slide currentState={state} slideState={LaunchStates.PostLaunch}>
-                <div id={"post-launch"} className={`h-full flex flex-col 
+                <div id={"post-launch"} className={`h-full flex flex-col
                 justify-center items-center bg-black p-24`}>
-                    <div className={`bg-black z-1 absolute top-0 left-0 w-full h-full transition-transform
+                    <div className={`flex-1 flex flex-col justify-center items-center`}>
+                        <div className={`bg-black z-1 absolute top-0 left-0 w-full h-full transition-transform
                      delay-1000 duration-1000 ${state === LaunchStates.PostLaunch ? "translate-x-full" : ""}`}></div>
-                    <p className={`text-xl sm:text-5xl text-center text-white mb-5 tracking-wide ${textTheme.title.className}`}>{lines[0]}</p>
-                    <p className={`text-sm sm:text-3xl text-center text-white mb-4 tracking-wide ${textTheme.title.className}`}>{lines[1]}</p>
-                    <p className={`text-2xl sm:text-6xl text-center text-white tracking-wide ${textTheme.title.className}`}>{lines[2]}</p>
+                        <p className={`text-xl sm:text-5xl text-center text-white mb-5 tracking-wide ${textTheme.title.className}`}>{lines[0]}</p>
+                        <p className={`text-sm sm:text-3xl text-center text-white mb-4 tracking-wide ${textTheme.title.className}`}>{lines[1]}</p>
+                        <p className={`text-2xl sm:text-6xl text-center text-white tracking-wide ${textTheme.title.className}`}>{lines[2]}</p>
+                    </div>
+                    <p className={`text-xl text-center text-white`}>Powered by the OAEG Student Chapter</p>
                 </div>
             </Slide>
         </div>
