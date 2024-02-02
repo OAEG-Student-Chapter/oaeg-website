@@ -105,5 +105,19 @@ The commendable initiatives led by OAEG, aimed at providing career guidance and 
 The collaborative endeavours of distinguished individuals within OAEG, characterised by their exceptional calibre, exemplify a shared commitment and fervour for the progress of Ananda College. As an old Indian and an engineer, I take immense pride in being a part of this community.
  \n\n
 I wish OAEG continued success in all its future endeavours, and I am confident that the collective efforts of the guild will persist in making a positive and enduring impact on our beloved alma mater. Here's to the continued success of the OAEG and the bright future it actively shapes for Ananda College and its students.`
+    },
+    {
+        name:"Mr. Deepana Ishtaweera",
+        title: "Director/CEO\nRoboticGen (Pvt) Ltd",
+        position: "",
+        image: "/avatars/deepana.jpeg",
+        quote: `Joining the Old Anandian Engineers’ Guild marked the beginning of an inspiring chapter in my life. My first encounter with the Guild at the Inaugural Congregation Event was a profound eye-opener, introducing me to a network of fellow Anandians passionate about engineering.
+\n\n
+My active involvement in the student chapter's activities fueled my growth, both professionally and personally. The industry visits were a highlight, offering me firsthand insights from industry leaders and shaping my entrepreneurial path. The guidance and mentorship I received from these interactions have been invaluable.
+\n\n
+Serving as the Joint Secretary in 2020/21, I honed my leadership skills and benefited from the Guild's focus on soft skills and professional conduct. Giving back to our school through the 'Intro to Robotics' course was especially rewarding, allowing me to share my passion for robotics with young minds eager to learn.
+Moreover, speaking at the 'Pathway to Engineering' programs allowed me to inspire and encourage budding engineers. These experiences not only contributed to my personal growth but also reinforced my commitment to fostering a supportive and dynamic engineering community.
+\n\n
+I am grateful for the mentorship, opportunities, and experiences provided by the Old Anandian Engineers’ Guild. It's been a privilege to be part of an organization that continually strives for excellence and community upliftment.`
     }
 ];
