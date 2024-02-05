@@ -24,7 +24,7 @@ export default function Page({ params, searchParams}: {
     searchParams?: { [key: string]: string };
   }) {
     // By default, the year is 2023 and the body is mainBody ( hardcoded here )
-    const year:string = searchParams?.year || "2023";
+    const year:string = searchParams?.year || "2024";
     const body:string = searchParams?.body || "mainBody";
     const detailList: DataObject = memberDetailList;
     return (
