@@ -1,16 +1,21 @@
+'use client'
 import styles from "./section.module.css";
 import Link from "next/link";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { SecondaryTitle } from "@/components/titles";
 import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
 import AppCard from "@/components/card";
 import {routesMap} from "@/lib/routes";
 
-export const runtime = "edge";
+export default function ProjectsSection() {
+    const [albums, setAlbums] = useState<EventAlbum[]>();
 
-export default async function ProjectsSection() {
-  let { albums } = await getEventAlbums();
-  albums = albums?.slice(0, 5);
+    useEffect(() => {
+        getEventAlbums().then(res => {
+            setAlbums(res.albums?.slice(0,5))
+        });
+    }, []);
+
   return (
     <div className={`${styles.section} bg-white`}>
       <div
