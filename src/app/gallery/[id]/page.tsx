@@ -7,6 +7,8 @@ import Gallery from "@/app/gallery/[id]/gallery";
 import sectionStyles from "@/app/components/events/section.module.css";
 import Link from "next/link";
 
+export const runtime = 'edge';
+
 export default function Page({params}: { params: { id: string } }) {
 
     const [album, setAlbum] = useState<EventAlbum>();
