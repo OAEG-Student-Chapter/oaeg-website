@@ -40,7 +40,5 @@ class PageAlbum implements IPageAlbum{
         this.type = album.type;
         this.link = album.link;
     }
-
-
 }
 

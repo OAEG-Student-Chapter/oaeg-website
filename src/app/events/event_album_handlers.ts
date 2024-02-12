@@ -37,7 +37,7 @@ export const getSingleEventAlbum = async (
 ): Promise<{
   album: EventAlbum;
 }> => {
-  const res = await getSingleAlbum(album_id, true);
+  const res = await getSingleAlbum(album_id);
   return {
     album: getEventAlbumHelper(res.album),
   };

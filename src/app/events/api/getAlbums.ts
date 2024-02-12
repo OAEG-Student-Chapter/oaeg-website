@@ -1,25 +1,24 @@
-import {graph} from "@/api/graph_api/page_api";
+import axios from "axios";
 
 export const getAlbums = async (
 ): Promise<{
     albums: PageAlbum[];
 }> => {
-    const res = await graph.get(`${graph.page_id}/albums?fields=id,name,link,created_time,type,cover_photo{webp_images}`);
+    const res = await axios.get("https://oaeg-web-backend.oaegstudentchap.workers.dev/albums");
+    const {data} = res.data;
     return {
-        albums: res.data
+        albums: data
     }
 }
 
 export const getSingleAlbum = async (
-    album_id:string,
-    withPhotos:boolean = false
-): Promise<{
+    album_id:string): Promise<{
     album: PageAlbum;
 }> => {
-    const res = await graph.get(`${album_id}?fields=id,name,link,description,cover_photo{webp_images},
-        ${withPhotos ? "photos{webp_images}" : ""}`);
+    const res = await axios.get(
+        `https://oaeg-web-backend.oaegstudentchap.workers.dev/album?id=${album_id}`);
     return {
-        album: res
+        album: res.data
     }
 }
 
