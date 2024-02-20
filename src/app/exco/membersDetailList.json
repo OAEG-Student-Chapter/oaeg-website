@@ -22,25 +22,25 @@
       {
         "role": "Vice President (Education Development)",
         "name": "Eng. Dr. Pasindu L. Weerasinghe",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/pasindu-weerasinghe-19457958",
         "avatarSRC": "/avatars/pasindu_w.jpeg"
       },
       {
         "role": "Vice President (Membership Development)",
         "name": "Eng. Janith Bogahawatta",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/janith-bogahawatta-36685159",
         "avatarSRC": "/avatars/janith.jpeg"
       },
       {
         "role": "Vice President (Projects)",
         "name": "Eng. Prasad Siriwardane",
         "linkedin": "",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/member.jpeg"
       },
       {
         "role": "Joint Secretary",
         "name": "Eng. Gayan Prabuddha",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/gayan-prabuddha-300b4852/",
         "avatarSRC": "/avatars/gayan.jpeg"
       },
       {
@@ -65,7 +65,7 @@
         "role": "Assistant Treasurer",
         "name": "Eng. Sasanka Ranjitha",
         "linkedin": "",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/sasanka.jpg"
       },
       {
         "role": "Editor",
@@ -77,7 +77,7 @@
         "role": "Organizer (Membership Development)",
         "name": "Eng. Chamara Kumara",
         "linkedin": "",
-        "avatarSRC": ""
+        "avatarSRC": "/avatars/chamara_kumara.jpeg"
       },
       {
         "role": "Organizer (OBA Coordination)",
@@ -95,7 +95,7 @@
         "role": "Committee Member",
         "name": "Eng. Keerthi Kapurubandara",
         "linkedin": "",
-        "avatarSRC": "/avatars/keerthi.jpg"
+        "avatarSRC": "/avatars/member.jpeg"
       },
       {
         "role": "Committee Member",
@@ -137,7 +137,7 @@
         "role": "Committee Member",
         "name": "Eng. Sandaruwan Mahindarathne",
         "linkedin": "",
-        "avatarSRC": "/avatars/sandaruwan.jpg"
+        "avatarSRC": "/avatars/member.jpeg"
       },
       {
         "role": "Committee Member",
@@ -224,7 +224,7 @@
       {
         "name": "Eng. Dr. Pasindu L. Weerasinghe",
         "role": "Assistant Secretary",
-        "linkedin": "",
+        "linkedin": "https://www.linkedin.com/in/pasindu-weerasinghe-19457958",
         "avatarSRC": "/avatars/pasindu_w.jpeg"
       },
       {
