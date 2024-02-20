@@ -10,7 +10,7 @@ const MISSION = [
 const DESCRIPTION = `The Old Anandian Engineers’ Guild was formally established in 2017 by the founding president Eng.
                         Kithsiri Gunasekara.
                         It was incorporated into the college's main OBA as an affiliate group in 2018.
-                        The current president is Prof. Udeni Nawagamuwa leading a 26-strong group of EXCO Associates and
+                        The current president is Eng. Isuru Ponnamperuma leading a 26-strong group of EXCO Associates and
                         Chartered Members of IESL (Institution Of Engineers Sri Lanka). The OAEG is further strengthened by
                         its student chapter, which comprises all engineering undergraduates from state universities.`
 
