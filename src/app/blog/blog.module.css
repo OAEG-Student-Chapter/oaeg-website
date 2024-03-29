@@ -1,14 +1,15 @@
 .container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: start;
-  align-items: center;
+  /* align-items: center; */
 }
 .title {
   margin: 15px 0 30px 0;
   font-size: clamp(1.5rem, 5vw, 2.2rem);
   font-weight: 600;
 }
+
 .caption {
   color: #1c1f35;
   font-weight: 500;
@@ -22,7 +23,7 @@
 .blogContainer {
   display: flex;
   padding: 20px 0;
-  border: solid #d6d6d6;
+  border: solid hsl(0, 0%, 84%);
   border-width: 1px 0 1px 0;
   justify-content: left;
   width: 100%;
@@ -95,4 +96,83 @@
 .authorName {
   font-size: clamp(0.8rem, 3vw, 1rem);
   font-weight: 500;
+}
+
+.newsletterContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+  align-items: center;
+  padding: 0px 10px;
+  border-right: 1px solid #d6d6d6;
+}
+
+.blogListContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  max-width : 80%;
+}
+
+.newsletter {
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 75%;
+  margin: 20px auto;
+}
+
+.newsletter img {
+  object-fit: cover;
+}
+
+.newsletterTitle {
+  position: absolute; /* Positioned relative to the container */
+  bottom: 0; /* Positioned at the bottom */
+  left: 0; /* Aligned to the left */
+  right: 0; /* Aligned to the right */
+  padding: 10px; /* Add some padding */
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  color: white; /* White text */
+  text-align: center;
+}
+
+.scrollable_container {
+  width: fit-content;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .newsletterContainer {
+    width: 100%
+  }
+
+  .scrollable_container {
+    flex-direction: row;
+    width: 100%; /*Let the content define the width*/
+    white-space: nowrap; /* Prevent elements from wrapping */
+    overflow-x: auto; 
+  }
+
+  .newsletter {
+    display: inline-block;
+    margin-left: 10px;
+    width: 200px;
+    height: 300px;
+  }
+
+  .newsletter img {
+    object-fit: cover;
+  }
+
 }
