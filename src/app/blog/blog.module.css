@@ -154,7 +154,8 @@
   }
 
   .newsletterContainer {
-    width: 100%
+    width: 100%;
+    border-bottom: 1px solid #d6d6d6;
   }
 
   .scrollable_container {

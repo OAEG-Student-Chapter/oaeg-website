@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { blog } from "@/api/blogger/blog";
 import styles from "./blog.module.css";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
+import Link from "next/link";
 
 interface Post {
   title: string;
@@ -44,25 +45,27 @@ export default function Page() {
   return (
       
       <div className={`${styles.container} ${navStyles.navbarSpace} bg-white min-h-screen`}>
-        <div className={`${styles.newsletterContainer} bg-blue`}>
+        <div className={styles.newsletterContainer}>
           <span className={styles.title}>Newsletter</span>
           <div className={styles.scrollable_container}>
             <div className={styles.newsletter}>
-              <img src="/newsletter_images/Ben 10 2.jpg"/>
+            <img src="/newsletter_images/Ben 10 2.jpg"/>
               <div className={styles.newsletterTitle}>Hello</div>
             </div>
+            <Link href="/blog/newsletter/august-2023">
             <div className={styles.newsletter}>
               <img src="/newsletter_images/Ben 10 2.jpg"/>
               <div className={styles.newsletterTitle}>Hello</div>
-            </div>
-            <div className={styles.newsletter}>
+            L</div>
+            </Link>
+            {/* <div className={styles.newsletter}>
               <img src="/newsletter_images/Ben 10.jpg"/>
               <div className={styles.newsletterTitle}>Hello</div>
             </div>
             <div className={styles.newsletter}>
               <img src="/newsletter_images/Ben 10.jpg"/>
               <div className={styles.newsletterTitle}>Hello</div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={`${styles.blogListContainer}  py-16 px-2 md:px-30 lg:px-40`}>
