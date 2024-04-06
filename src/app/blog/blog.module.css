@@ -109,12 +109,12 @@
   border-right: 1px solid #d6d6d6;
 }
 
-.blogListContainer{
+.blogListContainer {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  max-width : 80%;
+  max-width: 80%;
 }
 
 .newsletter {
@@ -133,13 +133,13 @@
 }
 
 .newsletterTitle {
-  position: absolute; /* Positioned relative to the container */
-  bottom: 0; /* Positioned at the bottom */
-  left: 0; /* Aligned to the left */
-  right: 0; /* Aligned to the right */
-  padding: 10px; /* Add some padding */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  color: white; /* White text */
+  color: white;
   text-align: center;
 }
 
@@ -160,9 +160,9 @@
 
   .scrollable_container {
     flex-direction: row;
-    width: 100%; /*Let the content define the width*/
+    width: 100%;
     white-space: nowrap; /* Prevent elements from wrapping */
-    overflow-x: auto; 
+    overflow-x: auto;
   }
 
   .newsletter {
@@ -175,5 +175,4 @@
   .newsletter img {
     object-fit: cover;
   }
-
 }
