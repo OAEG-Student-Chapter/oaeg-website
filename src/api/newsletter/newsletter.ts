@@ -40,9 +40,6 @@ export interface DataItem {
 
 export async function getNewsletters() {
   try {
-    // Type assertion for parsed data
-
-    // Respond with the entire data array
     return arr;
   } catch (err) {
     console.error(err);
@@ -54,8 +51,3 @@ export const getSingleNewsletter = async (key: String) => {
   if (newsletters)
     return newsletters.find((newsletter: DataItem) => newsletter.key === key);
 };
-
-//   // Example usage
-//   getByKey('apiKey')
-//     .then((value) => console.log('API Key:', value))
-//     .catch((err) => console.error('Error retrieving data:', err));
