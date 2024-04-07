@@ -43,14 +43,16 @@ export default function Page() {
 
                 </div>
             </div>
-            <div className={`flex w-full`}>
+            <div className={`flex w-full px-10`}>
                 {
                     newsletter && (
-                        <iframe
-                            className={`w-max-content`}
-                            loading="lazy"
-                            src={newsletter.val}
-                        />
+                        <div className={'flex-col w-full items-center'}>
+                            <iframe
+                                className={`w-full h-full`}
+                                loading="lazy"
+                                src={newsletter.val}
+                            />
+                        </div>
                     )
                 }
             </div>
