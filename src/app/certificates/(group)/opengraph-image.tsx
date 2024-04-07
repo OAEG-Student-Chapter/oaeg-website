@@ -16,7 +16,7 @@ export default async function Image({ params }: { params: { slug: string[] } }) 
     )
 
     const path = '/' + params.slug.join('/') + '.jpg'
-    const url = process.env.VERCEL_URL + path
+    const url = 'https://previews.oaeg-website.pages.dev' + path
 
     return new ImageResponse(
         (
