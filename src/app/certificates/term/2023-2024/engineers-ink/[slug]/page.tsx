@@ -3,14 +3,15 @@
 import {useEffect, useState} from "react";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import NotFound from "@/components/not-found";
-import {Certificate} from "@/app/certificates/(group)/certificate";
+import {Certificate} from "@/app/certificates/certificate";
 
 export const runtime = 'edge';
 
 export default function Page({ params }: { params: { slug: string[] } }) {
 
-    let path = '/' + params.slug.join('/');
-    let imageUrl = window.location.origin + path + '.jpg';
+    let path = window.location.pathname;
+    path = '/' + path.split('/').slice(2).join('/');
+    let imageUrl = window.location.origin + path  + '.jpg';
 
     const [result, setResult] = useState<React.ReactNode>();
 
