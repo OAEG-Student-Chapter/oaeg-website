@@ -4,7 +4,6 @@ import Image from "next/image";
 export const Certificate = ({path}:{path:string})=> {
 
     const linkedinShare  = (url:string)=>{
-        console.log(url);
         return `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${'Certificate by OAEG'}`;
     };
 
