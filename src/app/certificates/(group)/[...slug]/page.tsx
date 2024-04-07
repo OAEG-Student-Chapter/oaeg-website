@@ -15,7 +15,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
     const [result, setResult] = useState<React.ReactNode>();
 
     useEffect(() => {
-        fetch(imageUrl).then((res) => {
+        fetch(decodeURIComponent(imageUrl)).then((res) => {
             if (res.status === 200) {
                 setResult(<Certificate path={path} />)
             }
