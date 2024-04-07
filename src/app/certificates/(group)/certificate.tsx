@@ -8,7 +8,7 @@ export const Certificate = ({path}:{path:string})=> {
     const linkedinShare  = (url:string)=>{
         return `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${'Certificate by OAEG'}`;
     };
-
+    path = decodeURIComponent(path)
     const imgSrc = path + '.jpg';
     const pdfSrc = path + '.pdf';
     const PUBLIC_URL = window.location.origin;
