@@ -10,7 +10,7 @@ export const runtime = 'edge';
 export default function Page({ params }: { params: { slug: string[] } }) {
 
     let path = '/' + params.slug.join('/');
-    let imageUrl = path + '.jpg';
+    let imageUrl = window.location.origin + path + '.jpg';
 
     const [result, setResult] = useState<React.ReactNode>();
 
