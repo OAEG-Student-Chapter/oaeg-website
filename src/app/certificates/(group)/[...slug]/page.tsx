@@ -1,10 +1,9 @@
 'use client'
 
-import Image from 'next/image';
 import {useEffect, useState} from "react";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import NotFound from "@/components/not-found";
-import {Certificate} from "@/app/certificates/certificate";
+import {Certificate} from "@/app/certificates/(group)/certificate";
 
 export const runtime = 'edge';
 
