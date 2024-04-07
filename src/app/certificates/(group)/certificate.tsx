@@ -31,7 +31,7 @@ export const Certificate = ({path}:{path:string})=> {
             </div>
             <div className={'w-3/4'}>
                 <div className={'p-2 border-2 border-gray-300 rounded'}>
-                    <Image className={'rounded'} src={imgSrc} alt={'Image'}
+                    <Image className={'rounded'} src={decodeURIComponent(imgSrc)} alt={'Image'}
                            loading={'lazy'}
                            width={1080} height={1080 * 794/ 1123}/>
                 </div>
