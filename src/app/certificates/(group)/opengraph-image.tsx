@@ -1,5 +1,4 @@
-// @ts-ignore
-import { ImageResponse } from 'next/og'
+import { ImageResponse } from 'next/server'
 
 export const runtime = 'edge'
 
