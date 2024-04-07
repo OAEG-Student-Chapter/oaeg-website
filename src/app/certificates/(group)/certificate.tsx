@@ -1,14 +1,17 @@
 import Image from "next/image";
 
+
 export const Certificate = ({path}:{path:string})=> {
 
     const linkedinShare  = (url:string)=>{
+        console.log(url);
         return `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${'Certificate by OAEG'}`;
     };
 
     const imgSrc = path + '.jpg';
     const pdfSrc = path + '.pdf';
-    const share = 'https://previews.oaeg-website.pages.dev/certificates' + path;
+    const PUBLIC_URL = window.location.origin;
+    const share = `${PUBLIC_URL}/certificates` + path;
 
     return (
         <div className={'flex'}>
@@ -28,7 +31,9 @@ export const Certificate = ({path}:{path:string})=> {
             </div>
             <div className={'w-3/4'}>
                 <div className={'p-2 border-2 border-gray-300 rounded'}>
-                    <Image className={'rounded'} src={imgSrc} alt={'Image'} width={1080} height={1080 * 794/ 1123}/>
+                    <Image className={'rounded'} src={imgSrc} alt={'Image'}
+                           loading={'lazy'}
+                           width={1080} height={1080 * 794/ 1123}/>
                 </div>
             </div>
         </div>
