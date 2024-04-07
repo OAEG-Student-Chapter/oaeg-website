@@ -1,8 +1,8 @@
-.container {
+.pageWrapper {
   display: flex;
-  /* flex-direction: column; */
+   flex-direction: column;
   justify-content: start;
-  /* align-items: center; */
+   align-items: center;
 }
 .title {
   margin: 15px 0 30px 0;
@@ -99,82 +99,10 @@
   font-weight: 500;
 }
 
-.newsletterContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  width: 25%;
-  height: 100%;
-  align-items: center;
-  padding: 0px 10px;
-  border-right: 1px solid #d6d6d6;
-}
-
 .blogListContainer {
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   max-width: 80%;
-}
-
-.newsletter {
-  border: 1px solid black;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  width: 75%;
-  margin: 20px auto;
-}
-
-.newsletter img {
-  object-fit: cover;
-}
-
-.newsletterTitle {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-  color: white;
-  text-align: center;
-}
-
-.scrollable_container {
-  width: -moz-fit-content;
-  width: fit-content;
-  justify-content: center;
-}
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .newsletterContainer {
-    width: 100%;
-    border-bottom: 1px solid #d6d6d6;
-  }
-
-  .scrollable_container {
-    flex-direction: row;
-    width: 100%;
-    white-space: nowrap; /* Prevent elements from wrapping */
-    overflow-x: auto;
-  }
-
-  .newsletter {
-    display: inline-block;
-    margin-left: 10px;
-    width: 200px;
-    height: 300px;
-  }
-
-  .newsletter img {
-    object-fit: cover;
-  }
 }

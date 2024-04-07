@@ -10,19 +10,7 @@ const arr = [
   {
     key: "oct-2023",
     val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
-  },
-  {
-    key: "oct-2023",
-    val: "https://www.canva.com/design/DAGBn99YUrI/xXbxuxBwTUNIgksDFNn7bA/view?embed",
-  },
-  {
-    key: "oct-2023",
-    val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
-  },
-  {
-    key: "oct-2023",
-    val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
-  },
+  }
   // {
   //   key: "oct-2023",
   //   val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
