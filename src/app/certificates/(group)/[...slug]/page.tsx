@@ -28,7 +28,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
     }, []);
 
 
-    return <div className={`bg-white h-screen flex items-center justify-center ${navStyles.navbarSpace}`}>
+    return <div className={`bg-white h-screen flex sm:items-center justify-center ${navStyles.navbarSpace}`}>
         {result}
     </div>
 }
