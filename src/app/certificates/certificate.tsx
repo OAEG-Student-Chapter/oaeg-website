@@ -6,7 +6,7 @@ const Icon = FaLinkedin;
 export const Certificate = ({path}:{path:string})=> {
 
     const linkedinShare  = (url:string)=>{
-        return `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${'Certificate by OAEG'}`;
+        return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
     };
     path = decodeURIComponent(path)
     const imgSrc = path + '.jpg';
