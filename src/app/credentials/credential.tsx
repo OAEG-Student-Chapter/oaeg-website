@@ -3,7 +3,7 @@ import {FaLinkedin} from "react-icons/fa6";
 
 const Icon = FaLinkedin;
 
-export const Certificate = ({path}:{path:string})=> {
+export const Credential = ({path}:{path:string})=> {
 
     const linkedinShare  = (url:string)=>{
         return `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
@@ -12,7 +12,7 @@ export const Certificate = ({path}:{path:string})=> {
     const imgSrc = path + '.jpg';
     const pdfSrc = path + '.pdf';
     const PUBLIC_URL = window.location.origin;
-    const share = `${PUBLIC_URL}/certificates` + path;
+    const share = `${PUBLIC_URL}/credentials${path}`;
     const name = path.split('/').pop()?.split('-').join(' ');
     const term = path.split('/')[2]
 

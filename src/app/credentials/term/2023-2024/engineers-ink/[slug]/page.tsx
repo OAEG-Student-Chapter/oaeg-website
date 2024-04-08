@@ -3,7 +3,7 @@
 import {ReactNode, useEffect, useState} from "react";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import NotFound from "@/components/not-found";
-import {Certificate} from "@/app/certificates/certificate";
+import {Credential} from "@/app/credentials/credential";
 
 export const runtime = 'edge';
 
@@ -18,7 +18,7 @@ export default function Page({ params }: { params: { slug: string[] } }) {
     useEffect(() => {
         fetch(decodeURIComponent(imageUrl)).then((res) => {
             if (res.status === 200) {
-                setResult(<Certificate path={path} />)
+                setResult(<Credential path={path} />)
             }
             else {
                 setResult(<NotFound/>)
