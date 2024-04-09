@@ -77,10 +77,9 @@ export default function Page() {
             <div
               className={styles.newsletter}
               onClick={() => handleNewsletterClick(item)}
-              data-key={item.key}
             >
-              {/* Remember to change the image displayed here */}
-              <img src="/newsletter_images/Ben 10 2.jpg" />
+              {/* Remember to change the images displayed here */}
+              <img src={"/newsletter_images/" + item.key + ".jpg"}/>
 
               <div className={styles.newsletterTitle}>{item.key}</div>
             </div>
