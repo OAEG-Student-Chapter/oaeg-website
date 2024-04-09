@@ -15,7 +15,6 @@ export default function Page() {
     const fetchData = async () => {
       try {
         const data = await getNewsletters();
-        console.log("Data:", data);
         setData(data as DataItem[]);
 
         // Get the query parameter
@@ -45,26 +44,7 @@ export default function Page() {
   }, []);
 
   async function handleNewsletterClick(newsletter: DataItem) {
-    // The following piece of code changes the URL
-    // by adding a search parameter "key"
-    // and reloads the page again
-    // ----------------------------------------------------------------------
-    // const currentUrl = new URL(window.location.href);
-
-    // if (newsletter.key)
-    //     currentUrl.searchParams.set("key", newsletter.key);
-
-    // // Update browser history (optional)
-    // window.history.pushState({}, currentUrl.toString());
-
-    // console.log("New URL with query parameter:", currentUrl.toString());
-
-    // // Reload the page again with search parameter "key"
-    // window.location.href = currentUrl.toString();
-    //--------------------------------------------------------------------------
-
-    // The below line changes the displaying newsletter,
-    // without changing the URL and reloading the page again
+    // Changes the displaying newsletter, without changing the URL and reloading the page again
     setNewsletter(newsletter);
   }
 
@@ -78,8 +58,8 @@ export default function Page() {
               className={styles.newsletter}
               onClick={() => handleNewsletterClick(item)}
             >
-              {/* Remember to change the images displayed here */}
-              <img src={"/newsletter_images/" + item.key + ".jpg"}/>
+                
+              <img src={"/newsletter_images/" + item.key + ".jpg"} />
 
               <div className={styles.newsletterTitle}>{item.key}</div>
             </div>
