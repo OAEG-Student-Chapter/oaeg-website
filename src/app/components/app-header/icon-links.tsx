@@ -12,11 +12,13 @@ interface IconLinksProps {
     iconSize?: string;
     layout?: React.CSSProperties;
     iconClass?: string;
+    className?: string;
 }
 
 const IconLinks = ({ iconData, iconClass,
                        direction = 'row', color,
                        iconSize = "100%",
+                        className = "",
                        layout = { display: 'flex', flexDirection: direction } } : IconLinksProps) => {
 
     const getIconStyle = () => {
@@ -39,7 +41,7 @@ const IconLinks = ({ iconData, iconClass,
     };
 
     return (
-        <div style={layout}>
+        <div className={className}>
             {renderIconLinks()}
         </div>
     );
