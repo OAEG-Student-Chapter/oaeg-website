@@ -1,24 +1,8 @@
 const arr = [
   {
-    key: "august-2023",
-    val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
-  },
-  {
-    key: "sep-2023",
-    val: "https://www.canva.com/design/DAGBn99YUrI/xXbxuxBwTUNIgksDFNn7bA/view?embed",
-  },
-  {
-    key: "oct-2023",
-    val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
+    key: "April-2024",
+    val: "https://www.canva.com/design/DAGCFKMZ1M4/nWZKLbiEFBitKAk2a9Ld8Q/view",
   }
-  // {
-  //   key: "oct-2023",
-  //   val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
-  // },
-  // {
-  //   key: "oct-2023",
-  //   val: "https://www.canva.com/design/DAGA4bH8HVc/Yic5zLE2RRjCvMzi-B89HA/view?embed",
-  // },
 ];
 
 export interface DataItem {

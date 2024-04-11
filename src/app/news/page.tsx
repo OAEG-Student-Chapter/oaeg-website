@@ -55,11 +55,12 @@ export default function Page() {
         <div className={styles.scrollable_container}>
           {data.map((item) => (
             <div
+                key={item.key}
               className={styles.newsletter}
               onClick={() => handleNewsletterClick(item)}
             >
                 
-              <img src={"/newsletter_images/" + item.key + ".jpg"} />
+              <img src={"/newsletter_images/" + item.key + ".webp"} />
 
               <div className={styles.newsletterTitle}>{item.key}</div>
             </div>
