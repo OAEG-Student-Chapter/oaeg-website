@@ -18,7 +18,8 @@
         padding-top: 4rem;
         padding-bottom: 2rem;
         position: fixed;
-        height: 60%;
+        height: fit-content;
+        max-height: 100%;
         top:0;
         right: 0;
         width: 100%;

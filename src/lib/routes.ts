@@ -28,6 +28,11 @@ const gallery: route = {
   name: "Gallery"
 };
 
+const news: route = {
+    path: "/news",
+    name: "News",
+};
+
 const blog: route = {
   path: "/blog",
   name: "Blog",
@@ -43,7 +48,7 @@ const register: route = {
     name: "Become A Member"
 };
 
-export const routes:route[] = [home, projects, gallery, team, contactUs, blog];
+export const routes:route[] = [home, projects, gallery, team, contactUs, news, blog];
 
 export const routesMap = {
   home,
@@ -51,6 +56,7 @@ export const routesMap = {
   gallery,
   team,
   contactUs,
+  news,
   blog,
   register
 };
