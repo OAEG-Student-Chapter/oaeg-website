@@ -43,11 +43,7 @@ export default function AppHero(props:AppHeroProps) {
                             }
                         })}
                         iconClass={styles.heroSocialIcons}
-                        layout={{
-                            display: 'grid',
-                            gridTemplateColumns: 'repeat(2, 1fr)',
-                            gap: '1rem',
-                        }}
+                        className={"flex justify-center gap-2"}
                     />
                 </div>
             </div>

@@ -7,17 +7,15 @@ interface IconLinksProps {
         Icon: IconType;
         link: string;
     }[];
-    direction?: 'row' | 'column';
     color?: string;
     iconSize?: string;
-    layout?: React.CSSProperties;
     iconClass?: string;
+    className?: string;
 }
 
-const IconLinks = ({ iconData, iconClass,
-                       direction = 'row', color,
+const IconLinks = ({ iconData, iconClass, color,
                        iconSize = "100%",
-                       layout = { display: 'flex', flexDirection: direction } } : IconLinksProps) => {
+                        className = "flex justify-center"} : IconLinksProps) => {
 
     const getIconStyle = () => {
         return {
@@ -39,7 +37,7 @@ const IconLinks = ({ iconData, iconClass,
     };
 
     return (
-        <div style={layout}>
+        <div className={className}>
             {renderIconLinks()}
         </div>
     );
