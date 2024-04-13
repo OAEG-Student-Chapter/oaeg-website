@@ -15,22 +15,11 @@ export const metadata: Metadata = {
   description: "Old Anandian Engineers Guild",
   themeColor: "#ffffff",
   twitter: {
-    card: "summary_large_image",
     title: "Official Website of OAEG",
-    images: [
-      {
-        url: "https://oaeg-website.pages.dev/images/logo_oaeg.png",
-      },
-    ],
   },
   openGraph: {
     title: "Official Website of OAEG",
     url: "www.oaeg.lk",
-    images: [
-      {
-        url: "https://oaeg-website.pages.dev/images/logo_oaeg.png",
-      },
-    ],
   },
 };
 
