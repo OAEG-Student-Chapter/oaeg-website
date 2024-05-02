@@ -22,7 +22,7 @@ export const AppHeader = () => {
     return (
         <header>
             <div className={styles.mobileNav} >
-                <div className={`sm:hidden flex justify-between
+                <div className={`lg:hidden flex justify-between
                  items-center p-2`}>
                     <div className={`${styles.navBrand}`} ><NavBrand/></div>
                     <div className={`${styles.navToggle} self-end ml-8 rounded`} >

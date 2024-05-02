@@ -19,7 +19,7 @@ export default function AppNavbar({onItemClick}: {
                 routes.map((route, index) => {
                     const isActive = pathName === route.path;
                     return (
-                        <li key={index} className={`${styles.navbarItem} ${isActive ? styles.navbarItemCurrent : ""}`}>
+                        <li key={index} className={`${styles.navbarItem} mb-2 lg:mb-0 ${isActive ? styles.navbarItemCurrent : ""}`}>
                             <Link href={route.path} className={krubFont.className} onClick={()=>{
                                 if(onItemClick) onItemClick();
                                 // go to route.path
@@ -31,11 +31,12 @@ export default function AppNavbar({onItemClick}: {
                     );
                 })
             }
-            <li className={"sm:ml-1"}><RegisterButton/></li>
-            <li className={styles.socialLinks}>
+            <li className={"my-2 lg:my-0 lg:ml-1"}><RegisterButton/></li>
+            <li className={`my-2 lg:my-0 ${styles.socialLinks}`}>
                 <IconLinks
                     color="white"
                     iconClass={styles.navSocialIcons}
+                    className={"flex justify-center gap-1"}
                     iconData={socialMediaLinks.map(l => {
                         return {
                             Icon: l.icon,
@@ -43,7 +44,7 @@ export default function AppNavbar({onItemClick}: {
                         }
                     })}/>
             </li>
-            <li className={"flex"}>
+            <li className={"flex my-2 lg:my-0"}>
                 <a
                     href="https://www.anandacollegeoba.org/old-boys-association/affiliated-groups/old-anandians-engineers-guild-details/"
                     target={"_blank"}

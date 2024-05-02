@@ -30,15 +30,12 @@ Create a file named `.env.local` in the root of the project
 and add the following access tokens.
 
 ```dotenv
-FB_PAGE_ACCESS_TOKEN=EAANoM*******************************...
+#Blogger
+NEXT_PUBLIC_BLOGGER_API_KEY=<<Key>>
+NEXT_PUBLIC_BLOGGER_BLOG_ID=<<Id>>
+#Email JS
+NEXT_PUBLIC_EMAIL_SERVICE_ID=<<Id>>
+NEXT_PUBLIC_EMAIL_TEMPLATE_ID=<<Id>>
+NEXT_PUBLIC_EMAIL_PUBLIC_KEY=<<Key>>
 ```
-This app uses the meta GRAPH API.
-Only the people with access to the OAEG facebook page can get the access token
-from the [Graph API Explorer](https://developers.facebook.com/tools/explorer/)
-In short using the graph api explorer,
-- Get a short lived user access token.
-- Using the short lived user access token get a long lived access token.
-- Using the long lived user access token get the page access token from the relevant endpoints.
-
-More info [here](https://developers.facebook.com/docs/pages/access-tokens)
 
