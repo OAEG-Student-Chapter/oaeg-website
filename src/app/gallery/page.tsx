@@ -1,3 +1,4 @@
+'use client'
 import { SecondaryTitle } from "@/components/titles";
 import React from "react";
 import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
@@ -8,8 +9,16 @@ import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import Link from "next/link";
 import sectionStyles from "@/app/components/events/section.module.css";
 import {routesMap} from "@/lib/routes";
+
+
 export default async function Page() {
-  let { albums } = await getEventAlbums();
+    const [albums, setAlbums] = React.useState<EventAlbum[]>();
+    React.useEffect(() => {
+        getEventAlbums().then(res => {
+            setAlbums(res.albums)
+        });
+    }, []);
+
   // albums = albums?.slice(0, albums.length);
   return (
     <div className={`bg-white min-h-[100vh] ${styles.container} ${navStyles.navbarSpace}`}>
