@@ -163,6 +163,128 @@
         "linkedin": "",
         "avatarSRC": "/avatars/sathira.jpg"
       }
+    ],
+    "studentChapter": [
+      {
+        "name": "Sanuja Edirisinghe",
+        "role": "President",
+        "linkedin": "",
+        "avatarSRC": "/avatars/sanuja.jpg"
+      },
+      {
+        "name": "Samitha Herath",
+        "role": "Joint Secretary",
+        "linkedin": "",
+        "avatarSRC": "/avatars/samitha.jpg"
+      },
+      {
+        "name": "Tharusha Fonseka",
+        "role": "Joint Secretary",
+        "linkedin": "",
+        "avatarSRC": "/avatars/tharusha.jpg"
+      },
+      {
+        "name": "Shan Upendra ",
+        "role": "Treasurer",
+        "linkedin": "",
+        "avatarSRC": "/avatars/shan.jpg"
+      },
+      {
+        "name": "Imalsha Puranagedara",
+        "role": "Chief Organizer",
+        "linkedin": "",
+        "avatarSRC": "/avatars/imalsha.jpg"
+      },
+      {
+        "name": "Ameera Thiwanka",
+        "role": "Vice President",
+        "linkedin": "",
+        "avatarSRC": "/avatars/ameera.jpg"
+      },
+      {
+        "name": "Anupama Jayasekara ",
+        "role": "Director - Projects",
+        "linkedin": "",
+        "avatarSRC": "/avatars/anupama.jpeg"
+      },
+      {
+        "name": "Sanuda Amasith",
+        "role": "Dir. Membership Development",
+        "linkedin": "",
+        "avatarSRC": "/avatars/sanuda.jpg"
+      },
+      {
+        "name": "Dehan Jayawardena",
+        "role": "Director - School Affairs",
+        "linkedin": "",
+        "avatarSRC": "/avatars/dehan.jpeg"
+      },
+      {
+        "name": "Pavan Pitiwaduge",
+        "role": "Director - IT",
+        "linkedin": "https://www.linkedin.com/in/pavan-pitiwaduge",
+        "avatarSRC": "/avatars/pavan.png"
+      },
+      {
+        "name": "Dhanuja Kahatapitiya",
+        "role": "Editor",
+        "linkedin": "",
+        "avatarSRC": "/avatars/dhanuja.jpeg"
+      },
+      {
+        "name": "Kaveen Weerasinghe ",
+        "role": "Assistant Director - Projects",
+        "linkedin": "",
+        "avatarSRC": "/avatars/kaveen.jpg"
+      },
+      {
+        "name": "Mathisha Buwaneka",
+        "role": "Asst. Dir. - Membership Development",
+        "linkedin": "",
+        "avatarSRC": "/avatars/mathisha.jpeg"
+      },
+      {
+        "name": "Bumeega Bentharavithana ",
+        "role": "Asst. Director - School Affairs",
+        "linkedin": "",
+        "avatarSRC": "/avatars/bumeega.jpg"
+      },
+      {
+        "name": "Chamod Perera ",
+        "role": "Assistant Director - IT",
+        "linkedin": "https://www.linkedin.com/in/chamodnp",
+        "avatarSRC": "/avatars/chamod.png"
+      },
+      {
+        "name": "Ranuga Weerasekara",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/ranuga.jpg"
+      },
+      {
+        "name": "Vinura Jayasanka ",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/vinura.jpg"
+      },
+      {
+        "name": "Lasan Perera",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/lasan.jpg"
+      },
+      {
+        "name": "Isitha Dinujaya",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/isitha.jpeg"
+      },
+      {
+        "name": "Lithira Mendis",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/lithira.jpg"
+      }
     ]
   },
   "2023": {
@@ -317,8 +439,7 @@
         "linkedin": "",
         "avatarSRC": "/avatars/sathira.jpg"
       }
-    ]
-  ,
+    ],
     "studentChapter": [
       {
         "name": "Shehan Paul",
@@ -411,39 +532,35 @@
         "avatarSRC": "/avatars/pavan.jpg"
       },
       {
-        "name" : "Savinu Anusara",
-        "role" : "Committee Member",
-        "linkedin" : "",
-        "avatarSRC" : "/avatars/savinu.jpg"
+        "name": "Savinu Anusara",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/savinu.jpg"
       },
       {
-        "name" : "Thilina Bandara",
-        "role" : "Committee Member",
-        "linkedin" : "",
-        "avatarSRC" : "/avatars/thilina_21.jpeg"
+        "name": "Thilina Bandara",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/thilina_21.jpeg"
       },
       {
-        "name" : "Sithum Vitharana",
-        "role" : "Committee Member",
-        "linkedin" : "https://www.linkedin.com/in/sithum-vitharana/",
-        "avatarSRC" : "/avatars/sithum.jpg"
+        "name": "Sithum Vitharana",
+        "role": "Committee Member",
+        "linkedin": "https://www.linkedin.com/in/sithum-vitharana/",
+        "avatarSRC": "/avatars/sithum.jpg"
       },
       {
-        "name" : "Thisuru Dineth",
-        "role" : "Committee Member",
-        "linkedin" : "",
-        "avatarSRC" : "/avatars/thisuru.jpg"
+        "name": "Thisuru Dineth",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/thisuru.jpg"
       },
       {
-        "name" : "Vishwa Jayaweera",
-        "role" : "Committee Member",
-        "linkedin" : "",
-        "avatarSRC" : "/avatars/vishwa.jpeg"
+        "name": "Vishwa Jayaweera",
+        "role": "Committee Member",
+        "linkedin": "",
+        "avatarSRC": "/avatars/vishwa.jpeg"
       }
     ]
   }
 }
-
-
-
-
