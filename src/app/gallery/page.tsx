@@ -11,7 +11,7 @@ import sectionStyles from "@/app/components/events/section.module.css";
 import {routesMap} from "@/lib/routes";
 
 
-export default async function Page() {
+export default function Page() {
     const [albums, setAlbums] = React.useState<EventAlbum[]>();
     React.useEffect(() => {
         getEventAlbums().then(res => {
