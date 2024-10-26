@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { blog } from "@/api/blogger/blog";
 import styles from "./page.module.scss";
-import {white} from "next/dist/lib/picocolors";
+import DOMPurify from 'dompurify';
 
 export const runtime = "edge";
 
@@ -13,7 +13,7 @@ export default function Page() {
 
   const [content, setContent] = useState("");
 
-  const template = { __html: content };
+  const template = DOMPurify.sanitize({ __html: content });
 
   useEffect(() => {
     async function fetchData() {
