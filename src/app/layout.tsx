@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import type { Metadata } from "next";
+import type {Metadata, Viewport} from "next";
 import { Inter } from "next/font/google";
 import { AppFooter } from "@/app/components/app-footer/app-footer";
 import { AppHeader } from "@/app/components/app-header/app-header";
@@ -13,7 +13,6 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Official Website of OAEG",
   description: "Old Anandian Engineers Guild",
-  themeColor: "#ffffff",
   twitter: {
     title: "Official Website of OAEG",
   },
@@ -22,6 +21,10 @@ export const metadata: Metadata = {
     url: "www.oaeg.lk",
   },
 };
+
+const viewport : Viewport  = {
+  themeColor: "white",
+}
 
 export default function RootLayout({
   children,
@@ -65,3 +68,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+export { viewport}

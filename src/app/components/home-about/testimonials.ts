@@ -13,7 +13,7 @@ export const data: TestimonialCardProps[] = [
             "Department of Civil Engineering,\n" +
             "University of Moratuwa",
         "position": "President 2023-2024",
-        "image": "./avatars/prof_udeni.jpg",
+        "image": "./avatars/prof_udeni.webp",
         "quote": `Upon my return from higher studies, I frequented Ananda College for various purposes, 
         including academic and infrastructure-related concerns. During these interactions, 
         it became apparent that there were significant issues surrounding the college's 
@@ -47,7 +47,7 @@ the college and the broader community.`
         "name": "Eng. Kithsiri Gunasekara",
         title: "Director at VS Information Systems (Pvt) Ltd",
         "position": "President 2017-2018",
-        "image": "/avatars/kithsiri.jpg",
+        "image": "/avatars/kithsiri.webp",
         "quote": `
         It is my honor to share a few words about the Old Anandian Engineers' Guild (OAEG) as its inaugural 
         President. The official formation of OAEG in 2017 was the culmination of numerous discussions and a 
@@ -86,7 +86,7 @@ and contributions to the Guild's success.`
         name:"Eng. Thushara Asuramanna",
         title: "GM/CEO\nState Mortgage & Investment Bank.",
         position: "",
-        image: "/avatars/thushara_asurumanna.jpg",
+        image: "/avatars/thushara_asurumanna.webp",
         quote: `
         It's wonderful to hear about the Old Anandians Engineers' Guild (OAEG) and the positive impact it has on our school. The commitment of its members to academic development, soft skill enhancement, career guidance, recognition of student excellence, and infrastructure development is truly commendable. The collective efforts of eminent personalities, both locally and internationally, reflect the dedication and passion for the betterment of the alma mater.
 \n\n
@@ -97,7 +97,7 @@ I join you in extending my best wishes to the Old Anandians Engineers' Guild for
         name: "Eng. Sumudu Gunawardena",
         title: "Chief Information Officer\nCommercial Bank of Ceylon",
         position: "",
-        image: "/avatars/sumudu_gunawardena.jpg",
+        image: "/avatars/sumudu_gunawardena.webp",
         quote:`As a member of the Old Anandians Engineers' Guild (OAEG), I extend my heartfelt congratulations on the occasion of its Annual General Meeting. The continuous and impactful contributions of the OAEG are poised to elevate Ananda College to new heights, fostering an environment of excellence and growth. May the guild persist in its pivotal role of shaping students' future, leaving an indelible mark on our cherished alma mater.
  \n\n
 The commendable initiatives led by OAEG, aimed at providing career guidance and encouraging students to pursue engineering, are truly praiseworthy. The dedication of OAEG members to enhancing academic and professional development reflects their commitment to nurturing top-notch professionals of international repute among the young Anandians. I am confident that these efforts will pave the way for aspiring students to prosper in their engineering careers.
@@ -110,7 +110,7 @@ I wish OAEG continued success in all its future endeavours, and I am confident t
         name:"Mr. Deepana Ishtaweera",
         title: "Director/CEO\nRoboticGen (Pvt) Ltd",
         position: "",
-        image: "/avatars/deepana.jpeg",
+        image: "/avatars/deepana.webp",
         quote: `Joining the Old Anandian Engineers’ Guild marked the beginning of an inspiring chapter in my life. My first encounter with the Guild at the Inaugural Congregation Event was a profound eye-opener, introducing me to a network of fellow Anandians passionate about engineering.
 \n\n
 My active involvement in the student chapter's activities fueled my growth, both professionally and personally. The industry visits were a highlight, offering me firsthand insights from industry leaders and shaping my entrepreneurial path. The guidance and mentorship I received from these interactions have been invaluable.
