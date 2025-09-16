@@ -872,17 +872,6 @@ interface DataObject {
 }
 
 //export const runtime = "edge";
-// Add static params generation
-export async function generateStaticParams() {
-  return [
-    { year: '2025', body: 'mainBody' },
-    { year: '2025', body: 'studentChapter' },
-    { year: '2024', body: 'mainBody' },
-    { year: '2024', body: 'studentChapter' },
-    { year: '2023', body: 'mainBody' },
-    { year: '2023', body: 'studentChapter' },
-  ];
-}
 
 
 // export default function Page({ params, searchParams}: {
@@ -912,12 +901,11 @@ export async function generateStaticParams() {
 // }
 
 
-export default function Page({ searchParams }: {
-    searchParams?: { [key: string]: string };
-  }) {
-    // By default, the year is 2025 and the body is mainBody
-    const year: string = searchParams?.year || "2025";
-    const body: string = searchParams?.body || "mainBody";
+// Force static generation by removing searchParams dependency
+export default function Page() {
+    // Hardcode defaults or use client-side state management
+    const year: string = "2025";
+    const body: string = "mainBody";
     const detailList: DataObject = memberDetailList;
     
     return (
