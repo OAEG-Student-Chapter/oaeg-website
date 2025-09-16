@@ -14,7 +14,7 @@ interface TeamProps {
     numberOfColumns: number;
 }
 
-export default async function Team({memberDetailList, numberOfColumns}: TeamProps) {
+export default /*async*/ function Team({memberDetailList, numberOfColumns}: TeamProps) {
     let numberOfMembers = memberDetailList.length;
     let numberOfRows = Math.ceil(numberOfMembers / numberOfColumns);
 

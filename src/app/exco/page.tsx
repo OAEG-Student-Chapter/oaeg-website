@@ -1,3 +1,7 @@
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import Team from "./Team";
 //import memberDetailList from "./membersDetailList.json";
 import Styles from "./Team.module.css";
@@ -901,11 +905,12 @@ interface DataObject {
 // }
 
 
-// Force static generation by removing searchParams dependency
-export default function Page() {
-    // Hardcode defaults or use client-side state management
-    const year: string = "2025";
-    const body: string = "mainBody";
+function ExcoContent() {
+    const searchParams = useSearchParams();
+    
+    // Get URL parameters with defaults
+    const year: string = searchParams.get('year') || "2025";
+    const body: string = searchParams.get('body') || "mainBody";
     const detailList: DataObject = memberDetailList;
     
     return (
@@ -926,5 +931,13 @@ export default function Page() {
                 />
             </div>
         </div>
+    );
+}
+
+export default function Page() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ExcoContent />
+        </Suspense>
     );
 }
