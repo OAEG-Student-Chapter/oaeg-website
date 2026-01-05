@@ -1,15 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import { blog } from "@/api/blogger/blog";
 import styles from "./page.module.scss";
-import {white} from "next/dist/lib/picocolors";
+import { white } from "next/dist/lib/picocolors";
 
 export const runtime = "edge";
 
-export default function Page() {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
+export default function Page({ params }: { params: { id: string } }) {
+  const { id } = params;
 
   const [content, setContent] = useState("");
 
@@ -28,11 +26,11 @@ export default function Page() {
   }, []);
 
   return (
-      <div className={"bg-white pt-12 min-h-[100vh]"}>
-        <div
-            className={`${styles.projectContainer} `}
-            dangerouslySetInnerHTML={template}
-        ></div>
-      </div>
+    <div className={"bg-white pt-12 min-h-[100vh]"}>
+      <div
+        className={`${styles.projectContainer} `}
+        dangerouslySetInnerHTML={template}
+      ></div>
+    </div>
   );
 }

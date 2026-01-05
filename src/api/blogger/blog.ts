@@ -1,4 +1,4 @@
-import axios from "axios";
+
 
 class BlogApi {
   private readonly apiKey: string;
@@ -10,17 +10,17 @@ class BlogApi {
   }
 
   async get(endpoint: string, maxResults: number = 50) {
-    const res = await axios.get(
+    const res = await fetch(
       `https://www.googleapis.com/blogger/v3/blogs/${this.blogId}/${endpoint}?maxResults=${maxResults}&key=${this.apiKey}&fetchImages=true`
     );
-    return res.data;
+    return res.json();
   }
 
   async getProject(pageId: string) {
-    const res = await axios.get(
+    const res = await fetch(
       `https://www.googleapis.com/blogger/v3/blogs/${this.blogId}/pages/${pageId}?key=${this.apiKey}`
     );
-    return res.data;
+    return res.json();
   }
 }
 
