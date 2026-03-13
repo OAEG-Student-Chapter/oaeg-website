@@ -2,8 +2,9 @@ import { withPayload } from "@payloadcms/next/withPayload";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    unoptimized: true,
+  output: 'standalone', // Essential for OpenNext
+  outputFileTracingIncludes: {
+    // Avoid tracing unnecessary files
   },
   // Ensure proper Edge Function handling
   async rewrites() {
