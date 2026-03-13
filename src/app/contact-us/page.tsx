@@ -1,5 +1,5 @@
 "use client";
-import navStyles from "@/app/components/app-header/app-navbar.module.css";
+import navStyles from "@/components/app-header/app-navbar.module.css";
 import React from "react";
 import emailjs from "@emailjs/browser";
 import {ToastContainer, toast} from "react-toastify";

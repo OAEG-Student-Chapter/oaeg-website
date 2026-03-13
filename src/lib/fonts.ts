@@ -1,12 +1,20 @@
-import {Rubik, Krub} from "next/font/google";
+import { Rubik, Krub, Inter } from "next/font/google";
 
-const rubik = Rubik({subsets: ['latin'], weight:['400','500','600','700']});
-const krub = Krub({subsets: ['latin'], weight:['400','500','600','700']});
+export const rubik = Rubik({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+export const krub = Krub({ subsets: ["latin"], weight: ["400", "500", "600", "700"] });
+export const inter = Inter({ subsets: ["latin"] });
+
+export const krubItalic = Krub({ 
+  subsets: ["latin"], 
+  weight: ["400"],
+  style: 'italic'
+});
 
 const textTheme = {
-    title : rubik,
-    body : krub
-}
+    title: rubik,
+    body: krub,
+    inter: inter
+};
 
 export default textTheme;
 

@@ -5,9 +5,9 @@ import { getEventAlbums, EventAlbum } from "@/lib/albums";
 import AppCard from "@/components/ui/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
-import navStyles from "@/app/components/app-header/app-navbar.module.css";
+import navStyles from "@/components/app-header/app-navbar.module.css";
 import Link from "next/link";
-import sectionStyles from "@/app/components/events/section.module.css";
+import sectionStyles from "@/components/sections/events/section.module.css";
 import { routesMap } from "@/lib/routes";
 
 

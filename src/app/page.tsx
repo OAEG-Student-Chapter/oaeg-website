@@ -1,7 +1,7 @@
 import React from "react";
-import HomeAboutSection from "@/app/components/home-about/home-about-section";
-import HomeEventsSection from "@/app/components/events/section";
-import HomeProjectsSection from "@/app/components/projects/section";
+import HomeAboutSection from "@/components/sections/home-about/home-about-section";
+import HomeEventsSection from "@/components/sections/events/section";
+import HomeProjectsSection from "@/components/sections/projects/section";
 import AppHeroSection from "@/components/app-hero/app-hero-section";
 
 export default function Home() {

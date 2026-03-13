@@ -1,6 +1,6 @@
 "use client"
 import { blog } from "@/api/blogger/blog";
-import navStyles from "@/app/components/app-header/app-navbar.module.css";
+import navStyles from "@/components/app-header/app-navbar.module.css";
 import { useEffect, useState } from "react";
 import styles from "./blog.module.css";
 

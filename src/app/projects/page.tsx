@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { blog } from "@/api/blogger/blog";
 import styles from "./page.module.css";
 import ProjectPage from "@/app/projects/types";
-import navStyles from "@/app/components/app-header/app-navbar.module.css";
+import navStyles from "@/components/app-header/app-navbar.module.css";
 import { SecondaryTitle } from "@/components/ui/titles";
 import textTheme from "@/lib/fonts";
 import ProjectList from "@/app/projects/projects-list";

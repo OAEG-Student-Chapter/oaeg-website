@@ -1,3 +1,5 @@
+import { getGraphApi } from "./graph-page";
+
 export interface PagePhoto {
     id: string;
     webp_images: {
@@ -40,6 +42,30 @@ const mapPageToEventAlbum = (album: PageAlbum): EventAlbum => {
             photo.webp_images?.[photo.webp_images.length - 1]?.source).filter(Boolean) as string[],
         description: album.description,
         link: album.link,
+    };
+};
+
+export const getEventAlbumsServer = async (): Promise<{
+    albums: EventAlbum[];
+}> => {
+    const api = getGraphApi();
+    const data = await api.getAlbums();
+    
+    if (data.error) {
+        throw new Error(data.error);
+    }
+
+    const albumsData: PageAlbum[] = data.data || [];
+    
+    const albums = albumsData.filter(album => album.type === "normal")
+        .sort((a, b) => {
+            const dateA = new Date(a.created_time);
+            const dateB = new Date(b.created_time);
+            return dateB.getTime() - dateA.getTime();
+        }).map(a => (mapPageToEventAlbum(a)));
+
+    return {
+        albums,
     };
 };
 
