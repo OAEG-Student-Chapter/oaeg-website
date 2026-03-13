@@ -45,7 +45,8 @@ export default function TeamHeader({
     );
   };
 
-  const handleYearChange = (selectedYear: string) => {
+  const handleYearChange = (selectedYear: string | null) => {
+    if (!selectedYear) return;
     setYear(selectedYear);
     router.push(
       `${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${selectedYear}`,
