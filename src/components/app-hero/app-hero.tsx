@@ -1,14 +1,19 @@
 'use client'
 import styles from "./app-hero.module.css";
-import 'react-slideshow-image/dist/styles.css'
-import { Fade } from "react-slideshow-image";
 import { Rubik } from "next/font/google"
 import React from "react";
-const rubik = Rubik({ subsets: ['latin'], weight: ['600'] });
 import socialMediaLinks from "@/lib/social-media";
 import IconLinks from "@/components/app-header/icon-links";
 import { IHeroImage } from "@/components/app-hero/hero-images";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import Fade from "embla-carousel-fade";
 
+const rubik = Rubik({ subsets: ['latin'], weight: ['600'] });
 
 interface AppHeroProps {
     height?: number | string;
@@ -16,14 +21,10 @@ interface AppHeroProps {
 }
 
 export default function AppHero(props: AppHeroProps) {
-
-    const slideProps = {
-        duration: 3000,
-        arrows: false,
-        infinite: true,
-        pauseOnHover: false,
-    };
-
+    const plugin = React.useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: false })
+    );
+    const fadePlugin = React.useRef(Fade());
 
     return (
         <div className={"relative bg-[#272727]"}>
@@ -47,11 +48,21 @@ export default function AppHero(props: AppHeroProps) {
                     />
                 </div>
             </div>
-            <Fade {...slideProps}>
-                {props.heroImages.map((slideImage, index) =>
-                    <SliderItem key={index} height={props.height} slideImage={slideImage} />
-                )}
-            </Fade>
+            <Carousel
+                plugins={[plugin.current, fadePlugin.current]}
+                opts={{
+                    loop: true,
+                    duration: 30, // Adjust speed if needed. Lower is faster in Embla, but fade handles transition speed mostly.
+                }}
+            >
+                <CarouselContent className="ml-0">
+                    {props.heroImages.map((slideImage, index) => (
+                        <CarouselItem key={index} className="pl-0">
+                            <SliderItem height={props.height} slideImage={slideImage} />
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+            </Carousel>
         </div>
     );
 }

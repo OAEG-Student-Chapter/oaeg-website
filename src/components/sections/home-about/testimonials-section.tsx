@@ -1,11 +1,15 @@
 'use client';
 import styles from "./testimonial-card.module.css";
-import { Slide } from "react-slideshow-image";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa6";
 import { TestimonialCardProps, data } from "./testimonials";
 import { splitByDoubleNewline, splitByNewLine } from "@/lib/helpers";
 import { krub } from "@/lib/fonts";
-import "react-slideshow-image/dist/styles.css";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+    CarouselNext,
+    CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export const TestimonialCard = (props: TestimonialCardProps) => {
     return (
@@ -39,9 +43,9 @@ export const TestimonialCard = (props: TestimonialCardProps) => {
                     >
                         {props.name}
                     </h3>
-                    <p style={{textAlign: 'left', fontWeight: 500, fontSize:"0.8em", marginBottom:"0.5rem"}}>
-                        {splitByNewLine(props.title)}</p>
-                    <p style={{textAlign: 'left', fontWeight: 500, fontSize: "1em"}}>{props.position}</p>
+                    <div style={{ textAlign: 'left', fontWeight: 500, fontSize: "0.8em", marginBottom: "0.5rem" }}>
+                        {splitByNewLine(props.title)}</div>
+                    <p style={{ textAlign: 'left', fontWeight: 500, fontSize: "1em" }}>{props.position}</p>
                 </div>
             </div>
             <div className={`${styles.cardRight}`}>
@@ -56,41 +60,33 @@ export const TestimonialCard = (props: TestimonialCardProps) => {
 }
 
 export const TestimonialsSection = () => {
-    const iconStyle = {
-        height: "1.5rem", width: "1.5rem"};
     const testimonials: TestimonialCardProps[] = data;
 
-    const slideProperties = {
-        prevArrow: <div className={`bg-theme-yellow rounded-full p-1 
-        -bottom-10`}
-                        style={{left:"50%", transform: "translate(-150%, 50%)"}}>
-            <FaArrowLeft style={iconStyle}/>
-        </div>,
-        nextArrow: <div className={`bg-theme-yellow rounded-full p-1  
-        -bottom-10`} style={{left:"50%", width:"min-content", transform:"translate(50%, 50%)"}}>
-            <FaArrowRight style={iconStyle}/>
-        </div>,
-        pauseOnHover: true,
-        canSwipe: false,
-        defaultIndex: Math.floor(Math.random() * testimonials.length),
-    }
-
     return (
-        <div className="bg-white">
-            <Slide {...slideProperties}>
-                {
-                    testimonials.map((testimonial, index) => (
-                        <TestimonialCard
-                            key={index}
-                            title={testimonial.title}
-                            name={testimonial.name}
-                            position={testimonial.position}
-                            quote={testimonial.quote}
-                            image={testimonial.image}
-                        />
-                    ))
-                }
-            </Slide>
+        <div className="bg-white px-12 py-8">
+            <Carousel
+                opts={{
+                    align: "start",
+                    loop: true,
+                }}
+                className="w-full max-w-6xl mx-auto"
+            >
+                <CarouselContent>
+                    {testimonials.map((testimonial, index) => (
+                        <CarouselItem key={index}>
+                            <TestimonialCard
+                                title={testimonial.title}
+                                name={testimonial.name}
+                                position={testimonial.position}
+                                quote={testimonial.quote}
+                                image={testimonial.image}
+                            />
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious className="bg-theme-yellow hover:bg-theme-yellow/80 border-none" />
+                <CarouselNext className="bg-theme-yellow hover:bg-theme-yellow/80 border-none" />
+            </Carousel>
         </div>
     );
 }
