@@ -3,7 +3,7 @@ import React from "react";
 import { SecondaryTitle } from "@/components/ui/titles";
 import { blog } from "@/api/blogger/blog";
 import AppCard from "@/components/ui/card";
-import ProjectPage from "@/app/projects/types";
+import ProjectPage from "@/app/(app)/projects/types";
 
 export default async function ProjectsSection() {
   let pages: ProjectPage[] = [];

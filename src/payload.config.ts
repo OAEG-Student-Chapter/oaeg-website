@@ -21,7 +21,9 @@ export default buildConfig({
         outputFile: path.resolve(dirname, 'payload-types.ts'),
     },
     db: postgresAdapter({
-        url: process.env.DATABASE_URL || '',
+        pool: {
+            connectionString: process.env.DATABASE_URL || '',
+        }
     }),
     sharp,
     plugins: [],
