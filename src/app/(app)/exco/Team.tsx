@@ -41,7 +41,8 @@ function TeamMemberCard({
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-bl-lg bg-primary/90 p-2.5 opacity-90 backdrop-blur-sm transition-all hover:bg-white hover:opacity-100"
+                style={{ "background": "var(--theme-gold)" }}
+                className="flex items-center justify-center rounded-bl-lg p-2.5 transition-all hover:bg-white hover:opacity-100"
               >
                 <FaLinkedin className="h-5 w-5 text-theme-maroon transition-colors hover:text-black" />
               </a>
@@ -84,8 +85,8 @@ export default function Team({
   numberOfColumns = 5,
 }: TeamProps) {
   const desktopGridClass =
-    numberOfColumns === 4 
-      ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4" 
+    numberOfColumns === 4
+      ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4"
       : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
 
   return (

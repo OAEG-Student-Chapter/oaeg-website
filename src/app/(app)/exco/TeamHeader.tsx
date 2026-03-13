@@ -3,6 +3,13 @@ import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { routesMap } from "@/lib/routes";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import textTheme from "@/lib/fonts";
 
 export default function TeamHeader({
@@ -38,8 +45,7 @@ export default function TeamHeader({
     );
   };
 
-  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedYear = event.target.value;
+  const handleYearChange = (selectedYear: string) => {
     setYear(selectedYear);
     router.push(
       `${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${selectedYear}`,
@@ -47,36 +53,23 @@ export default function TeamHeader({
   };
 
   return (
-    <div className="mb-8 mt-4 flex w-full flex-col items-center justify-between gap-4 md:flex-row md:gap-6">
-      <div className="relative w-full min-w-[280px] md:w-auto md:min-w-[320px]">
-        <select
-          onChange={handleYearChange}
-          value={year}
-          className={`h-12 w-full cursor-pointer appearance-none rounded-lg border-2 border-theme-maroon/20 bg-white px-4 py-2 pr-10 text-sm font-medium text-black shadow-sm transition-all hover:border-theme-maroon/50 focus:border-theme-maroon focus:outline-none focus:ring-4 focus:ring-theme-maroon/10 md:text-base ${textTheme.body.className}`}
-          aria-label="Select board year"
-        >
-          {years.map((yearOption) => (
-            <option key={yearOption} value={yearOption} className={textTheme.body.className}>
-              {`The Board of Officials ${yearOption}`}
-            </option>
-          ))}
-        </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-4 text-theme-maroon">
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+    <div className="mb-8 flex w-full flex-col items-center justify-between gap-4 md:flex-row md:gap-6">
+      <div className="w-full md:w-auto md:min-w-[320px]">
+        <Select value={year} onValueChange={handleYearChange}>
+          <SelectTrigger 
+            className={`h-12 w-full rounded-lg border-2 border-theme-maroon/20 bg-white px-4 py-2 text-sm font-medium text-black shadow-sm transition-all hover:border-theme-maroon/50 focus:border-theme-maroon focus:ring-4 focus:ring-theme-maroon/10 md:text-base ${textTheme.body.className}`}
+            aria-label="Select board year"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
-          </svg>
-        </div>
+            <SelectValue placeholder="Select Year" />
+          </SelectTrigger>
+          <SelectContent className={textTheme.body.className}>
+            {years.map((yearOption) => (
+              <SelectItem key={yearOption} value={yearOption} className="cursor-pointer">
+                {`The Board of Officials ${yearOption}`}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       <div className="flex w-full flex-nowrap justify-center gap-3 md:w-auto">

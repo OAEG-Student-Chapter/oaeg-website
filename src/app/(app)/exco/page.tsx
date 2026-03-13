@@ -1,10 +1,10 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { getDb } from "@/lib/db";
+import { committee, excoMember, member } from "@/db/schema";
+import { desc, eq } from "drizzle-orm";
 import Team from "./Team";
 import TeamHeader from "./TeamHeader";
-interface MemberObject {
+
+interface ExcoResponseMember {
   name: string;
   role: string;
   linkedin: string;
@@ -12,99 +12,103 @@ interface MemberObject {
 }
 
 interface YearlyData {
-  mainBody: MemberObject[];
-  studentChapter: MemberObject[];
+  mainBody: ExcoResponseMember[];
+  studentChapter: ExcoResponseMember[];
 }
 
-interface ExcoApiResponse {
-  year: string;
-  years: string[];
-  committees: YearlyData;
-}
+async function getExcoData(requestedYear: string | undefined | null) {
+  const db = getDb();
 
-function ExcoContent() {
-  const searchParams = useSearchParams();
-  const [years, setYears] = useState<string[]>([]);
-  const [currentYear, setCurrentYear] = useState<string>("");
-  const [committees, setCommittees] = useState<YearlyData>({
+  const yearsRows = await db
+    .selectDistinct({ year: committee.year })
+    .from(committee)
+    .orderBy(desc(committee.year));
+
+  const years = yearsRows.map((row) => String(row.year));
+  const fallbackYear = years[0] ?? "";
+  const targetYear = requestedYear ?? fallbackYear;
+
+  if (!targetYear) {
+    return {
+      year: "",
+      years: [],
+      committees: { mainBody: [], studentChapter: [] },
+    };
+  }
+
+  const yearNumber = Number(targetYear);
+  if (!Number.isInteger(yearNumber)) {
+    return {
+      year: targetYear,
+      years,
+      committees: { mainBody: [], studentChapter: [] },
+    };
+  }
+
+  const rows = await db
+    .select({
+      body: committee.body,
+      role: excoMember.role,
+      sortKey: excoMember.sortKey,
+      name: member.name,
+      linkedin: member.linkedin,
+      avatarSRC: member.image,
+    })
+    .from(excoMember)
+    .innerJoin(committee, eq(excoMember.committeeId, committee.id))
+    .innerJoin(member, eq(excoMember.memberId, member.id))
+    .where(eq(committee.year, yearNumber))
+    .orderBy(committee.body, excoMember.sortKey);
+
+  const committees: YearlyData = {
     mainBody: [],
     studentChapter: [],
+  };
+
+  rows.forEach((row) => {
+    const memberData: ExcoResponseMember = {
+      name: String(row.name ?? ""),
+      role: String(row.role ?? ""),
+      linkedin: String(row.linkedin ?? ""),
+      avatarSRC: String(row.avatarSRC ?? ""),
+    };
+
+    if (row.body === "main") {
+      committees.mainBody.push(memberData);
+      return;
+    }
+
+    committees.studentChapter.push(memberData);
   });
-  const [isLoading, setIsLoading] = useState(true);
 
+  return {
+    year: String(yearNumber),
+    years,
+    committees,
+  };
+}
+
+export default async function Page(props: {
+  searchParams: Promise<{ body?: string; year?: string }>;
+}) {
+  const searchParams = await props.searchParams;
   const body =
-    searchParams.get("body") === "studentChapter"
-      ? "studentChapter"
-      : "mainBody";
-  const requestedYear = searchParams.get("year");
+    searchParams.body === "studentChapter" ? "studentChapter" : "mainBody";
+  const requestedYear = searchParams.year;
 
-  useEffect(() => {
-    let isMounted = true;
-
-    const fetchExcoMembers = async () => {
-      setIsLoading(true);
-
-      try {
-        const yearQuery = requestedYear ? `?year=${requestedYear}` : "";
-        const response = await fetch(`/api/exco${yearQuery}`);
-        if (!response.ok) {
-          throw new Error("Failed to load EXCO members");
-        }
-
-        const data = (await response.json()) as ExcoApiResponse;
-        if (isMounted) {
-          setYears(data.years ?? []);
-          setCurrentYear(data.year ?? "");
-          setCommittees(
-            data.committees ?? {
-              mainBody: [],
-              studentChapter: [],
-            },
-          );
-        }
-      } catch {
-        if (isMounted) {
-          setYears([]);
-          setCurrentYear("");
-          setCommittees({
-            mainBody: [],
-            studentChapter: [],
-          });
-        }
-      } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
-      }
-    };
-
-    fetchExcoMembers();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [requestedYear]);
+  const data = await getExcoData(requestedYear);
 
   return (
     <div className="min-h-screen bg-white py-16 md:mt-8 md:py-24">
       <div className="container mx-auto max-w-7xl px-4 md:px-8">
         <TeamHeader
-          currentYear={currentYear}
+          currentYear={data.year}
           currentBody={body}
-          years={years}
+          years={data.years}
         />
 
-        {isLoading ? (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:grid-cols-5">
-            {Array.from({ length: 10 }).map((_, i) => (
-              <div
-                key={i}
-                className="aspect-[3/4] w-full animate-pulse rounded-xl bg-gray-200"
-              />
-            ))}
-          </div>
-        ) : committees[body]?.length > 0 ? (
-          <Team memberDetailList={committees[body]} numberOfColumns={5} />
+        {data.committees[body]?.length > 0 ? (
+          <Team memberDetailList={data.committees[body]} numberOfColumns={5} />
         ) : (
           <div className="flex flex-col items-center justify-center py-24 text-center">
             <h3 className="text-xl font-medium text-gray-900">
@@ -120,10 +124,3 @@ function ExcoContent() {
   );
 }
 
-export default function Page() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ExcoContent />
-    </Suspense>
-  );
-}

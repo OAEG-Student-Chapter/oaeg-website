@@ -22,6 +22,7 @@
     "d1:seed:exco:prod": "node scripts/seed-exco.mjs --remote"
   },
   "dependencies": {
+    "@base-ui/react": "^1.3.0",
     "@emailjs/browser": "^3.11.0",
     "@opennextjs/cloudflare": "^1.17.1",
     "@radix-ui/react-slot": "^1.2.4",
