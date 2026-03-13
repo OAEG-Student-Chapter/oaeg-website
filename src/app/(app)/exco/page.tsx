@@ -99,26 +99,45 @@ export default async function Page(props: {
   const data = await getExcoData(requestedYear);
 
   return (
-    <div className="min-h-screen bg-white py-16 md:mt-8 md:py-24">
-      <div className="container mx-auto max-w-7xl px-4 md:px-8">
-        <TeamHeader
-          currentYear={data.year}
-          currentBody={body}
-          years={data.years}
-        />
+    <div className="relative min-h-screen">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/images/exco2023.webp')" }}
+      >
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-[5px]"></div>
+      </div>
 
-        {data.committees[body]?.length > 0 ? (
-          <Team memberDetailList={data.committees[body]} numberOfColumns={5} />
-        ) : (
-          <div className="flex flex-col items-center justify-center py-24 text-center">
-            <h3 className="text-xl font-medium text-gray-900">
-              No members found
-            </h3>
-            <p className="mt-2 text-gray-500">
-              There are no committee members available for this selection yet.
+      <div className="relative z-10 py-16 md:mt-8 md:py-24">
+        <div className="container mx-auto max-w-7xl px-4 md:px-8">
+          <div className="mb-12 text-center text-white">
+            <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
+              Meet the Team
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-white/80">
+              The dedicated executive committee board members leading the guild.
             </p>
           </div>
-        )}
+
+          <TeamHeader
+            currentYear={data.year}
+            currentBody={body}
+            years={data.years}
+          />
+
+          {data.committees[body]?.length > 0 ? (
+            <Team memberDetailList={data.committees[body]} numberOfColumns={5} />
+          ) : (
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <h3 className="text-xl font-medium text-white">
+                No members found
+              </h3>
+              <p className="mt-2 text-white/60">
+                There are no committee members available for this selection yet.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
