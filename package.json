@@ -17,7 +17,9 @@
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "d1:generate": "drizzle-kit generate",
     "d1:migrations": "wrangler d1 migrations apply oaeg-db --local",
-    "d1:migrations:prod": "wrangler d1 migrations apply oaeg-db --remote"
+    "d1:migrations:prod": "wrangler d1 migrations apply oaeg-db --remote",
+    "d1:seed:exco": "node scripts/seed-exco.mjs --local",
+    "d1:seed:exco:prod": "node scripts/seed-exco.mjs --remote"
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
