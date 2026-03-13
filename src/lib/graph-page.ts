@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export default class GraphPageApi {
     private readonly access_token: string;
     private readonly version: string;
@@ -14,15 +16,6 @@ export default class GraphPageApi {
         this.version = version;
         this.page_id = page_id;
     }
-
-    async gatherResponse(response: Response) {
-        const { headers } = response;
-        const contentType = headers.get("content-type") || "";
-        if (contentType.includes("application/json")) {
-            return JSON.stringify(await response.json());
-        }
-        return response.text();
-    }
   
     private async _get(endpoint: string) {
         // remove the leading slash from the endpoint
@@ -31,8 +24,13 @@ export default class GraphPageApi {
             `https://graph.facebook.com/${this.version}/${endpoint}&access_token=${this.access_token}`,
             this.init
         );
-        const result = await this.gatherResponse(res);
-        return result;
+        
+        if (!res.ok) {
+            const error = await res.json();
+            throw new Error(error?.error?.message || "Failed to fetch from Facebook Graph API");
+        }
+
+        return await res.json();
     }
 
     async getAlbums() {
@@ -41,5 +39,30 @@ export default class GraphPageApi {
 
     async getSingleAlbum(albumId: string) {
         return await this._get(`${albumId}?fields=id,name,link,description,cover_photo{webp_images},photos{webp_images}`);
+    }
+}
+
+export function getGraphApi() {
+    const PAGE_ID = process.env.FB_PAGE_ID || "1431417997070793";
+    const ACCESS_TOKEN = process.env.FB_PAGE_ACCESS_TOKEN;
+
+    if (!ACCESS_TOKEN) {
+        throw new Error("Token not configured");
+    }
+
+    return new GraphPageApi(ACCESS_TOKEN, "v17.0", PAGE_ID);
+}
+
+export async function withGraphApi(handler: (api: GraphPageApi) => Promise<any>) {
+    try {
+        const api = getGraphApi();
+        const result = await handler(api);
+        return NextResponse.json(result);
+    } catch (e) {
+        console.error("API Error:", e);
+        return NextResponse.json(
+            { error: (e as Error).message },
+            { status: (e as Error).message === "Token not configured" ? 500 : 400 }
+        );
     }
 }

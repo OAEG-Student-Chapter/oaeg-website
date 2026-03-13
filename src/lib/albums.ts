@@ -72,7 +72,7 @@ export const getSingleEventAlbum = async (
 ): Promise<{
     album: EventAlbum;
 }> => {
-    const res = await fetch(`/api/albums?id=${album_id}`);
+    const res = await fetch(`/api/albums/${album_id}`);
     const data = await res.json();
     
     if (data.error) {
