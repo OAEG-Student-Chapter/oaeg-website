@@ -10,7 +10,6 @@ jobs:
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/beta'
-    needs: ci
     runs-on: ubuntu-latest
     permissions:
       contents: read
