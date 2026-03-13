@@ -5,8 +5,6 @@ import { getSingleEventAlbum, EventAlbum } from "@/lib/albums";
 import Gallery from "@/app/(app)/gallery/[id]/gallery";
 import Link from "next/link";
 
-export const runtime = "edge";
-
 export default function Page(props: { params: Promise<{ id: string }> }) {
   const params = use(props.params);
   const [album, setAlbum] = useState<EventAlbum>();

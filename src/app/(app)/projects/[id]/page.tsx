@@ -3,8 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { blog } from "@/api/blogger/blog";
 
-export const runtime = "edge";
-
 export default function Page() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");

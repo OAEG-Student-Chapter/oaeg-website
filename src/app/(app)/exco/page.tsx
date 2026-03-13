@@ -881,8 +881,6 @@ interface DataObject {
   };
 }
 
-//export const runtime = "edge";
-
 // export default function Page({ params, searchParams}: {
 //     params: { slug: string };
 //     searchParams?: { [key: string]: string };
@@ -926,9 +924,9 @@ function ExcoContent() {
         <Team
           memberDetailList={
             year !== undefined &&
-            body !== undefined &&
-            detailList[year] !== undefined &&
-            detailList[year][body] !== undefined
+              body !== undefined &&
+              detailList[year] !== undefined &&
+              detailList[year][body] !== undefined
               ? detailList[year][body]
               : []
           }
