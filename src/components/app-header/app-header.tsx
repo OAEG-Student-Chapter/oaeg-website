@@ -5,15 +5,17 @@ import { organization } from "@/lib/constants";
 import AppNavbar from "@/components/app-header/app-navbar";
 import NavToggleButton from "@/components/ui/nav-toggle";
 import { useEffect, useState } from "react";
-import useArrangeNavbar from "@/hooks/useArrangeNavbar";
-import useIsHomePage from "@/hooks/useIsHomePage";
+import { usePathname } from "next/navigation";
+import { routesMap } from "@/lib/routes";
+import useArrangeNavbar from "@/components/app-header/use-arrange-navbar";
 
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const AppHeader = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const pathname = usePathname();
   const isBannerHidden = useArrangeNavbar();
-  const isHomePage = useIsHomePage();
+  const isHomePage = pathname === routesMap.home.path;
   const isDesktopNavbarDark = !isHomePage || isBannerHidden;
 
   useEffect(() => {
