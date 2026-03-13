@@ -1,12 +1,14 @@
-import {FaLinkedin} from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa6";
 import Styles from "./SocialIcon.module.css"
+import React from "react";
+import { IconType } from "react-icons";
 
 interface SocialIconProps {
     socialMedia: string;
     accountName: string;
 }
 
-export const socialMediaList = [
+export const socialMediaList: { name: string; icon: IconType }[] = [
     {
         "name": "linkedin",
         icon: FaLinkedin
@@ -14,18 +16,19 @@ export const socialMediaList = [
 ];
 
 export default function SocialIcon({ socialMedia, accountName }: SocialIconProps) {
-    let webURL, IconComponent;
-    for (let i = 0; i < socialMediaList.length; i++) {
-        if (socialMediaList[i].name === socialMedia) {
-            webURL = accountName;
-            IconComponent = socialMediaList[i].icon;
-            break;
-        }
-    }
-	return (
-		<a href={webURL} target={"_blank"} className={Styles.linkComponent}>
-            <IconComponent className={Styles.icon}/>
-        </a>
-	);
+    const socialInfo = socialMediaList.find(item => item.name === socialMedia);
 
+    if (!socialInfo) {
+        return null;
+    }
+
+    const IconComponent = socialInfo.icon;
+    const webURL = accountName;
+
+    return (
+        <a href={webURL} target={"_blank"} className={Styles.linkComponent} rel="noreferrer">
+            <IconComponent className={Styles.icon} />
+        </a>
+    );
 }
+
