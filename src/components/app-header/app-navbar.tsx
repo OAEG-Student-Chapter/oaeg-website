@@ -40,11 +40,11 @@ export default function AppNavbar({
       <li className="my-2 lg:my-0 lg:ml-1">
         <RegisterButton />
       </li>
-      <li className="my-2 ml-0 text-[1.1em] text-white md:ml-6 lg:my-0">
+      <li className="my-2 ml-0 mr-2 text-[1.1em] text-white md:ml-6 lg:my-0">
         <IconLinks
           color="white"
-          iconClass="h-12 w-12"
-          className="flex justify-center gap-1"
+          iconClass="h-8 w-8"
+          className="flex justify-center gap-2"
           iconData={socialMediaLinks.map((l) => {
             return {
               Icon: l.icon,

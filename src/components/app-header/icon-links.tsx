@@ -17,7 +17,7 @@ const IconLinks = ({
   iconData,
   iconClass,
   color,
-  iconSize = "100%",
+  iconSize,
   className = "flex justify-center",
 }: IconLinksProps) => {
   const getIconStyle = () => {
