@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import type {Metadata, Viewport} from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { AppFooter } from "@/app/components/app-footer/app-footer";
 import { AppHeader } from "@/app/components/app-header/app-header";
@@ -20,9 +20,39 @@ export const metadata: Metadata = {
     title: "Official Website of OAEG",
     url: "www.oaeg.lk",
   },
+  manifest: "/site.webmanifest",
+
+  icons: {
+    icon: [
+      {
+        url: "/icons/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+      },
+      {
+        url: "/icons/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
+      },
+    ],
+    apple: [
+      {
+        url: "/icons/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+    other: [
+      {
+        url: "/icons/safari-pinned-tab.svg",
+        rel: "mask-icon",
+        color: "#5bbad5",
+      },
+    ],
+  },
 };
 
-const viewport : Viewport  = {
+const viewport: Viewport = {
   themeColor: "white",
 }
 
@@ -33,33 +63,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/icons/apple-touch-icon.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/icons/favicon-32x32.png"
-        />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="16x16"
-          href="/icons/favicon-16x16.png"
-        />
-        <link rel="manifest" href="/site.webmanifest" />
-        <link
-          rel="mask-icon"
-          href="/icons/safari-pinned-tab.svg"
-          color="#5bbad5"
-        />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
-      </Head>
       <body className={inter.className}>
         <AppHeader />
         <AppBody>{children}</AppBody>
@@ -69,4 +72,4 @@ export default function RootLayout({
   );
 }
 
-export { viewport}
+export { viewport }
