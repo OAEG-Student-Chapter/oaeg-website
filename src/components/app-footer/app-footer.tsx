@@ -2,10 +2,11 @@ import socialMediaLinks from "@/lib/social-media";
 import { routes } from "@/lib/routes";
 import React from "react";
 import IconLinks from "@/components/app-header/icon-links";
+import { poppins } from "@/lib/fonts";
 
 export const AppFooter = () => {
   return (
-    <div className="bg-primary-dark font-['Poppins'] text-white">
+    <div className={`${poppins.className} bg-primary-dark text-white`}>
       <footer className="glass footer footer-center gap-8 bg-transparent p-5 [--glass-reflex-opacity:0]">
         <div className="grid gap-4">
           <nav className="flex flex-wrap justify-center gap-x-4 gap-y-2">
