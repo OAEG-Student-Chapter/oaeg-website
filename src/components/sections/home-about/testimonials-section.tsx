@@ -1,5 +1,4 @@
 'use client';
-import styles from "./testimonial-card.module.css";
 import { TestimonialCardProps, data } from "./testimonials";
 import { splitByDoubleNewline, splitByNewLine } from "@/lib/helpers";
 import { krub } from "@/lib/fonts";
@@ -13,46 +12,31 @@ import {
 
 export const TestimonialCard = (props: TestimonialCardProps) => {
     return (
-        <div className={styles.testimonialCard}>
-            <div className={styles.cardLeft + " cursor-default"}>
-                <div className={styles.testimonialImage} >
+        <div className="flex flex-col md:flex-row border border-gray-200">
+            <div className="flex-1 flex flex-col justify-center p-2 bg-gray-50 min-h-[60vh] max-h-[60vh] cursor-default">
+                <div className="p-4" >
                     <img
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            aspectRatio: "1/1",
-                            borderRadius: "50%",
-                        }}
+                        className="w-full h-full aspect-square rounded-full object-cover"
                         src={props.image}
                         alt=""
                     />
                 </div>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "start",
-                        padding: 20,
-                    }}
-                >
-                    <h3
-                        style={{
-                            fontSize: "1.2em",
-                        }}
-                    >
+                <div className="flex flex-col justify-start p-5">
+                    <h3 className="text-[1.2em]">
                         {props.name}
                     </h3>
-                    <div style={{ textAlign: 'left', fontWeight: 500, fontSize: "0.8em", marginBottom: "0.5rem" }}>
+                    <div className="text-left font-medium text-[0.8em] mb-2">
                         {splitByNewLine(props.title)}</div>
-                    <p style={{ textAlign: 'left', fontWeight: 500, fontSize: "1em" }}>{props.position}</p>
+                    <p className="text-left font-medium text-base">{props.position}</p>
                 </div>
             </div>
-            <div className={`${styles.cardRight}`}>
-                <div className={`${krub.className} ${styles.quote} cursor-default`}>
+            <div className="flex-[3] bg-primary-dark text-white p-8 italic flex flex-col justify-center min-h-[60vh] max-h-[60vh]">
+                <div className={`${krub.className} text-center overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent cursor-default`}>
+                    <span className="text-primary text-[1.25em] mr-2">"</span>
                     {
                         splitByDoubleNewline(props.quote)
                     }
+                    <span className="text-primary text-[1.25em] ml-2">"</span>
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import Team from "./Team";
 //import memberDetailList from "./membersDetailList.json";
-import Styles from "./Team.module.css";
 import TeamHeader from "./TeamHeader";
 
 
@@ -915,7 +914,7 @@ function ExcoContent() {
     
     return (
         <div className="bg-white py-24 sm:py-12 min-h-screen">
-            <div className={Styles.mainWrapper}>
+            <div className="m-[0_0_3em] md:m-[4%_6%]">
                 <div>
                     <TeamHeader currentYear={year} currentBody={body} />
                 </div>

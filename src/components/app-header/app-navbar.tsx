@@ -1,5 +1,4 @@
 'use client'
-import styles from "./app-navbar.module.css";
 import Link from "next/link";
 import { routes, routesMap } from "@/lib/routes";
 import { Krub } from "next/font/google";
@@ -15,16 +14,14 @@ export default function AppNavbar({ onItemClick }: {
 }) {
     const pathName = usePathname();
     const links = () => (
-        <ul className={"flex justify-center sm:justify-end "}>
+        <ul className="h-full w-full flex flex-col md:flex-row items-start md:items-center list-none ml-2 md:justify-end">
             {
                 routes.map((route, index) => {
                     const isActive = pathName === route.path;
                     return (
-                        <li key={index} className={`${styles.navbarItem} mb-2 lg:mb-0 ${isActive ? styles.navbarItemCurrent : ""}`}>
-                            <Link href={route.path} className={krubFont.className} onClick={() => {
+                        <li key={index} className={`mb-2 lg:mb-0 h-full flex justify-center items-center md:mx-4 border-b-[3px] transition-colors ${isActive ? "border-white" : "border-transparent hover:border-primary"}`}>
+                            <Link href={route.path} className={`${krubFont.className} text-white no-underline`} onClick={() => {
                                 if (onItemClick) onItemClick();
-                                // go to route.path
-                                // window.location.href = route.path;
                             }}>
                                 {route.name}
                             </Link>
@@ -32,12 +29,12 @@ export default function AppNavbar({ onItemClick }: {
                     );
                 })
             }
-            <li className={"my-2 lg:my-0 lg:ml-1"}><RegisterButton /></li>
-            <li className={`my-2 lg:my-0 ${styles.socialLinks}`}>
+            <li className="my-2 lg:my-0 lg:ml-1"><RegisterButton /></li>
+            <li className="my-2 lg:my-0 text-[1.1em] text-white ml-0 md:ml-6">
                 <IconLinks
                     color="white"
-                    iconClass={styles.navSocialIcons}
-                    className={"flex justify-center gap-1"}
+                    iconClass="h-8 w-8"
+                    className="flex justify-center gap-1"
                     iconData={socialMediaLinks.map(l => {
                         return {
                             Icon: l.icon,
@@ -45,21 +42,18 @@ export default function AppNavbar({ onItemClick }: {
                         }
                     })} />
             </li>
-            <li className={"flex my-2 lg:my-0"}>
+            <li className="flex my-2 lg:my-0">
                 <a
                     href="https://www.anandacollegeoba.org/old-boys-association/affiliated-groups/old-anandians-engineers-guild-details/"
                     target={"_blank"}
-                    className={"rounded"}
-                    style={{
-                        height: "2.5rem"
-                    }}>
-                    <img className={"h-full contain"} src={"/images/oba.webp"} alt={"ananda college oba"} />
+                    className="rounded h-10">
+                    <img className="h-full contain" src={"/images/oba.webp"} alt={"ananda college oba"} />
                 </a>
             </li>
         </ul>
     );
     return (
-        <nav className={`${styles.navbar} flex items-center justify-between`}>
+        <nav className="h-full md:h-[var(--navbar-height)] w-full bg-transparent px-[5vw] transition-all duration-500 ease-in-out relative flex items-center justify-between">
             <div className="hidden sm:block">
                 <NavBrand />
             </div>
@@ -69,13 +63,10 @@ export default function AppNavbar({ onItemClick }: {
 }
 
 export const RegisterButton = ({ cta }: { cta?: string }) => (
-    <Link target={"_blank"} className={`sm:h-full 
-            flex items-center`} href={routesMap.register.path}>
+    <Link target={"_blank"} className="sm:h-full flex items-center" href={routesMap.register.path}>
         <span
-            style={{ background: "var(--theme-gold)", color: "black" }}
-            className={`rounded
-                    font-semibold tracking-wide uppercase
-                px-4 py-2`}>
+            style={{ background: "var(--color-primary-gradient)", color: "black" }}
+            className="rounded font-semibold tracking-wide uppercase px-4 py-2">
             {cta ?? routesMap.register.name}
         </span>
     </Link>);

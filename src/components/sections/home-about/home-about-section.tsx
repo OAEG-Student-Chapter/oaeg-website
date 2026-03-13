@@ -1,4 +1,3 @@
-import styles from "./home-about-section.module.css";
 import TitleBadge from "@/components/ui/title-badge";
 import { SecondaryTitle } from "@/components/ui/titles";
 import React, { ReactNode } from "react";
@@ -10,30 +9,29 @@ import { rubik, krub, krubItalic } from "@/lib/fonts";
 
 export default function HomeAboutSection() {
     return (
-        <div className={`${styles.container} ${rubik.className}`}>
+        <div className={`bg-white py-16 px-[10%] md:px-[15%] ${rubik.className}`}>
             <TitleBadge title={"Who We Are"} />
-            <div className={"mt-4 md:flex"}>
+            <div className="mt-4 md:flex">
                 <img
-                    className={"mb-4 md:mb-0 md:mr-4"}
-                    style={{ height: "10rem", width: "10rem" }}
-                    src={"/images/logo_oaeg.png"}
-                    alt={"OAEG logo"}
+                    className="mb-4 md:mb-0 md:mr-4 h-40 w-40"
+                    src="/images/logo_oaeg.png"
+                    alt="OAEG logo"
                 />
                 <div className="flex items-center">
-                    <p className={"text-justify"}>
+                    <p className="text-justify">
                         {organization.description}
                     </p>
                 </div>
             </div>
-            <div className={styles.topSection}>
-                <div className={"mt-6"}>
+            <div className="mt-6">
+                <div className="mt-6">
                     <SecondaryTitle title={'Our Mission'} />
                     <InfoCard>
                         <ul>
                             {
                                 organization.mission.map((mission, index) => {
-                                    return <li className={"mb-1 flex"} key={index}>
-                                        <FaCheck className={"mr-2"} />
+                                    return <li className="mb-1 flex" key={index}>
+                                        <FaCheck className="mr-2" />
                                         {mission}</li>
                                 })
                             }
@@ -48,11 +46,11 @@ export default function HomeAboutSection() {
                     <RegisterButton cta={"Join the Guild"} />
                 </div>
             </div>
-            <div className={`${styles.bottomSection} mb-12`}>
-                <div style={{ marginTop: 10 }} id={"testimonials"}>
+            <div className="mt-12 mb-12">
+                <div className="mt-[10px]" id="testimonials">
                     <SecondaryTitle title={"Testimonials"} />
                 </div>
-                <div style={{ marginTop: 20 }}>
+                <div className="mt-[20px]">
                     <TestimonialsSection />
                 </div>
             </div>
@@ -63,11 +61,7 @@ export default function HomeAboutSection() {
 const InfoCard = (props: { children: ReactNode }) => {
     return (
         <div
-            className={krubItalic.className}
-            style={{
-                marginTop: 10,
-                color: "var(--color-text-secondary)",
-            }}
+            className={`mt-[10px] text-gray-500 ${krubItalic.className}`}
         >
             {props.children}
         </div>

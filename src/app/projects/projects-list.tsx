@@ -1,7 +1,6 @@
 // ProjectList.tsx
 import React from "react";
 import ProjectPage from "./types";
-import styles from "./page.module.css";
 import AppCard from "@/components/ui/card";
 
 interface ProjectListProps {
@@ -17,9 +16,9 @@ const ProjectList: React.FC<ProjectListProps> = ({ projects }) => {
     };
 
     return (
-        <div className={styles.grid}>
+        <div className="grid grid-cols-1 md:grid-cols-4 px-0 md:px-20 gap-4">
             {projects.map((project) => (
-                <div className={styles.cardWrapper} key={project.id}>
+                <div className="w-full aspect-[3/4]" key={project.id}>
                     <AppCard
                         title={project.title}
                         imgSrc={getThumbnail(project.content)}

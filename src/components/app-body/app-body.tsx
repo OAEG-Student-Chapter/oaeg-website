@@ -1,8 +1,6 @@
-import styles from "@/components/app-body/app-body.module.css";
-
 export default function AppBody({ children }: { children: React.ReactNode }) {
     return (
-        <main className={styles.main}>
+        <main className="min-h-screen md:min-h-[calc(100vh-var(--navbar-height))] p-0 mt-0">
             {children}
         </main>
     );

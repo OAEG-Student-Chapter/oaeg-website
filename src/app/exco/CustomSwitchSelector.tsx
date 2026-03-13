@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Styles from './TeamHeader.module.css';
 
 interface Option {
   label: string;
@@ -27,14 +26,14 @@ const CustomSwitchSelector: React.FC<CustomSwitchSelectorProps> = ({
   };
 
   return (
-    <div className={Styles.switchSelector}>
+    <div className="flex flex-row justify-center">
       {options.map((option, index) => (
         <div
           key={index}
-          className={`${Styles.option} cursor-pointer`}
+          className="text-[1.1em] md:text-[1.5em] p-2 pt-[0.2em] pb-[0.2em] cursor-pointer transition-colors"
           style={{
-            backgroundColor: index === selectedIndex ? 'var(--vt-c-grey-light)' : 'var(--vt-c-white)',
-            color: index === selectedIndex ? option.selectedFontColor : 'var(--vt-c-grey-dark)'
+            backgroundColor: index === selectedIndex ? '#DDDDDD' : '#ffffff',
+            color: index === selectedIndex ? option.selectedFontColor : '#BBBBBB'
           }}
           onClick={() => handleOptionClick(index)}
         >

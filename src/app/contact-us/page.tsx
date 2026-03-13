@@ -1,15 +1,13 @@
 "use client";
-import navStyles from "@/components/app-header/app-navbar.module.css";
 import React from "react";
 import emailjs from "@emailjs/browser";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import styles from "./contact-form.module.css";
 import {FaEnvelope} from "react-icons/fa6";
 
 export default function Page() {
     return (
-        <div className={`${navStyles.navbarSpace} ${styles.contactPage}`}>
+        <div className="pt-[var(--navbar-height)] bg-[url('/images/exco2023.webp')] bg-cover bg-center bg-no-repeat h-full min-h-screen relative py-16">
             <ContactForm/>
         </div>
     );
@@ -59,28 +57,28 @@ const contactPersons = [
 const ContactForm = () => {
     return (
         <>
-            <div className={styles.contactFormWrapper}>
-                <div className={"flex justify-start"}>
-                    <span className={styles.preFormTitle}>Get in touch with us</span>
+            <div className="mt-16 mx-[10%] p-[5%] flex flex-col justify-center bg-[rgba(0,0,0,0.8)] text-white rounded-[5px]">
+                <div className="flex justify-start">
+                    <span className="bg-[rgba(0,0,0,0.5)] py-1 px-2 border-l-[3px] border-primary mb-3">Get in touch with us</span>
                 </div>
-                <h4 className={"text-xl font-bold mb-2"}>Joint Secretaries</h4>
-                <div className={"flex flex-col sm:flex-row mb-4"}>
+                <h4 className="text-xl font-bold mb-2">Joint Secretaries</h4>
+                <div className="flex flex-col sm:flex-row mb-4">
                   {
-                    contactPersons.map((contactPerson) => (<div className="pr-5 mb-2 sm:mr-5 sm:border-r-2 sm:border-r-white">
-                      <span className={"text-base"}>{contactPerson.name}</span> <br/>
+                    contactPersons.map((contactPerson, index) => (<div key={index} className="pr-5 mb-2 sm:mr-5 sm:border-r-2 sm:border-r-white">
+                      <span className="text-base">{contactPerson.name}</span> <br/>
                       <a href={`mailto:${contactPerson.email}`}
-                         className={"flex items-center"}> <FaEnvelope className={"mr-2"}/> {contactPerson.email}</a>
+                         className="flex items-center"> <FaEnvelope className="mr-2"/> {contactPerson.email}</a>
                     </div>))
                   }
                 </div>
-                <p style={{marginBlock: "1rem"}}>
+                <p className="my-4">
                     Or just fill the form below to send us a message and we will get back to you as soon as possible.
                 </p>
-                <form className={styles.form} onSubmit={sendEmail}>
-                    <div className={styles.formGrid}>
-                        <div className={styles.formField}>
+                <form className="w-full" onSubmit={sendEmail}>
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div className="w-full">
                             <input
-                                className={styles.inputField}
+                                className="w-full px-4 py-3 border border-white text-white bg-transparent placeholder:text-white"
                                 type="text"
                                 placeholder={"Name*"}
                                 id="name"
@@ -89,9 +87,9 @@ const ContactForm = () => {
                             />
                         </div>
 
-                        <div className={styles.formField}>
+                        <div className="w-full">
                             <input
-                                className={styles.inputField}
+                                className="w-full px-4 py-3 border border-white text-white bg-transparent placeholder:text-white"
                                 type="email"
                                 placeholder={"Email*"}
                                 id="email"
@@ -100,9 +98,9 @@ const ContactForm = () => {
                             />
                         </div>
 
-                        <div className={styles.formField}>
+                        <div className="w-full">
                             <input
-                                className={styles.inputField}
+                                className="w-full px-4 py-3 border border-white text-white bg-transparent placeholder:text-white"
                                 type="tel"
                                 id="phone"
                                 placeholder={"Phone*"}
@@ -111,40 +109,37 @@ const ContactForm = () => {
                             />
                         </div>
 
-                        <div className={styles.formField}>
+                        <div className="w-full">
                             <select
-                                className={styles.selectField}
+                                className="w-full px-4 py-3 border border-white text-white bg-transparent appearance-none"
                                 id="membership"
                                 name="membership"
                                 defaultValue="null"
                                 required
                             >
-                                <option hidden value="null">
+                                <option hidden value="null" className="bg-white text-black">
                                     Membership Status
                                 </option>
-                                <option value="Corporate Member">Corporate Member</option>
-                                <option value="Student Member">Student Member</option>
-                                <option value="Non-Member">Non-Member</option>
+                                <option value="Corporate Member" className="bg-white text-black">Corporate Member</option>
+                                <option value="Student Member" className="bg-white text-black">Student Member</option>
+                                <option value="Non-Member" className="bg-white text-black">Non-Member</option>
                             </select>
                         </div>
                     </div>
 
-                    <div className={styles.formField}>
+                    <div className="w-full">
             <textarea
-                className={styles.textAreaField}
+                className="w-full px-4 py-3 border border-white text-white bg-transparent placeholder:text-white resize-none h-40"
                 id="message"
                 placeholder={"Message/Inquiry*"}
                 name="message"
                 required
             ></textarea>
                     </div>
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "center",
-                        }}
-                    >
-                        <button className={styles.submitButton} type="submit">
+                    <div className="flex justify-center">
+                        <button 
+                            className="bg-gradient-to-r from-[#ffb629] via-[#ffda56] to-[#ffd7a6] text-black border-none py-3 px-4 text-base cursor-pointer transition-all duration-300 ease-in-out mt-4 font-medium" 
+                            type="submit">
                             Submit Message
                         </button>
                     </div>

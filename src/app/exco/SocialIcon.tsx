@@ -1,5 +1,4 @@
 import { FaLinkedin } from "react-icons/fa6";
-import Styles from "./SocialIcon.module.css"
 import React from "react";
 import { IconType } from "react-icons";
 
@@ -26,8 +25,8 @@ export default function SocialIcon({ socialMedia, accountName }: SocialIconProps
     const webURL = accountName;
 
     return (
-        <a href={webURL} target={"_blank"} className={Styles.linkComponent} rel="noreferrer">
-            <IconComponent className={Styles.icon} />
+        <a href={webURL} target={"_blank"} className="flex flex-col items-center justify-center" rel="noreferrer">
+            <IconComponent className="text-black h-8 w-8 m-2 hover:text-primary-dark transition-colors" />
         </a>
     );
 }

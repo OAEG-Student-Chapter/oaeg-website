@@ -1,5 +1,4 @@
 'use client'
-import styles from "./app-hero.module.css";
 import { Rubik } from "next/font/google"
 import React from "react";
 import socialMediaLinks from "@/lib/social-media";
@@ -27,14 +26,13 @@ export default function AppHero(props: AppHeroProps) {
     const fadePlugin = React.useRef(Fade());
 
     return (
-        <div className={"relative bg-[#272727]"}>
-            <div className={`w-full px-4 ${styles.heroText} ${rubik.className}`}>
-                <h2 className={`text-4xl md:text-7xl text-white text-center`}>
-                    <span className={"text-theme-yellow"}>Old Anandian</span> <br />
+        <div className="relative bg-[#272727]">
+            <div className={`absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full px-4 ${rubik.className}`}>
+                <h2 className="text-4xl md:text-7xl text-white text-center">
+                    <span className="text-theme-yellow">Old Anandian</span> <br />
                     Engineers' Guild</h2>
-                <h4 className="text-xl md:text-large text-center text-gray-100 mt-2">Est. in 2017</h4>
+                <h4 className="text-xl md:text-2xl text-center text-gray-100 mt-2 font-normal">Est. in 2017</h4>
                 <div className="flex mt-4 w-full justify-center">
-                    {/*    font awesome icons */}
                     <IconLinks
                         color="white"
                         iconData={socialMediaLinks.map(l => {
@@ -43,8 +41,8 @@ export default function AppHero(props: AppHeroProps) {
                                 link: l.url
                             }
                         })}
-                        iconClass={styles.heroSocialIcons}
-                        className={"flex justify-center gap-2"}
+                        iconClass="h-8 w-8 md:h-12 md:w-12"
+                        className="flex justify-center gap-2"
                     />
                 </div>
             </div>
@@ -52,7 +50,7 @@ export default function AppHero(props: AppHeroProps) {
                 plugins={[plugin.current, fadePlugin.current]}
                 opts={{
                     loop: true,
-                    duration: 30, // Adjust speed if needed. Lower is faster in Embla, but fade handles transition speed mostly.
+                    duration: 30,
                 }}
             >
                 <CarouselContent className="ml-0">
@@ -79,24 +77,9 @@ const SliderItem = (props: SliderItemProps) => {
     return (
         <div style={{
             height: props.height,
-        }} className={styles.heroImageContainer}>
-            <Overlay color={"rgba(0,0,0,0.7)"} />
-            <img className={styles.heroImage} src={slideImage.url} alt="" />
+        }} className="w-full relative h-[100vh] md:h-[calc(100vh-var(--navbar-height))] md:mt-[var(--navbar-height)]">
+            <div className="absolute inset-0 z-[1] bg-black/70" />
+            <img className="h-full w-full object-top object-cover" src={slideImage.url} alt="" />
         </div>
     );
 };
-
-
-function Overlay(props: { color?: string }) {
-    return (
-        <div style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 1,
-            width: "100%",
-            height: "100%",
-            backgroundColor: props.color
-        }} />
-    )
-}

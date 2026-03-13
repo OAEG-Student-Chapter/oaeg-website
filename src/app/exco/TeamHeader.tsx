@@ -1,7 +1,6 @@
 "use client"
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Styles from './TeamHeader.module.css';
 import Dropdown, { Option } from 'react-dropdown';
 import 'react-dropdown/style.css';
 import CustomSwitchSelector from './CustomSwitchSelector';
@@ -53,18 +52,18 @@ export default function TeamHeader({currentYear, currentBody}: {
   return (
     <div>
       {/* Dropdown component */}
-      <div className={Styles.dropDownWrapper}>
+      <div className="w-full flex justify-center items-center h-8 md:h-8 h-20 md:text-base text-[0.8em]">
         <Dropdown
           options={yearsTexts}
           onChange={handleYearChange}
           placeholder={`${year}`}
           value={year}
-          className={Styles.dropDown}
+          className="min-w-[250px]"
         />
       </div>
 
       {/* CustomSwitchSelector component */}
-      <div className={Styles.switchSelectorWrapper}>
+      <div className="h-10 w-full md:w-[60%] md:ml-[20%] mt-[2%] mb-[3%]">
         <CustomSwitchSelector
           options={options}
           initialSelectedIndex={isMainBody ? 0 : 1}
@@ -73,10 +72,10 @@ export default function TeamHeader({currentYear, currentBody}: {
       </div>
 
       {/* Description Component */}
-      {/*<p className={Styles.description}>*/}
-      {/*  Description goes here. Lorem ipsium elit. Aliquam maximus, tellus vel interdum tincidunt,*/}
-      {/*  tortor libero vestibulum dui, eu dictum massa ex in ante*/}
-      {/*</p>*/}
+      {/* <p className="text-base md:text-[1.1em] text-center w-[80%] md:w-[70%] ml-[10%] md:ml-[15%] mb-8 md:mb-[3%]"> */}
+      {/*  Description goes here. Lorem ipsium elit. Aliquam maximus, tellus vel interdum tincidunt, */}
+      {/*  tortor libero vestibulum dui, eu dictum massa ex in ante */}
+      {/* </p> */}
 
     </div>
   );

@@ -1,6 +1,5 @@
 import TeamMember from "./TeamMember";
 import React from "react";
-import Styles from "./Team.module.css";
 
 interface memberDetailObject {
     name: string;
@@ -30,7 +29,7 @@ export default /*async*/ function Team({memberDetailList, numberOfColumns}: Team
                 const accountNames = [memberDetails.linkedin];
 
                 rowComponents.push(
-                    <div key={index} className={Styles.wrapper}>
+                    <div key={index} className="w-full">
                         <TeamMember
                             name={memberDetails.name}
                             role={memberDetails.role}
@@ -43,14 +42,14 @@ export default /*async*/ function Team({memberDetailList, numberOfColumns}: Team
         }
 
         components.push(
-            <div key={row} className={Styles.rowWrapper}>
+            <div key={row} className="grid grid-cols-1 md:grid-cols-5 gap-0 md:gap-[2%] mb-0 md:mb-[3%]">
                 {rowComponents}
             </div>
         );
     }
 
     return (
-        <div className={Styles.teamWrapper}>
+        <div className="m-[0_0_3em] md:m-[4%_6%]">
             {components}
         </div>
     );
