@@ -57,14 +57,20 @@ export default function TeamHeader({
       <div className="w-full md:w-auto md:min-w-[320px]">
         <Select value={year} onValueChange={handleYearChange}>
           <SelectTrigger 
-            className={`h-12 w-full rounded-lg border-2 border-theme-maroon/20 bg-white px-4 py-2 text-sm font-medium text-black shadow-sm transition-all hover:border-theme-maroon/50 focus:border-theme-maroon focus:ring-4 focus:ring-theme-maroon/10 md:text-base ${textTheme.body.className}`}
+            className={`group !h-12 w-full rounded-lg border-2 border-theme-maroon/20 bg-white px-4 py-2 text-sm font-medium text-black shadow-sm transition-all hover:border-theme-maroon/50 focus:border-theme-maroon focus:ring-4 focus:ring-theme-maroon/10 md:text-base ${textTheme.body.className}`}
             aria-label="Select board year"
           >
-            <SelectValue placeholder="Select Year" />
+            <SelectValue placeholder="Select Year">
+              {year ? `The Board of Officials ${year}` : "Select Year"}
+            </SelectValue>
           </SelectTrigger>
-          <SelectContent className={textTheme.body.className}>
+          <SelectContent className={`bg-white border-theme-maroon/20 ${textTheme.body.className}`}>
             {years.map((yearOption) => (
-              <SelectItem key={yearOption} value={yearOption} className="cursor-pointer">
+              <SelectItem 
+                key={yearOption} 
+                value={yearOption} 
+                className="cursor-pointer py-2.5 transition-colors focus:bg-theme-maroon focus:text-white"
+              >
                 {`The Board of Officials ${yearOption}`}
               </SelectItem>
             ))}
