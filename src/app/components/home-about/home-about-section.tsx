@@ -6,7 +6,7 @@ import React, { ReactNode } from "react";
 import { organization } from "@/lib/constants";
 import { FaCheck } from "react-icons/fa6";
 import { TestimonialsSection } from "@/app/components/home-about/testimonials-section";
-import { RegisterButton } from "@/app/components/app-header/app-navbar";
+import { RegisterButton } from "@/components/app-header/app-navbar";
 
 const rubik = Rubik({ subsets: ["latin"], weight: ["400"] });
 const krubItalic = Krub({ subsets: ["latin"], weight: ["400"] });

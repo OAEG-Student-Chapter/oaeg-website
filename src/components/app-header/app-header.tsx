@@ -3,7 +3,7 @@
 import { Montserrat } from "next/font/google";
 import styles from "./app-header.module.css";
 import { organization } from "@/lib/constants";
-import AppNavbar from "@/app/components/app-header/app-navbar";
+import AppNavbar from "@/components/app-header/app-navbar";
 import NavToggleButton from "@/components/ui/nav-toggle";
 import { useEffect, useState } from "react";
 import useArrangeNavbar from "@/hooks/useArrangeNavbar";

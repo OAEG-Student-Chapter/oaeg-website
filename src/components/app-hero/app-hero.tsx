@@ -1,13 +1,13 @@
 'use client'
 import styles from "./app-hero.module.css";
 import 'react-slideshow-image/dist/styles.css'
-import {Fade} from "react-slideshow-image";
-import {Rubik} from "next/font/google"
+import { Fade } from "react-slideshow-image";
+import { Rubik } from "next/font/google"
 import React from "react";
-const rubik = Rubik({subsets: ['latin'], weight:['600']});
+const rubik = Rubik({ subsets: ['latin'], weight: ['600'] });
 import socialMediaLinks from "@/lib/social-media";
-import IconLinks from "@/app/components/app-header/icon-links";
-import {IHeroImage} from "@/app/components/app-hero/hero-images";
+import IconLinks from "@/components/app-header/icon-links";
+import { IHeroImage } from "@/components/app-hero/hero-images";
 
 
 interface AppHeroProps {
@@ -15,7 +15,7 @@ interface AppHeroProps {
     heroImages: IHeroImage[];
 }
 
-export default function AppHero(props:AppHeroProps) {
+export default function AppHero(props: AppHeroProps) {
 
     const slideProps = {
         duration: 3000,
@@ -29,11 +29,11 @@ export default function AppHero(props:AppHeroProps) {
         <div className={"relative bg-[#272727]"}>
             <div className={`w-full px-4 ${styles.heroText} ${rubik.className}`}>
                 <h2 className={`text-4xl md:text-7xl text-white text-center`}>
-                    <span className={"text-theme-yellow"}>Old Anandian</span> <br/>
+                    <span className={"text-theme-yellow"}>Old Anandian</span> <br />
                     Engineers' Guild</h2>
                 <h4 className="text-xl md:text-large text-center text-gray-100 mt-2">Est. in 2017</h4>
                 <div className="flex mt-4 w-full justify-center">
-                {/*    font awesome icons */}
+                    {/*    font awesome icons */}
                     <IconLinks
                         color="white"
                         iconData={socialMediaLinks.map(l => {
@@ -48,8 +48,8 @@ export default function AppHero(props:AppHeroProps) {
                 </div>
             </div>
             <Fade {...slideProps}>
-                {props.heroImages.map((slideImage, index)=>
-                    <SliderItem key={index} height={props.height} slideImage={slideImage}/>
+                {props.heroImages.map((slideImage, index) =>
+                    <SliderItem key={index} height={props.height} slideImage={slideImage} />
                 )}
             </Fade>
         </div>
@@ -63,15 +63,14 @@ interface SliderItemProps {
 }
 
 
-const SliderItem = (props: SliderItemProps) =>
-{
+const SliderItem = (props: SliderItemProps) => {
     const slideImage = props.slideImage;
     return (
         <div style={{
             height: props.height,
         }} className={styles.heroImageContainer}>
-            <Overlay color={"rgba(0,0,0,0.7)"}/>
-            <img className={styles.heroImage} src={slideImage.url} alt=""/>
+            <Overlay color={"rgba(0,0,0,0.7)"} />
+            <img className={styles.heroImage} src={slideImage.url} alt="" />
         </div>
     );
 };
@@ -87,6 +86,6 @@ function Overlay(props: { color?: string }) {
             width: "100%",
             height: "100%",
             backgroundColor: props.color
-        }}/>
+        }} />
     )
 }

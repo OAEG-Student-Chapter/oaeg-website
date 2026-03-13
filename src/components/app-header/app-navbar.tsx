@@ -1,17 +1,18 @@
 'use client'
 import styles from "./app-navbar.module.css";
 import Link from "next/link";
-import {routes, routesMap} from "@/lib/routes";
-import {Krub} from "next/font/google";
-import {usePathname} from "next/navigation";
+import { routes, routesMap } from "@/lib/routes";
+import { Krub } from "next/font/google";
+import { usePathname } from "next/navigation";
 import socialMediaLinks from "@/lib/social-media";
-import IconLinks from "@/app/components/app-header/icon-links";
+import IconLinks from "@/components/app-header/icon-links";
 import React from "react";
-const krubFont = Krub({weight: '500', subsets: ['latin']});
-import {NavBrand} from "@/app/components/app-header/app-header";
+const krubFont = Krub({ weight: '500', subsets: ['latin'] });
+import { NavBrand } from "@/components/app-header/app-header";
 
-export default function AppNavbar({onItemClick}: {
-    onItemClick?: () => void}){
+export default function AppNavbar({ onItemClick }: {
+    onItemClick?: () => void
+}) {
     const pathName = usePathname();
     const links = () => (
         <ul className={"flex justify-center sm:justify-end "}>
@@ -20,8 +21,8 @@ export default function AppNavbar({onItemClick}: {
                     const isActive = pathName === route.path;
                     return (
                         <li key={index} className={`${styles.navbarItem} mb-2 lg:mb-0 ${isActive ? styles.navbarItemCurrent : ""}`}>
-                            <Link href={route.path} className={krubFont.className} onClick={()=>{
-                                if(onItemClick) onItemClick();
+                            <Link href={route.path} className={krubFont.className} onClick={() => {
+                                if (onItemClick) onItemClick();
                                 // go to route.path
                                 // window.location.href = route.path;
                             }}>
@@ -31,7 +32,7 @@ export default function AppNavbar({onItemClick}: {
                     );
                 })
             }
-            <li className={"my-2 lg:my-0 lg:ml-1"}><RegisterButton/></li>
+            <li className={"my-2 lg:my-0 lg:ml-1"}><RegisterButton /></li>
             <li className={`my-2 lg:my-0 ${styles.socialLinks}`}>
                 <IconLinks
                     color="white"
@@ -42,7 +43,7 @@ export default function AppNavbar({onItemClick}: {
                             Icon: l.icon,
                             link: l.url
                         }
-                    })}/>
+                    })} />
             </li>
             <li className={"flex my-2 lg:my-0"}>
                 <a
@@ -50,8 +51,9 @@ export default function AppNavbar({onItemClick}: {
                     target={"_blank"}
                     className={"rounded"}
                     style={{
-                    height:"2.5rem"}}>
-                    <img className={"h-full contain"} src={"/images/oba.webp"}  alt={"ananda college oba"}/>
+                        height: "2.5rem"
+                    }}>
+                    <img className={"h-full contain"} src={"/images/oba.webp"} alt={"ananda college oba"} />
                 </a>
             </li>
         </ul>
@@ -59,21 +61,21 @@ export default function AppNavbar({onItemClick}: {
     return (
         <nav className={`${styles.navbar} flex items-center justify-between`}>
             <div className="hidden sm:block">
-                <NavBrand/>
+                <NavBrand />
             </div>
             {links()}
         </nav>
     );
 }
 
-export const RegisterButton = ({cta}:{cta? : string}) => (
+export const RegisterButton = ({ cta }: { cta?: string }) => (
     <Link target={"_blank"} className={`sm:h-full 
             flex items-center`} href={routesMap.register.path}>
-                <span
-                    style={{background:"var(--theme-gold)", color: "black"}}
-                    className={`rounded
+        <span
+            style={{ background: "var(--theme-gold)", color: "black" }}
+            className={`rounded
                     font-semibold tracking-wide uppercase
                 px-4 py-2`}>
-                     { cta ?? routesMap.register.name}
-                </span>
+            {cta ?? routesMap.register.name}
+        </span>
     </Link>);

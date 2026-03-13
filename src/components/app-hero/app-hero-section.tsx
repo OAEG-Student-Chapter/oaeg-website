@@ -1,8 +1,8 @@
-import AppHero from "@/app/components/app-hero/app-hero";
-import {IHeroImage} from "@/app/components/app-hero/hero-images";
+import AppHero from "@/components/app-hero/app-hero";
+import { IHeroImage } from "@/components/app-hero/hero-images";
 
 
-export const heroImages :IHeroImage[] = [
+export const heroImages: IHeroImage[] = [
     {
         url: '/images/hero-2.webp',
         title: "What It Takes To Be A CEO",
@@ -31,6 +31,6 @@ export const heroImages :IHeroImage[] = [
 ]
 
 export default function AppHeroSection() {
-    return <AppHero heroImages={heroImages}/>;
+    return <AppHero heroImages={heroImages} />;
 }
 
