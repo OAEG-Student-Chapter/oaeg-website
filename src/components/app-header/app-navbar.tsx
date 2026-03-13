@@ -6,8 +6,9 @@ import { usePathname } from "next/navigation";
 import socialMediaLinks from "@/lib/social-media";
 import IconLinks from "@/components/app-header/icon-links";
 import React from "react";
-const krubFont = Krub({ weight: '500', subsets: ['latin'] });
 import { NavBrand } from "@/components/app-header/app-header";
+
+const krubFont = Krub({ weight: '500', subsets: ['latin'] });
 
 export default function AppNavbar({ onItemClick }: {
     onItemClick?: () => void
@@ -33,7 +34,7 @@ export default function AppNavbar({ onItemClick }: {
             <li className="my-2 lg:my-0 text-[1.1em] text-white ml-0 md:ml-6">
                 <IconLinks
                     color="white"
-                    iconClass="h-8 w-8"
+                    iconClass="h-12 w-12"
                     className="flex justify-center gap-1"
                     iconData={socialMediaLinks.map(l => {
                         return {
