@@ -1,84 +1,84 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Dropdown, { Option } from "react-dropdown";
-import "react-dropdown/style.css";
-import CustomSwitchSelector from "./CustomSwitchSelector";
-import memberDetailList from "./membersDetailList.json";
 import { routesMap } from "@/lib/routes";
+import { Button } from "@/components/ui/button";
 
 export default function TeamHeader({
   currentYear,
   currentBody,
+  years,
 }: {
   currentYear: string;
   currentBody: string;
+  years: string[];
 }) {
   const router = useRouter();
-  // to add or remove years, add or remove the year from the json file
-  // make sure to add years in descending order in the json file
-  const years = Object.keys(memberDetailList).sort(
-    (a, b) => parseInt(b) - parseInt(a),
-  );
-  const yearsTexts = years.map((year) => {
-    return `The Board of Officials ${year}`;
-  });
 
-  // yearsTexts.length - 1
-  const initialYear = currentYear
-    ? `The Board of Officials ${currentYear}`
-    : yearsTexts[0];
-  const initialIsMainBody = currentBody ? currentBody == "mainBody" : true;
+  const fallbackYear = years[0] ?? "";
+  const initialYear = currentYear || fallbackYear;
+  const initialIsMainBody = currentBody ? currentBody === "mainBody" : true;
   const [year, setYear] = useState(initialYear);
   const [isMainBody, setIsMainBody] = useState(initialIsMainBody);
 
-  const options = [
-    {
-      label: "Main Body",
-      value: true,
-      selectedFontColor: "var(--vt-c-black)",
-    },
-    {
-      label: "Student Chapter",
-      value: false,
-      selectedFontColor: "var(--vt-c-black)",
-    },
-  ];
+  useEffect(() => {
+    setYear(currentYear || fallbackYear);
+  }, [currentYear, fallbackYear]);
+
+  useEffect(() => {
+    setIsMainBody(currentBody === "mainBody");
+  }, [currentBody]);
 
   const handleSwitchChange = (value: boolean): void => {
     setIsMainBody(value);
+    const selectedYear = year || currentYear || fallbackYear;
     router.push(
-      `${routesMap.team.path}/?body=${value ? "mainBody" : "studentChapter"}&year=${year.slice(-4)}`,
+      `${routesMap.team.path}/?body=${value ? "mainBody" : "studentChapter"}&year=${selectedYear}`,
     );
   };
 
-  const handleYearChange = (event: Option) => {
-    setYear(event.value);
+  const handleYearChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedYear = event.target.value;
+    setYear(selectedYear);
     router.push(
-      `${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${event.value.slice(-4)}`,
+      `${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${selectedYear}`,
     );
   };
 
   return (
     <div>
-      {/* Dropdown component */}
       <div className="flex h-20 h-8 w-full items-center justify-center text-[0.8em] md:h-8 md:text-base">
-        <Dropdown
-          options={yearsTexts}
+        <select
           onChange={handleYearChange}
-          placeholder={`${year}`}
           value={year}
-          className="min-w-[250px]"
-        />
+          className="border-input bg-background ring-offset-background focus-visible:ring-ring h-9 min-w-[250px] rounded-md border px-3 py-2 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1"
+          aria-label="Select board year"
+        >
+          {years.map((yearOption) => (
+            <option key={yearOption} value={yearOption}>
+              {`The Board of Officials ${yearOption}`}
+            </option>
+          ))}
+        </select>
       </div>
 
-      {/* CustomSwitchSelector component */}
-      <div className="mb-[3%] mt-[2%] h-10 w-full md:ml-[20%] md:w-[60%]">
-        <CustomSwitchSelector
-          options={options}
-          initialSelectedIndex={isMainBody ? 0 : 1}
-          onChange={handleSwitchChange}
-        />
+      <div className="mb-[3%] mt-[2%] flex h-10 w-full justify-center gap-2 md:ml-[20%] md:w-[60%]">
+        <Button
+          variant={isMainBody ? "default" : "outline"}
+          size="sm"
+          onClick={() => handleSwitchChange(true)}
+          type="button"
+        >
+          Main Body
+        </Button>
+        <Button
+          variant={isMainBody ? "outline" : "default"}
+          size="sm"
+          onClick={() => handleSwitchChange(false)}
+          type="button"
+        >
+          Student Chapter
+        </Button>
       </div>
 
       {/* Description Component */}
