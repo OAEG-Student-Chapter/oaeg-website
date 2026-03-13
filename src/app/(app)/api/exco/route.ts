@@ -10,10 +10,7 @@ interface ExcoResponseMember {
   avatarSRC: string;
 }
 
-export async function GET(
-  request: NextRequest,
-  props: { params: Promise<{ year: string }> },
-) {
+export async function GET(request: NextRequest) {
   const db = getDb();
 
   const yearsRows = await db
@@ -22,7 +19,7 @@ export async function GET(
     .orderBy(desc(committee.year));
 
   const years = yearsRows.map((row) => String(row.year));
-  const yearParam = (await props.params)?.year;
+  const yearParam = request.nextUrl.searchParams.get("year");
   const fallbackYear = years[0] ?? "";
   const targetYear = yearParam ?? fallbackYear;
 
