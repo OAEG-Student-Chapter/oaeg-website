@@ -9,7 +9,7 @@ jobs:
 
 
   deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/beta'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/beta' && !startsWith(github.event.head_commit.message, 'chore:')
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,11 +30,3 @@ jobs:
           cache: npm
       - run: npm ci --legacy-peer-deps
       - run: npm run build:deploy
-      - name: Push secrets to Worker
-        run: |
-          echo "$FB_PAGE_ACCESS_TOKEN"            | npx wrangler secret put FB_PAGE_ACCESS_TOKEN
-          echo "$NEXT_PUBLIC_EMAIL_PUBLIC_KEY"    | npx wrangler secret put NEXT_PUBLIC_EMAIL_PUBLIC_KEY
-          echo "$NEXT_PUBLIC_EMAIL_SERVICE_ID"    | npx wrangler secret put NEXT_PUBLIC_EMAIL_SERVICE_ID
-          echo "$NEXT_PUBLIC_EMAIL_TEMPLATE_ID"   | npx wrangler secret put NEXT_PUBLIC_EMAIL_TEMPLATE_ID
-          echo "$NEXT_PUBLIC_BLOGGER_API_KEY"     | npx wrangler secret put NEXT_PUBLIC_BLOGGER_API_KEY
-          echo "$NEXT_PUBLIC_BLOGGER_BLOG_ID"     | npx wrangler secret put NEXT_PUBLIC_BLOGGER_BLOG_ID
