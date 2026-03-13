@@ -2,7 +2,7 @@
 import styles from './page.module.css';
 import textTheme from "@/lib/fonts";
 import React, {useEffect, useState} from "react";
-import {getSingleEventAlbum, EventAlbum} from "@/app/events/event_album_handlers";
+import { getSingleEventAlbum, EventAlbum } from "@/lib/albums";
 import Gallery from "@/app/gallery/[id]/gallery";
 import sectionStyles from "@/app/components/events/section.module.css";
 import Link from "next/link";

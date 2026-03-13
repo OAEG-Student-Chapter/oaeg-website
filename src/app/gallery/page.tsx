@@ -1,7 +1,7 @@
 'use client'
 import { SecondaryTitle } from "@/components/ui/titles";
 import React from "react";
-import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
+import { getEventAlbums, EventAlbum } from "@/lib/albums";
 import AppCard from "@/components/ui/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";

@@ -3,7 +3,7 @@ import styles from "./section.module.css";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { SecondaryTitle } from "@/components/ui/titles";
-import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
+import { getEventAlbums, EventAlbum } from "@/lib/albums";
 import AppCard from "@/components/ui/card";
 import { routesMap } from "@/lib/routes";
 
