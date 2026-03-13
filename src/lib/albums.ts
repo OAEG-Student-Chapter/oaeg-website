@@ -56,7 +56,7 @@ export const getEventAlbumsServer = async (): Promise<{
   albums: EventAlbum[];
 }> => {
   const api = getGraphApi();
-  const data = await api.getAlbums();
+  const data: any = await api.getAlbums();
 
   if (data.error) {
     throw new Error(data.error);
@@ -82,7 +82,7 @@ export const getEventAlbums = async (): Promise<{
   albums: EventAlbum[];
 }> => {
   const res = await fetch("/api/albums");
-  const data = await res.json();
+  const data: any = await res.json();
 
   if (data.error) {
     throw new Error(data.error);
@@ -110,7 +110,7 @@ export const getSingleEventAlbum = async (
   album: EventAlbum;
 }> => {
   const res = await fetch(`/api/albums/${album_id}`);
-  const data = await res.json();
+  const data: any = await res.json();
 
   if (data.error) {
     throw new Error(data.error);
