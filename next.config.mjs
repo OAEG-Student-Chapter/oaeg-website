@@ -1,14 +1,14 @@
-import { withPayload } from '@payloadcms/next/withPayload'
+import { withPayload } from "@payloadcms/next/withPayload";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   // Ensure proper Edge Function handling
   async rewrites() {
-    return []
-  }
+    return [];
+  },
 };
 
-export default withPayload(nextConfig)
+export default withPayload(nextConfig);

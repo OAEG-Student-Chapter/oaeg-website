@@ -1,3 +1,3 @@
 module.exports = {
-    preset: 'ts-jest/presets/default'
+  preset: "ts-jest/presets/default",
 };

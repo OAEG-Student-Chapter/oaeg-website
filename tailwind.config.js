@@ -6,17 +6,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        'theme-yellow':'#FFBE34',
-        'theme-maroon':'#880000',
-        'primary':'#FFBE34',
-        'primary-dark':'#880000',
-        'white-mute': '#F4F4F4',
-        'black-soft': '#222222',
+        "theme-yellow": "#FFBE34",
+        "theme-maroon": "#880000",
+        primary: "#FFBE34",
+        "primary-dark": "#880000",
+        "white-mute": "#F4F4F4",
+        "black-soft": "#222222",
       },
       spacing: {
-        navbar: '8vh',
-      }
+        navbar: "8vh",
+      },
     },
   },
   plugins: [daisyui],
-}
+};

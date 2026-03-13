@@ -1,7 +1,7 @@
 export default function AppBody({ children }: { children: React.ReactNode }) {
-    return (
-        <main className="min-h-screen md:min-h-[calc(100vh-var(--navbar-height))] p-0 mt-0">
-            {children}
-        </main>
-    );
+  return (
+    <main className="mt-0 min-h-screen p-0 md:min-h-[calc(100vh-var(--navbar-height))]">
+      {children}
+    </main>
+  );
 }

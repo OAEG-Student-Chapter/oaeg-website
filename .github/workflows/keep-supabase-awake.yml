@@ -2,7 +2,7 @@ name: Keep Supabase Awake
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Run once every day at midnight (UTC).
+    - cron: "0 0 * * *" # Run once every day at midnight (UTC).
   workflow_dispatch: # optional manual trigger
 
 jobs:

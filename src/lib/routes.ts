@@ -25,12 +25,12 @@ const projects: route = {
 
 const gallery: route = {
   path: "/gallery/",
-  name: "Gallery"
+  name: "Gallery",
 };
 
 const news: route = {
-    path: "/news",
-    name: "News",
+  path: "/news",
+  name: "News",
 };
 
 const blog: route = {
@@ -44,11 +44,19 @@ const team: route = {
 };
 
 const register: route = {
-    path: "https://forms.gle/6ni82ECVnzC4mDrS8",
-    name: "Become A Member"
+  path: "https://forms.gle/6ni82ECVnzC4mDrS8",
+  name: "Become A Member",
 };
 
-export const routes:route[] = [home, projects, gallery, team, contactUs, news, blog];
+export const routes: route[] = [
+  home,
+  projects,
+  gallery,
+  team,
+  contactUs,
+  news,
+  blog,
+];
 
 export const routesMap = {
   home,
@@ -58,5 +66,5 @@ export const routesMap = {
   contactUs,
   news,
   blog,
-  register
+  register,
 };

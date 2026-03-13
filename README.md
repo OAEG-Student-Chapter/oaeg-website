@@ -26,6 +26,7 @@ To learn more about Next.js, take a look at the following resources:
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
 ## Env variables
+
 Create a file named `.env.local` in the root of the project
 and add the following access tokens.
 
@@ -38,4 +39,3 @@ NEXT_PUBLIC_EMAIL_SERVICE_ID=<<Id>>
 NEXT_PUBLIC_EMAIL_TEMPLATE_ID=<<Id>>
 NEXT_PUBLIC_EMAIL_PUBLIC_KEY=<<Key>>
 ```
-

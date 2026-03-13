@@ -48,34 +48,35 @@ export default function Page() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row w-full pt-[calc(var(--navbar-height)+1rem)] pb-4 h-auto md:h-screen bg-white">
-      <div className="flex flex-col justify-center items-center w-full md:w-1/4 max-h-min px-[10px] border-b md:border-b-0 md:border-r border-[#d6d6d6]">
-        <div className="text-[#1c1f35] font-medium px-2 py-[0.2rem] text-base border-l-4 border-primary bg-[#f3f3f3] w-fit mt-5 mb-3">
+    <div className="flex h-auto w-full flex-col bg-white pb-4 pt-[calc(var(--navbar-height)+1rem)] md:h-screen md:flex-row">
+      <div className="flex max-h-min w-full flex-col items-center justify-center border-b border-[#d6d6d6] px-[10px] md:w-1/4 md:border-b-0 md:border-r">
+        <div className="mb-3 mt-5 w-fit border-l-4 border-primary bg-[#f3f3f3] px-2 py-[0.2rem] text-base font-medium text-[#1c1f35]">
           Newsletters
         </div>
-        <div className="flex flex-row md:flex-col justify-center h-full overflow-x-auto md:overflow-y-auto px-[10px] md:whitespace-normal whitespace-nowrap scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100">
+        <div className="scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 flex h-full flex-row justify-center overflow-x-auto whitespace-nowrap px-[10px] md:flex-col md:overflow-y-auto md:whitespace-normal">
           {data.map((item) => (
             <div
               key={item.key}
-              className="border border-black rounded-[5px] relative overflow-hidden mb-5 cursor-pointer inline-block md:block ml-2.5 md:ml-0 w-[125px] md:w-full h-[182.5px] md:h-auto"
-              onClick={() => handleNewsletterClick(item)}>
+              className="relative mb-5 ml-2.5 inline-block h-[182.5px] w-[125px] cursor-pointer overflow-hidden rounded-[5px] border border-black md:ml-0 md:block md:h-auto md:w-full"
+              onClick={() => handleNewsletterClick(item)}
+            >
               <img
                 src={"/newsletter_images/" + item.key + ".webp"}
                 className="object-cover"
               />
 
-              <div className="absolute bottom-0 left-0 right-0 p-[10px] bg-[rgba(0,0,0,0.7)] text-white text-center">
+              <div className="absolute bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] p-[10px] text-center text-white">
                 {item.key}
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className="flex w-full h-auto md:h-full mt-2.5 md:mt-0">
+      <div className="mt-2.5 flex h-auto w-full md:mt-0 md:h-full">
         {newsletter && (
-          <div className="flex flex-col w-full items-center p-0 md:p-5 h-[600px] md:h-full">
+          <div className="flex h-[600px] w-full flex-col items-center p-0 md:h-full md:p-5">
             <iframe
-              className="w-full h-full"
+              className="h-full w-full"
               loading="lazy"
               src={newsletter.val}
             />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface Option {
   label: string;
@@ -13,13 +13,13 @@ interface CustomSwitchSelectorProps {
 }
 
 const CustomSwitchSelector: React.FC<CustomSwitchSelectorProps> = ({
-    options,
-    initialSelectedIndex,
-    onChange
-  }) => {
-  
-  const [selectedIndex, setSelectedIndex] = useState<number>(initialSelectedIndex);
-  
+  options,
+  initialSelectedIndex,
+  onChange,
+}) => {
+  const [selectedIndex, setSelectedIndex] =
+    useState<number>(initialSelectedIndex);
+
   const handleOptionClick = (index: number) => {
     setSelectedIndex(index);
     onChange(options[index].value);
@@ -30,10 +30,11 @@ const CustomSwitchSelector: React.FC<CustomSwitchSelectorProps> = ({
       {options.map((option, index) => (
         <div
           key={index}
-          className="text-[1.1em] md:text-[1.5em] p-2 pt-[0.2em] pb-[0.2em] cursor-pointer transition-colors"
+          className="cursor-pointer p-2 pb-[0.2em] pt-[0.2em] text-[1.1em] transition-colors md:text-[1.5em]"
           style={{
-            backgroundColor: index === selectedIndex ? '#DDDDDD' : '#ffffff',
-            color: index === selectedIndex ? option.selectedFontColor : '#BBBBBB'
+            backgroundColor: index === selectedIndex ? "#DDDDDD" : "#ffffff",
+            color:
+              index === selectedIndex ? option.selectedFontColor : "#BBBBBB",
           }}
           onClick={() => handleOptionClick(index)}
         >
