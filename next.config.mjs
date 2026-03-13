@@ -1,6 +1,10 @@
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+
+initOpenNextCloudflareForDev();
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone', // Essential for OpenNext
+  output: "standalone", // Essential for OpenNext
   outputFileTracingIncludes: {
     // Avoid tracing unnecessary files
   },

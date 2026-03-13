@@ -26,7 +26,7 @@ export default class GraphPageApi {
     );
 
     if (!res.ok) {
-      const error = await res.json();
+      const error:any = await res.json();
       throw new Error(
         error?.error?.message || "Failed to fetch from Facebook Graph API",
       );

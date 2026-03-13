@@ -22,6 +22,14 @@
       "service": "oaeg-web",
     },
   ],
+  "d1_databases": [
+    {
+      "binding": "DB", // This is the variable name you'll use in code
+      "database_name": "oaeg-db",
+      "database_id": "1bf8b606-36a0-40a8-a305-de609141e859",
+      "migrations_dir": "drizzle/migrations",
+    },
+  ],
   "r2_buckets": [
     // Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
     // {

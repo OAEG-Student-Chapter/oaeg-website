@@ -1,946 +1,145 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+import { getDb } from "@/lib/db";
+import { committee, excoMember, member } from "@/db/schema";
+import { desc, eq } from "drizzle-orm";
 import Team from "./Team";
-//import memberDetailList from "./membersDetailList.json";
 import TeamHeader from "./TeamHeader";
 
-const memberDetailList = {
-  "2025": {
-    mainBody: [
-      {
-        role: "President",
-        name: "Eng. Isuru Ponnamperuma",
-        linkedin: "https://www.linkedin.com/in/isuru-ponnamperuma-52b1a62/",
-        avatarSRC: "/avatars/isuru.webp",
-      },
-      {
-        role: "Immediate Past President",
-        name: "Eng. (Prof) Udeni P. Nawagamuwa",
-        linkedin: "https://www.linkedin.com/in/udeni-nawagamuwa-56336b25/",
-        avatarSRC: "/avatars/prof_udeni.webp",
-      },
-      {
-        role: "Deputy President",
-        name: "Eng. Naleen Jayasuriya",
-        linkedin:
-          "https://www.linkedin.com/in/naleen-jayasuriya-5b35b3185/?originalSubdomain=lk",
-        avatarSRC: "/avatars/naleen.webp",
-      },
-      {
-        role: "Vice President (Education Development)",
-        name: "Eng. Dr. Pasindu L. Weerasinghe",
-        linkedin: "https://www.linkedin.com/in/pasindu-weerasinghe-19457958",
-        avatarSRC: "/avatars/pasindu_w.webp",
-      },
-      {
-        role: "Vice President (Membership Development)",
-        name: "Eng. Janith Bogahawatta",
-        linkedin: "https://www.linkedin.com/in/janith-bogahawatta-36685159",
-        avatarSRC: "/avatars/janith.webp",
-      },
-      {
-        role: "Vice President (Projects)",
-        name: "Eng. Prasad Siriwardane",
-        linkedin: "",
-        avatarSRC: "/avatars/member.webp",
-      },
-      {
-        role: "Joint Secretary",
-        name: "Eng. Gayan Prabuddha",
-        linkedin: "https://www.linkedin.com/in/gayan-prabuddha-300b4852/",
-        avatarSRC: "/avatars/gayan.webp",
-      },
-      {
-        role: "Joint Secretary",
-        name: "Eng. Malitha Chathuranga Peiris",
-        linkedin: "",
-        avatarSRC: "/avatars/malitha.webp",
-      },
-      {
-        role: "Treasurer",
-        name: "Eng. Thilina Rajapaksha",
-        linkedin: "",
-        avatarSRC: "/avatars/thilina.webp",
-      },
-      {
-        role: "Assistant Secretary",
-        name: "Eng. Sachintha Perera",
-        linkedin: "",
-        avatarSRC: "/avatars/sachintha.webp",
-      },
-      {
-        role: "Assistant Treasurer",
-        name: "Eng. Sasanka Ranjitha",
-        linkedin: "",
-        avatarSRC: "/avatars/sasanka.webp",
-      },
-      {
-        role: "Editor",
-        name: "Eng. Dr. Sampath Hewage",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_sampath.webp",
-      },
-      {
-        role: "Organizer (Membership Development)",
-        name: "Eng. Chamara Kumara",
-        linkedin: "",
-        avatarSRC: "/avatars/chamara_kumara.webp",
-      },
-      {
-        role: "Organizer (OBA Coordination)",
-        name: "Eng. Mahela Wanigasooriya",
-        linkedin: "",
-        avatarSRC: "/avatars/mahela.webp",
-      },
-      {
-        role: "Organizer (Student Coordination)",
-        name: "Eng. Ashan Sachinda",
-        linkedin: "",
-        avatarSRC: "/avatars/ashan.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Keerthi Kapurubandara",
-        linkedin: "",
-        avatarSRC: "/avatars/member.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. (Dr.) Tharaka Samarasinghe",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_tharaka.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. (Dr.) Manuja Gunawardhane",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_manuja.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Kasun H. Karunarathna",
-        linkedin: "",
-        avatarSRC: "/avatars/kasun_.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Punsara Gunathilake",
-        linkedin: "",
-        avatarSRC: "/avatars/punsara.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Mandapa Pandithage",
-        linkedin: "",
-        avatarSRC: "/avatars/mandapa.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Manuja Dayanath",
-        linkedin: "",
-        avatarSRC: "/avatars/manuja.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Sandaruwan Mahindarathne",
-        linkedin: "",
-        avatarSRC: "/avatars/member.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Thanitha Weerasekera",
-        linkedin: "",
-        avatarSRC: "/avatars/thanitha.webp",
-      },
-      {
-        role: "Committee Member - Student Chapter",
-        name: "Mr. Shehan Paul",
-        linkedin: "",
-        avatarSRC: "/avatars/paul.webp",
-      },
-      {
-        role: "Committee Member - Student Chapter",
-        name: "Mr. Avishka Perera",
-        linkedin: "",
-        avatarSRC: "/avatars/avishka.webp",
-      },
-      {
-        role: "Committee Member - Student Chapter",
-        name: "Mr. Sathira Liyanapathirana",
-        linkedin: "",
-        avatarSRC: "/avatars/sathira.webp",
-      },
-    ],
-    studentChapter: [
-      {
-        name: "Sanuda Amasith",
-        role: "President",
-        linkedin: "https://lk.linkedin.com/in/sanuda-amasith-9216a623b",
-        avatarSRC: "/avatars/sanuda.webp",
-      },
-      {
-        name: "Gayanuka Amarasuriya",
-        role: "Joint Secretary",
-        linkedin: "https://lk.linkedin.com/in/gayanuka-amarasuriya",
-        avatarSRC: "/avatars/gayanuka.webp",
-      },
-      {
-        name: "Pavan Priwaduge",
-        role: "Joint Secretary",
-        linkedin: "https://lk.linkedin.com/in/pavan-pitiwaduge",
-        avatarSRC: "/avatars/pavan.webp",
-      },
-      {
-        name: "Dehan Jayawardena",
-        role: "Treasurer",
-        linkedin:
-          "https://lk.linkedin.com/in/dehan-jayawardena-386589227?trk=public_profile_browsemap",
-        avatarSRC: "/avatars/dehan.webp",
-      },
-      {
-        name: "Tharindu Ambegoda",
-        role: "Chief Organiser",
-        linkedin: "",
-        avatarSRC: "/avatars/tharinduA.webp",
-      },
-      {
-        name: "Dhanuja Kahatapitiya",
-        role: "Vice President",
-        linkedin: "https://lk.linkedin.com/in/dhanuja-kahatapitiya-910539283",
-        avatarSRC: "/avatars/dhanuja.webp",
-      },
-      {
-        name: "Savinu Anusara",
-        role: "Director Projects",
-        linkedin: "https://lk.linkedin.com/in/savinu-anusara",
-        avatarSRC: "/avatars/savinu.webp",
-      },
-      {
-        name: "Rivikula Fernando",
-        role: "Director School Affairs",
-        linkedin: "https://lk.linkedin.com/in/rivikulaf",
-        avatarSRC: "/avatars/rivikula.webp",
-      },
-      {
-        name: "Mathisha Buwaneka",
-        role: "Director Membership Development",
-        linkedin:
-          "https://lk.linkedin.com/in/mathisha-buwaneka-francisku-arachchi-5b3813221",
-        avatarSRC: "/avatars/mathisha.webp",
-      },
-      {
-        name: "Bumeega Bentharavithana",
-        role: "Director IT",
-        linkedin:
-          "https://lk.linkedin.com/in/bumeega-vikurandha-bentharavithana-12a7bb277",
-        avatarSRC: "/avatars/bumeega.webp",
-      },
-      {
-        name: "Ranuga Weerasekara",
-        role: "Editor",
-        linkedin:
-          "https://lk.linkedin.com/in/ranuga-weerasekara-215911290?trk=public_post_feed-actor-name",
-        avatarSRC: "/avatars/ranuga.webp",
-      },
-      {
-        name: "Malith Chamikara",
-        role: "Assistant Director Projects",
-        linkedin:
-          "https://lk.linkedin.com/in/malith-chamikara-403859371?trk=people-guest_people_search-card",
-        avatarSRC: "/avatars/malith.webp",
-      },
-      {
-        name: "Thevindu Gunasekara",
-        role: "Assistant Director School Affairs",
-        linkedin: "https://lk.linkedin.com/in/thevindu-gunasekara-08422721a",
-        avatarSRC: "/avatars/thevinduG.webp",
-      },
-      {
-        name: "Vinura Jayasanka",
-        role: "Assistant Director Membership Development",
-        linkedin: "https://lk.linkedin.com/in/p-a-vinura-jayasanka-8a02842a9",
-        avatarSRC: "/avatars/vinura.webp",
-      },
-      {
-        name: "Nithika Bandara",
-        role: "Assistant Director IT",
-        linkedin: "https://lk.linkedin.com/in/nithikanb",
-        avatarSRC: "/avatars/nithika.webp",
-      },
-      {
-        name: "Isuru Liyanaarachchi",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/isuruL.webp",
-      },
-      {
-        name: "Senuja Wathsilu",
-        role: "Committee Member",
-        linkedin: "https://lk.linkedin.com/in/senuja-wathsilu-20a08a205",
-        avatarSRC: "/avatars/senuja.webp",
-      },
-      {
-        name: "Hasindu Ranasinghe",
-        role: "Committee Member",
-        linkedin: "https://lk.linkedin.com/in/hasindu-ranasinghe-a5614a22a",
-        avatarSRC: "/avatars/hasindu.webp",
-      },
-      {
-        name: "Lasen Wickramawardena",
-        role: "Committee Member",
-        linkedin: "https://lk.linkedin.com/in/lasen-wickramawardena-bb61b7252",
-        avatarSRC: "/avatars/lasen.webp",
-      },
-      {
-        name: "Thenul Poojana",
-        role: "Committee Member",
-        linkedin: "https://lk.linkedin.com/in/thenul-poojana-12ab20366",
-        avatarSRC: "/avatars/thenul.webp",
-      },
-    ],
-  },
-  "2024": {
-    mainBody: [
-      {
-        role: "President",
-        name: "Eng. Isuru Ponnamperuma",
-        linkedin: "https://www.linkedin.com/in/isuru-ponnamperuma-52b1a62/",
-        avatarSRC: "/avatars/isuru.webp",
-      },
-      {
-        role: "Immediate Past President",
-        name: "Eng. (Prof) Udeni P. Nawagamuwa",
-        linkedin: "https://www.linkedin.com/in/udeni-nawagamuwa-56336b25/",
-        avatarSRC: "/avatars/prof_udeni.webp",
-      },
-      {
-        role: "Deputy President",
-        name: "Eng. Naleen Jayasuriya",
-        linkedin:
-          "https://www.linkedin.com/in/naleen-jayasuriya-5b35b3185/?originalSubdomain=lk",
-        avatarSRC: "/avatars/naleen.webp",
-      },
-      {
-        role: "Vice President (Education Development)",
-        name: "Eng. Dr. Pasindu L. Weerasinghe",
-        linkedin: "https://www.linkedin.com/in/pasindu-weerasinghe-19457958",
-        avatarSRC: "/avatars/pasindu_w.webp",
-      },
-      {
-        role: "Vice President (Membership Development)",
-        name: "Eng. Janith Bogahawatta",
-        linkedin: "https://www.linkedin.com/in/janith-bogahawatta-36685159",
-        avatarSRC: "/avatars/janith.webp",
-      },
-      {
-        role: "Vice President (Projects)",
-        name: "Eng. Prasad Siriwardane",
-        linkedin: "",
-        avatarSRC: "/avatars/member.webp",
-      },
-      {
-        role: "Joint Secretary",
-        name: "Eng. Gayan Prabuddha",
-        linkedin: "https://www.linkedin.com/in/gayan-prabuddha-300b4852/",
-        avatarSRC: "/avatars/gayan.webp",
-      },
-      {
-        role: "Joint Secretary",
-        name: "Eng. Malitha Chathuranga Peiris",
-        linkedin: "",
-        avatarSRC: "/avatars/malitha.webp",
-      },
-      {
-        role: "Treasurer",
-        name: "Eng. Thilina Rajapaksha",
-        linkedin: "",
-        avatarSRC: "/avatars/thilina.webp",
-      },
-      {
-        role: "Assistant Secretary",
-        name: "Eng. Sachintha Perera",
-        linkedin: "",
-        avatarSRC: "/avatars/sachintha.webp",
-      },
-      {
-        role: "Assistant Treasurer",
-        name: "Eng. Sasanka Ranjitha",
-        linkedin: "",
-        avatarSRC: "/avatars/sasanka.webp",
-      },
-      {
-        role: "Editor",
-        name: "Eng. Dr. Sampath Hewage",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_sampath.webp",
-      },
-      {
-        role: "Organizer (Membership Development)",
-        name: "Eng. Chamara Kumara",
-        linkedin: "",
-        avatarSRC: "/avatars/chamara_kumara.webp",
-      },
-      {
-        role: "Organizer (OBA Coordination)",
-        name: "Eng. Mahela Wanigasooriya",
-        linkedin: "",
-        avatarSRC: "/avatars/mahela.webp",
-      },
-      {
-        role: "Organizer (Student Coordination)",
-        name: "Eng. Ashan Sachinda",
-        linkedin: "",
-        avatarSRC: "/avatars/ashan.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Keerthi Kapurubandara",
-        linkedin: "",
-        avatarSRC: "/avatars/member.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. (Dr.) Tharaka Samarasinghe",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_tharaka.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. (Dr.) Manuja Gunawardhane",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_manuja.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Kasun H. Karunarathna",
-        linkedin: "",
-        avatarSRC: "/avatars/kasun_.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Punsara Gunathilake",
-        linkedin: "",
-        avatarSRC: "/avatars/punsara.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Mandapa Pandithage",
-        linkedin: "",
-        avatarSRC: "/avatars/mandapa.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Manuja Dayanath",
-        linkedin: "",
-        avatarSRC: "/avatars/manuja.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Sandaruwan Mahindarathne",
-        linkedin: "",
-        avatarSRC: "/avatars/member.webp",
-      },
-      {
-        role: "Committee Member",
-        name: "Eng. Thanitha Weerasekera",
-        linkedin: "",
-        avatarSRC: "/avatars/thanitha.webp",
-      },
-      {
-        role: "Committee Member - Student Chapter",
-        name: "Mr. Shehan Paul",
-        linkedin: "",
-        avatarSRC: "/avatars/paul.webp",
-      },
-      {
-        role: "Committee Member - Student Chapter",
-        name: "Mr. Avishka Perera",
-        linkedin: "",
-        avatarSRC: "/avatars/avishka.webp",
-      },
-      {
-        role: "Committee Member - Student Chapter",
-        name: "Mr. Sathira Liyanapathirana",
-        linkedin: "",
-        avatarSRC: "/avatars/sathira.webp",
-      },
-    ],
-    studentChapter: [
-      {
-        name: "Sanuja Edirisinghe",
-        role: "President",
-        linkedin: "",
-        avatarSRC: "/avatars/sanuja.webp",
-      },
-      {
-        name: "Samitha Herath",
-        role: "Joint Secretary",
-        linkedin: "",
-        avatarSRC: "/avatars/samitha.webp",
-      },
-      {
-        name: "Tharusha Fonseka",
-        role: "Joint Secretary",
-        linkedin: "",
-        avatarSRC: "/avatars/tharusha.webp",
-      },
-      {
-        name: "Shan Upendra ",
-        role: "Treasurer",
-        linkedin: "",
-        avatarSRC: "/avatars/shan.webp",
-      },
-      {
-        name: "Imalsha Puranagedara",
-        role: "Chief Organizer",
-        linkedin: "",
-        avatarSRC: "/avatars/imalsha.webp",
-      },
-      {
-        name: "Ameera Thiwanka",
-        role: "Vice President",
-        linkedin: "",
-        avatarSRC: "/avatars/ameera.webp",
-      },
-      {
-        name: "Anupama Jayasekara ",
-        role: "Director - Projects",
-        linkedin: "",
-        avatarSRC: "/avatars/anupama.webp",
-      },
-      {
-        name: "Sanuda Amasith",
-        role: "Dir. Membership Development",
-        linkedin: "",
-        avatarSRC: "/avatars/sanuda.webp",
-      },
-      {
-        name: "Dehan Jayawardena",
-        role: "Director - School Affairs",
-        linkedin: "",
-        avatarSRC: "/avatars/dehan.webp",
-      },
-      {
-        name: "Pavan Pitiwaduge",
-        role: "Director - IT",
-        linkedin: "https://www.linkedin.com/in/pavan-pitiwaduge",
-        avatarSRC: "/avatars/pavan.webp",
-      },
-      {
-        name: "Dhanuja Kahatapitiya",
-        role: "Editor",
-        linkedin: "",
-        avatarSRC: "/avatars/dhanuja.webp",
-      },
-      {
-        name: "Kaveen Weerasinghe ",
-        role: "Assistant Director - Projects",
-        linkedin: "",
-        avatarSRC: "/avatars/kaveen.webp",
-      },
-      {
-        name: "Mathisha Buwaneka",
-        role: "Asst. Dir. - Membership Development",
-        linkedin: "",
-        avatarSRC: "/avatars/mathisha.webp",
-      },
-      {
-        name: "Bumeega Bentharavithana ",
-        role: "Asst. Director - School Affairs",
-        linkedin: "",
-        avatarSRC: "/avatars/bumeega.webp",
-      },
-      {
-        name: "Chamod Perera ",
-        role: "Assistant Director - IT",
-        linkedin: "https://www.linkedin.com/in/chamodnp",
-        avatarSRC: "/avatars/chamod.webp",
-      },
-      {
-        name: "Ranuga Weerasekara",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/ranuga.webp",
-      },
-      {
-        name: "Vinura Jayasanka ",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/vinura.webp",
-      },
-      {
-        name: "Lasan Perera",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/lasan.webp",
-      },
-      {
-        name: "Isitha Dinujaya",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/isitha.webp",
-      },
-      {
-        name: "Lithira Mendis",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/lithira.webp",
-      },
-    ],
-  },
-  "2023": {
-    mainBody: [
-      {
-        name: "Eng. (Prof.) Udeni Nawagamuwa",
-        role: "President",
-        linkedin: "https://www.linkedin.com/in/udeni-nawagamuwa-56336b25/",
-        avatarSRC: "/avatars/prof_udeni.webp",
-      },
-      {
-        name: "Eng. Shiran Chandima Perera",
-        role: "Immediate Past President",
-        linkedin: "",
-        avatarSRC: "/avatars/shiran.webp",
-      },
-      {
-        name: "Eng. Isuru Ponnamperuma",
-        role: "Deputy President",
-        linkedin: "https://www.linkedin.com/in/isuru-ponnamperuma-52b1a62/",
-        avatarSRC: "/avatars/isuru.webp",
-      },
-      {
-        name: "Eng. (Prof.) Nimal Rajapakshe",
-        role: "Vice President (Education Development)",
-        linkedin: "",
-        avatarSRC: "/avatars/prof_nimal.webp",
-      },
-      {
-        name: "Eng. Janith Bogahawatta",
-        role: "Vice President (Membership Development)",
-        linkedin: "https://www.linkedin.com/in/janith-bogahawatta-36685159",
-        avatarSRC: "/avatars/janith.webp",
-      },
-      {
-        name: "Eng. Sachintha Perera",
-        role: "Vice President (Projects)",
-        linkedin: "https://www.linkedin.com/in/sachintha-perera-1b1b1b1a/",
-        avatarSRC: "/avatars/sachintha.webp",
-      },
-      {
-        name: "Eng. Gayan Prabuddha",
-        role: "Joint Secretary",
-        linkedin: "https://www.linkedin.com/in/gayan-prabuddha-300b4852/",
-        avatarSRC: "/avatars/gayan.webp",
-      },
-      {
-        name: "Eng. Malitha Chathuranga Peiris",
-        role: "Joint Secretary",
-        linkedin: "",
-        avatarSRC: "/avatars/malitha.webp",
-      },
-      {
-        name: "Eng. Thilina Rajapaksha",
-        role: "Treasurer",
-        linkedin: "",
-        avatarSRC: "/avatars/thilina.webp",
-      },
-      {
-        name: "Eng. Dr. Pasindu L. Weerasinghe",
-        role: "Assistant Secretary",
-        linkedin: "https://www.linkedin.com/in/pasindu-weerasinghe-19457958",
-        avatarSRC: "/avatars/pasindu_w.webp",
-      },
-      {
-        name: "Eng. Lilantha D. Perera",
-        role: "Assistant Treasurer",
-        linkedin: "",
-        avatarSRC: "/avatars/lilantha.webp",
-      },
-      {
-        name: "Eng. Dr. Sampath Hewage",
-        role: "Editor",
-        linkedin: "",
-        avatarSRC: "/avatars/dr_sampath.webp",
-      },
-      {
-        name: "Eng. Tharuka D. Ranathunga",
-        role: "Organizer (Membership Development)",
-        linkedin: "",
-        avatarSRC: "/avatars/tharuka.webp",
-      },
-      {
-        name: "Eng. Mahela Wanigasooriya",
-        role: "Organizer (OBA Coordination)",
-        linkedin: "",
-        avatarSRC: "/avatars/mahela.webp",
-      },
-      {
-        name: "Mr. Manuja Dayanath",
-        role: "Organizer (Student Coordination)",
-        linkedin: "",
-        avatarSRC: "/avatars/manuja.webp",
-      },
-      {
-        name: "Eng. Kasun H. Karunarathna",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/kasun_.webp",
-      },
-      {
-        name: "Eng. Ashan S. Perera",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/ashan.webp",
-      },
-      {
-        name: "Eng. Danushka Siriwardhane",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/dhanushka.webp",
-      },
-      {
-        name: "Eng. Deepana B. Ishtaweera",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/deepana.webp",
-      },
-      {
-        name: "Eng. Randika Navagamuwa",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/randika.webp",
-      },
-      {
-        name: "Eng. Punsara Gunathilake",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/punsara.webp",
-      },
-      {
-        name: "Eng. Chamika J. Nugegoda",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/chamika.webp",
-      },
-      {
-        name: "Mr. Shehan Paul",
-        role: "Committee Member - Student Chapter",
-        linkedin: "",
-        avatarSRC: "/avatars/paul.webp",
-      },
-      {
-        name: "Mr. Avishka Perera",
-        role: "Committee Member - Student Chapter",
-        linkedin: "",
-        avatarSRC: "/avatars/avishka.webp",
-      },
-      {
-        name: "Mr. Sathira Liyanapathirana",
-        role: "Committee Member - Student Chapter",
-        linkedin: "",
-        avatarSRC: "/avatars/sathira.webp",
-      },
-    ],
-    studentChapter: [
-      {
-        name: "Shehan Paul",
-        role: "President",
-        linkedin: "https://www.linkedin.com/in/shehan-paul/",
-        avatarSRC: "/avatars/paul.webp",
-      },
-      {
-        name: "Sathira Liyanapathirana",
-        role: "Joint Secretary",
-        linkedin: "https://www.linkedin.com/in/sathira-liyanapathirana",
-        avatarSRC: "/avatars/sathira.webp",
-      },
-      {
-        name: "Avishka Perera",
-        role: "Joint Secretary",
-        linkedin: "",
-        avatarSRC: "/avatars/avishka.webp",
-      },
-      {
-        name: "Dhanoj Ninnada",
-        role: "Treasurer",
-        linkedin: "https://www.linkedin.com/in/dhanojninnada/",
-        avatarSRC: "/avatars/dhanoj.webp",
-      },
-      {
-        name: "Lahiru Rathuge",
-        role: "Chief Organizer",
-        linkedin: "",
-        avatarSRC: "/avatars/lahiru.webp",
-      },
-      {
-        name: "Tharusha Fonseka",
-        role: "Vice President",
-        linkedin: "",
-        avatarSRC: "/avatars/tharusha.webp",
-      },
-      {
-        name: "Senul Samarasekara",
-        role: "Director - Projects",
-        linkedin: "",
-        avatarSRC: "/avatars/senul.webp",
-      },
-      {
-        name: "Mewan Rathnayake",
-        role: "Dir. Membership Development",
-        linkedin: "",
-        avatarSRC: "/avatars/mewan.webp",
-      },
-      {
-        name: "Sanuja Edirisinghe",
-        role: "Director - School Affairs",
-        linkedin: "",
-        avatarSRC: "/avatars/sanuja.webp",
-      },
-      {
-        name: "Imalsha Puranagedara",
-        role: "Director - IT",
-        linkedin: "",
-        avatarSRC: "/avatars/imalsha.webp",
-      },
-      {
-        name: "Gayanuka Amarasuriya",
-        role: "Editor",
-        linkedin: "",
-        avatarSRC: "/avatars/gayanuka.webp",
-      },
-      {
-        name: "Damsith Adikari",
-        role: "Assistant Director - Projects",
-        linkedin: "",
-        avatarSRC: "/avatars/damsith.webp",
-      },
-      {
-        name: "Thevindu Nanayakkara",
-        role: "Asst. Dir. - Membership Development",
-        linkedin: "",
-        avatarSRC: "/avatars/thevindu.webp",
-      },
-      {
-        name: "Lohan Atapattu",
-        role: "Asst. Director - School Affairs",
-        linkedin: "",
-        avatarSRC: "/avatars/lohan.webp",
-      },
-      {
-        name: "Pavan Pitiwaduge",
-        role: "Assistant Director - IT",
-        linkedin: "https://www.linkedin.com/in/pavan-pitiwaduge",
-        avatarSRC: "/avatars/pavan.webp",
-      },
-      {
-        name: "Savinu Anusara",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/savinu.webp",
-      },
-      {
-        name: "Thilina Bandara",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/thilina_21.webp",
-      },
-      {
-        name: "Sithum Vitharana",
-        role: "Committee Member",
-        linkedin: "https://www.linkedin.com/in/sithum-vitharana/",
-        avatarSRC: "/avatars/sithum.webp",
-      },
-      {
-        name: "Thisuru Dineth",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/thisuru.webp",
-      },
-      {
-        name: "Vishwa Jayaweera",
-        role: "Committee Member",
-        linkedin: "",
-        avatarSRC: "/avatars/vishwa.webp",
-      },
-    ],
-  },
-};
-
-interface MemberObject {
+interface ExcoResponseMember {
   name: string;
   role: string;
   linkedin: string;
   avatarSRC: string;
 }
 
-interface DataObject {
-  [key: string]: {
-    [key: string]: never[] | MemberObject[];
+interface YearlyData {
+  mainBody: ExcoResponseMember[];
+  studentChapter: ExcoResponseMember[];
+}
+
+async function getExcoData(requestedYear: string | undefined | null) {
+  const db = getDb();
+
+  const yearsRows = await db
+    .selectDistinct({ year: committee.year })
+    .from(committee)
+    .orderBy(desc(committee.year));
+
+  const years = yearsRows.map((row) => String(row.year));
+  const fallbackYear = years[0] ?? "";
+  const targetYear = requestedYear ?? fallbackYear;
+
+  if (!targetYear) {
+    return {
+      year: "",
+      years: [],
+      committees: { mainBody: [], studentChapter: [] },
+    };
+  }
+
+  const yearNumber = Number(targetYear);
+  if (!Number.isInteger(yearNumber)) {
+    return {
+      year: targetYear,
+      years,
+      committees: { mainBody: [], studentChapter: [] },
+    };
+  }
+
+  const rows = await db
+    .select({
+      body: committee.body,
+      role: excoMember.role,
+      sortKey: excoMember.sortKey,
+      name: member.name,
+      linkedin: member.linkedin,
+      avatarSRC: member.image,
+    })
+    .from(excoMember)
+    .innerJoin(committee, eq(excoMember.committeeId, committee.id))
+    .innerJoin(member, eq(excoMember.memberId, member.id))
+    .where(eq(committee.year, yearNumber))
+    .orderBy(committee.body, excoMember.sortKey);
+
+  const committees: YearlyData = {
+    mainBody: [],
+    studentChapter: [],
+  };
+
+  rows.forEach((row) => {
+    const memberData: ExcoResponseMember = {
+      name: String(row.name ?? ""),
+      role: String(row.role ?? ""),
+      linkedin: String(row.linkedin ?? ""),
+      avatarSRC: String(row.avatarSRC ?? ""),
+    };
+
+    if (row.body === "main") {
+      committees.mainBody.push(memberData);
+      return;
+    }
+
+    committees.studentChapter.push(memberData);
+  });
+
+  return {
+    year: String(yearNumber),
+    years,
+    committees,
   };
 }
 
-// export default function Page({ params, searchParams}: {
-//     params: { slug: string };
-//     searchParams?: { [key: string]: string };
-//   }) {
-//     // By default, the year is 2023 and the body is mainBody ( hardcoded here )
-//     const year:string = searchParams?.year || "2025";
-//     const body:string = searchParams?.body || "mainBody";
-//     const detailList: DataObject = memberDetailList;
-//     return (
-//         <div className="bg-white py-24 sm:py-12 min-h-screen">
-//             <div className={Styles.mainWrapper}>
-//                 <div>
-//                     <TeamHeader currentYear={year} currentBody={body} />
-//                 </div>
-//                 <Team
-//                     memberDetailList={ (year!=undefined &&
-//                         body!=undefined &&
-//                         detailList[year]!=undefined &&
-//                         detailList[year][body]!=undefined)  ?  detailList[year][body] : []
-//                     }
-//                     numberOfColumns={5} />
-//             </div>
-//         </div>
-//     );
-// }
+export default async function Page(props: {
+  searchParams: Promise<{ body?: string; year?: string }>;
+}) {
+  const searchParams = await props.searchParams;
+  const body =
+    searchParams.body === "studentChapter" ? "studentChapter" : "mainBody";
+  const requestedYear = searchParams.year;
 
-function ExcoContent() {
-  const searchParams = useSearchParams();
-
-  // Get URL parameters with defaults
-  const year: string = searchParams.get("year") || "2025";
-  const body: string = searchParams.get("body") || "mainBody";
-  const detailList: DataObject = memberDetailList;
+  const data = await getExcoData(requestedYear);
 
   return (
-    <div className="min-h-screen bg-white py-24 sm:py-12">
-      <div className="m-[0_0_3em] md:m-[4%_6%]">
-        <div>
-          <TeamHeader currentYear={year} currentBody={body} />
+    <div className="relative min-h-screen">
+      {/* Background Image with Overlay */}
+      <div 
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed"
+        style={{ backgroundImage: "url('/images/exco2023.webp')" }}
+      >
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-[5px]"></div>
+      </div>
+
+      <div className="relative z-10 py-16 md:mt-8 md:py-24">
+        <div className="container mx-auto max-w-7xl px-4 md:px-8">
+          <div className="mb-12 text-center text-white">
+            <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
+              Meet the Team
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg text-white/80">
+              The dedicated executive committee board members leading the guild.
+            </p>
+          </div>
+
+          <TeamHeader
+            currentYear={data.year}
+            currentBody={body}
+            years={data.years}
+          />
+
+          {data.committees[body]?.length > 0 ? (
+            <Team memberDetailList={data.committees[body]} numberOfColumns={5} />
+          ) : (
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <h3 className="text-xl font-medium text-white">
+                No members found
+              </h3>
+              <p className="mt-2 text-white/60">
+                There are no committee members available for this selection yet.
+              </p>
+            </div>
+          )}
         </div>
-        <Team
-          memberDetailList={
-            year !== undefined &&
-            body !== undefined &&
-            detailList[year] !== undefined &&
-            detailList[year][body] !== undefined
-              ? detailList[year][body]
-              : []
-          }
-          numberOfColumns={5}
-        />
       </div>
     </div>
   );
 }
 
-export default function Page() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ExcoContent />
-    </Suspense>
-  );
-}

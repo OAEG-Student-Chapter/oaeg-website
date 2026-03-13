@@ -6,8 +6,6 @@ on:
     branches: [beta]
 
 jobs:
-
-
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/beta' && !startsWith(github.event.head_commit.message, 'chore:')
     runs-on: ubuntu-latest

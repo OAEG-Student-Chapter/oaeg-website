@@ -1,91 +1,113 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import Dropdown, { Option } from "react-dropdown";
-import "react-dropdown/style.css";
-import CustomSwitchSelector from "./CustomSwitchSelector";
-import memberDetailList from "./membersDetailList.json";
 import { routesMap } from "@/lib/routes";
+import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import textTheme from "@/lib/fonts";
 
 export default function TeamHeader({
   currentYear,
   currentBody,
+  years,
 }: {
   currentYear: string;
   currentBody: string;
+  years: string[];
 }) {
   const router = useRouter();
-  // to add or remove years, add or remove the year from the json file
-  // make sure to add years in descending order in the json file
-  const years = Object.keys(memberDetailList).sort(
-    (a, b) => parseInt(b) - parseInt(a),
-  );
-  const yearsTexts = years.map((year) => {
-    return `The Board of Officials ${year}`;
-  });
 
-  // yearsTexts.length - 1
-  const initialYear = currentYear
-    ? `The Board of Officials ${currentYear}`
-    : yearsTexts[0];
-  const initialIsMainBody = currentBody ? currentBody == "mainBody" : true;
+  const fallbackYear = years[0] ?? "";
+  const initialYear = currentYear || fallbackYear;
+  const initialIsMainBody = currentBody ? currentBody === "mainBody" : true;
   const [year, setYear] = useState(initialYear);
   const [isMainBody, setIsMainBody] = useState(initialIsMainBody);
 
-  const options = [
-    {
-      label: "Main Body",
-      value: true,
-      selectedFontColor: "var(--vt-c-black)",
-    },
-    {
-      label: "Student Chapter",
-      value: false,
-      selectedFontColor: "var(--vt-c-black)",
-    },
-  ];
+  useEffect(() => {
+    setYear(currentYear || fallbackYear);
+  }, [currentYear, fallbackYear]);
+
+  useEffect(() => {
+    setIsMainBody(currentBody === "mainBody");
+  }, [currentBody]);
 
   const handleSwitchChange = (value: boolean): void => {
     setIsMainBody(value);
+    const selectedYear = year || currentYear || fallbackYear;
     router.push(
-      `${routesMap.team.path}/?body=${value ? "mainBody" : "studentChapter"}&year=${year.slice(-4)}`,
+      `${routesMap.team.path}/?body=${value ? "mainBody" : "studentChapter"}&year=${selectedYear}`,
     );
   };
 
-  const handleYearChange = (event: Option) => {
-    setYear(event.value);
+  const handleYearChange = (selectedYear: string) => {
+    setYear(selectedYear);
     router.push(
-      `${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${event.value.slice(-4)}`,
+      `${routesMap.team.path}/?body=${isMainBody ? "mainBody" : "studentChapter"}&year=${selectedYear}`,
     );
   };
 
   return (
-    <div>
-      {/* Dropdown component */}
-      <div className="flex h-20 h-8 w-full items-center justify-center text-[0.8em] md:h-8 md:text-base">
-        <Dropdown
-          options={yearsTexts}
-          onChange={handleYearChange}
-          placeholder={`${year}`}
-          value={year}
-          className="min-w-[250px]"
-        />
+    <div className="mb-8 flex w-full flex-col items-center justify-between gap-4 md:flex-row md:gap-6">
+      <div className="w-full md:w-auto md:min-w-[320px]">
+        <Select value={year} onValueChange={handleYearChange}>
+          <SelectTrigger 
+            className={`group !h-12 w-full rounded-lg border-2 border-theme-maroon/20 bg-white px-4 py-2 text-sm font-medium text-black shadow-sm transition-all hover:border-theme-maroon/50 focus:border-theme-maroon focus:ring-4 focus:ring-theme-maroon/10 md:text-base ${textTheme.body.className}`}
+            aria-label="Select board year"
+          >
+            <SelectValue placeholder="Select Year">
+              {year ? `The Board of Officials ${year}` : "Select Year"}
+            </SelectValue>
+          </SelectTrigger>
+          <SelectContent className={`bg-white border-theme-maroon/20 ${textTheme.body.className}`}>
+            {years.map((yearOption) => (
+              <SelectItem 
+                key={yearOption} 
+                value={yearOption} 
+                className="cursor-pointer py-2.5 transition-colors focus:bg-theme-maroon focus:text-white"
+              >
+                {`The Board of Officials ${yearOption}`}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
-      {/* CustomSwitchSelector component */}
-      <div className="mb-[3%] mt-[2%] h-10 w-full md:ml-[20%] md:w-[60%]">
-        <CustomSwitchSelector
-          options={options}
-          initialSelectedIndex={isMainBody ? 0 : 1}
-          onChange={handleSwitchChange}
-        />
+      <div className="flex w-full flex-nowrap justify-center gap-3 md:w-auto">
+        <Button
+          variant={isMainBody ? "default" : "outline"}
+          onClick={() => handleSwitchChange(true)}
+          type="button"
+          className={
+            "h-12 flex-1 md:flex-none md:px-8 text-sm md:text-base font-medium shadow-sm transition-all " +
+            (isMainBody
+              ? "bg-primary text-black hover:bg-theme-yellow hover:text-black "
+              : "border-2 border-theme-maroon/20 text-theme-maroon hover:border-theme-maroon/50 hover:bg-primary hover:text-black ") +
+            textTheme.body.className
+          }
+        >
+          Main Body
+        </Button>
+        <Button
+          variant={isMainBody ? "outline" : "default"}
+          onClick={() => handleSwitchChange(false)}
+          type="button"
+          className={
+            "h-12 flex-1 md:flex-none md:px-8 text-sm md:text-base font-medium shadow-sm transition-all " +
+            (!isMainBody
+              ? "bg-primary text-black hover:bg-theme-yellow hover:text-black "
+              : "border-2 border-theme-maroon/20 text-theme-maroon hover:border-theme-maroon/50 hover:bg-primary hover:text-black ") +
+            textTheme.body.className
+          }
+        >
+          Student Chapter
+        </Button>
       </div>
-
-      {/* Description Component */}
-      {/* <p className="text-base md:text-[1.1em] text-center w-[80%] md:w-[70%] ml-[10%] md:ml-[15%] mb-8 md:mb-[3%]"> */}
-      {/*  Description goes here. Lorem ipsium elit. Aliquam maximus, tellus vel interdum tincidunt, */}
-      {/*  tortor libero vestibulum dui, eu dictum massa ex in ante */}
-      {/* </p> */}
     </div>
   );
 }
