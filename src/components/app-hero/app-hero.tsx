@@ -82,7 +82,7 @@ const SliderItem = (props: SliderItemProps) => {
       style={{
         height: props.height,
       }}
-      className="relative h-[100vh] w-full md:mt-[var(--navbar-height)] md:h-[calc(100vh-var(--navbar-height))]"
+      className="relative h-[100vh] w-full"
     >
       <div className="absolute inset-0 z-[1] bg-black/70" />
       <img

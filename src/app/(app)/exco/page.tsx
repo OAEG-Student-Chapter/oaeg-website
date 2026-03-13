@@ -924,9 +924,9 @@ function ExcoContent() {
         <Team
           memberDetailList={
             year !== undefined &&
-              body !== undefined &&
-              detailList[year] !== undefined &&
-              detailList[year][body] !== undefined
+            body !== undefined &&
+            detailList[year] !== undefined &&
+            detailList[year][body] !== undefined
               ? detailList[year][body]
               : []
           }

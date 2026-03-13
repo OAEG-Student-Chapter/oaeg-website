@@ -8,7 +8,7 @@ declare namespace NodeJS {
     NEXT_PUBLIC_EMAIL_PUBLIC_KEY: string;
     FB_PAGE_ACCESS_TOKEN: string;
     DATABASE_URL: string;
-    NODE_ENV: 'development' | 'production' | 'test'; // Example of a specific type
+    NODE_ENV: "development" | "production" | "test"; // Example of a specific type
     PORT?: string; // Example of an optional variable
   }
 }

@@ -1,0 +1,13 @@
+*.png
+*.webp
+*.jpg
+*.jpeg
+*.svg
+*.ico
+*.pdf
+*.zip
+*.tar.gz
+*.log
+*.env
+*.local
+*.cache
