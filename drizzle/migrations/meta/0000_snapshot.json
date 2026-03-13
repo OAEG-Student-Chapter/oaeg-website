@@ -73,12 +73,8 @@
           "name": "exco_members_committee_id_committees_id_fk",
           "tableFrom": "exco_members",
           "tableTo": "committees",
-          "columnsFrom": [
-            "committee_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["committee_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         },
@@ -86,22 +82,15 @@
           "name": "exco_members_member_id_members_id_fk",
           "tableFrom": "exco_members",
           "tableTo": "members",
-          "columnsFrom": [
-            "member_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["member_id"],
+          "columnsTo": ["id"],
           "onDelete": "no action",
           "onUpdate": "no action"
         }
       },
       "compositePrimaryKeys": {
         "exco_members_committee_id_member_id_pk": {
-          "columns": [
-            "committee_id",
-            "member_id"
-          ],
+          "columns": ["committee_id", "member_id"],
           "name": "exco_members_committee_id_member_id_pk"
         }
       },

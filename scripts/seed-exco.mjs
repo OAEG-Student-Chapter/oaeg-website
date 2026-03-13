@@ -7,10 +7,7 @@ import { spawnSync } from "node:child_process";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const sourcePath = path.resolve(
-  __dirname,
-  "exco-members.json",
-);
+const sourcePath = path.resolve(__dirname, "exco-members.json");
 
 const raw = fs.readFileSync(sourcePath, "utf8");
 const data = JSON.parse(raw);
@@ -50,10 +47,16 @@ for (const member of membersMap.values()) {
 
 for (const [year, yearlyData] of Object.entries(data)) {
   for (const [sourceBody, dbBody] of Object.entries(bodyMap)) {
-    const list = Array.isArray(yearlyData[sourceBody]) ? yearlyData[sourceBody] : [];
+    const list = Array.isArray(yearlyData[sourceBody])
+      ? yearlyData[sourceBody]
+      : [];
 
-    sqlLines.push(`INSERT INTO committees (year, body) SELECT ${Number(year)}, '${dbBody}' WHERE NOT EXISTS (SELECT 1 FROM committees WHERE year = ${Number(year)} AND body = '${dbBody}');`);
-    sqlLines.push(`DELETE FROM exco_members WHERE committee_id = (SELECT MIN(id) FROM committees WHERE year = ${Number(year)} AND body = '${dbBody}');`);
+    sqlLines.push(
+      `INSERT INTO committees (year, body) SELECT ${Number(year)}, '${dbBody}' WHERE NOT EXISTS (SELECT 1 FROM committees WHERE year = ${Number(year)} AND body = '${dbBody}');`,
+    );
+    sqlLines.push(
+      `DELETE FROM exco_members WHERE committee_id = (SELECT MIN(id) FROM committees WHERE year = ${Number(year)} AND body = '${dbBody}');`,
+    );
 
     for (let index = 0; index < list.length; index += 1) {
       const item = list[index];
