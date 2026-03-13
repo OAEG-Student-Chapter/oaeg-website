@@ -2,9 +2,9 @@
 import styles from "./section.module.css";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import { SecondaryTitle } from "@/components/titles";
+import { SecondaryTitle } from "@/components/ui/titles";
 import { blog } from "../../../api/blogger/blog";
-import AppCard from "@/components/card";
+import AppCard from "@/components/ui/card";
 import ProjectPage from "@/app/projects/types";
 import ProjectList from "@/app/projects/projects-list";
 
@@ -48,8 +48,8 @@ export default function ProjectsSection() {
         {pages?.slice(0, 5).map((project) => {
           return (
             <div
-                key={project.id}
-                className={styles.cardWrapper}>
+              key={project.id}
+              className={styles.cardWrapper}>
               <AppCard
                 title={project.title}
                 imgSrc={getThumbnail(project.content)}

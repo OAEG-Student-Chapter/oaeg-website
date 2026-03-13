@@ -1,23 +1,23 @@
 'use client'
-import { SecondaryTitle } from "@/components/titles";
+import { SecondaryTitle } from "@/components/ui/titles";
 import React from "react";
 import { getEventAlbums, EventAlbum } from "@/app/events/event_album_handlers";
-import AppCard from "@/components/card";
+import AppCard from "@/components/ui/card";
 import styles from "./page.module.css";
 import textTheme from "@/lib/fonts";
 import navStyles from "@/app/components/app-header/app-navbar.module.css";
 import Link from "next/link";
 import sectionStyles from "@/app/components/events/section.module.css";
-import {routesMap} from "@/lib/routes";
+import { routesMap } from "@/lib/routes";
 
 
 export default function Page() {
-    const [albums, setAlbums] = React.useState<EventAlbum[]>();
-    React.useEffect(() => {
-        getEventAlbums().then(res => {
-            setAlbums(res.albums)
-        });
-    }, []);
+  const [albums, setAlbums] = React.useState<EventAlbum[]>();
+  React.useEffect(() => {
+    getEventAlbums().then(res => {
+      setAlbums(res.albums)
+    });
+  }, []);
 
   // albums = albums?.slice(0, albums.length);
   return (
@@ -50,12 +50,12 @@ export default function Page() {
           );
         })}
       </div>
-        <div className={"flex justify-center mt-6"}>
-            <Link target={"_blank"} className={sectionStyles.moreButton}
-                  href={"https://www.facebook.com/OldAnandianEngineersGuild/photos_albums"}>
-                See All Albums
-            </Link>
-        </div>
+      <div className={"flex justify-center mt-6"}>
+        <Link target={"_blank"} className={sectionStyles.moreButton}
+          href={"https://www.facebook.com/OldAnandianEngineersGuild/photos_albums"}>
+          See All Albums
+        </Link>
+      </div>
     </div>
   );
 }

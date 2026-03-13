@@ -1,8 +1,8 @@
 // ProjectList.tsx
 import React from "react";
-import ProjectPage  from "./types";
+import ProjectPage from "./types";
 import styles from "./page.module.css";
-import AppCard from "@/components/card";
+import AppCard from "@/components/ui/card";
 
 interface ProjectListProps {
     projects: ProjectPage[];
