@@ -16,7 +16,7 @@ export default function AppCard({
 }) {
   return (
     <Link href={link}>
-      <div className="group relative h-full w-full cursor-pointer overflow-hidden rounded-[5px] bg-white transition-all duration-300 ease-in-out">
+      <div className="group relative h-full w-full cursor-pointer overflow-hidden rounded-lg bg-white transition-all duration-300 ease-in-out">
         <div className="absolute z-0 h-full w-full">
           <img
             className="absolute z-10 h-full w-full object-cover transition-all duration-300 ease-in-out group-hover:scale-105"

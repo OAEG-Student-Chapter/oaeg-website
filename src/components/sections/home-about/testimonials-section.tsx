@@ -12,30 +12,37 @@ import {
 
 export const TestimonialCard = (props: TestimonialCardProps) => {
   return (
-    <div className="flex flex-col border border-gray-200 md:flex-row">
-      <div className="flex max-h-[60vh] min-h-[60vh] flex-1 cursor-default flex-col justify-center bg-gray-50 p-2">
-        <div className="p-4">
-          <img
-            className="aspect-square h-full w-full rounded-full object-cover"
-            src={props.image}
-            alt=""
-          />
-        </div>
-        <div className="flex flex-col justify-start p-5">
-          <h3 className="text-[1.2em]">{props.name}</h3>
-          <div className="mb-2 text-left text-[0.8em] font-medium">
+    <div className="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg ring-1 ring-gray-100 md:mx-4 md:flex-row">
+      <div className="relative group flex flex-1 flex-col justify-end overflow-hidden min-h-[350px] md:min-h-[400px]">
+        <img
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+          src={props.image}
+          alt={props.name}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/40 to-transparent pointer-events-none" />
+        <div className="relative z-10 flex flex-col justify-end p-6 md:p-8 transition-transform duration-500">
+          <h3 className="mb-1 text-xl font-bold tracking-tight text-white">{props.name}</h3>
+          <div className="mb-2 text-sm font-medium text-primary md:text-theme-yellow">
             {splitByNewLine(props.title)}
           </div>
-          <p className="text-left text-base font-medium">{props.position}</p>
+          {props.position && (<p className="text-xs font-semibold uppercase tracking-wider text-gray-300 bg-white/10 w-fit px-2 py-1 rounded backdrop-blur-sm">
+            {props.position}
+          </p>)}
         </div>
       </div>
-      <div className="flex max-h-[60vh] min-h-[60vh] flex-[3] flex-col justify-center bg-primary-dark p-8 italic text-white">
+      <div className="flex flex-[1.5] flex-col justify-center bg-primary-dark p-8 md:p-12">
         <div
-          className={`${krub.className} scrollbar-thin scrollbar-thumb-primary scrollbar-track-transparent cursor-default overflow-y-auto pr-4 text-center`}
+          className={`${krub.className} relative flex h-full flex-col justify-center text-center sm:text-left`}
         >
-          <span className="mr-2 text-[1.25em] text-primary">"</span>
-          {splitByDoubleNewline(props.quote)}
-          <span className="ml-2 text-[1.25em] text-primary">"</span>
+          <span className="absolute -left-2 -top-4 text-5xl text-theme-yellow/30 md:-left-6 md:-top-6">
+            "
+          </span>
+          <div className="relative z-10 max-h-[40vh] overflow-y-auto pr-4 text-base italic leading-relaxed text-gray-100 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-primary md:text-md md:leading-loose text-justify">
+            {splitByDoubleNewline(props.quote)}
+          </div>
+          <span className="absolute -bottom-8 -right-2 text-5xl text-theme-yellow/30 md:-bottom-12 md:-right-6">
+            "
+          </span>
         </div>
       </div>
     </div>
@@ -46,7 +53,7 @@ export const TestimonialsSection = () => {
   const testimonials: TestimonialCardProps[] = data;
 
   return (
-    <div className="bg-white px-12 py-8">
+    <div className="bg-gray-50/30 px-6 py-12 md:px-12 md:py-16">
       <Carousel
         opts={{
           align: "start",
@@ -54,9 +61,9 @@ export const TestimonialsSection = () => {
         }}
         className="mx-auto w-full max-w-6xl"
       >
-        <CarouselContent>
+        <CarouselContent className="-ml-2 md:-ml-4">
           {testimonials.map((testimonial, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className="pl-2 md:pl-4">
               <TestimonialCard
                 title={testimonial.title}
                 name={testimonial.name}
@@ -67,8 +74,10 @@ export const TestimonialsSection = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="border-none bg-theme-yellow hover:bg-theme-yellow/80" />
-        <CarouselNext className="border-none bg-theme-yellow hover:bg-theme-yellow/80" />
+        <div className="mt-8 flex justify-center gap-4 md:absolute md:-inset-x-12 md:top-1/2 md:mt-0 md:-translate-y-1/2 md:justify-between">
+          <CarouselPrevious className="relative static translate-x-0 translate-y-0 border-none bg-theme-yellow hover:bg-theme-yellow/80 md:absolute md:-left-4 md:-translate-y-1/2" />
+          <CarouselNext className="relative static translate-x-0 translate-y-0 border-none bg-theme-yellow hover:bg-theme-yellow/80 md:absolute md:-right-4 md:-translate-y-1/2" />
+        </div>
       </Carousel>
     </div>
   );

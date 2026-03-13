@@ -48,9 +48,7 @@ export default function HomeAboutSection() {
         <div className="mt-[10px]" id="testimonials">
           <SecondaryTitle title={"Testimonials"} />
         </div>
-        <div className="mt-[20px]">
-          <TestimonialsSection />
-        </div>
+        <TestimonialsSection />
       </div>
     </div>
   );
