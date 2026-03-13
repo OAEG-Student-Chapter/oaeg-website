@@ -24,14 +24,12 @@ function TeamMemberCard({
   const hasAvatar = Boolean(avatarSRC);
 
   return (
-    <div
-      className={`relative m-[5%_20%] flex flex-col overflow-hidden rounded-md transition-all duration-200 ease-in-out md:m-0 ${hasAvatar ? "aspect-[3/4]" : ""}`}
-    >
-      {hasAvatar && (
-        <div className="relative h-3/4">
+    <div className="group relative flex aspect-[3/4] w-full flex-col overflow-hidden rounded-xl bg-theme-maroon shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      {hasAvatar ? (
+        <div className="relative h-[75%] w-full overflow-hidden bg-gray-100">
           <Image
             loading="lazy"
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
             src={avatarSRC}
             alt={name}
             width={600}
@@ -43,38 +41,40 @@ function TeamMemberCard({
                 href={linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center rounded-bl bg-white/90 p-2"
+                className="flex items-center justify-center rounded-bl-lg bg-primary/90 p-2.5 opacity-90 backdrop-blur-sm transition-all hover:bg-white hover:opacity-100"
               >
-                <FaLinkedin className="h-6 w-6 text-black transition-colors hover:text-primary" />
+                <FaLinkedin className="h-5 w-5 text-theme-maroon transition-colors hover:text-black" />
+              </a>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="relative flex h-[75%] w-full items-center justify-center bg-black/10">
+          <div className="flex h-full w-full items-center justify-center text-white/20">
+            <span className="text-4xl font-bold uppercase tracking-widest">{name.charAt(0)}</span>
+          </div>
+          {!!linkedin && (
+            <div className="absolute right-0 top-0 z-10 flex justify-end">
+              <a
+                href={linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center rounded-bl-lg bg-white/90 p-2.5 opacity-90 backdrop-blur-sm transition-all hover:bg-white hover:opacity-100"
+              >
+                <FaLinkedin className="h-5 w-5 text-theme-maroon transition-colors hover:text-black" />
               </a>
             </div>
           )}
         </div>
       )}
-      <div
-        className={`left-0 flex min-h-[25%] w-full flex-col bg-theme-maroon px-[5%] pb-[5%] pt-[7.5%] text-white ${hasAvatar ? "absolute bottom-0" : "relative"}`}
-      >
-        <div className={`font-semibold ${textTheme.title.className}`}>
+      <div className="flex h-[25%] flex-col items-center justify-center bg-theme-maroon px-3 py-2 text-center text-white">
+        <h3 className={`line-clamp-1 text-sm font-semibold sm:text-base ${textTheme.title.className}`}>
           {name}
-        </div>
-        <p
-          className={`w-full text-[0.9rem] font-extralight text-white ${textTheme.body.className}`}
-        >
+        </h3>
+        <p className={`line-clamp-2 w-full text-xs font-light text-white/90 sm:text-sm ${textTheme.body.className}`}>
           {role}
         </p>
       </div>
-      {!hasAvatar && !!linkedin && (
-        <div className="absolute right-0 top-0 z-10 flex justify-end">
-          <a
-            href={linkedin}
-            target="_blank"
-            rel="noreferrer"
-            className="flex items-center justify-center rounded-bl bg-white/90 p-2"
-          >
-            <FaLinkedin className="h-6 w-6 text-black transition-colors hover:text-primary" />
-          </a>
-        </div>
-      )}
     </div>
   );
 }
@@ -84,18 +84,15 @@ export default function Team({
   numberOfColumns = 5,
 }: TeamProps) {
   const desktopGridClass =
-    numberOfColumns === 4 ? "md:grid-cols-4" : "md:grid-cols-5";
+    numberOfColumns === 4 
+      ? "grid-cols-2 sm:grid-cols-3 md:grid-cols-4" 
+      : "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5";
 
   return (
-    <div className="m-[0_0_3em] md:m-[4%_6%]">
-      <div className={`grid grid-cols-1 gap-0 md:gap-[2%] ${desktopGridClass}`}>
+    <div className="w-full">
+      <div className={`grid gap-4 md:gap-6 ${desktopGridClass}`}>
         {memberDetailList.map((memberDetails, index) => (
-          <div
-            key={`${memberDetails.name}-${index}`}
-            className="mb-0 md:mb-[3%]"
-          >
-            <TeamMemberCard {...memberDetails} />
-          </div>
+          <TeamMemberCard key={`${memberDetails.name}-${index}`} {...memberDetails} />
         ))}
       </div>
     </div>

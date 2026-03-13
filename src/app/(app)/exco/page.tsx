@@ -86,19 +86,35 @@ function ExcoContent() {
   }, [requestedYear]);
 
   return (
-    <div className="min-h-screen bg-white py-24 sm:py-12">
-      <div className="m-[0_0_3em] md:m-[4%_6%]">
-        <div>
-          <TeamHeader
-            currentYear={currentYear}
-            currentBody={body}
-            years={years}
-          />
-        </div>
-        <Team
-          memberDetailList={isLoading ? [] : committees[body]}
-          numberOfColumns={5}
+    <div className="min-h-screen bg-white py-16 md:mt-8 md:py-24">
+      <div className="container mx-auto max-w-7xl px-4 md:px-8">
+        <TeamHeader
+          currentYear={currentYear}
+          currentBody={body}
+          years={years}
         />
+
+        {isLoading ? (
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 md:gap-6 lg:grid-cols-5">
+            {Array.from({ length: 10 }).map((_, i) => (
+              <div
+                key={i}
+                className="aspect-[3/4] w-full animate-pulse rounded-xl bg-gray-200"
+              />
+            ))}
+          </div>
+        ) : committees[body]?.length > 0 ? (
+          <Team memberDetailList={committees[body]} numberOfColumns={5} />
+        ) : (
+          <div className="flex flex-col items-center justify-center py-24 text-center">
+            <h3 className="text-xl font-medium text-gray-900">
+              No members found
+            </h3>
+            <p className="mt-2 text-gray-500">
+              There are no committee members available for this selection yet.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
