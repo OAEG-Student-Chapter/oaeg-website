@@ -37,7 +37,6 @@ for (const yearlyData of Object.values(data)) {
 }
 
 const sqlLines = [];
-sqlLines.push("BEGIN TRANSACTION;");
 
 for (const member of membersMap.values()) {
   sqlLines.push(
@@ -71,8 +70,6 @@ for (const [year, yearlyData] of Object.entries(data)) {
     }
   }
 }
-
-sqlLines.push("COMMIT;");
 
 const sqlPath = path.join(os.tmpdir(), "oaeg-exco-seed.sql");
 fs.writeFileSync(sqlPath, `${sqlLines.join("\n")}\n`, "utf8");
