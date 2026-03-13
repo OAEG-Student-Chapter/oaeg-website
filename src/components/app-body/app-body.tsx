@@ -1,6 +1,6 @@
-import styles from "@/app/components/app-body/app-body.module.css";
+import styles from "@/components/app-body/app-body.module.css";
 
-export default function AppBody({children}: { children: React.ReactNode }) {
+export default function AppBody({ children }: { children: React.ReactNode }) {
     return (
         <main className={styles.main}>
             {children}
