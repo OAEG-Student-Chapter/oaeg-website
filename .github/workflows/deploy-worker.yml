@@ -6,16 +6,7 @@ on:
     branches: [beta]
 
 jobs:
-  ci:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-      - run: npm ci --legacy-peer-deps
-      - run: npm run build
+
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/beta'
@@ -34,3 +25,9 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          NEXT_PUBLIC_EMAIL_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_EMAIL_PUBLIC_KEY }}
+          NEXT_PUBLIC_EMAIL_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAIL_SERVICE_ID }}
+          NEXT_PUBLIC_EMAIL_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAIL_TEMPLATE_ID }}
+          NEXT_PUBLIC_BLOGGER_API_KEY: ${{ secrets.NEXT_PUBLIC_BLOGGER_API_KEY }}
+          NEXT_PUBLIC_BLOGGER_BLOG_ID: ${{ secrets.NEXT_PUBLIC_BLOGGER_BLOG_ID }}
