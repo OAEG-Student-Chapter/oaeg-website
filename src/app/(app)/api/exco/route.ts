@@ -22,7 +22,7 @@ export async function GET(
     .orderBy(desc(committee.year));
 
   const years = yearsRows.map((row) => String(row.year));
-  const yearParam = (await props.params).year;
+  const yearParam = (await props.params)?.year;
   const fallbackYear = years[0] ?? "";
   const targetYear = yearParam ?? fallbackYear;
 
