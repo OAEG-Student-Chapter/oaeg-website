@@ -68,13 +68,15 @@ function TeamMemberCard({
           )}
         </div>
       )}
-      <div className="flex h-[25%] flex-col items-center justify-center bg-theme-maroon px-3 py-2 text-center text-white">
-        <h3 className={`line-clamp-1 text-sm font-semibold sm:text-base ${textTheme.title.className}`}>
+      <div className="flex min-h-[25%] flex-col items-center justify-center bg-theme-maroon px-3 py-2 text-center text-white">
+        <div className="flex flex-col items-center justify-center gap-1">
+          <h3 className={`text-sm font-semibold sm:text-base ${textTheme.title.className}`}>
           {name}
         </h3>
-        <p className={`line-clamp-2 w-full text-xs font-light text-white/90 sm:text-sm ${textTheme.body.className}`}>
+        <p className={`w-full text-xs font-light text-white/90 sm:text-sm ${textTheme.body.className}`}>
           {role}
         </p>
+        </div>
       </div>
     </div>
   );
