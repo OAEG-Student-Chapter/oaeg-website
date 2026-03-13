@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { blog } from "@/api/blogger/blog";
-import ProjectPage from "@/app/projects/types";
+import ProjectPage from "@/app/(app)/projects/types";
 import { SecondaryTitle } from "@/components/ui/titles";
 import textTheme from "@/lib/fonts";
-import ProjectList from "@/app/projects/projects-list";
+import ProjectList from "@/app/(app)/projects/projects-list";
 
 export default function Page() {
     const [pages, setPages] = useState<ProjectPage[]>([]);

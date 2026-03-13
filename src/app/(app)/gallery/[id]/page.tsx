@@ -2,7 +2,7 @@
 import textTheme from "@/lib/fonts";
 import React, { useEffect, useState, use } from "react";
 import { getSingleEventAlbum, EventAlbum } from "@/lib/albums";
-import Gallery from "@/app/gallery/[id]/gallery";
+import Gallery from "@/app/(app)/gallery/[id]/gallery";
 import Link from "next/link";
 
 export const runtime = 'edge';
@@ -30,9 +30,9 @@ export default function Page(props: { params: Promise<{ id: string }> }) {
                     </div>
                     <Gallery images={getImages(album)} />
                     <div className={"flex justify-center mt-6"}>
-                        <Link 
-                            target={"_blank"} 
-                            className="block bg-primary-dark text-white font-bold text-base border-none cursor-pointer transition-all duration-300 ease-in-out no-underline py-3 px-8" 
+                        <Link
+                            target={"_blank"}
+                            className="block bg-primary-dark text-white font-bold text-base border-none cursor-pointer transition-all duration-300 ease-in-out no-underline py-3 px-8"
                             href={album.link}>
                             See Full Album
                         </Link>
