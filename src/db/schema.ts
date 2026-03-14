@@ -45,8 +45,11 @@ export type NewExcoMember = typeof excoMember.$inferInsert;
 export const project = sqliteTable("projects", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   title: text("title", { length: 256 }).notNull(),
-  coverImage: text("cover_image").default(""),
-  content: text("content").notNull().default(""), // markdown content
+  slug: text("slug", { length: 256 }).notNull().unique(),
+  thumbnail: text("thumbnail").default(""),
+  content: text("content").notNull().default(""), // HTML content from TipTap
+  status: text("status", { enum: ["draft", "published"] }).notNull().default("draft"),
+  seoMetadata: text("seo_metadata", { mode: "json" }),
 });
 
 export type Project = typeof project.$inferSelect;
