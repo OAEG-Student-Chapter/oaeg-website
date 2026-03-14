@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { blog } from "@/lib/blogger-api";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export default function Page() {
   const searchParams = useSearchParams();
@@ -24,11 +26,30 @@ export default function Page() {
   }, [id]);
 
   return (
-    <div className="min-h-screen bg-white pt-12">
-      <div
-        className="px-10 py-10 font-['Poppins',_sans-serif] md:px-[200px] [&_blockquote]:mb-4 [&_code]:mb-4 [&_dd]:mb-4 [&_dl]:mb-4 [&_dt]:mb-4 [&_figcaption]:mb-4 [&_figure]:mb-4 [&_h1]:mb-4 [&_h1]:mt-[1.2rem] [&_h1]:font-bold [&_h1_span]:text-center [&_h1_span]:text-2xl [&_h1_span]:font-semibold [&_h1_span]:text-black [&_h2]:mb-4 [&_h2]:mt-[1.2rem] [&_h2]:font-bold [&_h3]:mb-4 [&_h3]:mt-[1.2rem] [&_h3]:font-bold [&_h4]:mb-4 [&_h5]:mb-4 [&_h6]:mb-4 [&_img]:h-auto [&_img]:w-[clamp(300px,50vw,600px)] [&_li]:mb-2 [&_ol]:mb-4 [&_p]:mb-4 [&_pre]:mb-4 [&_span]:mb-4 [&_span]:font-['Poppins',_sans-serif] [&_table]:mb-4 [&_ul]:mb-4 [&_ul_li]:ml-5 [&_ul_li]:list-disc"
-        dangerouslySetInnerHTML={template}
-      ></div>
+    <div className="min-h-screen bg-neutral-50 pb-24 pt-[calc(var(--navbar-height)+2rem)]">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+        {/* Back Navigation */}
+        <Link
+          href="/projects"
+          className="group mb-8 inline-flex items-center gap-2 text-sm font-medium text-neutral-500 transition-colors hover:text-neutral-900"
+        >
+          <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+          Back to Projects
+        </Link>
+
+        <article className="rounded-2xl bg-white p-8 shadow-sm sm:p-12 border border-neutral-100">
+          <div
+            className="prose prose-lg max-w-none 
+                       prose-headings:font-extrabold prose-headings:text-neutral-900 prose-headings:tracking-tight
+                       prose-p:leading-relaxed prose-p:mb-4
+                       prose-img:rounded-xl prose-img:mx-auto prose-img:shadow-md prose-img:my-0
+                       prose-a:text-primary hover:prose-a:text-primary-dark
+                       prose-strong:text-neutral-900 text-neutral-900"
+            dangerouslySetInnerHTML={template}
+          />
+        </article>
+      </div>
     </div>
   );
 }
