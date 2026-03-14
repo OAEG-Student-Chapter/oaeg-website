@@ -1,4 +1,4 @@
-import { withGraphApi } from "@/lib/graph-page";
+import { withGraphApi } from "@/lib/graph-api";
 import { NextRequest } from "next/server";
 
 export async function GET(

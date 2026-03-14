@@ -1,5 +1,5 @@
 "use client";
-import { blog } from "@/api/blogger/blog";
+import { blog } from "@/lib/blogger-api";
 import { useEffect, useState } from "react";
 
 interface Post {

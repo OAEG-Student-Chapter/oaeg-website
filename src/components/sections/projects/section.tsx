@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { SecondaryTitle } from "@/components/ui/titles";
-import { blog } from "@/api/blogger/blog";
+import { blog } from "@/lib/blogger-api";
 import AppCard from "@/components/ui/card";
 import ProjectPage from "@/app/(app)/projects/types";
 

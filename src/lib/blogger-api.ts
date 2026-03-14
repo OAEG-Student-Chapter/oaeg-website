@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class BlogApi {
+class BloggerApi {
   private readonly apiKey: string;
   private readonly blogId: string;
 
@@ -24,7 +24,7 @@ class BlogApi {
   }
 }
 
-export const blog = new BlogApi(
+export const blog = new BloggerApi(
   process.env.NEXT_PUBLIC_BLOGGER_API_KEY!,
   process.env.NEXT_PUBLIC_BLOGGER_BLOG_ID!,
 );

@@ -1,4 +1,4 @@
-import { getGraphApi } from "./graph-page";
+import { getGraphApi } from "./graph-api";
 
 export interface PagePhoto {
   id: string;
@@ -14,10 +14,10 @@ export interface PageAlbum {
   name: string;
   cover_photo: PagePhoto;
   photos:
-    | {
-        data: PagePhoto[];
-      }
-    | undefined;
+  | {
+    data: PagePhoto[];
+  }
+  | undefined;
   description: string;
   created_time: string;
   type: string;

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { blog } from "@/api/blogger/blog";
+import { blog } from "@/lib/blogger-api";
 
 export default function Page() {
   const searchParams = useSearchParams();

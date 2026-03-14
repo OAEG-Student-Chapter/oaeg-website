@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { blog } from "@/api/blogger/blog";
+import { blog } from "@/lib/blogger-api";
 import ProjectPage from "@/app/(app)/projects/types";
 import { SecondaryTitle } from "@/components/ui/titles";
 import textTheme from "@/lib/fonts";
