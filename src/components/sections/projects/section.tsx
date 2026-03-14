@@ -20,35 +20,43 @@ export default async function ProjectsSection() {
     return match && match[1] ? match[1] : "";
   };
 
-  const displayedProjects = pages.slice(0, 5);
+  const displayedProjects = pages.slice(0, 6);
 
   return (
-    <div className="relative bg-white pb-16">
-      <div className="mb-8 flex justify-center px-8">
+    <div className="relative bg-neutral-50 pb-16 pt-8">
+      <div className="mb-12 flex justify-center px-8">
         <SecondaryTitle title={"Project Portfolio"} />
       </div>
-      <div className="scrollbar-hide relative z-10 flex w-full flex-row px-4 max-sm:h-[40vh] max-sm:overflow-x-auto md:px-20">
-        {displayedProjects.map((project) => {
-          return (
-            <div
-              key={project.id}
-              className="mx-4 aspect-[3/4] w-60 shrink-0 max-sm:m-4 max-sm:w-[60vw]"
-            >
-              <AppCard
-                title={project.title}
-                imgSrc={getThumbnail(project.content)}
-                link={`/projects/project?title=${project.title}&id=${project.id}`}
-              />
-            </div>
-          );
-        })}
+
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 [&>div:not(:first-child)]:mt-6">
+          {displayedProjects.map((project, index) => {
+            // Apply varied aspect ratios for the masonry effect
+            const isTall = index % 3 === 0;
+            const aspectClass = isTall ? "aspect-[3/4]" : "aspect-[4/3]";
+
+            return (
+              <div
+                key={project.id}
+                className={`relative w-full break-inside-avoid overflow-hidden rounded-2xl shadow-sm transition-all duration-300 hover:shadow-xl ${aspectClass}`}
+              >
+                <AppCard
+                  title={project.title}
+                  imgSrc={getThumbnail(project.content)}
+                  link={`/projects/project?title=${project.title}&id=${project.id}`}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="relative z-10 mt-8 flex justify-center">
+
+      <div className="relative z-10 mt-12 flex justify-center">
         <Link
-          className="block bg-primary-dark px-8 py-3 text-base font-bold text-white no-underline transition-all duration-300 ease-in-out hover:scale-105"
+          className="block rounded-xl bg-neutral-900 px-8 py-3.5 text-base font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-neutral-900/30"
           href={"/projects"}
         >
-          More
+          View All Projects
         </Link>
       </div>
     </div>
