@@ -1,51 +1,24 @@
-"use client";
-import {
-  DataItem,
-  getNewsletters,
-  getSingleNewsletter,
-} from "@/api/newsletter/newsletter";
-import { useEffect, useState } from "react";
+import Link from "next/link";
 
-export default function Page() {
-  const [data, setData] = useState<DataItem[]>([]);
-  const [newsletter, setNewsletter] = useState<DataItem | null>(null);
+interface Newsletter {
+  key: string;
+  val: string;
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getNewsletters();
-        setData(data as DataItem[]);
+const NEWSLETTERS: Newsletter[] = [
+  {
+    key: "April-2024",
+    val: "https://www.canva.com/design/DAGC7TuCuJY/-51hnnIOGwka5LpzqVDV_w/view?embed",
+  },
+];
 
-        // Get the query parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const key = urlParams.get("key"); // give any name to the search parameter
-
-        // Set the newsletter based on the key (if available)
-        if (key) {
-          const fetched_newsletter = await getSingleNewsletter(key);
-          if (fetched_newsletter) {
-            setNewsletter(fetched_newsletter);
-          } else {
-            console.warn(`No newsletter found with key: ${key}`);
-          }
-        } else {
-          // Loads the first newsletter by default
-          if (data && data.length > 0) {
-            setNewsletter(data[0]);
-          }
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  async function handleNewsletterClick(newsletter: DataItem) {
-    // Changes the displaying newsletter, without changing the URL and reloading the page again
-    setNewsletter(newsletter);
-  }
+export default async function Page({
+  searchParams,
+}: {
+  searchParams: Promise<{ key?: string }>;
+}) {
+  const { key: urlKey } = await searchParams;
+  const newsletter = NEWSLETTERS.find((n) => n.key === urlKey) || NEWSLETTERS[0];
 
   return (
     <div className="flex h-auto w-full flex-col bg-white pb-4 pt-[calc(var(--navbar-height)+1rem)] md:h-screen md:flex-row">
@@ -54,21 +27,24 @@ export default function Page() {
           Newsletters
         </div>
         <div className="scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100 flex h-full flex-row justify-center overflow-x-auto whitespace-nowrap px-[10px] md:flex-col md:overflow-y-auto md:whitespace-normal">
-          {data.map((item) => (
-            <div
+          {NEWSLETTERS.map((item) => (
+            <Link
               key={item.key}
-              className="relative mb-5 ml-2.5 inline-block h-[182.5px] w-[125px] cursor-pointer overflow-hidden rounded-[5px] border border-black md:ml-0 md:block md:h-auto md:w-full"
-              onClick={() => handleNewsletterClick(item)}
+              href={`/news?key=${item.key}`}
+              className={`relative mb-5 ml-2.5 inline-block h-[182.5px] w-[125px] overflow-hidden rounded-[5px] border md:ml-0 md:block md:h-auto md:w-full ${
+                newsletter?.key === item.key ? "border-primary ring-1 ring-primary" : "border-black"
+              }`}
             >
               <img
-                src={"/newsletter_images/" + item.key + ".webp"}
-                className="object-cover"
+                src={`/newsletter_images/${item.key}.webp`}
+                className="brightness-90 transition-all hover:brightness-100 object-cover"
+                alt={item.key}
               />
 
-              <div className="absolute bottom-0 left-0 right-0 bg-[rgba(0,0,0,0.7)] p-[10px] text-center text-white">
+              <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-[10px] text-center text-sm text-white">
                 {item.key}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -76,9 +52,10 @@ export default function Page() {
         {newsletter && (
           <div className="flex h-[600px] w-full flex-col items-center p-0 md:h-full md:p-5">
             <iframe
-              className="h-full w-full"
+              className="h-full w-full border-0"
               loading="lazy"
               src={newsletter.val}
+              title={newsletter.key}
             />
           </div>
         )}
@@ -86,3 +63,5 @@ export default function Page() {
     </div>
   );
 }
+
+
