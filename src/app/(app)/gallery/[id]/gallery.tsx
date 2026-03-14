@@ -1,6 +1,6 @@
 "use client";
-import React, { useEffect } from "react";
-import { FaTimes } from "react-icons/fa";
+import React, { useEffect, useState, useCallback } from "react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Image {
   original: string;
@@ -8,91 +8,132 @@ interface Image {
 }
 
 export default function Gallery({ images }: { images: Image[] }) {
-  const [openGallery, setOpenGallery] = React.useState(false);
-  const [galleryIndex, setGalleryIndex] = React.useState(0);
-  const closeGallery = (e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      setOpenGallery(false);
-    }
-  };
-  const navigateGallery = (e: KeyboardEvent) => {
-    if (e.key === "ArrowRight") {
-      setGalleryIndex((prevIndex) => (prevIndex + 1) % images.length);
-    } else if (e.key === "ArrowLeft") {
-      setGalleryIndex((prevIndex) => {
-        // handle negative index
-        if (prevIndex === 0) {
-          return images.length - 1;
-        }
-        return prevIndex - 1;
-      });
-    }
-  };
+  const [openGallery, setOpenGallery] = useState(false);
+  const [galleryIndex, setGalleryIndex] = useState(0);
 
-  // use a ref or state for isDesktop to avoid 'window is not defined' in SSR if needed
-  // but this is 'use client' so it's fine, though innerWidth might change
-  const [isDesktop, setIsDesktop] = React.useState(false);
-  useEffect(() => {
-    setIsDesktop(window.innerWidth > 768);
-    const handleResize = () => setIsDesktop(window.innerWidth > 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+  const closeGallery = useCallback(() => {
+    setOpenGallery(false);
   }, []);
 
-  // add event listener for keydown
+  const navigateGallery = useCallback(
+    (direction: "prev" | "next") => {
+      if (direction === "next") {
+        setGalleryIndex((prevIndex) => (prevIndex + 1) % images.length);
+      } else {
+        setGalleryIndex((prevIndex) =>
+          prevIndex === 0 ? images.length - 1 : prevIndex - 1
+        );
+      }
+    },
+    [images.length]
+  );
+
   useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!openGallery) return;
+
+      if (e.key === "Escape") {
+        closeGallery();
+      } else if (e.key === "ArrowRight") {
+        navigateGallery("next");
+      } else if (e.key === "ArrowLeft") {
+        navigateGallery("prev");
+      }
+    };
+
     if (openGallery) {
-      document.addEventListener("keydown", closeGallery);
-      // add event listener for keydown
-      document.addEventListener("keydown", navigateGallery);
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
     } else {
-      document.removeEventListener("keydown", closeGallery);
-      document.removeEventListener("keydown", navigateGallery);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
     }
-  }, [openGallery]);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "unset";
+    };
+  }, [openGallery, closeGallery, navigateGallery]);
+
   return (
-    <div className="relative">
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4 px-4 md:px-20">
+    <div className="relative w-full">
+      {/* Masonry Grid */}
+      <div className="columns-1 gap-6 sm:columns-2 md:columns-3 lg:columns-4">
         {images?.map((photo, index) => {
           return (
-            <img
-              onClick={() => {
-                setGalleryIndex(index);
-                setOpenGallery(true);
-              }}
+            <div
               key={index}
-              className="h-full w-full cursor-pointer object-cover transition-all duration-300 ease-in-out hover:scale-105"
-              src={photo.original}
-              alt={photo.original}
-              loading="lazy"
-            />
+              className="group mb-6 break-inside-avoid overflow-hidden rounded-xl border border-neutral-200 bg-neutral-100 shadow-sm transition-all duration-300 hover:shadow-md"
+            >
+              <img
+                onClick={() => {
+                  setGalleryIndex(index);
+                  setOpenGallery(true);
+                }}
+                className="w-full cursor-zoom-in object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                src={photo.original}
+                alt={`Gallery image ${index + 1}`}
+                loading="lazy"
+              />
+            </div>
           );
         })}
       </div>
-      {isDesktop && openGallery && (
-        <div className="fixed left-0 top-0 z-30 mx-auto h-full w-full bg-[rgba(0,0,0,0.8)] pt-[calc(var(--navbar-height)+var(--header-banner-height))] md:pt-0">
-          <div
-            className="relative flex h-full flex-col items-center justify-center"
+
+      {/* Fullscreen Lightbox Modal */}
+      {openGallery && (
+        <div className="fixed inset-0 z-50 flex h-[100dvh] w-screen items-center justify-center bg-black/80 backdrop-blur-xl transition-opacity duration-300">
+          {/* Close Button */}
+          <button
+            onClick={closeGallery}
+            className="absolute right-4 top-4 z-50 rounded-full bg-black/50 p-2 text-white/70 transition-colors hover:bg-black/70 hover:text-white sm:right-6 sm:top-6"
+            aria-label="Close gallery"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Previous Button */}
+          <button
             onClick={(e) => {
-              // if clicked outside the image
+              e.stopPropagation();
+              navigateGallery("prev");
+            }}
+            className="absolute left-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white/70 transition-colors hover:bg-black/70 hover:text-white sm:left-6"
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="h-8 w-8" />
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              navigateGallery("next");
+            }}
+            className="absolute right-4 top-1/2 z-50 -translate-y-1/2 rounded-full bg-black/50 p-3 text-white/70 transition-colors hover:bg-black/70 hover:text-white sm:right-6"
+            aria-label="Next image"
+          >
+            <ChevronRight className="h-8 w-8" />
+          </button>
+
+          {/* Image Container */}
+          <div
+            className="relative flex h-full w-full items-center justify-center p-4 sm:p-12"
+            onClick={(e) => {
               if (e.target === e.currentTarget) {
-                setOpenGallery(false);
+                closeGallery();
               }
             }}
           >
-            <div
-              onClick={() => {
-                setOpenGallery(false);
-              }}
-              className="absolute right-0 top-0 z-40 m-4 cursor-pointer text-[2rem] text-white"
-            >
-              <FaTimes />
-            </div>
             <img
-              className="h-[90%] object-contain"
+              className="max-h-[85vh] max-w-[95vw] object-contain shadow-2xl"
               src={images[galleryIndex].original}
-              alt={images[galleryIndex].original}
+              alt={`Gallery image ${galleryIndex + 1}`}
             />
+            {/* Image Counter */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-black/50 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-md">
+              {galleryIndex + 1} / {images.length}
+            </div>
           </div>
         </div>
       )}
