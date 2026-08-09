@@ -44,7 +44,7 @@ const team: route = {
 };
 
 const register: route = {
-    path: "https://forms.gle/6ni82ECVnzC4mDrS8",
+    path: "/register",
     name: "Become A Member"
 };
 

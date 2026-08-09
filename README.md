@@ -37,5 +37,8 @@ NEXT_PUBLIC_BLOGGER_BLOG_ID=<<Id>>
 NEXT_PUBLIC_EMAIL_SERVICE_ID=<<Id>>
 NEXT_PUBLIC_EMAIL_TEMPLATE_ID=<<Id>>
 NEXT_PUBLIC_EMAIL_PUBLIC_KEY=<<Key>>
+#Supabase (server-side only, used by the /api/register route)
+SUPABASE_URL=<<Project URL, e.g. https://xxxx.supabase.co>>
+SUPABASE_KEY=<<service role key>>
 ```
 
