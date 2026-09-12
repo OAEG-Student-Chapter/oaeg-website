@@ -43,7 +43,8 @@ export function validateStep(step: Step, form: FormState): string | null {
             if (!form.isMarried) return "Please answer whether you are married.";
             return null;
         case 10:
-            if (!form.hasChildren) return "Please answer whether you have children.";
+            if (form.isMarried === "Yes" && !form.hasChildren)
+                return "Please answer whether you have children.";
             return null;
         case 11:
             if (!form.children[0].name) return "Please enter the name of your first child.";

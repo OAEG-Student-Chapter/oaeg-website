@@ -27,13 +27,15 @@ export const FamilySection: React.FC<FormSectionProps> = ({ form, update }) => (
                 </Field>
             </>
         )}
-        <Field label="Do you have children?" required className={styles.fullWidth}>
-            <RadioGroup
-                name="hasChildren"
-                value={form.hasChildren}
-                options={["Yes", "No"]}
-                onChange={(v) => update("hasChildren", v)}
-            />
-        </Field>
+        {form.isMarried === "Yes" && (
+            <Field label="Do you have children?" required className={styles.fullWidth}>
+                <RadioGroup
+                    name="hasChildren"
+                    value={form.hasChildren}
+                    options={["Yes", "No"]}
+                    onChange={(v) => update("hasChildren", v)}
+                />
+            </Field>
+        )}
     </div>
 );

@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../register-form.module.css";
 import { FormSectionProps } from "../types";
 import { Field } from "./fields";
+import { FaCalendarDays } from "react-icons/fa6";
 
 export const PersonalDetailsSection: React.FC<FormSectionProps> = ({ form, update }) => (
     <div className={styles.formGrid}>
@@ -33,12 +34,17 @@ export const PersonalDetailsSection: React.FC<FormSectionProps> = ({ form, updat
             />
         </Field>
         <Field label="Date of Birth" required>
-            <input
-                className={styles.inputField}
-                type="date"
-                value={form.dateOfBirth}
-                onChange={(e) => update("dateOfBirth", e.target.value)}
-            />
+            <div className={styles.dateField}>
+                <input
+                    className={styles.inputField}
+                    type="date"
+                    value={form.dateOfBirth}
+                    onChange={(e) => update("dateOfBirth", e.target.value)}
+                />
+                <span className={styles.dateFieldIcon}>
+                    <FaCalendarDays />
+                </span>
+            </div>
         </Field>
         <Field
             label="Mobile Phone"
