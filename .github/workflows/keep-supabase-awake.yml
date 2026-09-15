@@ -1,0 +1,16 @@
+name: Keep Supabase Awake
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run once every day at midnight (UTC).
+  workflow_dispatch: # optional manual trigger
+
+jobs:
+  ping_supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase to keep awake
+        run: |
+          curl -X GET "https://zxkviiamopbivvssdebs.supabase.co/rest/v1/members?select=id&limit=1" \
+          -H "apikey: ${{ secrets.SUPABASE_KEY }}" \
+          -H "Authorization: Bearer ${{ secrets.SUPABASE_KEY }}"
