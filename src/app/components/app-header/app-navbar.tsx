@@ -9,6 +9,7 @@ import IconLinks from "@/app/components/app-header/icon-links";
 import React from "react";
 const krubFont = Krub({ weight: "500", subsets: ["latin"] });
 import { NavBrand } from "@/app/components/app-header/app-header";
+import Image from "next/image";
 
 export default function AppNavbar({
   onItemClick,
@@ -64,7 +65,7 @@ export default function AppNavbar({
             height: "2.5rem",
           }}
         >
-          <img
+          <Image
             className={"h-full contain"}
             src={"/images/oba.webp"}
             alt={"ananda college oba"}
