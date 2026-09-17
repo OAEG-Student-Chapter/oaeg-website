@@ -11,18 +11,18 @@ import {
   FaArrowLeft,
   FaArrowRight,
 } from "react-icons/fa6";
-import { FormIntro } from "./components/FormIntro";
-import { MembershipSection } from "./components/MembershipSection";
-import { PersonalDetailsSection } from "./components/PersonalDetailsSection";
-import { SchoolSection } from "./components/SchoolSection";
-import { UniversitySection } from "./components/UniversitySection";
-import { IeslSection } from "./components/IeslSection";
-import { ProfessionalSection } from "./components/ProfessionalSection";
-import { WorkSection } from "./components/WorkSection";
-import { MaritalSection } from "./components/MaritalSection";
-import { FamilySection } from "./components/FamilySection";
-import { ChildrenSection } from "./components/ChildrenSection";
-import { IntroducedBySection } from "./components/IntroducedBySection";
+import { FormIntro } from "./components/form-intro";
+import { MembershipSection } from "./components/membership-section";
+import { PersonalDetailsSection } from "./components/personaldetails-section";
+import { SchoolSection } from "./components/school-section";
+import { UniversitySection } from "./components/university-section";
+import { IeslSection } from "./components/iesl-section";
+import { ProfessionalSection } from "./components/professional-section";
+import { WorkSection } from "./components/work-section";
+import { MaritalSection } from "./components/marital-section";
+import { FamilySection } from "./components/family-section";
+import { ChildrenSection } from "./components/children-section";
+import { IntroducedBySection } from "./components/introduced-by-section";
 import { buildPayload } from "./lib/buildPayload";
 import { validateStep } from "./lib/validate";
 import {
