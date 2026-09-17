@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+  push:
+    branches:
+      - develop
+
+jobs:
+  lint-and-test:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+        env:
+          # Provide dummy values so the build doesn't fail on missing env vars
+          NEXT_PUBLIC_BLOGGER_API_KEY: dummy
+          NEXT_PUBLIC_BLOGGER_BLOG_ID: dummy
+          NEXT_PUBLIC_EMAIL_SERVICE_ID: dummy
+          NEXT_PUBLIC_EMAIL_TEMPLATE_ID: dummy
+          NEXT_PUBLIC_EMAIL_PUBLIC_KEY: dummy
