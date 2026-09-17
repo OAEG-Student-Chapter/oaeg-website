@@ -71,6 +71,10 @@ NEXT_PUBLIC_BLOGGER_BLOG_ID=<your-blogger-blog-id>
 NEXT_PUBLIC_EMAIL_SERVICE_ID=<your-emailjs-service-id>
 NEXT_PUBLIC_EMAIL_TEMPLATE_ID=<your-emailjs-template-id>
 NEXT_PUBLIC_EMAIL_PUBLIC_KEY=<your-emailjs-public-key>
+
+#Supabase (server-side only, used by the /api/register route)
+SUPABASE_URL=<<Project URL, e.g. https://xxxx.supabase.co>>
+SUPABASE_KEY=<<service role key>>
 ```
 
 > **Note:** The app will work without these keys, but Blog and Contact Us features will be disabled. Ask a maintainer for development credentials if you need them.
