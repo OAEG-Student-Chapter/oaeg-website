@@ -1,50 +1,53 @@
+"use client";
 import React from "react";
+import { useFormContext, useFieldArray } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { FormField, RadioField } from "./form-field";
 import styles from "../register-form.module.css";
-import { FormSectionProps } from "../types";
-import { Field, RadioGroup } from "./fields";
-import { FaCalendarDays } from "react-icons/fa6";
 
-export const ChildrenSection: React.FC<FormSectionProps> = ({ form, updateChild }) => (
-    <div className={styles.repeatableList}>
-        {form.children.map((child, index) => (
-            <div key={index} className={styles.repeatableBlock}>
-                <h4 className={styles.subSectionTitle}>
-                    Child {String(index + 1).padStart(2, "0")}
-                    {index > 0 ? " (Optional)" : ""}
-                </h4>
-                <div className={styles.formGrid}>
-                    <Field label="Name" required={index === 0}>
-                        <input
-                            className={styles.inputField}
-                            type="text"
+export const ChildrenSection: React.FC = () => {
+    const { control, watch } = useFormContext<FormValues>();
+    const isMarried = watch("isMarried");
+    const hasChildren = watch("hasChildren");
+
+    const { fields } = useFieldArray({ control, name: "children" });
+
+    if (isMarried !== "Yes" || hasChildren !== "Yes") return null;
+
+    return (
+        <div className={styles.repeatableList}>
+            {fields.map((field, index) => (
+                <div key={field.id} className={styles.repeatableBlock}>
+                    <h4 className={styles.subSectionTitle}>
+                        Child {String(index + 1).padStart(2, "0")}
+                        {index > 0 ? " (Optional)" : ""}
+                    </h4>
+                    <div className={styles.formGrid}>
+                        <FormField
+                            name={`children.${index}.name`}
+                            label="Name"
+                            required={index === 0}
                             placeholder="Child Name"
-                            value={child.name}
-                            onChange={(e) => updateChild(index, "name", e.target.value)}
+                            control={control}
                         />
-                    </Field>
-                    <Field label="Date of Birth" required={index === 0}>
-                        <div className={styles.dateField}>
-                            <input
-                                className={styles.inputField}
-                                type="date"
-                                value={child.dob}
-                                onChange={(e) => updateChild(index, "dob", e.target.value)}
-                            />
-                            <span className={styles.dateFieldIcon}>
-                                <FaCalendarDays />
-                            </span>
-                        </div>
-                    </Field>
-                    <Field label="Gender" required={index === 0} className={styles.fullWidth}>
-                        <RadioGroup
-                            name={`childGender_${index}`}
-                            value={child.gender}
+                        <FormField
+                            name={`children.${index}.dob`}
+                            label="Date of Birth"
+                            required={index === 0}
+                            type="date"
+                            control={control}
+                        />
+                        <RadioField
+                            name={`children.${index}.gender`}
+                            label="Gender"
+                            required={index === 0}
                             options={["Son", "Daughter"]}
-                            onChange={(v) => updateChild(index, "gender", v)}
+                            fullWidth
+                            control={control}
                         />
-                    </Field>
+                    </div>
                 </div>
-            </div>
-        ))}
-    </div>
-);
+            ))}
+        </div>
+    );
+};

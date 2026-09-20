@@ -1,14 +1,19 @@
+"use client";
 import React from "react";
-import { FormSectionProps } from "../types";
-import { Field, RadioGroup } from "./fields";
+import { useFormContext } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { RadioField } from "./form-field";
 
-export const MaritalSection: React.FC<FormSectionProps> = ({ form, update }) => (
-    <Field label="Are you married?" required>
-        <RadioGroup
+export const MaritalSection: React.FC = () => {
+    const { control } = useFormContext<FormValues>();
+
+    return (
+        <RadioField
             name="isMarried"
-            value={form.isMarried}
+            label="Are you married?"
+            required
             options={["Yes", "No"]}
-            onChange={(v) => update("isMarried", v)}
+            control={control}
         />
-    </Field>
-);
+    );
+};

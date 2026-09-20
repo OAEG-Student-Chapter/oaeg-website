@@ -1,24 +1,32 @@
+"use client";
 import React from "react";
-import { FormSectionProps } from "../types";
-import { RadioGroup } from "./fields";
+import { useFormContext } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { RadioField } from "./form-field";
 
-export const MembershipSection: React.FC<FormSectionProps> = ({ section, form, update }) => {
+export const MembershipSection: React.FC<{ section?: number }> = ({
+    section = 1,
+}) => {
+    const { control } = useFormContext<FormValues>();
+
     if (section === 2) {
         return (
-            <RadioGroup
+            <RadioField
                 name="membershipType"
-                value={form.membershipType}
+                label="Membership Type"
+                required
                 options={["Annual Membership", "Life Membership"]}
-                onChange={(v) => update("membershipType", v)}
+                control={control}
             />
         );
     }
     return (
-        <RadioGroup
+        <RadioField
             name="membershipCategory"
-            value={form.membershipCategory}
+            label="Membership Category"
+            required
             options={["Corporate Member", "Student Member"]}
-            onChange={(v) => update("membershipCategory", v)}
+            control={control}
         />
     );
 };

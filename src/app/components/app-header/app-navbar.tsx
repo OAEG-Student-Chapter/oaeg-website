@@ -65,8 +65,8 @@ export default function AppNavbar({
             height: "2.5rem",
           }}
         >
-          <Image
-            className={"h-full contain"}
+          <img
+            style={{ height: "100%", objectFit: "contain" }}
             src={"/images/oba.webp"}
             alt={"ananda college oba"}
           />

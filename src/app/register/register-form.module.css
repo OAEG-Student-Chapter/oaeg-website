@@ -438,6 +438,14 @@
     line-height: 1.5;
 }
 
+.fieldError {
+    font-size: 0.78rem;
+    color: var(--vt-c-ac-maroon);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 0.15rem;
+}
+
 .inputField,
 .selectField,
 .textAreaField {

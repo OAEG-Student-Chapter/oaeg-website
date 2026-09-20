@@ -1,37 +1,41 @@
+"use client";
 import React from "react";
+import { useFormContext } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { FormField, RadioField } from "./form-field";
 import styles from "../register-form.module.css";
-import { FormSectionProps } from "../types";
-import { Field, RadioGroup } from "./fields";
 
-export const SchoolSection: React.FC<FormSectionProps> = ({ form, update }) => (
-    <div className={styles.formGrid}>
-        <Field label="Year of first sitting for A/L" required>
-            <input
-                className={styles.inputField}
+export const SchoolSection: React.FC = () => {
+    const { control, watch } = useFormContext<FormValues>();
+    const isObaMember = watch("isObaMember");
+
+    return (
+        <div className={styles.formGrid}>
+            <FormField
+                name="yearOfFirstAL"
+                label="Year of first sitting for A/L"
+                required
                 type="number"
                 placeholder="e.g. 2015"
-                value={form.yearOfFirstAL}
-                onChange={(e) => update("yearOfFirstAL", e.target.value)}
+                control={control}
             />
-        </Field>
-        <Field label="Do you already have an OBA membership?" required className={styles.fullWidth}>
-            <RadioGroup
+            <RadioField
                 name="isObaMember"
-                value={form.isObaMember}
+                label="Do you already have an OBA membership?"
+                required
                 options={["Yes", "No"]}
-                onChange={(v) => update("isObaMember", v)}
+                fullWidth
+                control={control}
             />
-        </Field>
-        {form.isObaMember === "Yes" && (
-            <Field label="OBA Membership Number" className={styles.fullWidth}>
-                <input
-                    className={styles.inputField}
-                    type="text"
+            {isObaMember === "Yes" && (
+                <FormField
+                    name="obaMembershipNumber"
+                    label="OBA Membership Number"
                     placeholder="OBA Membership Number (optional)"
-                    value={form.obaMembershipNumber}
-                    onChange={(e) => update("obaMembershipNumber", e.target.value)}
+                    className={styles.fullWidth}
+                    control={control}
                 />
-            </Field>
-        )}
-    </div>
-);
+            )}
+        </div>
+    );
+};

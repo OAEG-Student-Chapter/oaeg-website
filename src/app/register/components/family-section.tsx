@@ -1,41 +1,38 @@
+"use client";
 import React from "react";
+import { useFormContext } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { FormField, RadioField } from "./form-field";
 import styles from "../register-form.module.css";
-import { FormSectionProps } from "../types";
-import { Field, RadioGroup } from "./fields";
 
-export const FamilySection: React.FC<FormSectionProps> = ({ form, update }) => (
-    <div className={styles.formGrid}>
-        {form.isMarried === "Yes" && (
-            <>
-                <Field label="Name of the Spouse">
-                    <input
-                        className={styles.inputField}
-                        type="text"
-                        placeholder="Name of the Spouse"
-                        value={form.spouseName}
-                        onChange={(e) => update("spouseName", e.target.value)}
-                    />
-                </Field>
-                <Field label="Occupation of the Spouse">
-                    <input
-                        className={styles.inputField}
-                        type="text"
-                        placeholder="Occupation of the Spouse"
-                        value={form.spouseOccupation}
-                        onChange={(e) => update("spouseOccupation", e.target.value)}
-                    />
-                </Field>
-            </>
-        )}
-        {form.isMarried === "Yes" && (
-            <Field label="Do you have children?" required className={styles.fullWidth}>
-                <RadioGroup
-                    name="hasChildren"
-                    value={form.hasChildren}
-                    options={["Yes", "No"]}
-                    onChange={(v) => update("hasChildren", v)}
-                />
-            </Field>
-        )}
-    </div>
-);
+export const FamilySection: React.FC = () => {
+    const { control, watch } = useFormContext<FormValues>();
+    const isMarried = watch("isMarried");
+
+    if (isMarried !== "Yes") return null;
+
+    return (
+        <div className={styles.formGrid}>
+            <FormField
+                name="spouseName"
+                label="Name of the Spouse"
+                placeholder="Name of the Spouse"
+                control={control}
+            />
+            <FormField
+                name="spouseOccupation"
+                label="Occupation of the Spouse"
+                placeholder="Occupation of the Spouse"
+                control={control}
+            />
+            <RadioField
+                name="hasChildren"
+                label="Do you have children?"
+                required
+                options={["Yes", "No"]}
+                fullWidth
+                control={control}
+            />
+        </div>
+    );
+};

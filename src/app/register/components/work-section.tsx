@@ -1,36 +1,34 @@
+"use client";
 import React from "react";
+import { useFormContext } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { FormField } from "./form-field";
 import styles from "../register-form.module.css";
-import { FormSectionProps } from "../types";
-import { Field } from "./fields";
 
-export const WorkSection: React.FC<FormSectionProps> = ({ form, update }) => (
-  <div className={styles.formGrid}>
-    <Field label="Workplace Name">
-      <input
-        className={styles.inputField}
-        type="text"
-        placeholder="Workplace Name(Optional)"
-        value={form.workplaceName}
-        onChange={(e) => update("workplaceName", e.target.value)}
-      />
-    </Field>
-    <Field label="Designation">
-      <input
-        className={styles.inputField}
-        type="text"
-        placeholder="Designation(Optional)"
-        value={form.designation}
-        onChange={(e) => update("designation", e.target.value)}
-      />
-    </Field>
-    <Field label="Workplace Address" className={styles.fullWidth}>
-      <input
-        className={styles.inputField}
-        type="text"
-        placeholder="Workplace Address(Optional)"
-        value={form.workplaceAddress}
-        onChange={(e) => update("workplaceAddress", e.target.value)}
-      />
-    </Field>
-  </div>
-);
+export const WorkSection: React.FC = () => {
+    const { control } = useFormContext<FormValues>();
+
+    return (
+        <div className={styles.formGrid}>
+            <FormField
+                name="workplaceName"
+                label="Workplace Name"
+                placeholder="Workplace Name (Optional)"
+                control={control}
+            />
+            <FormField
+                name="designation"
+                label="Designation"
+                placeholder="Designation (Optional)"
+                control={control}
+            />
+            <FormField
+                name="workplaceAddress"
+                label="Workplace Address"
+                placeholder="Workplace Address (Optional)"
+                className={styles.fullWidth}
+                control={control}
+            />
+        </div>
+    );
+};

@@ -1,34 +1,37 @@
+"use client";
 import React from "react";
+import { useFormContext, useFieldArray } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { FormField } from "./form-field";
 import styles from "../register-form.module.css";
-import { FormSectionProps } from "../types";
-import { Field } from "./fields";
 
-export const IntroducedBySection: React.FC<FormSectionProps> = ({ form, updateReferral }) => (
-    <div className={styles.repeatableList}>
-        {form.referrals.map((ref, index) => (
-            <div key={index} className={styles.repeatableBlock}>
-                <h4 className={styles.subSectionTitle}>Member {String(index + 1).padStart(2, "0")}</h4>
-                <div className={styles.formGrid}>
-                    <Field label="Name">
-                        <input
-                            className={styles.inputField}
-                            type="text"
+export const IntroducedBySection: React.FC = () => {
+    const { control } = useFormContext<FormValues>();
+    const { fields } = useFieldArray({ control, name: "referrals" });
+
+    return (
+        <div className={styles.repeatableList}>
+            {fields.map((field, index) => (
+                <div key={field.id} className={styles.repeatableBlock}>
+                    <h4 className={styles.subSectionTitle}>
+                        Member {String(index + 1).padStart(2, "0")}
+                    </h4>
+                    <div className={styles.formGrid}>
+                        <FormField
+                            name={`referrals.${index}.name`}
+                            label="Name"
                             placeholder="Name"
-                            value={ref.name}
-                            onChange={(e) => updateReferral(index, "name", e.target.value)}
+                            control={control}
                         />
-                    </Field>
-                    <Field label="Membership Number">
-                        <input
-                            className={styles.inputField}
-                            type="text"
+                        <FormField
+                            name={`referrals.${index}.number`}
+                            label="Membership Number"
                             placeholder="Membership Number"
-                            value={ref.number}
-                            onChange={(e) => updateReferral(index, "number", e.target.value)}
+                            control={control}
                         />
-                    </Field>
+                    </div>
                 </div>
-            </div>
-        ))}
-    </div>
-);
+            ))}
+        </div>
+    );
+};

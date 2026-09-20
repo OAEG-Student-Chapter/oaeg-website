@@ -1,37 +1,39 @@
+"use client";
 import React from "react";
+import { useFormContext, useFieldArray } from "react-hook-form";
+import type { FormValues } from "../lib/schema";
+import { FormField } from "./form-field";
 import styles from "../register-form.module.css";
-import { FormSectionProps } from "../types";
-import { Field } from "./fields";
 
-export const ProfessionalSection: React.FC<FormSectionProps> = ({ form, updateBody }) => (
-    <div className={styles.repeatableList}>
-        {form.professionalBodies.map((pb, index) => (
-            <div key={index} className={styles.repeatableBlock}>
-                <h4 className={styles.subSectionTitle}>
-                    Professional Body {String(index + 1).padStart(2, "0")}
-                    {index > 0 ? " (Optional)" : ""}
-                </h4>
-                <div className={styles.formGrid}>
-                    <Field label="Professional Body">
-                        <input
-                            className={styles.inputField}
-                            type="text"
+export const ProfessionalSection: React.FC = () => {
+    const { control } = useFormContext<FormValues>();
+    const { fields } = useFieldArray({ control, name: "professionalBodies" });
+
+    return (
+        <div className={styles.repeatableList}>
+            {fields.map((field, index) => (
+                <div key={field.id} className={styles.repeatableBlock}>
+                    <h4 className={styles.subSectionTitle}>
+                        Professional Body{" "}
+                        {String(index + 1).padStart(2, "0")}
+                        {index > 0 ? " (Optional)" : ""}
+                    </h4>
+                    <div className={styles.formGrid}>
+                        <FormField
+                            name={`professionalBodies.${index}.body`}
+                            label="Professional Body"
                             placeholder="Professional Body"
-                            value={pb.body}
-                            onChange={(e) => updateBody(index, "body", e.target.value)}
+                            control={control}
                         />
-                    </Field>
-                    <Field label="Membership Number">
-                        <input
-                            className={styles.inputField}
-                            type="text"
+                        <FormField
+                            name={`professionalBodies.${index}.number`}
+                            label="Membership Number"
                             placeholder="Membership Number"
-                            value={pb.number}
-                            onChange={(e) => updateBody(index, "number", e.target.value)}
+                            control={control}
                         />
-                    </Field>
+                    </div>
                 </div>
-            </div>
-        ))}
-    </div>
-);
+            ))}
+        </div>
+    );
+};
