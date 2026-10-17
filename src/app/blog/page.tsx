@@ -47,7 +47,7 @@ export default function Page() {
       <div
         className={`${styles.blogListContainer}  py-16 px-2 md:px-30 lg:px-40`}>
         <div className={styles.caption}>Our Blog</div>
-        <span className={styles.title}>Engineers' Ink</span>
+        <span className={styles.title}>Engineers&apos; Ink</span>
         {posts.map((post, index) => (
           <div
             className={styles.blogContainer}
