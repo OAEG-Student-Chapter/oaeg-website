@@ -66,7 +66,7 @@ const ContactForm = () => {
                 <h4 className={"text-xl font-bold mb-2"}>Joint Secretaries</h4>
                 <div className={"flex flex-col sm:flex-row mb-4"}>
                   {
-                    contactPersons.map((contactPerson) => (<div className="pr-5 mb-2 sm:mr-5 sm:border-r-2 sm:border-r-white">
+                    contactPersons.map((contactPerson) => (<div key={contactPerson.email} className="pr-5 mb-2 sm:mr-5 sm:border-r-2 sm:border-r-white">
                       <span className={"text-base"}>{contactPerson.name}</span> <br/>
                       <a href={`mailto:${contactPerson.email}`}
                          className={"flex items-center"}> <FaEnvelope className={"mr-2"}/> {contactPerson.email}</a>

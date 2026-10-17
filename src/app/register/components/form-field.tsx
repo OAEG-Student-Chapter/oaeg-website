@@ -15,14 +15,24 @@ function getNestedError<T extends FieldValues>(
     name: string,
 ): { message: string } | undefined {
     const parts = name.split(".");
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    let current: any = errors;
+    let current: unknown = errors;
     for (const part of parts) {
-        if (!current) return undefined;
-        current = current[part];
+        if (
+            !current ||
+            typeof current !== "object" ||
+            !(part in current)
+        ) {
+            return undefined;
+        }
+        current = (current as Record<string, unknown>)[part];
     }
-    if (current && typeof current === "object" && "message" in current) {
-        return current as { message: string };
+    if (
+        current &&
+        typeof current === "object" &&
+        "message" in current &&
+        typeof current.message === "string"
+    ) {
+        return { message: current.message };
     }
     return undefined;
 }
